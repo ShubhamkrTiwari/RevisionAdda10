@@ -237,7 +237,7 @@ fun PDFViewerScreen(
                                                 viewerMethod++
                                                 isLoading = true
                                             } else {
-                                                errorMessage = "PDF not found. The file may have been moved or deleted."
+                                                errorMessage = "PDF not found (404 Error).\n\nOfficial CBSE PDFs are not available online.\n\nAll questions are available in the Previous Year Questions section. Please go back and expand the year card to view all questions with answers."
                                             }
                                         }
                                         else -> {

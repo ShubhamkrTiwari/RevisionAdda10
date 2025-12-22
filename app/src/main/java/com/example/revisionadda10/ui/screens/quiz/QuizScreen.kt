@@ -32,6 +32,16 @@ import com.example.revisionadda10.ui.ads.rememberAdManager
 import androidx.compose.ui.platform.LocalContext
 import android.app.Activity
 
+fun formatTime(seconds: Long): String {
+    val minutes = seconds / 60
+    val secs = seconds % 60
+    return if (minutes > 0) {
+        String.format("%d:%02d", minutes, secs)
+    } else {
+        String.format("%ds", secs)
+    }
+}
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun QuizScreen(
@@ -171,11 +181,51 @@ fun QuizQuestionScreen(
             color = MaterialTheme.colorScheme.primary
         )
         
-        Text(
-            text = "Question ${uiState.currentQuestionIndex + 1} of ${uiState.questions.size}",
-            style = MaterialTheme.typography.bodyMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
-        )
+        // Timer and Question Info Row
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                text = "Question ${uiState.currentQuestionIndex + 1} of ${uiState.questions.size}",
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+            
+            // Timer Display
+            Card(
+                colors = CardDefaults.cardColors(
+                    containerColor = when {
+                        uiState.timeRemaining <= 10 -> Color(0xFFF44336).copy(alpha = 0.2f)
+                        uiState.timeRemaining <= 20 -> Color(0xFFFF9800).copy(alpha = 0.2f)
+                        else -> MaterialTheme.colorScheme.secondaryContainer
+                    }
+                ),
+                modifier = Modifier.shadow(4.dp, RoundedCornerShape(12.dp))
+            ) {
+                Row(
+                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    Text(
+                        text = "⏱️",
+                        style = MaterialTheme.typography.bodyLarge
+                    )
+                    Text(
+                        text = formatTime(uiState.timeRemaining),
+                        style = MaterialTheme.typography.titleMedium,
+                        fontWeight = FontWeight.Bold,
+                        color = when {
+                            uiState.timeRemaining <= 10 -> Color(0xFFF44336)
+                            uiState.timeRemaining <= 20 -> Color(0xFFFF9800)
+                            else -> MaterialTheme.colorScheme.onSecondaryContainer
+                        }
+                    )
+                }
+            }
+        }
         
         // Score Display
         Card(
@@ -191,6 +241,24 @@ fun QuizQuestionScreen(
                 fontWeight = FontWeight.Bold,
                 color = MaterialTheme.colorScheme.onPrimaryContainer
             )
+        }
+        
+        // Timer Expired Warning
+        if (uiState.timerExpired) {
+            Card(
+                modifier = Modifier.fillMaxWidth(),
+                colors = CardDefaults.cardColors(
+                    containerColor = Color(0xFFF44336).copy(alpha = 0.2f)
+                )
+            ) {
+                Text(
+                    text = "⏰ Time's up! Answer submitted automatically.",
+                    modifier = Modifier.padding(12.dp),
+                    style = MaterialTheme.typography.bodyMedium,
+                    fontWeight = FontWeight.Medium,
+                    color = Color(0xFFF44336)
+                )
+            }
         }
         
         Spacer(modifier = Modifier.height(8.dp))

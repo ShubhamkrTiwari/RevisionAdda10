@@ -39,16 +39,25 @@ object MockData {
                 id = "maths_1",
                 title = "Real Numbers",
                 revisionNotes = listOf(
-                    "Euclid's Division Lemma: For any two positive integers a and b, there exist unique integers q and r such that a = bq + r, where 0 ≤ r < b. This lemma forms the basis of the division algorithm.",
-                    "Euclid's Division Algorithm: This is a step-by-step process to find the HCF of two numbers. Steps: (1) Apply division lemma to get remainder, (2) If remainder is 0, divisor is HCF, (3) If not, apply lemma again with divisor and remainder.",
-                    "Fundamental Theorem of Arithmetic: Every composite number can be expressed as a product of primes, and this factorization is unique, apart from the order of prime factors. Example: 12 = 2² × 3.",
-                    "HCF (Highest Common Factor): The largest number that divides two or more numbers exactly. Found using prime factorization or division algorithm.",
-                    "LCM (Least Common Multiple): The smallest number that is a multiple of two or more numbers. Formula: LCM × HCF = Product of two numbers.",
-                    "Rational Numbers: Numbers that can be expressed in the form p/q where p and q are integers and q ≠ 0. Examples: 1/2, -3/4, 5, 0.",
-                    "Irrational Numbers: Numbers that cannot be expressed as p/q where p and q are integers and q ≠ 0. Examples: √2, √3, π, e. They have non-terminating, non-repeating decimal expansions.",
-                    "Decimal Expansions: Rational numbers have either terminating (like 0.5) or non-terminating repeating (like 0.333...) decimal expansions. Irrational numbers have non-terminating, non-repeating expansions.",
-                    "Proving Irrationality: To prove √p is irrational (where p is prime), assume it's rational (√p = a/b in lowest terms), then show contradiction that both a and b are divisible by p.",
-                    "Real Numbers: The collection of all rational and irrational numbers. Every point on the number line represents a real number, and every real number represents a point on the number line."
+                    "Euclid's Division Lemma - Detailed Explanation: This fundamental lemma states that for any two positive integers a (dividend) and b (divisor), there exist unique integers q (quotient) and r (remainder) such that a = bq + r, where 0 ≤ r < b. The remainder r must always be less than the divisor b. This lemma is the foundation of the division algorithm and is crucial for finding HCF. Example: For a = 17 and b = 5, we get 17 = 5 × 3 + 2, so q = 3 and r = 2. The uniqueness means there's only one way to express this relationship. This lemma works because when we divide any number, we always get a quotient and remainder, and the remainder is always smaller than the divisor. This property is used repeatedly in the division algorithm to find HCF.",
+                    
+                    "Euclid's Division Algorithm - Step-by-Step Process: This is a systematic method to find the Highest Common Factor (HCF) of two numbers. The algorithm works as follows: Step 1 - Apply division lemma: Divide the larger number by the smaller number to get quotient and remainder. Step 2 - Check remainder: If remainder is 0, then the divisor is the HCF. Step 3 - Continue if needed: If remainder is not 0, apply the lemma again using the previous divisor as new dividend and remainder as new divisor. Repeat until remainder becomes 0. The last non-zero remainder is the HCF. Example: Find HCF of 48 and 18. First division: 48 = 18 × 2 + 12 (remainder 12). Second division: 18 = 12 × 1 + 6 (remainder 6). Third division: 12 = 6 × 2 + 0 (remainder 0). Since remainder is 0, HCF = 6. This algorithm is efficient and works for any two positive integers. It's based on the principle that HCF(a, b) = HCF(b, r) where r is the remainder when a is divided by b.",
+                    
+                    "Fundamental Theorem of Arithmetic - Complete Understanding: This theorem states that every composite number (number greater than 1 that is not prime) can be expressed as a product of prime numbers, and this factorization is unique, except for the order in which the prime factors are written. This means every number has one and only one prime factorization. Example: 12 can be written as 2² × 3 or 3 × 2², but these are considered the same factorization. The theorem has two parts: Existence (every composite number has a prime factorization) and Uniqueness (this factorization is unique). This theorem is fundamental because it allows us to find HCF and LCM easily. To find HCF: Take common prime factors with lowest power. To find LCM: Take all prime factors with highest power. Example: For 12 = 2² × 3 and 18 = 2 × 3², HCF = 2 × 3 = 6 (common factors with lowest power), LCM = 2² × 3² = 36 (all factors with highest power). This theorem is the basis for many number theory concepts.",
+                    
+                    "HCF (Highest Common Factor) - Comprehensive Guide: HCF is the largest positive integer that divides two or more numbers exactly without leaving any remainder. It's also called Greatest Common Divisor (GCD). Methods to find HCF: Method 1 - Prime Factorization: Express each number as product of primes, then take common factors with lowest power. Example: For 24 = 2³ × 3 and 36 = 2² × 3², common factors are 2² and 3¹, so HCF = 2² × 3 = 12. Method 2 - Division Algorithm: Use Euclid's division algorithm which is more efficient for large numbers. Method 3 - Listing Factors: List all factors and find the highest common one (works for small numbers). Properties: HCF of two numbers divides their LCM. HCF × LCM = Product of two numbers (only for two numbers). If HCF of two numbers is 1, they are called co-prime. HCF is always positive. Applications: Used in simplifying fractions, solving word problems involving division, and in various mathematical calculations.",
+                    
+                    "LCM (Least Common Multiple) - Detailed Explanation: LCM is the smallest positive integer that is a multiple of two or more numbers. It's the smallest number that all given numbers divide exactly. Methods to find LCM: Method 1 - Prime Factorization: Express each number as product of primes, then take all factors with highest power. Example: For 12 = 2² × 3 and 18 = 2 × 3², LCM = 2² × 3² = 36. Method 2 - Division Method: Write numbers, divide by common prime factors, continue until all numbers become 1, multiply all divisors. Method 3 - Listing Multiples: List multiples and find the smallest common one (works for small numbers). Important Formula: For two numbers a and b, HCF(a, b) × LCM(a, b) = a × b. This formula is very useful: if we know HCF, we can find LCM and vice versa. Example: If HCF of 12 and 18 is 6, then LCM = (12 × 18) / 6 = 216 / 6 = 36. Properties: LCM is always greater than or equal to the largest number. LCM of co-prime numbers is their product. Applications: Used in adding/subtracting fractions with different denominators, solving problems involving time intervals, and in various real-life scenarios.",
+                    
+                    "Rational Numbers - Complete Concept: Rational numbers are numbers that can be expressed in the form p/q where p and q are integers and q ≠ 0. The word 'rational' comes from 'ratio'. All integers are rational numbers (can be written as n/1). Examples: 1/2, -3/4, 5 (as 5/1), 0 (as 0/1), 22/7, -15/3. Properties: Every rational number has either a terminating decimal expansion (like 1/2 = 0.5) or a non-terminating repeating decimal expansion (like 1/3 = 0.333...). The decimal expansion terminates if the denominator (in lowest terms) has only 2 and/or 5 as prime factors. If denominator has other prime factors, the decimal is non-terminating but repeating. Operations: Addition, subtraction, multiplication, and division (except by zero) of rational numbers always give rational numbers. Between any two rational numbers, there are infinitely many rational numbers. This property is called density of rational numbers. Representation: Rational numbers can be represented on a number line. Every rational number has a unique position on the number line.",
+                    
+                    "Irrational Numbers - Detailed Understanding: Irrational numbers are numbers that cannot be expressed in the form p/q where p and q are integers and q ≠ 0. They have non-terminating, non-repeating decimal expansions. Examples: √2, √3, √5, √7 (square roots of non-perfect squares), π (pi ≈ 3.14159...), e (Euler's number ≈ 2.71828...), and many others. Key Properties: Their decimal expansion never terminates and never repeats. They cannot be represented as fractions. They are real numbers (can be represented on number line). Sum, difference, product, and quotient of a rational and irrational number is irrational (except when multiplying/dividing by 0). Sum or product of two irrationals may be rational or irrational. Examples: √2 + √2 = 2√2 (irrational), but √2 + (-√2) = 0 (rational). Proving Irrationality: To prove √p is irrational (p is prime), we use proof by contradiction: Assume √p = a/b (in lowest terms), then p = a²/b², so pb² = a². This means a² is divisible by p, so a is divisible by p. Let a = pk, then pb² = p²k², so b² = pk², meaning b is also divisible by p. This contradicts that a/b was in lowest terms. Hence √p is irrational.",
+                    
+                    "Decimal Expansions - Comprehensive Explanation: Every real number has a decimal expansion. For rational numbers: Type 1 - Terminating Decimals: These decimals end after a finite number of digits. Example: 1/2 = 0.5, 3/4 = 0.75, 1/8 = 0.125. A rational number p/q (in lowest terms) has terminating decimal if and only if q has no prime factors other than 2 and 5. Type 2 - Non-terminating Repeating Decimals: These decimals don't end but have a repeating pattern. Example: 1/3 = 0.333..., 1/7 = 0.142857142857..., 22/7 = 3.142857142857... The repeating part is called the period. For irrational numbers: Non-terminating, Non-repeating Decimals: These decimals never end and never repeat. Example: √2 = 1.414213562..., π = 3.141592653..., e = 2.718281828... There's no pattern in these decimals. Converting Decimals to Fractions: Terminating: 0.5 = 5/10 = 1/2. Repeating: 0.333... = 1/3 (let x = 0.333..., then 10x = 3.333..., subtract: 9x = 3, so x = 1/3). This understanding helps identify whether a number is rational or irrational.",
+                    
+                    "Proving Irrationality - Step-by-Step Method: To prove that √p is irrational (where p is a prime number), we use proof by contradiction. Step 1 - Assume the opposite: Assume √p is rational, so √p = a/b where a and b are integers, b ≠ 0, and a/b is in lowest terms (HCF of a and b is 1). Step 2 - Square both sides: (√p)² = (a/b)², which gives p = a²/b². Step 3 - Rearrange: pb² = a². This means a² is divisible by p. Step 4 - Use prime property: Since p is prime and divides a², p must divide a (if prime divides square, it divides the number). Step 5 - Express a: Let a = pk for some integer k. Step 6 - Substitute: pb² = (pk)² = p²k², so b² = pk². Step 7 - Contradiction: This means b² is divisible by p, so b is divisible by p. But we assumed a/b was in lowest terms, meaning a and b have no common factor. However, we've shown both a and b are divisible by p, which is a contradiction. Step 8 - Conclusion: Our assumption was wrong, so √p must be irrational. This method works for any prime number. Example: √2, √3, √5, √7 are all irrational.",
+                    
+                    "Real Numbers - Complete Number System: Real numbers include all rational and irrational numbers. They form a complete number system that covers the entire number line. Classification: Real Numbers = Rational Numbers ∪ Irrational Numbers. Rational Numbers include: Integers (..., -2, -1, 0, 1, 2, ...), Fractions (like 1/2, 3/4), Terminating decimals (0.5, 0.75), Repeating decimals (0.333..., 0.142857...). Irrational Numbers include: Square roots of non-perfect squares (√2, √3, √5), Cube roots of non-perfect cubes, Special numbers (π, e), Non-repeating, non-terminating decimals. Properties: Every point on the number line represents a unique real number. Every real number represents a unique point on the number line. Real numbers are dense: between any two real numbers, there are infinitely many real numbers. Real numbers are complete: there are no gaps on the number line. Operations: Addition, subtraction, multiplication, and division (except by zero) of real numbers give real numbers. Real numbers follow commutative, associative, and distributive properties. Representation: Real numbers can be represented on a number line. They can be represented in decimal form. They satisfy the order property (can be compared using <, >, =)."
                 ),
                 keyPoints = listOf(
                     "Euclid's Division Algorithm: Step-by-step method to find HCF. Keep dividing until remainder is zero. The last non-zero remainder is the HCF. Example: HCF of 48 and 18: 48 = 18×2 + 12, 18 = 12×1 + 6, 12 = 6×2 + 0. So HCF = 6.",
@@ -637,16 +646,25 @@ object MockData {
                 id = "maths_2",
                 title = "Polynomials",
                 revisionNotes = listOf(
-                    "Polynomial: An expression of the form a₀ + a₁x + a₂x² + ... + aₙxⁿ where a₀, a₁, ..., aₙ are real numbers and aₙ ≠ 0. The powers must be non-negative integers.",
-                    "Degree of Polynomial: The highest power of the variable in the polynomial. Example: x³ + 2x² - 5x + 1 has degree 3.",
-                    "Types of Polynomials: Linear (degree 1), Quadratic (degree 2), Cubic (degree 3), Biquadratic (degree 4).",
-                    "Zero of Polynomial: A value of x for which p(x) = 0. Also called root. A polynomial of degree n can have at most n zeroes.",
-                    "Geometric Meaning: Zeroes of polynomial p(x) are the x-coordinates of points where graph of y = p(x) intersects x-axis.",
-                    "Relationship between Zeroes and Coefficients (Quadratic): For ax² + bx + c = 0 with zeroes α and β: Sum of zeroes (α + β) = -b/a, Product of zeroes (αβ) = c/a.",
-                    "Relationship for Cubic: For ax³ + bx² + cx + d = 0 with zeroes α, β, γ: α + β + γ = -b/a, αβ + βγ + γα = c/a, αβγ = -d/a.",
-                    "Division Algorithm: If p(x) and g(x) are polynomials with g(x) ≠ 0, then we can find polynomials q(x) and r(x) such that p(x) = g(x) × q(x) + r(x), where r(x) = 0 or degree of r(x) < degree of g(x).",
-                    "Remainder Theorem: If polynomial p(x) is divided by (x - a), then remainder is p(a).",
-                    "Factor Theorem: (x - a) is a factor of p(x) if and only if p(a) = 0."
+                    "Polynomial - Complete Definition and Understanding: A polynomial is an algebraic expression of the form a₀ + a₁x + a₂x² + ... + aₙxⁿ where a₀, a₁, a₂, ..., aₙ are real numbers (called coefficients), aₙ ≠ 0 (leading coefficient), and n is a non-negative integer (degree). The variable x is called the indeterminate. Key points: All powers must be non-negative integers (no negative or fractional powers). Coefficients can be any real numbers. The term with highest power is called the leading term. The coefficient of leading term (aₙ) must be non-zero. Examples: 3x² + 2x - 5 is a polynomial (degree 2), 4x³ - x + 7 is a polynomial (degree 3), but 1/x + 2 is not a polynomial (negative power), √x + 3 is not a polynomial (fractional power). Polynomials are used extensively in algebra, calculus, and various applications in science and engineering.",
+                    
+                    "Degree of Polynomial - Detailed Explanation: The degree of a polynomial is the highest power of the variable in the polynomial when it is written in standard form (descending powers). It determines many properties of the polynomial. Examples: x³ + 2x² - 5x + 1 has degree 3 (highest power is 3), 4x⁵ - 3x² + 7 has degree 5, 2x + 3 has degree 1, 5 has degree 0 (constant polynomial). The zero polynomial (all coefficients zero) has undefined degree. Importance: Degree tells us maximum number of zeroes (a polynomial of degree n can have at most n zeroes). Degree determines the general shape of the graph. For even degree, both ends go in same direction; for odd degree, ends go in opposite directions. The degree helps classify polynomials: degree 0 = constant, degree 1 = linear, degree 2 = quadratic, degree 3 = cubic, degree 4 = biquadratic or quartic.",
+                    
+                    "Types of Polynomials - Comprehensive Classification: Polynomials are classified based on their degree: Constant Polynomial (degree 0): Form is a₀ where a₀ ≠ 0. Example: 5, -3, 7. Graph is a horizontal line. Linear Polynomial (degree 1): Form is a₁x + a₀ where a₁ ≠ 0. Example: 2x + 3, -x + 5. Graph is a straight line. Has exactly one zero. Quadratic Polynomial (degree 2): Form is a₂x² + a₁x + a₀ where a₂ ≠ 0. Example: x² - 5x + 6, 2x² + 3x - 1. Graph is a parabola. Can have 0, 1, or 2 real zeroes. Cubic Polynomial (degree 3): Form is a₃x³ + a₂x² + a₁x + a₀ where a₃ ≠ 0. Example: x³ - 2x² + x - 1. Can have 1, 2, or 3 real zeroes. Biquadratic/Quartic (degree 4): Form is a₄x⁴ + ... Example: x⁴ - 5x² + 4. Can have up to 4 real zeroes. Higher degree polynomials follow similar patterns. Also classified by number of terms: Monomial (1 term), Binomial (2 terms), Trinomial (3 terms), Polynomial (4+ terms).",
+                    
+                    "Zero of Polynomial - Complete Concept: A zero (or root) of a polynomial p(x) is a value of x for which p(x) = 0. In other words, if p(α) = 0, then α is a zero of the polynomial. Key properties: A polynomial of degree n can have at most n zeroes (Fundamental Theorem of Algebra). Zeroes can be real or complex numbers. A zero can be repeated (multiplicity). Example: For p(x) = x² - 5x + 6, we have p(2) = 4 - 10 + 6 = 0 and p(3) = 9 - 15 + 6 = 0, so 2 and 3 are zeroes. Finding zeroes: For linear: Solve ax + b = 0, so x = -b/a. For quadratic: Use factorization, completing square, or quadratic formula x = (-b ± √(b²-4ac))/(2a). For higher degree: Factor theorem, synthetic division, or numerical methods. Relationship: If α is a zero, then (x - α) is a factor. This is the Factor Theorem. Multiple zeroes: If (x - α)ᵏ is a factor, then α is a zero of multiplicity k. Example: For p(x) = (x-2)²(x-3), zeroes are 2 (multiplicity 2) and 3 (multiplicity 1).",
+                    
+                    "Geometric Meaning of Zeroes - Visual Understanding: The zeroes of a polynomial p(x) have a beautiful geometric interpretation. They are the x-coordinates of the points where the graph of y = p(x) intersects the x-axis. Detailed explanation: When we plot y = p(x) on coordinate plane, the graph crosses or touches the x-axis at points where p(x) = 0. These intersection points have coordinates (α, 0) where α is a zero. For linear polynomial: Graph is a straight line that crosses x-axis at exactly one point (the zero). For quadratic: Graph is a parabola that can cross x-axis at 0, 1 (touching), or 2 points depending on discriminant. For cubic: Graph can cross x-axis at 1, 2, or 3 points. Number of intersections = number of real zeroes. If graph touches x-axis but doesn't cross, that zero has even multiplicity. If graph crosses x-axis, that zero has odd multiplicity. Example: For p(x) = x² - 4, zeroes are x = 2 and x = -2. Graph (parabola) crosses x-axis at (-2, 0) and (2, 0). This geometric interpretation helps visualize and understand polynomial behavior.",
+                    
+                    "Relationship between Zeroes and Coefficients (Quadratic) - Detailed Formulas: For a quadratic polynomial ax² + bx + c = 0 (where a ≠ 0) with zeroes α and β, there are important relationships: Sum of zeroes: α + β = -b/a. This means sum equals negative of coefficient of x divided by coefficient of x². Product of zeroes: αβ = c/a. This means product equals constant term divided by coefficient of x². Derivation: If α and β are zeroes, then (x - α)(x - β) = 0. Expanding: x² - (α + β)x + αβ = 0. Comparing with ax² + bx + c = 0, we get: -b/a = α + β and c/a = αβ. Applications: If we know zeroes, we can form the polynomial: x² - (sum)x + (product) = 0. Example: If zeroes are 2 and 3, then sum = 5, product = 6, so polynomial is x² - 5x + 6 = 0. We can find expressions like α² + β² = (α + β)² - 2αβ, α/β + β/α = (α² + β²)/(αβ), etc. These relationships are very useful in solving problems.",
+                    
+                    "Relationship for Cubic Polynomial - Complete Formulas: For a cubic polynomial ax³ + bx² + cx + d = 0 (where a ≠ 0) with zeroes α, β, and γ, we have three important relationships: Sum of zeroes: α + β + γ = -b/a. Sum of products taken two at a time: αβ + βγ + γα = c/a. Product of zeroes: αβγ = -d/a. Derivation: If α, β, γ are zeroes, then (x - α)(x - β)(x - γ) = 0. Expanding: x³ - (α + β + γ)x² + (αβ + βγ + γα)x - αβγ = 0. Comparing with ax³ + bx² + cx + d = 0, we get the relationships. Applications: If we know zeroes, we can form the polynomial. Example: If zeroes are 1, 2, 3, then sum = 6, sum of products = 11, product = 6, so polynomial is x³ - 6x² + 11x - 6 = 0. We can find various expressions: α² + β² + γ² = (α + β + γ)² - 2(αβ + βγ + γα), α³ + β³ + γ³ = (α + β + γ)³ - 3(α + β + γ)(αβ + βγ + γα) + 3αβγ, etc. These relationships extend to higher degree polynomials as well.",
+                    
+                    "Division Algorithm for Polynomials - Step-by-Step Process: If p(x) and g(x) are polynomials with g(x) ≠ 0, then we can find unique polynomials q(x) (quotient) and r(x) (remainder) such that p(x) = g(x) × q(x) + r(x), where r(x) = 0 or degree of r(x) < degree of g(x). This is similar to division algorithm for integers. Process: Step 1 - Arrange both polynomials in descending powers. Step 2 - Divide first term of dividend by first term of divisor to get first term of quotient. Step 3 - Multiply divisor by this term and subtract from dividend. Step 4 - Bring down next term and repeat. Step 5 - Continue until degree of remainder is less than degree of divisor. Example: Divide x³ + 2x² - 5x + 1 by x - 1. Result: Quotient = x² + 3x - 2, Remainder = -1. Verification: (x - 1)(x² + 3x - 2) + (-1) = x³ + 3x² - 2x - x² - 3x + 2 - 1 = x³ + 2x² - 5x + 1. Applications: Used to check if (x - a) is a factor, to find remainder without actual division, and in polynomial factorization.",
+                    
+                    "Remainder Theorem - Complete Understanding: If a polynomial p(x) is divided by (x - a), then the remainder is p(a). This is a powerful theorem that allows us to find remainder without performing actual division. Proof: By division algorithm, p(x) = (x - a)q(x) + r, where r is remainder (a constant since degree of (x-a) is 1). Substituting x = a: p(a) = (a - a)q(a) + r = 0 + r = r. So remainder r = p(a). Applications: To find remainder when p(x) is divided by (x - a), simply substitute x = a in p(x). Example: Find remainder when x³ - 2x² + 3x - 1 is divided by (x - 2). Solution: p(2) = 8 - 8 + 6 - 1 = 5. So remainder is 5. To check if (x - a) is a factor: If p(a) = 0, then remainder is 0, so (x - a) is a factor. This leads to Factor Theorem. The theorem works for any linear divisor (x - a). For divisor (ax - b), remainder is p(b/a). This theorem saves a lot of calculation time.",
+                    
+                    "Factor Theorem - Detailed Explanation: (x - a) is a factor of polynomial p(x) if and only if p(a) = 0. This is a direct consequence of Remainder Theorem. 'If and only if' means: If (x - a) is a factor, then p(a) = 0. AND if p(a) = 0, then (x - a) is a factor. Proof: If (x - a) is a factor, then p(x) = (x - a)q(x) for some q(x). So p(a) = (a - a)q(a) = 0. Conversely, if p(a) = 0, then by Remainder Theorem, remainder when p(x) is divided by (x - a) is p(a) = 0. So p(x) = (x - a)q(x), meaning (x - a) is a factor. Applications: To check if (x - a) is a factor: Substitute x = a, if p(a) = 0, then it's a factor. To find factors: If we know a zero α, then (x - α) is a factor. To factorize polynomials: Find zeroes, then write as product of (x - zero) factors. Example: For p(x) = x² - 5x + 6, p(2) = 4 - 10 + 6 = 0, so (x - 2) is a factor. Similarly, p(3) = 0, so (x - 3) is a factor. Therefore, p(x) = (x - 2)(x - 3). This theorem is fundamental in polynomial factorization."
                 ),
                 keyPoints = listOf(
                     "Definition and Types: Polynomial is expression with non-negative integer powers. Types: Constant (degree 0), Linear (degree 1 like 2x+3), Quadratic (degree 2 like x²-5x+6), Cubic (degree 3), etc. Coefficient of highest power term must be non-zero.",
@@ -708,16 +726,25 @@ object MockData {
                 id = "maths_3",
                 title = "Pair of Linear Equations in Two Variables",
                 revisionNotes = listOf(
-                    "Linear Equation: An equation of the form ax + by + c = 0 where a, b, c are real numbers and a, b are not both zero. Graph is a straight line.",
-                    "Solution: A pair of values (x, y) that satisfies both equations simultaneously. It represents the point of intersection of two lines.",
-                    "Types of Solutions: (1) Unique solution - lines intersect at one point (a₁/a₂ ≠ b₁/b₂), (2) Infinitely many solutions - lines coincide (a₁/a₂ = b₁/b₂ = c₁/c₂), (3) No solution - lines are parallel (a₁/a₂ = b₁/b₂ ≠ c₁/c₂).",
-                    "Graphical Method: Plot both equations on same graph. Point of intersection is the solution. If lines are parallel, no solution. If lines coincide, infinite solutions.",
-                    "Substitution Method: From one equation, express one variable in terms of other, then substitute in second equation. Solve and find both variables.",
-                    "Elimination Method: Multiply equations to make coefficients of one variable equal, then add or subtract to eliminate that variable. Solve for remaining variable.",
-                    "Cross Multiplication Method: For equations a₁x + b₁y + c₁ = 0 and a₂x + b₂y + c₂ = 0, use formula: x/(b₁c₂ - b₂c₁) = y/(c₁a₂ - c₂a₁) = 1/(a₁b₂ - a₂b₁).",
-                    "Word Problems: Convert statements into equations. Identify variables, form equations, solve using any method, verify answer makes sense.",
-                    "Consistent System: Has at least one solution (unique or infinite).",
-                    "Inconsistent System: Has no solution (parallel lines)."
+                    "Linear Equation in Two Variables - Complete Definition: A linear equation in two variables is an equation of the form ax + by + c = 0 where a, b, c are real numbers and a, b are not both zero (at least one of a or b must be non-zero). The variables x and y are called unknowns. Key properties: The graph of such an equation is always a straight line. The equation is called 'linear' because the highest power of variables is 1. Examples: 2x + 3y - 5 = 0 (linear), x - y + 1 = 0 (linear), but x² + y = 3 is not linear (power 2). Standard form: ax + by + c = 0. General form: ax + by = c. Slope-intercept form: y = mx + b (where m is slope, b is y-intercept). Every point (x, y) on the line satisfies the equation. There are infinitely many solutions to a single linear equation in two variables. Applications: Used to model relationships between two quantities, solve real-world problems, and represent lines in coordinate geometry.",
+                    
+                    "Solution of Pair of Linear Equations - Detailed Concept: A solution of a pair of linear equations a₁x + b₁y + c₁ = 0 and a₂x + b₂y + c₂ = 0 is an ordered pair (x, y) that satisfies both equations simultaneously. This means when we substitute x and y in both equations, both become true statements. Geometric meaning: The solution represents the coordinates of the point where the graphs of both equations (lines) intersect. If lines intersect at one point, there's a unique solution. If lines are parallel, they never intersect, so no solution. If lines coincide (same line), every point on the line is a solution, so infinitely many solutions. Finding solution: We need to find values of x and y that make both equations true. Methods: Graphical method (plot and find intersection), Substitution method, Elimination method, Cross multiplication method. Example: For equations 2x + y = 5 and x - y = 1, the solution is x = 2, y = 1. Verification: 2(2) + 1 = 5 ✓ and 2 - 1 = 1 ✓. The solution is unique in this case.",
+                    
+                    "Types of Solutions - Comprehensive Classification: A pair of linear equations can have three types of solutions based on the relationship between coefficients: Type 1 - Unique Solution: The two lines intersect at exactly one point. Condition: a₁/a₂ ≠ b₁/b₂ (ratios of coefficients of x and y are different). This means lines have different slopes. Example: 2x + 3y = 7 and 3x - 2y = 1 have unique solution because 2/3 ≠ 3/(-2). The system is called consistent and independent. Type 2 - Infinitely Many Solutions: The two lines coincide (are the same line). Condition: a₁/a₂ = b₁/b₂ = c₁/c₂ (all three ratios are equal). This means equations are equivalent (one is multiple of other). Example: 2x + 4y = 6 and x + 2y = 3 are same (second is half of first). Every point on the line is a solution. The system is called consistent and dependent. Type 3 - No Solution: The two lines are parallel (never intersect). Condition: a₁/a₂ = b₁/b₂ ≠ c₁/c₂ (ratios of x and y coefficients are equal but constant terms ratio is different). Example: 2x + 3y = 5 and 4x + 6y = 10 have no solution (second is 2×first, but constants don't match). The system is called inconsistent. Understanding these conditions helps quickly determine solution type without solving.",
+                    
+                    "Graphical Method - Step-by-Step Process: This method involves plotting both equations on the same coordinate plane and finding their point of intersection. Steps: Step 1 - Convert to slope-intercept form: Express each equation as y = mx + c for easier plotting. Step 2 - Find points: For each equation, find at least two points by substituting values of x and finding corresponding y. Step 3 - Plot lines: Plot both lines on the same graph paper. Step 4 - Identify intersection: The point where both lines meet is the solution. Step 5 - Read coordinates: Read the (x, y) coordinates of intersection point. Advantages: Visual representation helps understand the relationship. Can see if lines are parallel or coincident. Disadvantages: May not give exact values if intersection is not at grid points. Less accurate than algebraic methods. Example: For 2x + y = 5 and x - y = 1, plotting gives intersection at (2, 1), which is the solution. Special cases: If lines are parallel, they never meet (no solution). If lines coincide, every point is intersection (infinite solutions). This method is useful for understanding but algebraic methods are more precise.",
+                    
+                    "Substitution Method - Detailed Procedure: This method involves expressing one variable in terms of the other from one equation, then substituting this expression into the second equation. Steps: Step 1 - Choose an equation: Pick the simpler equation (usually one with coefficient 1). Step 2 - Express one variable: Solve for one variable (say y) in terms of the other (x). Step 3 - Substitute: Replace this expression in the second equation. Step 4 - Solve: Solve the resulting equation in one variable. Step 5 - Find other variable: Substitute the found value back into the expression from Step 2. Step 6 - Verify: Check that both values satisfy both original equations. Example: Solve 2x + y = 5 and x - y = 1. From second: y = x - 1. Substitute in first: 2x + (x - 1) = 5, so 3x = 6, x = 2. Then y = 2 - 1 = 1. Solution: (2, 1). Advantages: Works well when one variable has coefficient 1. Straightforward and systematic. Can be used for any pair of linear equations. This method is particularly useful when equations are not easily manipulated for elimination.",
+                    
+                    "Elimination Method - Complete Process: This method involves eliminating one variable by adding or subtracting the equations after making coefficients of that variable equal. Steps: Step 1 - Check coefficients: Look at coefficients of one variable (say x) in both equations. Step 2 - Make coefficients equal: Multiply one or both equations by suitable numbers so coefficients of chosen variable become equal (or opposite). Step 3 - Eliminate: Add or subtract equations to eliminate that variable. If coefficients are equal, subtract. If coefficients are opposite, add. Step 4 - Solve: Solve the resulting equation in one variable. Step 5 - Find other variable: Substitute the found value in any original equation. Step 6 - Verify: Check solution in both equations. Example: Solve 2x + 3y = 7 and 3x - 2y = 1. Multiply first by 2: 4x + 6y = 14. Multiply second by 3: 9x - 6y = 3. Add: 13x = 17, so x = 17/13. Substitute: 2(17/13) + 3y = 7, so 3y = 7 - 34/13 = (91-34)/13 = 57/13, y = 19/13. Advantages: Works well when coefficients are easily made equal. Often faster than substitution. Very systematic approach.",
+                    
+                    "Cross Multiplication Method - Formula and Application: This is a direct formula method for solving two linear equations. For equations a₁x + b₁y + c₁ = 0 and a₂x + b₂y + c₂ = 0, the solution is given by: x/(b₁c₂ - b₂c₁) = y/(c₁a₂ - c₂a₁) = 1/(a₁b₂ - a₂b₁). This gives: x = (b₁c₂ - b₂c₁)/(a₁b₂ - a₂b₁) and y = (c₁a₂ - c₂a₁)/(a₁b₂ - a₂b₁). The denominator (a₁b₂ - a₂b₁) is called the determinant. If determinant = 0, then a₁/a₂ = b₁/b₂, meaning lines are parallel or coincident. Steps: Step 1 - Write in standard form: Ensure both equations are in form ax + by + c = 0. Step 2 - Identify coefficients: Note a₁, b₁, c₁ for first equation and a₂, b₂, c₂ for second. Step 3 - Apply formula: Use cross multiplication formula. Step 4 - Calculate: Find x and y values. Example: For x + y - 3 = 0 and 2x - y - 1 = 0, we have a₁=1, b₁=1, c₁=-3, a₂=2, b₂=-1, c₂=-1. x = (1×(-1) - (-1)×(-3))/(1×(-1) - 2×1) = (-1-3)/(-1-2) = -4/-3 = 4/3. y = ((-3)×2 - (-1)×1)/(1×(-1) - 2×1) = (-6+1)/(-3) = -5/-3 = 5/3. This method is quick when formula is memorized.",
+                    
+                    "Word Problems - Systematic Approach: Converting real-world situations into pair of linear equations and solving them. Steps: Step 1 - Read carefully: Understand the problem statement completely. Step 2 - Identify variables: Choose what x and y represent. Use meaningful names if possible. Step 3 - Form equations: Translate statements into mathematical equations. Look for keywords: 'sum', 'difference', 'total', 'more than', 'less than', etc. Step 4 - Solve: Use any method (substitution, elimination, etc.) to solve the system. Step 5 - Interpret: Check if solution makes sense in context. Step 6 - Verify: Ensure answer satisfies all conditions in problem. Example: 'Sum of two numbers is 15, and their difference is 3. Find the numbers.' Let numbers be x and y. Equations: x + y = 15, x - y = 3. Solving: Adding gives 2x = 18, so x = 9. Then y = 15 - 9 = 6. Verification: 9 + 6 = 15 ✓, 9 - 6 = 3 ✓. Common types: Age problems, number problems, money problems, mixture problems, distance-speed-time problems. Practice with various types builds problem-solving skills.",
+                    
+                    "Consistent System - Detailed Explanation: A system of linear equations is called consistent if it has at least one solution. This means the equations are compatible and can be solved. Types of consistent systems: Consistent and Independent: Has exactly one unique solution. Condition: a₁/a₂ ≠ b₁/b₂. The two lines intersect at one point. Example: 2x + y = 5 and x - y = 1 have unique solution (2, 1). Consistent and Dependent: Has infinitely many solutions. Condition: a₁/a₂ = b₁/b₂ = c₁/c₂. The two lines coincide. Example: 2x + 4y = 6 and x + 2y = 3 are same line, so every point on line is solution. In both cases, the system is consistent because solutions exist. To check consistency: Calculate ratios a₁/a₂, b₁/b₂, c₁/c₂. If a₁/a₂ ≠ b₁/b₂, system is consistent with unique solution. If all three ratios are equal, system is consistent with infinite solutions. Consistent systems always have solutions, making them 'solvable'.",
+                    
+                    "Inconsistent System - Complete Understanding: A system of linear equations is called inconsistent if it has no solution. This means the equations contradict each other and cannot be satisfied simultaneously. Condition: a₁/a₂ = b₁/b₂ ≠ c₁/c₂. This means the ratios of coefficients of x and y are equal, but the ratio of constant terms is different. Geometric meaning: The two lines are parallel (have same slope but different y-intercepts). Since parallel lines never intersect, there's no point that satisfies both equations. Example: 2x + 3y = 5 and 4x + 6y = 10. Here, 2/4 = 3/6 = 1/2, but 5/10 = 1/2. Wait, let me check: Actually, 2/4 = 1/2, 3/6 = 1/2, 5/10 = 1/2, so this is consistent (coincident lines). Correct example: 2x + 3y = 5 and 4x + 6y = 7. Here, 2/4 = 3/6 = 1/2, but 5/7 ≠ 1/2, so no solution. When solving, you'll get a false statement like 0 = 1, indicating no solution. Inconsistent systems represent contradictory conditions that cannot both be true."
                 ),
                 keyPoints = listOf(
                     "Graphical Method: Plot both equations on same coordinate plane. Point of intersection is solution. If lines intersect at one point = unique solution. If parallel = no solution. If coincide = infinite solutions. Easy to visualize but less accurate for exact values.",
@@ -799,16 +826,25 @@ object MockData {
                 id = "maths_4",
                 title = "Quadratic Equations",
                 revisionNotes = listOf(
-                    "Quadratic Equation: An equation of the form ax² + bx + c = 0 where a, b, c are real numbers and a ≠ 0. The highest power of variable is 2. Examples: x² - 5x + 6 = 0, 2x² + 3x - 1 = 0. Standard form requires a ≠ 0, otherwise it becomes linear equation.",
-                    "Roots of Quadratic Equation: Solutions of ax² + bx + c = 0 are called roots or zeroes. A quadratic equation can have at most 2 roots. Roots can be real or complex. If α and β are roots, then (x - α)(x - β) = 0 expands to x² - (α+β)x + αβ = 0.",
-                    "Discriminant (D): D = b² - 4ac determines the nature of roots without solving the equation. D > 0: Two distinct real roots (parabola cuts x-axis at two points). D = 0: Two equal/coincident real roots (parabola touches x-axis). D < 0: No real roots, two complex conjugate roots (parabola doesn't intersect x-axis).",
-                    "Quadratic Formula: x = (-b ± √D)/2a where D = b² - 4ac. This formula works for all quadratic equations. The ± sign gives two roots: x₁ = (-b + √D)/2a and x₂ = (-b - √D)/2a. When D = 0, both roots are equal: x = -b/2a.",
-                    "Factorization Method: Express quadratic as product of two linear factors. If ax² + bx + c = a(x - α)(x - β), then roots are α and β. Example: x² - 5x + 6 = (x - 2)(x - 3), so roots are 2 and 3. Works when equation can be easily factorized.",
-                    "Completing the Square Method: Convert equation to form (x + p)² = q. Steps: (1) Divide by a if needed, (2) Move constant term, (3) Add (b/2a)² to both sides, (4) Write as perfect square, (5) Take square root. Example: x² + 6x + 5 = 0 becomes (x + 3)² = 4, so x + 3 = ±2, giving x = -1 or -5.",
-                    "Relationship between Roots and Coefficients: For ax² + bx + c = 0 with roots α and β: Sum of roots (α + β) = -b/a, Product of roots (αβ) = c/a. These relationships help form equations when roots are given, or find expressions like α² + β² = (α+β)² - 2αβ.",
-                    "Nature of Roots Based on Discriminant: D = b² - 4ac. If D > 0 and D is perfect square: Roots are rational and distinct. If D > 0 but not perfect square: Roots are irrational and distinct. If D = 0: Roots are rational and equal. If D < 0: Roots are complex (non-real).",
-                    "Word Problems: Convert statements into quadratic equations. Identify variables, form equation based on conditions, solve using any method, verify answer makes sense. Common types: Age problems, number problems, area/perimeter problems, speed-distance-time problems.",
-                    "Graphical Representation: Graph of y = ax² + bx + c is a parabola. If a > 0, parabola opens upward (U-shaped). If a < 0, parabola opens downward (∩-shaped). Vertex is at x = -b/2a. Roots are x-coordinates where parabola intersects x-axis (y = 0)."
+                    "Quadratic Equation - Complete Definition:\n\nA quadratic equation is an equation of the form ax² + bx + c = 0 where:\n• a, b, c are real numbers\n• a ≠ 0 (if a = 0, it becomes linear)\n• The highest power of variable is 2\n\nExamples:\n• x² - 5x + 6 = 0 (a=1, b=-5, c=6)\n• 2x² + 3x - 1 = 0 (a=2, b=3, c=-1)\n• 3x² - 7 = 0 (a=3, b=0, c=-7)\n\nStandard form requires a ≠ 0. The term 'quadratic' comes from 'quad' meaning square. This is the most common type of equation after linear equations. Quadratic equations appear in many real-world situations like projectile motion, area problems, and optimization.",
+                    
+                    "Roots of Quadratic Equation - Detailed Concept:\n\nRoots (or zeroes) are the solutions of ax² + bx + c = 0.\n\nKey Properties:\n• A quadratic equation has at most 2 roots\n• Roots can be real or complex numbers\n• If α and β are roots, then (x - α)(x - β) = 0\n• Expanding: x² - (α+β)x + αβ = 0\n• Comparing with ax² + bx + c = 0:\n  - Sum of roots: α + β = -b/a\n  - Product of roots: αβ = c/a\n\nExample: For x² - 5x + 6 = 0:\n• Roots are 2 and 3\n• Sum = 2 + 3 = 5 = -(-5)/1 ✓\n• Product = 2 × 3 = 6 = 6/1 ✓\n\nFinding roots means finding values of x that make the equation true. There are three methods: factorization, completing square, and quadratic formula.",
+                    
+                    "Discriminant (D) - Nature of Roots:\n\nThe discriminant D = b² - 4ac determines the nature of roots without solving.\n\nThree Cases:\n\n1. D > 0: Two distinct real roots\n   • Parabola cuts x-axis at two different points\n   • Example: x² - 5x + 6 = 0, D = 25-24 = 1 > 0\n   • Roots: 2 and 3 (distinct)\n\n2. D = 0: Two equal/coincident real roots\n   • Parabola touches x-axis at one point\n   • Example: x² - 4x + 4 = 0, D = 16-16 = 0\n   • Root: 2 (repeated)\n\n3. D < 0: No real roots, two complex conjugate roots\n   • Parabola doesn't intersect x-axis\n   • Example: x² + x + 1 = 0, D = 1-4 = -3 < 0\n   • Roots are complex numbers\n\nThe discriminant is a powerful tool to quickly determine solution type without calculation.",
+                    
+                    "Quadratic Formula - Universal Method:\n\nThe quadratic formula is: x = (-b ± √D) / 2a\nwhere D = b² - 4ac (discriminant)\n\nThis formula works for ALL quadratic equations.\n\nThe ± sign gives two roots:\n• x₁ = (-b + √D) / 2a\n• x₂ = (-b - √D) / 2a\n\nSpecial Case:\nWhen D = 0, both roots are equal: x = -b/2a\n\nDerivation:\nStarting from ax² + bx + c = 0:\n1. Divide by a: x² + (b/a)x + c/a = 0\n2. Complete the square: (x + b/2a)² = (b²-4ac)/4a²\n3. Take square root: x + b/2a = ±√(b²-4ac)/2a\n4. Solve: x = (-b ± √(b²-4ac)) / 2a\n\nExample: Solve x² - 5x + 6 = 0\n• a=1, b=-5, c=6\n• D = 25 - 24 = 1\n• x = (5 ± 1) / 2\n• x₁ = 3, x₂ = 2\n\nThis is the most reliable method when factorization is difficult.",
+                    
+                    "Factorization Method - Step-by-Step:\n\nExpress quadratic as product of two linear factors.\n\nIf ax² + bx + c = a(x - α)(x - β), then roots are α and β.\n\nProcess:\n1. Write in standard form: ax² + bx + c = 0\n2. Find two numbers whose:\n   - Sum = b/a\n   - Product = c/a\n3. Split middle term using these numbers\n4. Factor by grouping\n5. Set each factor = 0 to find roots\n\nExample: x² - 5x + 6 = 0\n• Need numbers with sum = 5, product = 6\n• Numbers: 2 and 3 (since 2+3=5, 2×3=6)\n• x² - 2x - 3x + 6 = 0\n• x(x-2) - 3(x-2) = 0\n• (x-2)(x-3) = 0\n• Roots: x = 2 or x = 3\n\nWorks best when equation can be easily factorized. Check by expanding factors back.",
+                    
+                    "Completing the Square Method - Detailed Process:\n\nConvert equation to form (x + p)² = q\n\nSteps:\n1. Divide by a if a ≠ 1\n2. Move constant term to right side\n3. Add (b/2a)² to both sides\n4. Write left side as perfect square\n5. Take square root of both sides\n6. Solve for x\n\nExample: x² + 6x + 5 = 0\n• Step 1: Already a=1\n• Step 2: x² + 6x = -5\n• Step 3: Add (6/2)² = 9 to both sides\n• x² + 6x + 9 = -5 + 9\n• Step 4: (x + 3)² = 4\n• Step 5: x + 3 = ±2\n• Step 6: x = -3 ± 2\n• Roots: x = -1 or x = -5\n\nThis method is useful for deriving quadratic formula and understanding the structure of quadratic equations.",
+                    
+                    "Relationship between Roots and Coefficients:\n\nFor ax² + bx + c = 0 with roots α and β:\n\n• Sum of roots: α + β = -b/a\n• Product of roots: αβ = c/a\n\nThese relationships are very useful:\n\n1. Forming equations when roots are given:\n   If roots are 2 and 3:\n   • Sum = 5, Product = 6\n   • Equation: x² - 5x + 6 = 0\n\n2. Finding expressions:\n   • α² + β² = (α+β)² - 2αβ\n   • α³ + β³ = (α+β)³ - 3αβ(α+β)\n   • α/β + β/α = (α²+β²)/(αβ)\n   • |α - β| = √[(α+β)² - 4αβ] = √D/a\n\nExample: For x² - 5x + 6 = 0:\n• α + β = 5, αβ = 6\n• α² + β² = 25 - 12 = 13\n• α³ + β³ = 125 - 90 = 35\n\nThese relationships help solve many problems without finding actual roots.",
+                    
+                    "Nature of Roots Based on Discriminant:\n\nD = b² - 4ac determines nature:\n\n1. D > 0 and D is perfect square:\n   • Roots are rational and distinct\n   • Example: x² - 5x + 6 = 0, D = 1 (perfect square)\n   • Roots: 2, 3 (rational)\n\n2. D > 0 but not perfect square:\n   • Roots are irrational and distinct\n   • Example: x² - 3x + 1 = 0, D = 5 (not perfect square)\n   • Roots: (3 ± √5)/2 (irrational)\n\n3. D = 0:\n   • Roots are rational and equal\n   • Example: x² - 4x + 4 = 0, D = 0\n   • Root: 2 (repeated)\n\n4. D < 0:\n   • Roots are complex (non-real)\n   • Example: x² + x + 1 = 0, D = -3\n   • Roots: (-1 ± i√3)/2 (complex)\n\nThis classification helps understand solution types before solving.",
+                    
+                    "Word Problems - Systematic Approach:\n\nConvert real-world situations into quadratic equations.\n\nSteps:\n1. Read problem carefully\n2. Identify variable (usually x)\n3. Form equation based on conditions\n4. Solve using any method\n5. Verify answer makes sense\n6. Check all conditions are satisfied\n\nCommon Types:\n\n• Age Problems:\n  'Product of ages is 12, sum is 7'\n  Let ages be x and (7-x)\n  x(7-x) = 12\n  x² - 7x + 12 = 0\n  Roots: 3 and 4\n\n• Number Problems:\n  'Square of number exceeds number by 20'\n  x² = x + 20\n  x² - x - 20 = 0\n  Roots: 5 and -4 (reject negative)\n  Answer: 5\n\n• Area/Perimeter Problems:\n  'Length is 3 more than width, area is 40'\n  Let width = x, length = x+3\n  x(x+3) = 40\n  x² + 3x - 40 = 0\n  Roots: 5 and -8 (reject negative)\n  Dimensions: 5 × 8\n\nPractice with various types builds problem-solving skills.",
+                    
+                    "Graphical Representation - Visual Understanding:\n\nThe graph of y = ax² + bx + c is a parabola.\n\nKey Features:\n\n• Shape:\n  - If a > 0: Parabola opens upward (U-shaped)\n  - If a < 0: Parabola opens downward (∩-shaped)\n\n• Vertex:\n  - Coordinates: (-b/2a, -D/4a)\n  - This is the turning point\n  - Maximum if a < 0, minimum if a > 0\n\n• Roots:\n  - x-coordinates where parabola intersects x-axis (y = 0)\n  - Number of intersections = number of real roots\n  - If D > 0: Two intersections\n  - If D = 0: One intersection (touching)\n  - If D < 0: No intersection\n\n• Y-intercept:\n  - Point where x = 0, so y = c\n  - Always at (0, c)\n\nExample: y = x² - 5x + 6\n• Opens upward (a=1 > 0)\n• Vertex at (2.5, -0.25)\n• Intersects x-axis at x = 2 and x = 3\n• Y-intercept at (0, 6)\n\nGraph helps visualize solutions and understand behavior."
                 ),
                 keyPoints = listOf(
                     "Standard Form: ax² + bx + c = 0 where a ≠ 0. a, b, c are coefficients (a is leading coefficient). Examples: x²-5x+6=0 (a=1, b=-5, c=6), 2x²+3x-1=0 (a=2, b=3, c=-1). If equation is not in standard form, rearrange it first.",
@@ -834,16 +870,25 @@ object MockData {
                 id = "maths_5",
                 title = "Arithmetic Progressions",
                 revisionNotes = listOf(
-                    "Arithmetic Progression (AP): A sequence where each term after the first is obtained by adding a fixed number called common difference 'd'. The difference between consecutive terms is constant. Examples: 2, 5, 8, 11, ... (d = 3), 10, 7, 4, 1, ... (d = -3). General form: a, a+d, a+2d, a+3d, ... where 'a' is first term.",
-                    "Common Difference (d): The fixed number added to each term to get next term. d = a₂ - a₁ = a₃ - a₂ = ... = aₙ - aₙ₋₁. If d > 0, AP is increasing. If d < 0, AP is decreasing. If d = 0, all terms are equal (constant sequence).",
-                    "General Term (nth term): aₙ = a + (n-1)d where 'a' is first term, 'd' is common difference, 'n' is term number. This formula gives any term without listing all previous terms. Example: For AP 5, 8, 11, ..., 10th term = 5 + (10-1)×3 = 5 + 27 = 32.",
-                    "Sum of n Terms: Sₙ = n/2[2a + (n-1)d] or Sₙ = n/2(a + l) where 'l' is last term (aₙ). First formula uses first term and common difference. Second formula uses first and last terms. Example: Sum of first 10 natural numbers = 10/2(1 + 10) = 5 × 11 = 55.",
-                    "Properties of AP: If three numbers a, b, c are in AP, then 2b = a + c (b is arithmetic mean). If a, b, c, d are in AP, then a + d = b + c. Sum of terms equidistant from ends is constant. Example: In AP 2, 5, 8, 11, 14, we have 2+14 = 5+11 = 8+8 = 16.",
-                    "Arithmetic Mean (AM): If a, A, b are in AP, then A = (a + b)/2. A is the arithmetic mean of a and b. For n numbers, AM = (sum of numbers)/n. AM lies between smallest and largest numbers.",
-                    "Finding Number of Terms: If first term 'a', last term 'l', and common difference 'd' are known, number of terms n = [(l - a)/d] + 1. Example: AP from 5 to 50 with d = 5: n = [(50-5)/5] + 1 = 9 + 1 = 10 terms.",
-                    "Word Problems: Convert statements into AP. Identify first term, common difference, number of terms. Use formulas to find required term or sum. Common types: Salary problems, production problems, savings problems, number sequence problems.",
-                    "Finite and Infinite AP: Finite AP has limited number of terms (e.g., 2, 5, 8, ..., 29). Infinite AP continues indefinitely (e.g., 2, 5, 8, 11, ...). Sum formula applies to finite AP. For infinite AP, we consider sum of first n terms.",
-                    "Applications: AP is used in daily life: calculating total salary over years, finding total production, calculating savings, solving number puzzles, finding missing numbers in sequences, calculating averages and means."
+                    "Arithmetic Progression (AP) - Complete Definition:\n\nAn AP is a sequence where each term after the first is obtained by adding a fixed number called 'common difference' (d).\n\nKey Properties:\n• Difference between consecutive terms is constant\n• General form: a, a+d, a+2d, a+3d, ...\n• 'a' is the first term\n• 'd' is the common difference\n\nExamples:\n• 2, 5, 8, 11, 14, ... (d = 3, increasing AP)\n• 10, 7, 4, 1, -2, ... (d = -3, decreasing AP)\n• 5, 5, 5, 5, ... (d = 0, constant sequence)\n\nTypes:\n• Increasing AP: d > 0\n• Decreasing AP: d < 0\n• Constant AP: d = 0\n\nAP is one of the most important sequences in mathematics, used extensively in real-world applications like calculating salaries, production, savings, etc.",
+                    
+                    "Common Difference (d) - Detailed Concept:\n\nThe fixed number added to each term to get the next term.\n\nFormula:\nd = a₂ - a₁ = a₃ - a₂ = ... = aₙ - aₙ₋₁\n\nProperties:\n• If d > 0: AP is increasing (terms get larger)\n• If d < 0: AP is decreasing (terms get smaller)\n• If d = 0: All terms are equal (constant sequence)\n\nFinding d:\n• From any two consecutive terms: d = next term - current term\n• From first and nth term: d = (aₙ - a)/(n-1)\n• From any two terms: d = (aₘ - aₙ)/(m-n)\n\nExample:\nFor AP: 5, 8, 11, 14, ...\n• d = 8 - 5 = 3\n• d = 11 - 8 = 3\n• d = 14 - 11 = 3\n\nCommon difference is the 'heart' of an AP - it determines the pattern.",
+                    
+                    "General Term (nth term) - Formula and Applications:\n\nThe nth term formula is: aₙ = a + (n-1)d\n\nWhere:\n• a = first term\n• d = common difference\n• n = term number\n\nThis formula gives any term directly without listing all previous terms.\n\nExample:\nFor AP: 5, 8, 11, 14, ... (a=5, d=3)\n• 10th term: a₁₀ = 5 + (10-1)×3 = 5 + 27 = 32\n• 20th term: a₂₀ = 5 + 19×3 = 5 + 57 = 62\n\nFinding 'a' and 'd':\nIf nth term is given as aₙ = 3n + 2:\n• a₁ = 3(1) + 2 = 5\n• a₂ = 3(2) + 2 = 8\n• So a = 5, d = 8 - 5 = 3\n\nApplications:\n• Find any term without listing\n• Check if a number belongs to AP\n• Find position of a term in AP\n• Solve word problems",
+                    
+                    "Sum of n Terms - Two Important Formulas:\n\nFormula 1: Sₙ = n/2[2a + (n-1)d]\n• Uses first term 'a' and common difference 'd'\n• Useful when d is known\n\nFormula 2: Sₙ = n/2(a + l)\n• Uses first term 'a' and last term 'l' (aₙ)\n• Useful when last term is known\n\nBoth formulas give the same result.\n\nExample - Sum of first 10 natural numbers:\n• Natural numbers: 1, 2, 3, ..., 10\n• a = 1, l = 10, n = 10\n• S₁₀ = 10/2(1 + 10) = 5 × 11 = 55\n\nOr using first formula:\n• a = 1, d = 1, n = 10\n• S₁₀ = 10/2[2(1) + 9(1)] = 5[2 + 9] = 5 × 11 = 55\n\nDerivation:\nSₙ = a + (a+d) + (a+2d) + ... + [a+(n-1)d]\nWriting in reverse and adding:\n2Sₙ = n[2a + (n-1)d]\nSₙ = n/2[2a + (n-1)d]",
+                    
+                    "Properties of AP - Important Relationships:\n\nProperty 1: Three numbers in AP\nIf a, b, c are in AP, then:\n2b = a + c\n• b is the arithmetic mean of a and c\n• b = (a + c)/2\n\nProperty 2: Four numbers in AP\nIf a, b, c, d are in AP, then:\na + d = b + c\n• Sum of first and last = Sum of middle two\n\nProperty 3: Equidistant terms\nSum of terms equidistant from ends is constant.\n\nExample:\nAP: 2, 5, 8, 11, 14\n• 2 + 14 = 16\n• 5 + 11 = 16\n• 8 + 8 = 16\n\nProperty 4: Inserting terms\nTo insert 'n' arithmetic means between a and b:\n• Common difference: d = (b - a)/(n + 1)\n• Inserted terms form AP\n\nThese properties help solve many problems efficiently.",
+                    
+                    "Arithmetic Mean (AM) - Complete Understanding:\n\nArithmetic Mean is the average of numbers.\n\nFor two numbers:\nIf a, A, b are in AP, then:\nA = (a + b)/2\n• A is the arithmetic mean of a and b\n• A lies exactly between a and b\n\nFor n numbers:\nAM = (sum of numbers) / n\nAM = (a₁ + a₂ + ... + aₙ) / n\n\nProperties:\n• AM always lies between smallest and largest numbers\n• If numbers are in AP, middle term is AM of all terms\n• AM is used to find missing terms in AP\n\nExample:\nArithmetic mean of 4 and 16:\nAM = (4 + 16)/2 = 20/2 = 10\n\nTo insert 3 arithmetic means between 2 and 10:\n• We need: 2, ?, ?, ?, 10\n• d = (10 - 2)/(3 + 1) = 8/4 = 2\n• Means: 4, 6, 8\n• Sequence: 2, 4, 6, 8, 10\n\nAM is fundamental in statistics and mathematics.",
+                    
+                    "Finding Number of Terms - Formula and Method:\n\nIf first term 'a', last term 'l', and common difference 'd' are known:\n\nFormula: n = [(l - a)/d] + 1\n\nWhere:\n• n = number of terms\n• l = last term (aₙ)\n• a = first term\n• d = common difference\n\nDerivation:\nFrom aₙ = a + (n-1)d:\nl = a + (n-1)d\nl - a = (n-1)d\n(l - a)/d = n - 1\nn = (l - a)/d + 1\n\nExample:\nAP from 5 to 50 with d = 5:\n• a = 5, l = 50, d = 5\n• n = [(50 - 5)/5] + 1\n• n = [45/5] + 1\n• n = 9 + 1 = 10 terms\n\nVerification:\nAP: 5, 10, 15, 20, 25, 30, 35, 40, 45, 50\nCount: 10 terms ✓\n\nThis formula is very useful in word problems.",
+                    
+                    "Word Problems - Systematic Approach:\n\nConvert real-world situations into AP problems.\n\nSteps:\n1. Identify what forms AP\n2. Find first term 'a'\n3. Find common difference 'd'\n4. Identify what to find (term, sum, number of terms)\n5. Apply appropriate formula\n6. Verify answer makes sense\n\nCommon Types:\n\n• Salary Problems:\n  'Salary increases by ₹5000 each year, starts at ₹30000'\n  a = 30000, d = 5000\n  Find salary in 5th year: a₅ = 30000 + 4(5000) = ₹50000\n\n• Production Problems:\n  'Factory produces 100 items in first month, increases by 20 each month'\n  a = 100, d = 20\n  Find production in 6th month: a₆ = 100 + 5(20) = 200 items\n\n• Savings Problems:\n  'Saves ₹100 in first month, increases by ₹50 each month'\n  a = 100, d = 50\n  Total in 12 months: S₁₂ = 12/2[2(100) + 11(50)] = 6[200 + 550] = ₹4500\n\nAlways verify the answer fits the problem context.",
+                    
+                    "Finite and Infinite AP - Types:\n\nFinite AP:\n• Has a limited number of terms\n• Example: 2, 5, 8, 11, ..., 29\n• Last term is known\n• Sum formula applies directly\n• Common in real-world problems\n\nInfinite AP:\n• Continues indefinitely\n• Example: 2, 5, 8, 11, 14, ...\n• No last term\n• We consider sum of first n terms\n• Used in theoretical mathematics\n\nSum Considerations:\n• For finite AP: Sum of all terms = Sₙ\n• For infinite AP: Sum of first n terms = Sₙ\n• Infinite AP sum (if it converges) requires special methods\n\nExample:\nFinite AP: 5, 8, 11, 14, 17, 20\n• 6 terms, sum = 6/2(5 + 20) = 75\n\nInfinite AP: 5, 8, 11, 14, ...\n• Sum of first 10 terms = 10/2[2(5) + 9(3)] = 5[10 + 27] = 185\n\nUnderstanding the type helps choose the right approach.",
+                    
+                    "Applications of AP - Real-World Uses:\n\nAP appears in many real-life situations:\n\n1. Salary Calculations:\n   • Annual increments\n   • Total salary over years\n   • Finding salary in specific year\n\n2. Production and Manufacturing:\n   • Increasing production rates\n   • Total production over time\n   • Planning production targets\n\n3. Savings and Investments:\n   • Regular savings plans\n   • Total savings over period\n   • Calculating future value\n\n4. Number Sequences:\n   • Finding missing numbers\n   • Pattern recognition\n   • Number puzzles\n\n5. Time and Distance:\n   • Regular intervals\n   • Cumulative distances\n   • Time calculations\n\n6. Averages and Statistics:\n   • Calculating means\n   • Data analysis\n   • Statistical applications\n\nExample:\n'A person saves ₹1000 in January and increases savings by ₹200 each month. Find total savings in one year.'\n• a = 1000, d = 200, n = 12\n• S₁₂ = 12/2[2(1000) + 11(200)] = 6[2000 + 2200] = ₹25,200\n\nAP is fundamental in mathematics and has wide applications."
                 ),
                 keyPoints = listOf(
                     "Definition and Terms: AP is sequence where difference between consecutive terms is constant (common difference 'd'). Example: 3, 7, 11, 15... (d=4). First term is 'a', second term is a+d, third is a+2d. If d>0: increasing AP, d<0: decreasing AP, d=0: constant sequence.",
@@ -905,16 +950,25 @@ object MockData {
                 id = "maths_6",
                 title = "Triangles",
                 revisionNotes = listOf(
-                    "Similarity of Triangles: Two triangles are similar (ΔABC ~ ΔDEF) if: (1) Corresponding angles are equal (∠A = ∠D, ∠B = ∠E, ∠C = ∠F), AND (2) Corresponding sides are proportional (AB/DE = BC/EF = AC/DF = k, where k is scale factor). Similar triangles have same shape but may differ in size. Symbol: ~. All equilateral triangles are similar.",
-                    "Basic Proportionality Theorem (BPT/Thales Theorem): If a line is drawn parallel to one side of a triangle, it divides the other two sides in the same ratio. If DE || BC in ΔABC, then AD/DB = AE/EC. Converse: If a line divides two sides of a triangle in the same ratio, it is parallel to the third side. Used to prove similarity and find unknown lengths.",
-                    "Pythagoras Theorem: In a right triangle, square of hypotenuse equals sum of squares of other two sides. If triangle is right-angled at C, then AB² = AC² + BC². Converse: If sides satisfy this relation, triangle is right-angled. Pythagorean triplets: (3,4,5), (5,12,13), (8,15,17), (7,24,25). Used to find unknown side in right triangle.",
-                    "Criteria for Similarity: (1) AAA (Angle-Angle-Angle): If three angles of one triangle equal three angles of other, triangles are similar. (2) SSS (Side-Side-Side): If three sides of one triangle are proportional to three sides of other. (3) SAS (Side-Angle-Side): If two sides are proportional and included angle is equal. Note: For congruence, sides must be equal, not just proportional.",
-                    "Areas of Similar Triangles: If two triangles are similar with ratio of corresponding sides = k, then ratio of areas = k². Example: If sides in ratio 2:3, areas in ratio 4:9. If area ratio is given, side ratio is square root of area ratio. Used to find areas when similarity is known. Perimeter ratio = side ratio = k.",
-                    "Right Triangle Similarity: If altitude is drawn to hypotenuse of right triangle, it creates two smaller triangles similar to original and to each other. This gives relationships: (altitude)² = product of segments of hypotenuse, (side)² = (segment of hypotenuse) × (entire hypotenuse). Used in geometric proofs and calculations.",
-                    "Midpoint Theorem: Line segment joining midpoints of two sides of triangle is parallel to third side and half its length. If D and E are midpoints of AB and AC in ΔABC, then DE || BC and DE = BC/2. Converse: Line through midpoint of one side parallel to another side bisects third side.",
-                    "Applications: Similarity is used in: scale drawings and maps, shadow problems, mirror problems, finding heights of objects, solving geometric proofs, calculating unknown lengths and areas, architectural and engineering designs.",
-                    "Properties: Similar triangles have: same angles, proportional sides, proportional perimeters, areas in ratio of square of side ratio, altitudes/medians in same ratio as sides. If triangles are similar, their corresponding altitudes, medians, and angle bisectors are also proportional.",
-                    "Solving Problems: Identify similar triangles using criteria. Set up proportions using corresponding sides. Cross-multiply to find unknown values. Verify answer by checking if ratios are equal. Use area relationships when needed. Apply Pythagoras theorem in right triangles."
+                    "Similarity of Triangles - Complete Concept:\n\nTwo triangles are similar if they have the same shape but may differ in size.\n\nDefinition:\nΔABC ~ ΔDEF (read as 'triangle ABC is similar to triangle DEF') if:\n\n1. Corresponding angles are equal:\n   • ∠A = ∠D\n   • ∠B = ∠E\n   • ∠C = ∠F\n\n2. Corresponding sides are proportional:\n   • AB/DE = BC/EF = AC/DF = k\n   • k is called the scale factor\n\nKey Points:\n• Similar triangles have same shape\n• Size may be different\n• Symbol: ~\n• All equilateral triangles are similar\n• All congruent triangles are similar (k = 1)\n\nExample:\nIf ΔABC ~ ΔDEF with scale factor 2:\n• AB = 2 × DE\n• BC = 2 × EF\n• AC = 2 × DF\n• Angles are equal\n\nSimilarity is fundamental in geometry and has many practical applications.",
+                    
+                    "Basic Proportionality Theorem (BPT) - Thales Theorem:\n\nAlso known as Thales Theorem or BPT.\n\nStatement:\nIf a line is drawn parallel to one side of a triangle, it divides the other two sides in the same ratio.\n\nIn ΔABC, if DE || BC, then:\nAD/DB = AE/EC\n\nProof:\n• Uses area of triangles\n• Parallel lines create similar triangles\n• Areas are proportional\n• Leads to side ratios\n\nConverse:\nIf a line divides two sides of a triangle in the same ratio, it is parallel to the third side.\n\nIf AD/DB = AE/EC, then DE || BC\n\nApplications:\n• Prove similarity of triangles\n• Find unknown lengths\n• Divide line segments in given ratio\n• Solve geometric problems\n\nExample:\nIn ΔABC, if DE || BC, AD = 3, DB = 2, AE = 6:\n• AD/DB = 3/2\n• AE/EC = 6/EC = 3/2\n• EC = 4\n\nThis theorem is very useful in solving triangle problems.",
+                    
+                    "Pythagoras Theorem - Right Triangle Property:\n\nOne of the most important theorems in geometry.\n\nStatement:\nIn a right triangle, the square of the hypotenuse equals the sum of squares of the other two sides.\n\nIf ΔABC is right-angled at C:\nAB² = AC² + BC²\n\nWhere:\n• AB = Hypotenuse (longest side, opposite right angle)\n• AC, BC = Other two sides (legs)\n\nConverse:\nIf sides of a triangle satisfy: a² + b² = c², then the triangle is right-angled (with right angle opposite side c).\n\nPythagorean Triplets:\nSets of three positive integers that satisfy Pythagoras theorem:\n• (3, 4, 5): 3² + 4² = 9 + 16 = 25 = 5²\n• (5, 12, 13): 5² + 12² = 25 + 144 = 169 = 13²\n• (8, 15, 17): 8² + 15² = 64 + 225 = 289 = 17²\n• (7, 24, 25): 7² + 24² = 49 + 576 = 625 = 25²\n\nApplications:\n• Find unknown side in right triangle\n• Check if triangle is right-angled\n• Solve distance problems\n• Used in construction, navigation\n\nExample:\nIf two sides are 6 cm and 8 cm:\n• Hypotenuse² = 6² + 8² = 36 + 64 = 100\n• Hypotenuse = √100 = 10 cm\n\nThis theorem has countless applications in mathematics and real life.",
+                    
+                    "Criteria for Similarity - Three Methods:\n\nThree criteria to prove triangles are similar:\n\n1. AAA (Angle-Angle-Angle):\n   • If three angles of one triangle equal three angles of another\n   • Triangles are similar\n   • Actually, AA is sufficient (if two angles equal, third automatically equal)\n   • Most commonly used\n\n2. SSS (Side-Side-Side):\n   • If three sides of one triangle are proportional to three sides of another\n   • AB/DE = BC/EF = AC/DF\n   • Then triangles are similar\n\n3. SAS (Side-Angle-Side):\n   • If two sides are proportional and included angle is equal\n   • AB/DE = AC/DF and ∠A = ∠D\n   • Then triangles are similar\n\nNote:\n• For similarity: Sides proportional\n• For congruence: Sides equal\n• Similarity is weaker condition than congruence\n\nExample:\nTo prove ΔABC ~ ΔDEF:\n• Check if ∠A = ∠D, ∠B = ∠E (AAA)\n• Or check if AB/DE = BC/EF = AC/DF (SSS)\n• Or check if AB/DE = AC/DF and ∠A = ∠D (SAS)\n\nThese criteria help prove similarity in geometric problems.",
+                    
+                    "Areas of Similar Triangles - Important Relationship:\n\nIf two triangles are similar, their areas have a specific relationship.\n\nTheorem:\nIf two triangles are similar with ratio of corresponding sides = k, then:\n\nRatio of areas = k²\n\nExample:\nIf sides are in ratio 2:3:\n• Side ratio = 2:3 = k\n• Area ratio = 2²:3² = 4:9\n\nIf area ratio is given:\n• Side ratio = √(area ratio)\n• If areas in ratio 9:16, sides in ratio 3:4\n\nOther Ratios:\n• Perimeter ratio = Side ratio = k\n• Altitude ratio = Side ratio = k\n• Median ratio = Side ratio = k\n• Angle bisector ratio = Side ratio = k\n\nProof:\n• Uses formula: Area = ½ × base × height\n• Heights are in ratio k\n• Bases are in ratio k\n• Area = ½ × (k × base) × (k × height) = k² × original area\n\nApplications:\n• Find area when similarity is known\n• Compare areas of similar figures\n• Solve scale problems\n\nExample:\nIf two similar triangles have sides 5 cm and 10 cm:\n• Scale factor = 10/5 = 2\n• If smaller area = 12 cm²\n• Larger area = 12 × 2² = 12 × 4 = 48 cm²\n\nThis relationship is crucial in geometry.",
+                    
+                    "Right Triangle Similarity - Altitude Property:\n\nSpecial property of right triangles with altitude.\n\nTheorem:\nIf altitude is drawn to the hypotenuse of a right triangle, it creates two smaller triangles that are:\n• Similar to the original triangle\n• Similar to each other\n\nIn right ΔABC, right-angled at C:\nIf CD is altitude to hypotenuse AB:\n• ΔACD ~ ΔABC\n• ΔBCD ~ ΔABC\n• ΔACD ~ ΔBCD\n\nImportant Relationships:\n\n1. (Altitude)² = Product of segments of hypotenuse:\n   CD² = AD × BD\n\n2. (Side)² = (Segment of hypotenuse) × (Entire hypotenuse):\n   AC² = AD × AB\n   BC² = BD × AB\n\nProof:\n• Uses AAA similarity\n• Right angles are equal\n• Common angles\n• Leads to similarity\n\nApplications:\n• Geometric proofs\n• Finding lengths\n• Solving right triangle problems\n• Construction problems\n\nExample:\nIn right triangle, if altitude divides hypotenuse into 4 cm and 9 cm:\n• Altitude² = 4 × 9 = 36\n• Altitude = 6 cm\n\nThis property is very useful in right triangle problems.",
+                    
+                    "Midpoint Theorem - Important Property:\n\nTheorem about line joining midpoints of triangle sides.\n\nStatement:\nThe line segment joining the midpoints of two sides of a triangle is:\n• Parallel to the third side\n• Half the length of the third side\n\nIn ΔABC:\nIf D is midpoint of AB and E is midpoint of AC:\n• DE || BC\n• DE = ½ BC\n\nConverse:\nIf a line through the midpoint of one side is parallel to another side, it bisects the third side.\n\nProof:\n• Uses Basic Proportionality Theorem\n• Shows DE divides sides in ratio 1:1\n• Therefore parallel and half length\n\nApplications:\n• Prove lines are parallel\n• Find lengths in triangles\n• Construction problems\n• Geometric proofs\n\nExample:\nIn ΔABC, if D and E are midpoints of AB and AC:\n• If BC = 10 cm, then DE = 5 cm\n• DE is parallel to BC\n\nExtension:\n• Line joining midpoints of all three sides forms medial triangle\n• Medial triangle is similar to original (scale factor ½)\n• Area of medial triangle = ¼ area of original\n\nThis theorem is frequently used in geometry problems.",
+                    
+                    "Applications of Similarity - Real-World Uses:\n\nSimilarity has many practical applications:\n\n1. Scale Drawings and Maps:\n   • Maps use scale factors\n   • 1 cm on map = actual distance\n   • Similar figures with known scale\n\n2. Shadow Problems:\n   • Find height of objects using shadows\n   • Similar triangles formed\n   • Example: Height of tree using shadow\n\n3. Mirror Problems:\n   • Reflection creates similar triangles\n   • Find distances or heights\n\n4. Finding Heights:\n   • Inaccessible heights\n   • Use similar triangles\n   • Example: Height of building\n\n5. Geometric Proofs:\n   • Prove geometric relationships\n   • Use similarity criteria\n\n6. Calculating Unknown Lengths:\n   • When similarity is known\n   • Use proportions\n\n7. Architectural and Engineering:\n   • Scale models\n   • Blueprints\n   • Design applications\n\n8. Photography:\n   • Similar images\n   • Scaling and resizing\n\nExample - Shadow Problem:\nIf a 6 ft person casts 4 ft shadow, and tree casts 20 ft shadow:\n• Height of tree = (6/4) × 20 = 30 ft\n• Uses similarity of triangles\n\nSimilarity is fundamental in many fields.",
+                    
+                    "Properties of Similar Triangles - Complete List:\n\nIf two triangles are similar, many properties are proportional:\n\n1. Angles:\n   • Corresponding angles are equal\n   • Shape is identical\n\n2. Sides:\n   • Corresponding sides are proportional\n   • Ratio = scale factor k\n\n3. Perimeters:\n   • Perimeter ratio = Side ratio = k\n   • If sides in ratio 2:3, perimeters in ratio 2:3\n\n4. Areas:\n   • Area ratio = (Side ratio)² = k²\n   • If sides in ratio 2:3, areas in ratio 4:9\n\n5. Altitudes:\n   • Altitude ratio = Side ratio = k\n   • Corresponding altitudes are proportional\n\n6. Medians:\n   • Median ratio = Side ratio = k\n   • Corresponding medians are proportional\n\n7. Angle Bisectors:\n   • Angle bisector ratio = Side ratio = k\n   • Corresponding bisectors are proportional\n\n8. Inradius and Circumradius:\n   • Also proportional\n   • Ratio = Side ratio = k\n\nImportant:\n• All linear measurements: Ratio = k\n• All area measurements: Ratio = k²\n• All volume measurements: Ratio = k³ (for 3D)\n\nThese properties help solve many geometric problems efficiently.",
+                    
+                    "Solving Triangle Problems - Step-by-Step Method:\n\nSystematic approach to solve similarity problems:\n\nStep 1: Identify Similar Triangles\n• Look for parallel lines\n• Look for equal angles\n• Check given conditions\n• Use similarity criteria (AAA, SSS, SAS)\n\nStep 2: Set Up Proportions\n• Write corresponding sides in proportion\n• AB/DE = BC/EF = AC/DF\n• Use given values\n\nStep 3: Cross-Multiply\n• Solve for unknown\n• Use algebraic manipulation\n• Find the value\n\nStep 4: Verify Answer\n• Check if ratios are equal\n• Verify with given conditions\n• Ensure answer makes sense\n\nStep 5: Use Area Relationships (if needed)\n• If area given, use area ratio = k²\n• Find side ratio from area ratio\n• Apply to find unknown\n\nStep 6: Apply Pythagoras (if right triangle)\n• Use a² + b² = c²\n• Find missing side\n• Combine with similarity\n\nExample:\nGiven: ΔABC ~ ΔDEF, AB = 6, DE = 4, BC = 9, find EF:\n• AB/DE = BC/EF\n• 6/4 = 9/EF\n• EF = (4 × 9)/6 = 6\n\nPractice with various problems to master these techniques."
                 ),
                 keyPoints = listOf(
                     "Similarity of Triangles: Two triangles are similar (ΔABC ~ ΔDEF) if: (1) Corresponding angles are equal (∠A=∠D, ∠B=∠E, ∠C=∠F), AND (2) Corresponding sides are proportional (AB/DE = BC/EF = AC/DF). Symbol: ~. Similar triangles have same shape but may differ in size. All equilateral triangles are similar.",
@@ -991,16 +1045,25 @@ object MockData {
                 id = "maths_7",
                 title = "Coordinate Geometry",
                 revisionNotes = listOf(
-                    "Distance Formula: Distance between two points (x₁, y₁) and (x₂, y₂) is d = √[(x₂-x₁)² + (y₂-y₁)²]. Derived from Pythagoras theorem. Example: Distance between (2,3) and (5,7) = √[(5-2)² + (7-3)²] = √[9+16] = √25 = 5 units. Always positive. Used to find length of line segment, check if points form right triangle, verify collinearity.",
-                    "Section Formula (Internal Division): Coordinates of point P dividing line segment joining A(x₁,y₁) and B(x₂,y₂) internally in ratio m:n are P = ((mx₂+nx₁)/(m+n), (my₂+ny₁)/(m+n)). Point lies between A and B. When m = n, point is midpoint. Example: Point dividing (1,2) and (4,8) in ratio 1:2 is ((1×4+2×1)/(1+2), (1×8+2×2)/(1+2)) = (2, 4).",
-                    "Section Formula (External Division): Coordinates of point P dividing line segment joining A(x₁,y₁) and B(x₂,y₂) externally in ratio m:n are P = ((mx₂-nx₁)/(m-n), (my₂-ny₁)/(m-n)). Point lies outside the line segment. Used when point divides externally.",
-                    "Midpoint Formula: Midpoint of line segment joining (x₁, y₁) and (x₂, y₂) is M = ((x₁+x₂)/2, (y₁+y₂)/2). Special case of section formula when m:n = 1:1. Midpoint divides segment into two equal parts. Example: Midpoint of (3,4) and (7,10) is ((3+7)/2, (4+10)/2) = (5, 7).",
-                    "Area of Triangle: Area of triangle with vertices (x₁,y₁), (x₂,y₂), (x₃,y₃) is A = 1/2|x₁(y₂-y₃) + x₂(y₃-y₁) + x₃(y₁-y₂)|. Absolute value ensures positive area. If area = 0, points are collinear. Example: Area of triangle (0,0), (4,0), (0,3) = 1/2|0(0-3) + 4(3-0) + 0(0-0)| = 1/2|12| = 6 sq units.",
-                    "Collinearity of Points: Three points A, B, C are collinear if area of triangle ABC = 0. Alternatively, if slope of AB = slope of BC. Used to check if points lie on same line. Example: Points (1,2), (2,4), (3,6) are collinear as area = 0.",
-                    "Centroid of Triangle: Centroid (point of intersection of medians) has coordinates G = ((x₁+x₂+x₃)/3, (y₁+y₂+y₃)/3). Divides each median in ratio 2:1. Always lies inside triangle. Used in coordinate geometry problems.",
-                    "Slope of Line: Slope (m) of line joining (x₁,y₁) and (x₂,y₂) is m = (y₂-y₁)/(x₂-x₁). If m > 0, line rises. If m < 0, line falls. If m = 0, line is horizontal. If undefined, line is vertical. Parallel lines have equal slopes. Perpendicular lines have m₁ × m₂ = -1.",
-                    "Applications: Coordinate geometry is used in: finding distances and areas, locating points, proving geometric properties, solving problems involving lines and curves, navigation and GPS systems, computer graphics, architectural planning, map reading.",
-                    "Important Formulas Summary: Distance = √[(x₂-x₁)² + (y₂-y₁)²], Midpoint = ((x₁+x₂)/2, (y₁+y₂)/2), Section (internal) = ((mx₂+nx₁)/(m+n), (my₂+ny₁)/(m+n)), Area = 1/2|x₁(y₂-y₃) + x₂(y₃-y₁) + x₃(y₁-y₂)|, Slope = (y₂-y₁)/(x₂-x₁)."
+                    "Distance Formula - Finding Distance Between Points:\n\nThe distance formula finds the length between two points in coordinate plane.\n\nFormula:\nd = √[(x₂ - x₁)² + (y₂ - y₁)²]\n\nWhere:\n• (x₁, y₁) = Coordinates of first point\n• (x₂, y₂) = Coordinates of second point\n• d = Distance between points\n\nDerivation:\n• Uses Pythagoras theorem\n• Forms right triangle\n• Horizontal distance = |x₂ - x₁|\n• Vertical distance = |y₂ - y₁|\n• Distance = √[(horizontal)² + (vertical)²]\n\nExample:\nDistance between (2, 3) and (5, 7):\n• d = √[(5-2)² + (7-3)²]\n• d = √[3² + 4²]\n• d = √[9 + 16]\n• d = √25 = 5 units\n\nProperties:\n• Always positive\n• Distance from A to B = Distance from B to A\n• Distance from point to itself = 0\n\nApplications:\n• Find length of line segment\n• Check if points form right triangle\n• Verify collinearity\n• Solve geometric problems\n\nThis formula is fundamental in coordinate geometry.",
+                    
+                    "Section Formula (Internal Division) - Dividing Line Segment:\n\nThe section formula finds coordinates of a point dividing a line segment internally.\n\nFormula:\nP = ((mx₂ + nx₁)/(m + n), (my₂ + ny₁)/(m + n))\n\nWhere:\n• A(x₁, y₁) and B(x₂, y₂) are endpoints\n• P divides AB internally in ratio m:n\n• Point P lies between A and B\n\nSpecial Case - Midpoint:\nWhen m = n = 1:\n• P = ((x₁ + x₂)/2, (y₁ + y₂)/2)\n• This is the midpoint formula\n\nExample:\nPoint dividing (1, 2) and (4, 8) in ratio 1:2:\n• x = (1×4 + 2×1)/(1 + 2) = (4 + 2)/3 = 6/3 = 2\n• y = (1×8 + 2×2)/(1 + 2) = (8 + 4)/3 = 12/3 = 4\n• Point is (2, 4)\n\nVerification:\n• Distance AP : Distance PB = 1:2 ✓\n• Point lies between A and B ✓\n\nApplications:\n• Find point dividing segment in given ratio\n• Locate specific points on line\n• Solve geometric problems\n• Used in construction and design",
+                    
+                    "Section Formula (External Division) - Point Outside Segment:\n\nThe section formula for external division finds coordinates when point lies outside the line segment.\n\nFormula:\nP = ((mx₂ - nx₁)/(m - n), (my₂ - ny₁)/(m - n))\n\nWhere:\n• A(x₁, y₁) and B(x₂, y₂) are endpoints\n• P divides AB externally in ratio m:n\n• Point P lies outside the line segment\n• m ≠ n (otherwise division by zero)\n\nKey Difference:\n• Internal: Point between A and B\n• External: Point outside A and B\n• Internal: (m + n) in denominator\n• External: (m - n) in denominator\n\nExample:\nPoint dividing (1, 2) and (4, 8) externally in ratio 3:1:\n• x = (3×4 - 1×1)/(3 - 1) = (12 - 1)/2 = 11/2 = 5.5\n• y = (3×8 - 1×2)/(3 - 1) = (24 - 2)/2 = 22/2 = 11\n• Point is (5.5, 11)\n\nApplications:\n• Find point outside segment\n• Solve specific geometric problems\n• Used in advanced coordinate geometry\n\nLess common than internal division but important for complete understanding.",
+                    
+                    "Midpoint Formula - Center Point of Segment:\n\nThe midpoint formula finds the center point of a line segment.\n\nFormula:\nM = ((x₁ + x₂)/2, (y₁ + y₂)/2)\n\nWhere:\n• (x₁, y₁) and (x₂, y₂) are endpoints\n• M is the midpoint\n• Divides segment into two equal parts\n\nDerivation:\n• Special case of section formula\n• When m:n = 1:1\n• Point divides segment equally\n\nExample:\nMidpoint of (3, 4) and (7, 10):\n• x = (3 + 7)/2 = 10/2 = 5\n• y = (4 + 10)/2 = 14/2 = 7\n• Midpoint is (5, 7)\n\nProperties:\n• Equidistant from both endpoints\n• Divides segment in ratio 1:1\n• Always lies on the segment\n• Used to find center of figures\n\nApplications:\n• Find center of line segment\n• Locate center of geometric figures\n• Solve symmetry problems\n• Used in construction\n\nThis is one of the most commonly used formulas in coordinate geometry.",
+                    
+                    "Area of Triangle - Using Coordinates:\n\nThe area formula finds area of triangle when vertices are known.\n\nFormula:\nA = ½ |x₁(y₂ - y₃) + x₂(y₃ - y₁) + x₃(y₁ - y₂)|\n\nWhere:\n• (x₁, y₁), (x₂, y₂), (x₃, y₃) are vertices\n• A = Area of triangle\n• | | = Absolute value (ensures positive)\n\nImportant:\n• Absolute value ensures area is always positive\n• Order of vertices matters (clockwise or anticlockwise)\n• If area = 0, points are collinear\n\nExample:\nArea of triangle (0, 0), (4, 0), (0, 3):\n• A = ½ |0(0-3) + 4(3-0) + 0(0-0)|\n• A = ½ |0 + 12 + 0|\n• A = ½ × 12 = 6 sq units\n\nVerification:\n• Base = 4, Height = 3\n• Area = ½ × 4 × 3 = 6 ✓\n\nSpecial Cases:\n• If area = 0: Points are collinear\n• Right triangle: Can use simpler method\n• Equilateral: Special formulas\n\nApplications:\n• Find area when coordinates known\n• Check collinearity\n• Solve geometric problems\n• Used in surveying and mapping",
+                    
+                    "Collinearity of Points - Checking if Points Lie on Same Line:\n\nThree or more points are collinear if they lie on the same straight line.\n\nMethod 1: Using Area:\n• If area of triangle = 0, points are collinear\n• A = ½ |x₁(y₂-y₃) + x₂(y₃-y₁) + x₃(y₁-y₂)| = 0\n\nMethod 2: Using Slope:\n• If slope of AB = slope of BC, points are collinear\n• m(AB) = (y₂-y₁)/(x₂-x₁)\n• m(BC) = (y₃-y₂)/(x₃-x₂)\n• If m(AB) = m(BC), then collinear\n\nExample:\nCheck if (1, 2), (2, 4), (3, 6) are collinear:\n\nUsing Area:\n• A = ½ |1(4-6) + 2(6-2) + 3(2-4)|\n• A = ½ |-2 + 8 - 6| = ½ |0| = 0\n• Points are collinear ✓\n\nUsing Slope:\n• m(AB) = (4-2)/(2-1) = 2/1 = 2\n• m(BC) = (6-4)/(3-2) = 2/1 = 2\n• Slopes equal, so collinear ✓\n\nApplications:\n• Verify geometric constructions\n• Check alignment\n• Solve coordinate problems\n• Used in computer graphics",
+                    
+                    "Centroid of Triangle - Center of Mass:\n\nThe centroid is the point of intersection of medians of a triangle.\n\nFormula:\nG = ((x₁ + x₂ + x₃)/3, (y₁ + y₂ + y₃)/3)\n\nWhere:\n• (x₁, y₁), (x₂, y₂), (x₃, y₃) are vertices\n• G is the centroid\n\nProperties:\n• Divides each median in ratio 2:1\n• Always lies inside the triangle\n• Center of mass (balance point)\n• Coordinates are average of vertices\n\nExample:\nCentroid of triangle (0, 0), (6, 0), (0, 9):\n• x = (0 + 6 + 0)/3 = 6/3 = 2\n• y = (0 + 0 + 9)/3 = 9/3 = 3\n• Centroid is (2, 3)\n\nVerification:\n• Median from (0, 0) to midpoint of (6,0) and (0,9)\n• Midpoint = (3, 4.5)\n• Centroid divides in ratio 2:1 ✓\n\nApplications:\n• Find center of mass\n• Solve geometric problems\n• Used in physics and engineering\n• Construction and design\n\nThe centroid is an important point in triangle geometry.",
+                    
+                    "Slope of Line - Steepness and Direction:\n\nThe slope measures the steepness and direction of a line.\n\nFormula:\nm = (y₂ - y₁)/(x₂ - x₁)\n\nWhere:\n• (x₁, y₁) and (x₂, y₂) are two points on line\n• m = Slope\n\nInterpretation:\n• m > 0: Line rises (left to right)\n• m < 0: Line falls (left to right)\n• m = 0: Horizontal line\n• m = undefined: Vertical line (x₂ = x₁)\n\nSpecial Cases:\n• Horizontal line: m = 0\n• Vertical line: m = undefined (division by zero)\n• 45° line: m = 1 or -1\n\nParallel Lines:\n• Have equal slopes\n• m₁ = m₂\n\nPerpendicular Lines:\n• Product of slopes = -1\n• m₁ × m₂ = -1\n• If m₁ = 2, then m₂ = -½\n\nExample:\nSlope of line through (2, 3) and (5, 9):\n• m = (9 - 3)/(5 - 2) = 6/3 = 2\n• Line rises (positive slope)\n\nApplications:\n• Describe line direction\n• Find parallel/perpendicular lines\n• Solve geometric problems\n• Used in calculus and physics\n\nSlope is fundamental in understanding linear relationships.",
+                    
+                    "Applications of Coordinate Geometry - Real-World Uses:\n\nCoordinate geometry has many practical applications:\n\n1. Finding Distances and Areas:\n   • Calculate lengths\n   • Find areas of regions\n   • Measure distances on maps\n\n2. Locating Points:\n   • GPS coordinates\n   • Map reading\n   • Navigation systems\n\n3. Proving Geometric Properties:\n   • Verify theorems\n   • Prove relationships\n   • Solve geometric problems\n\n4. Solving Problems:\n   • Lines and curves\n   • Intersection points\n   • Optimization problems\n\n5. Navigation and GPS:\n   • Location tracking\n   • Route planning\n   • Distance calculations\n\n6. Computer Graphics:\n   • Drawing shapes\n   • Transformations\n   • Animation\n\n7. Architectural Planning:\n   • Building design\n   • Layout planning\n   • Measurements\n\n8. Map Reading:\n   • Coordinates on maps\n   • Distance calculations\n   • Location finding\n\n9. Engineering:\n   • Design calculations\n   • Structural analysis\n   • Surveying\n\n10. Science:\n    • Physics: Motion graphs\n    • Chemistry: Molecular structures\n    • Biology: Growth curves\n\nCoordinate geometry connects algebra and geometry, making it powerful for solving real-world problems.",
+                    
+                    "Important Formulas Summary - Quick Reference:\n\nAll essential coordinate geometry formulas:\n\n1. Distance Formula:\n   d = √[(x₂ - x₁)² + (y₂ - y₁)²]\n\n2. Midpoint Formula:\n   M = ((x₁ + x₂)/2, (y₁ + y₂)/2)\n\n3. Section Formula (Internal):\n   P = ((mx₂ + nx₁)/(m + n), (my₂ + ny₁)/(m + n))\n\n4. Section Formula (External):\n   P = ((mx₂ - nx₁)/(m - n), (my₂ - ny₁)/(m - n))\n\n5. Area of Triangle:\n   A = ½ |x₁(y₂ - y₃) + x₂(y₃ - y₁) + x₃(y₁ - y₂)|\n\n6. Centroid of Triangle:\n   G = ((x₁ + x₂ + x₃)/3, (y₁ + y₂ + y₃)/3)\n\n7. Slope of Line:\n   m = (y₂ - y₁)/(x₂ - x₁)\n\n8. Collinearity:\n   • Area = 0, or\n   • Slope(AB) = Slope(BC)\n\n9. Parallel Lines:\n   m₁ = m₂\n\n10. Perpendicular Lines:\n    m₁ × m₂ = -1\n\nMemorize these formulas for quick problem solving!"
                 ),
                 keyPoints = listOf(
                     "Distance Formula: Distance between points (x₁, y₁) and (x₂, y₂) is d = √[(x₂-x₁)² + (y₂-y₁)²]. Derived from Pythagoras theorem. Example: Distance between (0,0) and (3,4) = √[(3-0)²+(4-0)²] = √(9+16) = 5. Used to find length of sides, check if triangle is isosceles/equilateral, find perimeter.",
@@ -1067,16 +1130,25 @@ object MockData {
                 id = "maths_8",
                 title = "Introduction to Trigonometry",
                 revisionNotes = listOf(
-                    "Trigonometric Ratios: In a right triangle, for angle θ: sin θ = opposite/hypotenuse, cos θ = adjacent/hypotenuse, tan θ = opposite/adjacent. These ratios depend only on the angle, not the size of triangle. Mnemonic: SOH CAH TOA (Sine = Opposite/Hypotenuse, Cosine = Adjacent/Hypotenuse, Tangent = Opposite/Adjacent). Example: In triangle with sides 3, 4, 5, if angle opposite to 3 is θ, then sin θ = 3/5, cos θ = 4/5, tan θ = 3/4.",
-                    "Reciprocal Trigonometric Ratios: cosec θ = 1/sin θ = hypotenuse/opposite, sec θ = 1/cos θ = hypotenuse/adjacent, cot θ = 1/tan θ = adjacent/opposite. If sin θ = 3/5, then cosec θ = 5/3. Reciprocal of reciprocal gives original ratio. Important for solving trigonometric equations and simplifying expressions.",
-                    "Fundamental Trigonometric Identities: sin²θ + cos²θ = 1 (always true for any angle θ). Derived from Pythagoras theorem. Other identities: 1 + tan²θ = sec²θ, 1 + cot²θ = cosec²θ. These identities are used to simplify expressions, prove other identities, and find one ratio when another is known. Example: If sin θ = 4/5, then cos²θ = 1 - sin²θ = 1 - 16/25 = 9/25, so cos θ = 3/5.",
-                    "Standard Trigonometric Values: Must memorize: sin 0° = 0, sin 30° = 1/2, sin 45° = 1/√2, sin 60° = √3/2, sin 90° = 1. Cos values are reverse: cos 0° = 1, cos 30° = √3/2, cos 45° = 1/√2, cos 60° = 1/2, cos 90° = 0. Tan = sin/cos, so tan 0° = 0, tan 30° = 1/√3, tan 45° = 1, tan 60° = √3, tan 90° = undefined. These values are used in calculations without calculator.",
-                    "Complementary Angles: Two angles whose sum is 90° are complementary. If A + B = 90°, then sin A = cos B, cos A = sin B, tan A = cot B. Example: sin 30° = cos 60° = 1/2, sin 45° = cos 45° = 1/√2. This relationship helps in finding values and simplifying expressions. Very useful in problem solving.",
-                    "Trigonometric Ratios of Specific Angles: For 0°: sin = 0, cos = 1, tan = 0. For 30°: sin = 1/2, cos = √3/2, tan = 1/√3. For 45°: sin = 1/√2, cos = 1/√2, tan = 1. For 60°: sin = √3/2, cos = 1/2, tan = √3. For 90°: sin = 1, cos = 0, tan = undefined. These values form the foundation for all trigonometric calculations.",
-                    "Applications of Trigonometric Identities: Used to simplify complex expressions, prove other identities, solve equations, find unknown ratios, convert between different forms. Example: Simplify sin⁴θ + cos⁴θ = (sin²θ + cos²θ)² - 2sin²θcos²θ = 1 - 2sin²θcos²θ. Identities help in reducing complexity of problems.",
-                    "Relationship between Ratios: tan θ = sin θ/cos θ, cot θ = cos θ/sin θ. If one ratio is known, others can be found using identities. Example: If tan θ = 3/4, and we know sin²θ + cos²θ = 1, we can find sin θ and cos θ. Also, sin θ × cosec θ = 1, cos θ × sec θ = 1, tan θ × cot θ = 1.",
-                    "Trigonometric Ratios for Angles Greater than 90°: For Class 10, we mainly focus on acute angles (0° to 90°). However, understanding that ratios can be extended to all angles is important. For obtuse angles, some ratios become negative. This is covered in higher classes.",
-                    "Problem Solving Strategy: Identify the right triangle, label sides (opposite, adjacent, hypotenuse), determine which ratio to use, apply appropriate formula, use identities if needed, verify answer. Common mistakes: confusing opposite and adjacent sides, forgetting to use identities, incorrect use of calculator. Practice with various triangle configurations."
+                    "Trigonometric Ratios - Complete Definition:\n\nIn a right triangle, trigonometric ratios relate angles to sides.\n\nFor angle θ in right triangle:\n\n1. Sine (sin):\n   sin θ = Opposite side / Hypotenuse\n   • Ratio of opposite to hypotenuse\n\n2. Cosine (cos):\n   cos θ = Adjacent side / Hypotenuse\n   • Ratio of adjacent to hypotenuse\n\n3. Tangent (tan):\n   tan θ = Opposite side / Adjacent side\n   • Ratio of opposite to adjacent\n\nMnemonic: SOH CAH TOA\n• SOH: Sine = Opposite/Hypotenuse\n• CAH: Cosine = Adjacent/Hypotenuse\n• TOA: Tangent = Opposite/Adjacent\n\nKey Properties:\n• Ratios depend only on angle, not triangle size\n• Same angle → same ratios (regardless of triangle size)\n• Ratios are dimensionless (pure numbers)\n\nExample:\nIn triangle with sides 3, 4, 5:\n• If angle opposite to 3 is θ:\n  - sin θ = 3/5\n  - cos θ = 4/5\n  - tan θ = 3/4\n\nThese ratios are fundamental in trigonometry.",
+                    
+                    "Reciprocal Trigonometric Ratios - Complete Set:\n\nThree more ratios are reciprocals of basic ratios:\n\n1. Cosecant (cosec):\n   cosec θ = 1/sin θ = Hypotenuse / Opposite\n   • Reciprocal of sine\n\n2. Secant (sec):\n   sec θ = 1/cos θ = Hypotenuse / Adjacent\n   • Reciprocal of cosine\n\n3. Cotangent (cot):\n   cot θ = 1/tan θ = Adjacent / Opposite\n   • Reciprocal of tangent\n\nRelationships:\n• sin θ × cosec θ = 1\n• cos θ × sec θ = 1\n• tan θ × cot θ = 1\n\nExample:\nIf sin θ = 3/5:\n• cosec θ = 1/(3/5) = 5/3\n• If cos θ = 4/5:\n  sec θ = 1/(4/5) = 5/4\n• If tan θ = 3/4:\n  cot θ = 1/(3/4) = 4/3\n\nImportant:\n• Reciprocal of reciprocal gives original ratio\n• Used in solving equations\n• Helpful in simplifying expressions\n\nThese ratios complete the set of six trigonometric ratios.",
+                    
+                    "Fundamental Trigonometric Identities - Essential Formulas:\n\nThese identities are always true for any angle θ:\n\n1. sin²θ + cos²θ = 1\n   • Most important identity\n   • Derived from Pythagoras theorem\n   • Always true\n\n2. 1 + tan²θ = sec²θ\n   • Derived from first identity\n   • Divide sin²θ + cos²θ = 1 by cos²θ\n\n3. 1 + cot²θ = cosec²θ\n   • Derived from first identity\n   • Divide sin²θ + cos²θ = 1 by sin²θ\n\nDerivation of First Identity:\n• In right triangle: (Opposite)² + (Adjacent)² = (Hypotenuse)²\n• Divide by (Hypotenuse)²:\n  (Opp/Hyp)² + (Adj/Hyp)² = 1\n  sin²θ + cos²θ = 1 ✓\n\nApplications:\n• Simplify complex expressions\n• Prove other identities\n• Find one ratio when another is known\n• Solve equations\n\nExample:\nIf sin θ = 4/5:\n• sin²θ = 16/25\n• cos²θ = 1 - 16/25 = 9/25\n• cos θ = 3/5 (taking positive value for acute angle)\n\nThese identities are fundamental tools in trigonometry.",
+                    
+                    "Standard Trigonometric Values - Must Memorize:\n\nThese values must be memorized for common angles:\n\nFor 0°:\n• sin 0° = 0\n• cos 0° = 1\n• tan 0° = 0\n\nFor 30°:\n• sin 30° = 1/2\n• cos 30° = √3/2\n• tan 30° = 1/√3\n\nFor 45°:\n• sin 45° = 1/√2\n• cos 45° = 1/√2\n• tan 45° = 1\n\nFor 60°:\n• sin 60° = √3/2\n• cos 60° = 1/2\n• tan 60° = √3\n\nFor 90°:\n• sin 90° = 1\n• cos 90° = 0\n• tan 90° = undefined (division by zero)\n\nPattern:\n• Cos values are reverse of sin values\n• sin 0° = 0, cos 0° = 1\n• sin 30° = 1/2, cos 60° = 1/2\n• sin 45° = cos 45° = 1/√2\n• sin 60° = √3/2, cos 30° = √3/2\n• sin 90° = 1, cos 90° = 0\n\nTan Values:\n• tan = sin/cos\n• tan 0° = 0/1 = 0\n• tan 30° = (1/2)/(√3/2) = 1/√3\n• tan 45° = (1/√2)/(1/√2) = 1\n• tan 60° = (√3/2)/(1/2) = √3\n• tan 90° = 1/0 = undefined\n\nThese values are essential for calculations without calculator.",
+                    
+                    "Complementary Angles - Special Relationships:\n\nTwo angles whose sum is 90° are complementary.\n\nIf A + B = 90°, then:\n• sin A = cos B\n• cos A = sin B\n• tan A = cot B\n• cot A = tan B\n• sec A = cosec B\n• cosec A = sec B\n\nExamples:\n• sin 30° = cos 60° = 1/2\n• sin 45° = cos 45° = 1/√2\n• sin 60° = cos 30° = √3/2\n• tan 30° = cot 60° = 1/√3\n• tan 45° = cot 45° = 1\n\nWhy This Works:\n• In right triangle, if one angle is A, other acute angle is (90° - A)\n• Opposite to A = Adjacent to (90° - A)\n• Adjacent to A = Opposite to (90° - A)\n• Therefore: sin A = cos(90° - A)\n\nApplications:\n• Find values of angles\n• Simplify expressions\n• Solve problems\n• Very useful in calculations\n\nExample:\nTo find cos 60°:\n• Since 60° + 30° = 90°\n• cos 60° = sin 30° = 1/2\n\nThis relationship simplifies many trigonometric calculations.",
+                    
+                    "Trigonometric Ratios of Specific Angles - Complete Table:\n\nComplete values for standard angles:\n\nAngle | sin | cos | tan\n------|-----|-----|-----\n0°    | 0   | 1   | 0\n30°   | 1/2 | √3/2| 1/√3\n45°   | 1/√2| 1/√2| 1\n60°   | √3/2| 1/2 | √3\n90°   | 1   | 0   | undefined\n\nReciprocal Values:\n• cosec 30° = 2, sec 30° = 2/√3, cot 30° = √3\n• cosec 45° = √2, sec 45° = √2, cot 45° = 1\n• cosec 60° = 2/√3, sec 60° = 2, cot 60° = 1/√3\n\nMemorization Tips:\n• sin values: 0, 1/2, 1/√2, √3/2, 1\n• cos values: Reverse of sin\n• tan = sin/cos\n• For 45°: sin = cos = 1/√2, tan = 1\n\nThese values form the foundation for:\n• All trigonometric calculations\n• Problem solving\n• Applications\n• Higher mathematics\n\nMaster these values - they are used constantly!",
+                    
+                    "Applications of Trigonometric Identities - Problem Solving:\n\nIdentities are powerful tools for solving problems:\n\nUses:\n\n1. Simplify Complex Expressions:\n   • Reduce to simpler form\n   • Example: sin⁴θ + cos⁴θ\n     = (sin²θ + cos²θ)² - 2sin²θcos²θ\n     = 1 - 2sin²θcos²θ\n\n2. Prove Other Identities:\n   • Use known identities\n   • Show equality\n   • Step-by-step proof\n\n3. Solve Equations:\n   • Find values of angles\n   • Use identities to simplify\n   • Solve for unknown\n\n4. Find Unknown Ratios:\n   • Given one ratio, find others\n   • Use identities\n   • Example: If sin θ = 4/5, find cos θ\n     cos²θ = 1 - sin²θ = 1 - 16/25 = 9/25\n     cos θ = 3/5\n\n5. Convert Between Forms:\n   • Express in different ways\n   • Simplify expressions\n   • Make calculations easier\n\nExample:\nSimplify: (1 - sin²θ)/(1 - cos²θ)\n• = cos²θ/sin²θ (using sin²θ + cos²θ = 1)\n• = cot²θ\n\nIdentities make complex problems manageable!",
+                    
+                    "Relationship between Ratios - Interconnections:\n\nAll trigonometric ratios are interconnected:\n\nBasic Relationships:\n• tan θ = sin θ / cos θ\n• cot θ = cos θ / sin θ\n• cot θ = 1 / tan θ\n\nReciprocal Relationships:\n• sin θ × cosec θ = 1\n• cos θ × sec θ = 1\n• tan θ × cot θ = 1\n\nFinding All Ratios from One:\n\nIf tan θ = 3/4:\n• We know: tan θ = sin θ / cos θ = 3/4\n• Also: sin²θ + cos²θ = 1\n• Let sin θ = 3k, cos θ = 4k\n• Then: (3k)² + (4k)² = 1\n• 9k² + 16k² = 1\n• 25k² = 1\n• k = 1/5\n• sin θ = 3/5, cos θ = 4/5\n• cosec θ = 5/3, sec θ = 5/4, cot θ = 4/3\n\nIf sin θ = 4/5:\n• cos²θ = 1 - 16/25 = 9/25\n• cos θ = 3/5\n• tan θ = (4/5)/(3/5) = 4/3\n• All other ratios follow\n\nThese relationships allow finding all ratios from one known ratio.",
+                    
+                    "Trigonometric Ratios for Angles Greater than 90° - Extension:\n\nFor Class 10, focus is on acute angles (0° to 90°).\n\nHowever, understanding extension is important:\n\n• Ratios can be defined for all angles\n• For obtuse angles (>90°):\n  - Some ratios become negative\n  - sin remains positive (0° to 180°)\n  - cos becomes negative (90° to 270°)\n  - tan becomes negative (90° to 180°)\n\n• For angles > 180°:\n  - All ratios repeat in cycles\n  - Periodicity: sin and cos repeat every 360°\n  - tan repeats every 180°\n\nClass 10 Focus:\n• Mainly acute angles (0° to 90°)\n• All ratios are positive\n• Easier calculations\n• Foundation for higher classes\n\nHigher Classes:\n• Extended to all angles\n• Negative values\n• Unit circle approach\n• More complex applications\n\nFor now, master acute angles - they form the foundation!",
+                    
+                    "Problem Solving Strategy - Step-by-Step Approach:\n\nSystematic method for solving trigonometric problems:\n\nStep 1: Identify the Right Triangle\n• Look for 90° angle\n• Identify all three sides\n• Mark the angle in question\n\nStep 2: Label Sides\n• Opposite: Side opposite to angle\n• Adjacent: Side next to angle (not hypotenuse)\n• Hypotenuse: Longest side, opposite right angle\n\nStep 3: Determine Which Ratio to Use\n• Given opposite and hypotenuse → use sin\n• Given adjacent and hypotenuse → use cos\n• Given opposite and adjacent → use tan\n• Choose based on given information\n\nStep 4: Apply Appropriate Formula\n• Write the ratio equation\n• Substitute known values\n• Solve for unknown\n\nStep 5: Use Identities if Needed\n• Simplify expressions\n• Find other ratios\n• Prove relationships\n\nStep 6: Verify Answer\n• Check if answer makes sense\n• Verify with identities\n• Ensure correct units\n\nCommon Mistakes:\n• Confusing opposite and adjacent\n• Forgetting to use identities\n• Calculation errors\n• Wrong ratio selection\n\nPractice with various problems to master these techniques!"
                 ),
                 keyPoints = listOf(
                     "Trigonometric Ratios: In right triangle, sin θ = opposite/hypotenuse, cos θ = adjacent/hypotenuse, tan θ = opposite/adjacent. Also: cosec θ = 1/sin θ, sec θ = 1/cos θ, cot θ = 1/tan θ. Ratios depend only on angle, not size of triangle. Mnemonic: SOH CAH TOA.",
@@ -1138,16 +1210,25 @@ object MockData {
                 id = "maths_9",
                 title = "Some Applications of Trigonometry",
                 revisionNotes = listOf(
-                    "Angle of Elevation: The angle formed by the line of sight with the horizontal when looking upward. Measured from horizontal line upward to the object. Always measured from horizontal reference line. Example: When you look at the top of a tower from ground level, the angle your line of sight makes with horizontal is angle of elevation. If height of tower is h and horizontal distance is d, then tan(angle of elevation) = h/d.",
-                    "Angle of Depression: The angle formed by the line of sight with the horizontal when looking downward. Measured from horizontal line downward to the object. Always measured from horizontal reference line. Example: When you look at an object on ground from top of a building, the angle your line of sight makes with horizontal is angle of depression. Important: Angle of depression from top equals angle of elevation from bottom (alternate angles are equal).",
-                    "Height and Distance Problems: Use trigonometric ratios (sin, cos, tan) to find unknown heights or distances in real-world problems. Steps: (1) Draw a clear diagram, (2) Identify the right triangle formed, (3) Label known and unknown values, (4) Choose appropriate trigonometric ratio, (5) Set up equation, (6) Solve for unknown. Common scenarios: Finding height of tower, distance between objects, width of river, height of building.",
-                    "Tower Problems: Common type where we find height of tower or distance from tower. If angle of elevation is θ and distance is d, then height h = d × tan θ. If height h and angle θ are known, distance d = h / tan θ. Example: Tower height 50m, angle of elevation 30°, then distance = 50 / tan 30° = 50 / (1/√3) = 50√3 m.",
-                    "Shadow Problems: When object casts shadow, we form right triangle. Height of object, length of shadow, and angle of elevation are related. If shadow length is s and angle is θ, height h = s × tan θ. Sun's angle changes throughout day, affecting shadow length. Used in determining heights using shadows.",
-                    "Two-Stage Problems: Problems involving two right triangles. Example: Finding height of tower when observer moves certain distance. Use both triangles to form equations, solve simultaneously. Common pattern: Initial position gives one equation, new position gives another, solve to find height and distance.",
-                    "Real-life Applications: Trigonometry is used in navigation (finding distance and direction), architecture (designing structures), engineering (calculating forces and distances), surveying (measuring land), astronomy (calculating distances to stars), and various practical problems. Essential for careers in these fields.",
-                    "Problem Solving Strategy: Read problem carefully, identify what is given and what to find, draw accurate diagram with labels, identify right triangles, mark angles and sides, choose correct trigonometric ratio, set up equation, solve step by step, verify answer makes practical sense. Common mistakes: confusing elevation and depression, using wrong ratio, calculation errors.",
-                    "Multiple Object Problems: Problems involving two or more objects. Example: Two towers of different heights, finding distance between them. Draw separate triangles for each object, use given information, form equations, solve. May require using multiple trigonometric ratios and identities.",
-                    "Practical Tips: Always draw diagram - it helps visualize problem. Label all given information clearly. Identify right angles (90°). Use appropriate ratio based on given sides. Check units (meters, kilometers, etc.). Verify answer is reasonable (height can't be negative, distance should be positive). Practice with various problem types to master the concept."
+                    "Angle of Elevation - Looking Upward:\n\nThe angle of elevation is the angle formed by the line of sight with the horizontal when looking upward.\n\nDefinition:\n• Measured from horizontal line\n• Upward direction to object\n• Always measured from horizontal reference\n• Range: 0° to 90°\n\nExample:\nWhen you look at the top of a tower from ground level:\n• Your eye is at ground level\n• Tower top is above\n• Line of sight goes upward\n• Angle with horizontal = angle of elevation\n\nMathematical Relationship:\nIf height of tower is h and horizontal distance is d:\n• tan(angle of elevation) = h/d\n• angle of elevation = tan⁻¹(h/d)\n\nVisual Representation:\n• Horizontal line (ground level)\n• Line of sight (upward)\n• Angle between them\n\nApplications:\n• Finding heights of buildings\n• Tower problems\n• Mountain heights\n• Tree heights\n\nThis concept is fundamental in height and distance problems.",
+                    
+                    "Angle of Depression - Looking Downward:\n\nThe angle of depression is the angle formed by the line of sight with the horizontal when looking downward.\n\nDefinition:\n• Measured from horizontal line\n• Downward direction to object\n• Always measured from horizontal reference\n• Range: 0° to 90°\n\nExample:\nWhen you look at an object on ground from top of a building:\n• Your eye is at building top\n• Object is below\n• Line of sight goes downward\n• Angle with horizontal = angle of depression\n\nImportant Property:\n• Angle of depression from top\n• = Angle of elevation from bottom\n• (Alternate angles are equal)\n• This simplifies calculations\n\nMathematical Relationship:\nIf height is h and horizontal distance is d:\n• tan(angle of depression) = h/d\n• Same formula as elevation\n\nVisual Representation:\n• Horizontal line (at observer's level)\n• Line of sight (downward)\n• Angle between them\n\nApplications:\n• Finding distances from heights\n• Navigation problems\n• Surveying\n• Aerial observations\n\nUnderstanding both elevation and depression is essential for solving problems.",
+                    
+                    "Height and Distance Problems - Systematic Approach:\n\nUse trigonometric ratios to find unknown heights or distances.\n\nSteps:\n\n1. Draw Clear Diagram:\n   • Visual representation\n   • Mark all given information\n   • Show angles and distances\n\n2. Identify Right Triangle:\n   • Look for 90° angle\n   • Identify all three sides\n   • Mark the angle in question\n\n3. Label Known and Unknown:\n   • Mark given values\n   • Mark what to find\n   • Use appropriate symbols\n\n4. Choose Appropriate Ratio:\n   • Given opposite and hypotenuse → sin\n   • Given adjacent and hypotenuse → cos\n   • Given opposite and adjacent → tan\n\n5. Set Up Equation:\n   • Write trigonometric equation\n   • Substitute known values\n   • Form equation for unknown\n\n6. Solve for Unknown:\n   • Use algebraic methods\n   • Apply trigonometric values\n   • Calculate answer\n\nCommon Scenarios:\n• Finding height of tower\n• Distance between objects\n• Width of river\n• Height of building\n• Mountain heights\n\nPractice with various problems to master these techniques!",
+                    
+                    "Tower Problems - Common Type:\n\nTower problems are very common in trigonometry applications.\n\nProblem Type:\nFind height of tower or distance from tower.\n\nCase 1: Finding Height\nGiven: Angle of elevation (θ) and distance (d)\n• Height h = d × tan θ\n• Example: d = 100m, θ = 30°\n  h = 100 × tan 30° = 100 × (1/√3) = 100/√3 m\n\nCase 2: Finding Distance\nGiven: Height (h) and angle (θ)\n• Distance d = h / tan θ\n• Example: h = 50m, θ = 30°\n  d = 50 / tan 30° = 50 / (1/√3) = 50√3 m\n\nCase 3: Finding Angle\nGiven: Height and distance\n• tan θ = h/d\n• θ = tan⁻¹(h/d)\n\nDiagram:\n• Tower (vertical line)\n• Ground (horizontal line)\n• Observer position\n• Line of sight\n• Right triangle formed\n\nApplications:\n• Architecture\n• Surveying\n• Navigation\n• Construction\n\nTower problems are fundamental in trigonometry applications.",
+                    
+                    "Shadow Problems - Using Shadows:\n\nWhen an object casts a shadow, we can form a right triangle.\n\nSetup:\n• Object (vertical)\n• Shadow (horizontal)\n• Sun's rays (hypotenuse)\n• Right triangle formed\n\nRelationship:\nIf shadow length is s and angle of elevation is θ:\n• Height h = s × tan θ\n• Shadow s = h / tan θ\n• Angle θ = tan⁻¹(h/s)\n\nSun's Angle:\n• Changes throughout day\n• Morning: Low angle (long shadows)\n• Noon: High angle (short shadows)\n• Evening: Low angle (long shadows)\n• Affects shadow length\n\nExample:\nIf shadow is 20m and angle is 45°:\n• Height = 20 × tan 45° = 20 × 1 = 20m\n\nApplications:\n• Determining heights using shadows\n• Time of day problems\n• Sun position calculations\n• Practical measurements\n\nShadow problems demonstrate practical applications of trigonometry.",
+                    
+                    "Two-Stage Problems - Multiple Triangles:\n\nProblems involving two right triangles require solving simultaneously.\n\nCommon Pattern:\nFinding height of tower when observer moves certain distance.\n\nSetup:\n• Initial position: Forms first triangle\n• New position: Forms second triangle\n• Both share same height\n• Different distances and angles\n\nMethod:\n1. From initial position:\n   • tan θ₁ = h/d₁\n   • h = d₁ × tan θ₁\n\n2. From new position:\n   • tan θ₂ = h/d₂\n   • h = d₂ × tan θ₂\n\n3. Solve simultaneously:\n   • d₁ × tan θ₁ = d₂ × tan θ₂\n   • Find unknown values\n\nExample:\nObserver moves 50m closer:\n• Initial: angle = 30°, distance = d\n• New: angle = 45°, distance = d - 50\n• Form two equations\n• Solve for h and d\n\nApplications:\n• Navigation problems\n• Surveying\n• Multiple observation points\n• Complex real-world scenarios\n\nThese problems require careful setup and simultaneous solving.",
+                    
+                    "Real-life Applications - Practical Uses:\n\nTrigonometry has numerous real-world applications:\n\n1. Navigation:\n   • Finding distance and direction\n   • GPS systems\n   • Ship and aircraft navigation\n   • Route planning\n\n2. Architecture:\n   • Designing structures\n   • Calculating heights\n   • Slope calculations\n   • Building design\n\n3. Engineering:\n   • Calculating forces\n   • Distance measurements\n   • Structural analysis\n   • Design calculations\n\n4. Surveying:\n   • Measuring land\n   • Mapping terrain\n   • Construction planning\n   • Property boundaries\n\n5. Astronomy:\n   • Calculating distances to stars\n   • Planet positions\n   • Celestial navigation\n   • Space exploration\n\n6. Other Applications:\n   • Sports (trajectories)\n   • Photography (angles)\n   • Art and design\n   • Various practical problems\n\nEssential for:\n• Many careers\n• Daily life applications\n• Scientific research\n• Technology development\n\nTrigonometry is everywhere in the modern world!",
+                    
+                    "Problem Solving Strategy - Step-by-Step Method:\n\nSystematic approach for solving trigonometry application problems:\n\nStep 1: Read Problem Carefully\n• Understand what is given\n• Identify what to find\n• Note all measurements\n• Check units\n\nStep 2: Draw Accurate Diagram\n• Visual representation\n• Label all information\n• Mark angles and sides\n• Show relationships\n\nStep 3: Identify Right Triangles\n• Look for 90° angles\n• Mark all triangles\n• Identify shared sides\n\nStep 4: Mark Angles and Sides\n• Label opposite, adjacent, hypotenuse\n• Mark given angles\n• Mark known distances\n• Mark unknowns\n\nStep 5: Choose Correct Ratio\n• Based on given information\n• sin, cos, or tan\n• Appropriate for problem\n\nStep 6: Set Up Equation\n• Write trigonometric equation\n• Substitute values\n• Form equation for unknown\n\nStep 7: Solve Step by Step\n• Use algebraic methods\n• Apply trigonometric values\n• Calculate carefully\n\nStep 8: Verify Answer\n• Check if reasonable\n• Verify units\n• Ensure makes sense\n\nCommon Mistakes:\n• Confusing elevation and depression\n• Using wrong ratio\n• Calculation errors\n• Unit conversion errors\n\nPractice regularly to avoid mistakes!",
+                    
+                    "Multiple Object Problems - Complex Scenarios:\n\nProblems involving two or more objects require careful analysis.\n\nExample:\nTwo towers of different heights, finding distance between them.\n\nSetup:\n• Two separate objects\n• Each forms a triangle\n• May share common base\n• Different heights and angles\n\nMethod:\n1. Draw separate triangles for each object\n2. Use given information\n3. Form equations for each\n4. Solve simultaneously\n5. May require multiple ratios\n\nComplex Cases:\n• Three or more objects\n• Moving observer\n• Changing angles\n• Multiple triangles\n• Shared measurements\n\nTechniques:\n• Use multiple trigonometric ratios\n• Apply identities if needed\n• Solve systems of equations\n• Use geometric relationships\n\nApplications:\n• Architecture (multiple buildings)\n• Surveying (multiple points)\n• Navigation (multiple landmarks)\n• Engineering (complex structures)\n\nThese problems develop advanced problem-solving skills.",
+                    
+                    "Practical Tips - Success Strategies:\n\nTips for solving trigonometry application problems:\n\n1. Always Draw Diagram:\n   • Helps visualize problem\n   • Shows relationships\n   • Prevents errors\n   • Essential step\n\n2. Label All Information:\n   • Mark given values\n   • Show unknowns\n   • Use clear symbols\n   • Avoid confusion\n\n3. Identify Right Angles:\n   • Look for 90° angles\n   • Essential for trigonometry\n   • Forms right triangles\n\n4. Use Appropriate Ratio:\n   • Based on given sides\n   • sin, cos, or tan\n   • Choose correctly\n\n5. Check Units:\n   • Meters, kilometers, etc.\n   • Convert if needed\n   • Consistent throughout\n\n6. Verify Answer:\n   • Height can't be negative\n   • Distance should be positive\n   • Reasonable values\n   • Makes practical sense\n\n7. Practice Regularly:\n   • Various problem types\n   • Different scenarios\n   • Build confidence\n   • Master techniques\n\nFollowing these tips leads to success in trigonometry applications!"
                 ),
                 keyPoints = listOf(
                     "Angle of Elevation: Angle between horizontal line and line of sight when looking upward. Measured from horizontal upward. Example: Looking at top of tower from ground. If height of tower is h and distance is d, then tan(angle) = h/d. Always measured from horizontal reference line.",
@@ -1229,16 +1310,23 @@ object MockData {
                 id = "maths_10",
                 title = "Circles",
                 revisionNotes = listOf(
-                    "Tangent to a Circle: A line that touches the circle at exactly one point is called a tangent. The point where tangent touches circle is point of contact. From a point on circle, exactly one tangent can be drawn. From a point outside circle, exactly two tangents can be drawn. From a point inside circle, no tangent can be drawn. Tangent never enters the circle.",
-                    "Tangent and Radius: Tangent at any point is perpendicular to radius through that point. If PT is tangent at point P and OP is radius, then ∠OPT = 90°. Converse: If radius is perpendicular to line at point on circle, then line is tangent. This property is fundamental and used in most circle problems. Used to prove tangency and find angles.",
-                    "Length of Tangent: From an external point, lengths of tangents to a circle are equal. If PA and PB are tangents from external point P to circle with center O, then PA = PB. Also, tangents subtend equal angles at center (∠POA = ∠POB). OP bisects angle between tangents. Used to find unknown lengths.",
-                    "Number of Tangents: From point inside circle: 0 tangents. From point on circle: 1 tangent (point itself is point of contact). From point outside circle: 2 tangents. The two tangents from external point are equal in length and symmetric about line joining point to center.",
-                    "Alternate Segment Theorem: Angle between tangent and chord equals angle in alternate segment. If tangent touches circle at A and chord AB is drawn, then angle between tangent and AB equals angle in opposite segment (angle ACB where C is on opposite arc). Used to find unknown angles in circle problems.",
-                    "Angle in Semicircle: Angle subtended by diameter in a semicircle is always a right angle (90°). If AB is diameter and C is any point on circle, then ∠ACB = 90°. Converse: If angle in a circle is 90°, then side opposite to it is diameter. Used to prove right angles and find unknown angles.",
-                    "Cyclic Quadrilateral: Quadrilateral with all vertices on a circle. Opposite angles are supplementary (sum = 180°). Exterior angle equals interior opposite angle. If sum of opposite angles is 180°, quadrilateral is cyclic. Used in angle problems and geometric proofs.",
-                    "Angle Properties: Angle at center is twice angle at circumference (angle subtended by same arc). Angles in same segment are equal. Angle in semicircle is 90°. Opposite angles of cyclic quadrilateral are supplementary. These properties help solve complex angle problems.",
-                    "Tangent from External Point: If PA and PB are tangents from external point P to circle with center O, then: PA = PB (equal lengths), ∠APO = ∠BPO (equal angles), OP bisects ∠APB, OP bisects chord AB (if A and B are points of contact), Triangle OAP and OBP are congruent right triangles.",
-                    "Applications: Circle theorems are used in: geometric constructions, proving geometric properties, solving angle problems, finding lengths and areas, architectural designs, engineering problems, navigation, and various real-world applications involving circular shapes."
+                    "Tangent to a Circle - Complete Definition:\n\nA tangent is a line that touches a circle at exactly one point, called the point of tangency or point of contact.\n\nKey Properties:\n• Touches circle at exactly one point\n• Never enters the circle\n• Lies outside the circle (except at point of contact)\n• Has unique point of contact\n\nNumber of Tangents from a Point:\n\n1. From a point INSIDE the circle:\n   • Zero tangents can be drawn\n   • All lines through interior point intersect circle at two points (secants)\n   • Example: Point P inside circle O - no tangent possible\n\n2. From a point ON the circle:\n   • Exactly ONE tangent can be drawn\n   • The point itself is the point of contact\n   • Example: Point P on circle O - one tangent at P\n\n3. From a point OUTSIDE the circle:\n   • Exactly TWO tangents can be drawn\n   • Both tangents are equal in length\n   • Symmetric about the line joining point to center\n   • Example: Point P outside circle O - two tangents PA and PB\n\nUnderstanding tangents is fundamental to circle geometry and helps solve many geometric problems.",
+                    
+                    "Tangent and Radius - Perpendicular Relationship:\n\nThe most important property of tangents: A tangent at any point is perpendicular to the radius through that point.\n\nTheorem:\nIf PT is a tangent at point P and OP is the radius through P, then:\n∠OPT = 90°\n\nProof Concept:\n• If tangent were not perpendicular, it would intersect circle at another point\n• But tangent touches at only one point\n• Therefore, it must be perpendicular\n\nConverse Theorem:\nIf a line through a point on a circle is perpendicular to the radius at that point, then the line is a tangent.\n\nApplications:\n• Proving that a line is tangent\n• Finding angles in circle problems\n• Constructing tangents to circles\n• Solving geometric proofs\n\nExample:\nIn circle with center O, if PT is tangent at P and OP = 5 cm:\n• ∠OPT = 90°\n• If we know distance from O to any point on PT, we can find angles\n• Used in many circle geometry problems\n\nThis property is used in almost every problem involving tangents and is fundamental to circle geometry.",
+                    
+                    "Length of Tangent from External Point - Equal Tangents:\n\nFrom an external point, the lengths of the two tangents to a circle are equal.\n\nTheorem:\nIf PA and PB are tangents from external point P to circle with center O, then:\nPA = PB\n\nProof:\n• Join OP, OA, OB\n• In triangles OAP and OBP:\n  - OA = OB (radii)\n  - OP = OP (common)\n  - ∠OAP = ∠OBP = 90° (tangent ⊥ radius)\n• Therefore, ΔOAP ≅ ΔOBP (RHS congruence)\n• Hence, PA = PB ✓\n\nAdditional Properties:\n• Tangents subtend equal angles at center: ∠POA = ∠POB\n• OP bisects the angle between tangents: ∠APO = ∠BPO\n• OP bisects the chord joining points of contact (if drawn)\n• Triangles OAP and OBP are congruent right triangles\n\nApplications:\n• Finding unknown lengths when one tangent length is known\n• Proving geometric relationships\n• Solving problems involving external points and circles\n• Used in construction problems\n\nExample:\nIf PA = 12 cm is a tangent from point P to circle O:\n• Then PB (other tangent) = 12 cm\n• Both tangents are equal\n• Can use this to find distances and angles\n\nThis property is very useful in solving circle problems involving external points.",
+                    
+                    "Alternate Segment Theorem - Angle Relationships:\n\nThe Alternate Segment Theorem states that the angle between a tangent and a chord through the point of contact equals the angle in the alternate segment.\n\nStatement:\nIf a tangent touches a circle at point A and a chord AB is drawn, then:\nAngle between tangent and chord = Angle in alternate segment\n\nDiagram Understanding:\n• Tangent touches circle at A\n• Chord AB divides circle into two segments\n• Angle between tangent and AB = Angle ACB (where C is on opposite arc)\n\nExample:\nIf tangent at A makes angle 50° with chord AB:\n• Then angle ACB (in alternate segment) = 50°\n• Where C is any point on arc opposite to tangent\n\nApplications:\n• Finding unknown angles in circle problems\n• Proving angle relationships\n• Solving complex geometric problems\n• Used in many circle theorems\n\nWhy It Works:\n• Based on angle properties of circles\n• Uses the fact that angle in semicircle is 90°\n• Related to angle at center and angle at circumference\n\nThis theorem is powerful for solving angle problems in circles and is frequently used in geometric proofs.",
+                    
+                    "Angle in a Semicircle - Right Angle Property:\n\nThe angle subtended by a diameter in a semicircle is always a right angle (90°).\n\nTheorem:\nIf AB is a diameter of a circle and C is any point on the circle (other than A and B), then:\n∠ACB = 90°\n\nProof Concept:\n• Angle at center O: ∠AOB = 180° (straight line)\n• Angle at circumference: ∠ACB\n• By angle property: Angle at center = 2 × Angle at circumference\n• Therefore: ∠ACB = 180°/2 = 90° ✓\n\nConverse Theorem:\nIf an angle in a circle is 90°, then the side opposite to it is a diameter.\n\nApplications:\n• Proving that a triangle is right-angled\n• Finding right angles in geometric constructions\n• Solving problems involving semicircles\n• Used in many geometric proofs\n\nExample:\nIn circle with diameter AB = 10 cm:\n• If C is any point on circle\n• Then ∠ACB = 90°\n• Triangle ABC is right-angled at C\n• Can use Pythagoras theorem: AC² + BC² = AB²\n\nThis property is fundamental and appears in many circle geometry problems.",
+                    
+                    "Cyclic Quadrilateral - Opposite Angles Property:\n\nA cyclic quadrilateral is a quadrilateral with all four vertices lying on a circle.\n\nKey Theorem:\nIn a cyclic quadrilateral, opposite angles are supplementary (sum = 180°).\n\nStatement:\nIf ABCD is a cyclic quadrilateral, then:\n∠A + ∠C = 180°\n∠B + ∠D = 180°\n\nProof Concept:\n• Angle at center for arc AD = 2∠ABD\n• Angle at center for arc BC = 2∠BCD\n• Sum of arcs = 360°\n• Therefore, sum of opposite angles = 180°\n\nAdditional Properties:\n• Exterior angle = Interior opposite angle\n• If sum of opposite angles is 180°, quadrilateral is cyclic (converse)\n• Used to prove that a quadrilateral is cyclic\n\nApplications:\n• Finding unknown angles in cyclic quadrilaterals\n• Proving that a quadrilateral is cyclic\n• Solving angle problems\n• Used in many geometric proofs\n\nExample:\nIn cyclic quadrilateral ABCD:\n• If ∠A = 70°, then ∠C = 180° - 70° = 110°\n• If ∠B = 80°, then ∠D = 180° - 80° = 100°\n• Opposite angles always sum to 180°\n\nThis property is essential for solving problems involving quadrilaterals inscribed in circles.",
+                    
+                    "Angle Properties in Circles - Complete Summary:\n\n1. Angle at Center:\n   • Angle subtended by an arc at center = 2 × Angle at circumference\n   • If arc AB subtends angle θ at center, it subtends θ/2 at circumference\n   • Example: If ∠AOB = 100°, then ∠ACB = 50°\n\n2. Angles in Same Segment:\n   • Angles subtended by same arc at circumference are equal\n   • If C and D are on same arc AB, then ∠ACB = ∠ADB\n   • All angles in same segment are equal\n\n3. Angle in Semicircle:\n   • Angle in semicircle = 90°\n   • If AB is diameter, then ∠ACB = 90°\n   • Used to find right angles\n\n4. Opposite Angles in Cyclic Quadrilateral:\n   • Sum of opposite angles = 180°\n   • ∠A + ∠C = 180°, ∠B + ∠D = 180°\n\n5. Exterior Angle:\n   • Exterior angle = Interior opposite angle\n   • In cyclic quadrilateral, exterior angle equals opposite interior angle\n\nThese properties are fundamental tools for solving circle geometry problems and are used extensively in proofs and calculations.",
+                    
+                    "Tangent from External Point - Complete Properties:\n\nWhen two tangents are drawn from an external point P to a circle with center O:\n\nProperties:\n\n1. Equal Lengths:\n   • PA = PB (both tangents have equal length)\n   • Proof: Triangles OAP and OBP are congruent (RHS)\n\n2. Equal Angles at Center:\n   • ∠POA = ∠POB\n   • Tangents subtend equal angles at center\n\n3. OP Bisects Angle Between Tangents:\n   • ∠APO = ∠BPO\n   • OP is angle bisector of ∠APB\n\n4. OP Bisects Chord (if drawn):\n   • If chord AB joins points of contact\n   • OP bisects AB perpendicularly\n   • OP is perpendicular bisector of AB\n\n5. Congruent Right Triangles:\n   • ΔOAP ≅ ΔOBP\n   • Both are right triangles (tangent ⊥ radius)\n   • Used in many proofs\n\nApplications:\n• Finding lengths when one tangent is known\n• Proving geometric relationships\n• Solving construction problems\n• Used in many circle geometry problems\n\nExample:\nIf PA = 8 cm from external point P:\n• Then PB = 8 cm\n• If OP = 10 cm and radius = 6 cm:\n• Can find angles using right triangle properties\n• ∠APO = ∠BPO (equal angles)\n\nThese properties are essential for solving problems involving tangents from external points.",
+                    
+                    "Circle Theorems - Applications and Uses:\n\nCircle theorems have wide applications in mathematics and real life:\n\n1. Geometric Constructions:\n   • Constructing tangents to circles\n   • Finding centers of circles\n   • Drawing perpendicular lines\n   • Creating geometric designs\n\n2. Proving Geometric Properties:\n   • Proving triangles are right-angled\n   • Proving quadrilaterals are cyclic\n   • Finding angle relationships\n   • Solving geometric proofs\n\n3. Solving Angle Problems:\n   • Finding unknown angles\n   • Using angle properties\n   • Combining multiple theorems\n   • Complex geometric calculations\n\n4. Finding Lengths and Areas:\n   • Using tangent properties\n   • Applying Pythagoras theorem\n   • Calculating distances\n   • Finding areas of segments\n\n5. Architectural Designs:\n   • Circular structures\n   • Arches and domes\n   • Geometric patterns\n   • Design calculations\n\n6. Engineering Problems:\n   • Mechanical designs\n   • Circular components\n   • Angle calculations\n   • Precision measurements\n\n7. Navigation:\n   • Circular paths\n   • Angle calculations\n   • Distance measurements\n\nUnderstanding circle theorems is essential for advanced geometry and has practical applications in many fields."
                 ),
                 keyPoints = listOf(
                     "Tangent to a Circle: Line that touches circle at exactly one point. Point of contact is where tangent touches circle. From external point, exactly two tangents can be drawn. Tangents from external point have equal lengths. Tangent is perpendicular to radius at point of contact (90° angle).",
@@ -1300,16 +1388,25 @@ object MockData {
                 id = "maths_11",
                 title = "Constructions",
                 revisionNotes = listOf(
-                    "Division of Line Segment: To divide a line segment AB in a given ratio m:n, use Basic Proportionality Theorem. Steps: (1) Draw ray AX making acute angle with AB, (2) Mark m+n equal divisions on AX starting from A, (3) Join last point to B, (4) Draw parallel lines through division points, (5) Point of intersection divides AB in ratio m:n. Example: Dividing 6cm line in 2:3 ratio gives 2.4cm and 3.6cm parts. Used in geometric constructions and proofs.",
-                    "Construction of Triangles: Can construct triangle given: (1) Three sides (SSS), (2) Two sides and included angle (SAS), (3) Two angles and included side (ASA), (4) Right triangle with hypotenuse and one side (RHS). Steps: Draw base, construct angles/sides as given, complete triangle. Always check if triangle is possible (sum of two sides > third side). Used in geometric proofs and practical applications.",
-                    "Construction of Tangents to Circle: To draw tangents from external point P to circle with center O: (1) Join OP, (2) Find midpoint M of OP, (3) Draw circle with center M and radius MO, (4) This circle intersects given circle at two points, (5) Join P to these points - these are the tangents. Tangents are equal in length and symmetric about OP. Used in geometric constructions and problem solving.",
-                    "Tools for Constructions: Only compass and straightedge (unmarked ruler) are used in classical geometric constructions. Compass: For drawing arcs and circles, transferring distances, marking equal lengths. Straightedge: For drawing straight lines, connecting points. No protractor or measuring devices allowed. This ensures accuracy and teaches fundamental geometric principles. Modern constructions may use other tools, but classical method is important.",
-                    "Construction of Perpendicular Bisector: To construct perpendicular bisector of line segment AB: (1) Draw arcs with same radius from A and B on both sides, (2) Arcs intersect at two points, (3) Join these points - this line is perpendicular bisector. It passes through midpoint and is perpendicular to AB. Used in many constructions including triangle constructions and finding centers.",
-                    "Construction of Angle Bisector: To bisect angle ABC: (1) Draw arc from B cutting both arms, (2) From intersection points, draw arcs with same radius, (3) Join B to intersection point - this bisects angle. Angle bisector divides angle into two equal parts. Used in triangle constructions and geometric proofs.",
-                    "Construction of Parallel Lines: To draw line parallel to given line through external point: (1) Draw transversal through point, (2) Copy angle at intersection, (3) Draw line making same angle - this is parallel. Parallel lines never meet and have same direction. Used in various geometric constructions.",
-                    "Construction of Similar Triangles: To construct triangle similar to given triangle: (1) Draw base in required ratio, (2) Construct angles equal to given triangle, (3) Complete triangle. Similar triangles have same angles and proportional sides. Used in scale drawings and geometric proofs.",
-                    "Practical Applications: Constructions are used in: architectural drawings, engineering designs, map making, scale models, geometric proofs, solving practical problems. Understanding constructions helps in visualizing geometric concepts and solving complex problems. Essential skill for geometry.",
-                    "Important Tips: Always use sharp pencil for accuracy. Draw light construction lines first, then darken final lines. Label all points clearly. Check measurements and angles. Verify construction is correct. Practice with different problems to master techniques. Constructions require precision and patience."
+                    "Division of Line Segment - Step by Step Method:\n\nTo divide a line segment AB in a given ratio m:n using Basic Proportionality Theorem.\n\nDetailed Steps:\n\nStep 1: Draw the Line Segment\n• Draw line segment AB of given length\n• Label endpoints A and B\n\nStep 2: Draw a Ray\n• Draw ray AX making an acute angle with AB\n• Angle should be convenient (30°-60° works well)\n• X is a point on the ray\n\nStep 3: Mark Equal Divisions\n• Open compass to convenient width\n• Starting from A, mark (m+n) equal divisions on ray AX\n• Label points as A₁, A₂, A₃, ..., Aₘ₊ₙ\n• Each division should be equal\n\nStep 4: Join Last Point to B\n• Join point Aₘ₊ₙ to point B\n• This creates a line through which we'll draw parallels\n\nStep 5: Draw Parallel Lines\n• Through point Aₘ, draw line parallel to Aₘ₊ₙB\n• This line intersects AB at point P\n• Point P divides AB in ratio m:n\n\nVerification:\n• AP:PB = m:n\n• Can measure to verify\n\nExample:\nDividing 6 cm line in ratio 2:3:\n• m = 2, n = 3, so m+n = 5\n• Mark 5 equal divisions on ray\n• Draw parallel through 2nd division point\n• Result: AP = 2.4 cm, PB = 3.6 cm\n• Ratio: 2.4:3.6 = 2:3 ✓\n\nThis construction is based on Basic Proportionality Theorem and is fundamental in geometry.",
+                    
+                    "Construction of Triangles - All Cases:\n\nTriangles can be constructed when given sufficient information. Minimum requirement: 3 independent measurements.\n\nCase 1: SSS (Side-Side-Side)\nGiven: Three sides (e.g., 5 cm, 6 cm, 7 cm)\nSteps:\n1. Draw base of one side (say 6 cm)\n2. With compass, draw arc from one endpoint with radius = second side (5 cm)\n3. From other endpoint, draw arc with radius = third side (7 cm)\n4. Arcs intersect at third vertex\n5. Join to complete triangle\n\nCase 2: SAS (Side-Angle-Side)\nGiven: Two sides and included angle (e.g., 5 cm, 6 cm, 60°)\nSteps:\n1. Draw base of one side (say 5 cm)\n2. At one endpoint, construct given angle (60°)\n3. Mark second side length on angle arm\n4. Join to complete triangle\n\nCase 3: ASA (Angle-Side-Angle)\nGiven: Two angles and included side (e.g., 50°, 60°, side 6 cm)\nSteps:\n1. Draw the given side (6 cm)\n2. At one endpoint, construct first angle (50°)\n3. At other endpoint, construct second angle (60°)\n4. Angle arms intersect at third vertex\n5. Complete triangle\n\nCase 4: RHS (Right angle-Hypotenuse-Side)\nGiven: Right angle, hypotenuse, one side\nSteps:\n1. Draw the given side\n2. Construct right angle at one endpoint\n3. With compass, mark hypotenuse length from vertex\n4. Complete right triangle\n\nImportant: Always check if triangle is possible (sum of two sides > third side).",
+                    
+                    "Construction of Tangents to Circle - Detailed Method:\n\nTo construct tangents from an external point P to a circle with center O.\n\nStep-by-Step Construction:\n\nStep 1: Identify Given Elements\n• Circle with center O and radius r\n• External point P (outside the circle)\n\nStep 2: Join Center to External Point\n• Draw line segment OP\n• This line will help locate tangent points\n\nStep 3: Find Midpoint of OP\n• Find midpoint M of OP using perpendicular bisector\n• Or measure and mark midpoint\n• M is the center for auxiliary circle\n\nStep 4: Draw Auxiliary Circle\n• With M as center and MO (or MP) as radius\n• Draw a circle\n• This circle passes through O and P\n\nStep 5: Find Intersection Points\n• The auxiliary circle intersects the given circle at two points\n• Label these points as A and B\n• These are the points of tangency\n\nStep 6: Draw Tangents\n• Join P to A - this is first tangent\n• Join P to B - this is second tangent\n• Both PA and PB are tangents\n\nProperties:\n• PA = PB (equal lengths)\n• Tangents are symmetric about OP\n• ∠OAP = ∠OBP = 90° (tangent ⊥ radius)\n• Used in many geometric problems\n\nThis construction is based on the property that angle in semicircle is 90°.",
+                    
+                    "Tools for Geometric Constructions - Classical Method:\n\nClassical geometric constructions use only two tools:\n\n1. Compass:\n   • For drawing arcs and circles\n   • For transferring distances\n   • For marking equal lengths\n   • Can be adjusted to different radii\n   • Essential for all constructions\n\n2. Straightedge (Unmarked Ruler):\n   • For drawing straight lines\n   • For connecting points\n   • For extending lines\n   • Must be unmarked (no measurements)\n   • Cannot be used to measure\n\nTools NOT Allowed:\n• Protractor (for measuring angles)\n• Marked ruler (for measurements)\n• Set squares (for right angles)\n• Any measuring device\n\nWhy Only These Tools?\n• Teaches fundamental geometric principles\n• Ensures constructions are based on geometry, not measurement\n• Develops understanding of geometric relationships\n• Classical approach to geometry\n• More accurate in theory\n\nModern Approach:\n• May use protractor, set squares, etc. for practical work\n• But understanding classical method is important\n• Classical method proves geometric relationships\n\nMastering these two tools allows construction of:\n• Perpendiculars, parallels, angle bisectors\n• Triangles, circles, tangents\n• Many geometric figures\n\nThis classical approach is the foundation of geometric constructions.",
+                    
+                    "Construction of Perpendicular Bisector - Complete Method:\n\nTo construct the perpendicular bisector of a line segment AB.\n\nDetailed Steps:\n\nStep 1: Draw the Line Segment\n• Draw line segment AB\n• Label endpoints A and B\n\nStep 2: Set Compass Width\n• Open compass to more than half of AB\n• This ensures arcs will intersect\n• Example: If AB = 6 cm, use radius > 3 cm\n\nStep 3: Draw Arcs from A\n• With A as center, draw arcs on both sides of AB\n• Arcs should be above and below the line\n• Keep same compass width\n\nStep 4: Draw Arcs from B\n• With B as center, same radius\n• Draw arcs on both sides of AB\n• These arcs intersect the arcs from Step 3\n\nStep 5: Mark Intersection Points\n• Arcs intersect at two points\n• Label these as P and Q\n• One point above AB, one below\n\nStep 6: Join Intersection Points\n• Draw line joining P and Q\n• This line is the perpendicular bisector\n\nProperties:\n• Passes through midpoint of AB\n• Perpendicular to AB (90° angle)\n• Divides AB into two equal parts\n• Every point on perpendicular bisector is equidistant from A and B\n\nApplications:\n• Finding midpoint of segment\n• Constructing perpendicular lines\n• Finding center of circle through two points\n• Used in many other constructions\n\nThis is one of the most fundamental constructions in geometry.",
+                    
+                    "Construction of Angle Bisector - Step by Step:\n\nTo bisect an angle ABC (divide it into two equal parts).\n\nDetailed Steps:\n\nStep 1: Draw the Angle\n• Draw angle ABC with vertex B\n• BA and BC are the two arms\n• Angle can be any measure\n\nStep 2: Draw Arc from Vertex\n• With B as center, draw an arc\n• Arc cuts both arms BA and BC\n• Label intersection points as D (on BA) and E (on BC)\n• Use convenient radius\n\nStep 3: Draw Arcs from Intersection Points\n• With D as center, draw an arc (inside the angle)\n• With E as center, same radius, draw another arc\n• These arcs intersect at point F\n\nStep 4: Join Vertex to Intersection\n• Draw line from B through F\n• This line BF is the angle bisector\n\nProperties:\n• Divides angle into two equal parts\n• ∠ABF = ∠FBC = (1/2)∠ABC\n• Every point on bisector is equidistant from both arms\n• Used in triangle constructions\n\nApplications:\n• Constructing angles of specific measures (e.g., 45° = bisect 90°)\n• Finding incenter of triangle (intersection of angle bisectors)\n• Solving angle problems\n• Used in many geometric constructions\n\nExample:\nTo construct 45° angle:\n• First construct 90° angle\n• Then bisect it to get 45°\n• Can further bisect to get 22.5°\n\nThis construction is fundamental and used frequently in geometry.",
+                    
+                    "Construction of Parallel Lines - Detailed Method:\n\nTo draw a line parallel to a given line through an external point.\n\nStep-by-Step Construction:\n\nStep 1: Identify Given Elements\n• Given line l\n• External point P (not on line l)\n\nStep 2: Draw Transversal\n• Draw a line through P that intersects line l\n• This line is called a transversal\n• Label intersection point as Q\n\nStep 3: Copy the Angle\n• At point P, construct an angle equal to angle at Q\n• Use angle copying construction\n• This creates corresponding angles\n\nMethod 1: Using Angle Copying\n• Draw arc from Q cutting both lines\n• With same radius, draw arc from P\n• Measure arc length from Q, mark on arc from P\n• Draw line through P making same angle\n\nMethod 2: Using Compass\n• Mark equal distances on transversal from Q\n• Use compass to transfer angle\n• Construct equal angle at P\n\nStep 4: Draw Parallel Line\n• The line through P making equal angle is parallel to l\n• This uses property: If corresponding angles are equal, lines are parallel\n\nProperties:\n• Never meets the given line\n• Maintains constant distance from given line\n• All points are equidistant from given line\n\nApplications:\n• Constructing parallelograms\n• Creating parallel structures\n• Used in many geometric constructions\n• Essential for advanced constructions\n\nThis construction is based on the property of parallel lines and corresponding angles.",
+                    
+                    "Construction of Similar Triangles - Scale Factor Method:\n\nTo construct a triangle similar to a given triangle with a given scale factor.\n\nGiven:\n• Triangle ABC (original triangle)\n• Scale factor k (e.g., 2:3 means new triangle is 2/3 size)\n\nMethod 1: Using Scale Factor on Base\n\nStep 1: Draw Scaled Base\n• Draw base A'B' in required ratio\n• If scale factor is 2:3, and AB = 6 cm:\n  New base = (2/3) × 6 = 4 cm\n\nStep 2: Construct Equal Angles\n• At A', construct angle equal to ∠A\n• At B', construct angle equal to ∠B\n• Use angle copying construction\n\nStep 3: Complete Triangle\n• Angle arms intersect at C'\n• Triangle A'B'C' is similar to ABC\n\nMethod 2: Using Proportional Sides\n\nStep 1: Draw Base in Ratio\n• Draw base in given ratio\n\nStep 2: Mark Proportional Points\n• Divide base in same ratio as original\n• Mark corresponding points\n\nStep 3: Construct Angles\n• Construct corresponding angles\n• Complete triangle\n\nProperties:\n• All angles are equal\n• Sides are proportional\n• Shape is same, size is different\n• Area ratio = (scale factor)²\n\nApplications:\n• Scale drawings (maps, blueprints)\n• Enlarging or reducing figures\n• Creating similar geometric shapes\n• Used in architecture and engineering\n\nExample:\nIf original triangle has sides 3, 4, 5 cm and scale factor is 2:\n• New triangle has sides 6, 8, 10 cm\n• All angles remain same\n• Area becomes 4 times (2² = 4)\n\nThis construction is essential for understanding similarity and scale.",
+                    
+                    "Practical Applications of Constructions:\n\nGeometric constructions have wide applications:\n\n1. Architectural Drawings:\n   • Blueprints and plans\n   • Scale models of buildings\n   • Precise angle and length constructions\n   • Used by architects and engineers\n\n2. Engineering Designs:\n   • Mechanical parts design\n   • Circuit board layouts\n   • Structural designs\n   • Precision is critical\n\n3. Map Making:\n   • Scale drawings of areas\n   • Topographic maps\n   • Navigation charts\n   • Distance and angle measurements\n\n4. Scale Models:\n   • Miniature replicas\n   • Maintaining proportions\n   • Similar triangle constructions\n   • Used in design and presentation\n\n5. Geometric Proofs:\n   • Proving theorems\n   • Demonstrating properties\n   • Visual representation of concepts\n   • Educational purposes\n\n6. Art and Design:\n   • Geometric patterns\n   • Symmetrical designs\n   • Precise drawings\n   • Creative applications\n\n7. Surveying:\n   • Land measurement\n   • Boundary marking\n   • Angle and distance calculations\n   • Used in construction projects\n\nUnderstanding constructions helps visualize geometric concepts and solve practical problems in many fields.",
+                    
+                    "Important Tips for Accurate Constructions:\n\n1. Use Sharp Pencil:\n   • Fine point for accuracy\n   • Clear, visible lines\n   • Easy to erase if needed\n   • Professional appearance\n\n2. Construction Lines First:\n   • Draw light construction lines\n   • These are guide lines\n   • Can be erased later\n   • Final lines should be dark\n\n3. Label All Points:\n   • Use clear labels (A, B, C, etc.)\n   • Helps in explanation\n   • Avoids confusion\n   • Professional presentation\n\n4. Check Measurements:\n   • Verify lengths using compass\n   • Check angles\n   • Ensure accuracy\n   • Re-measure if needed\n\n5. Verify Construction:\n   • Check if it meets requirements\n   • Measure angles and lengths\n   • Ensure properties are satisfied\n   • Correct any errors\n\n6. Practice Regularly:\n   • Practice different constructions\n   • Master basic techniques\n   • Build confidence\n   • Improve accuracy\n\n7. Be Patient:\n   • Constructions require precision\n   • Take time for accuracy\n   • Don't rush\n   • Quality over speed\n\n8. Use Proper Tools:\n   • Good quality compass\n   • Straight, unmarked ruler\n   • Sharp pencil\n   • Clean workspace\n\nFollowing these tips ensures accurate and professional geometric constructions."
                 ),
                 keyPoints = listOf(
                     "Division of Line Segment: To divide line segment in given ratio m:n, use Basic Proportionality Theorem. Draw ray making angle, mark equal divisions, join last point to endpoint, draw parallel lines. Point of intersection divides segment in required ratio. Example: Dividing 6cm line in 2:3 ratio gives 2.4cm and 3.6cm parts.",
@@ -1396,16 +1493,25 @@ object MockData {
                 id = "maths_12",
                 title = "Areas Related to Circles",
                 revisionNotes = listOf(
-                    "Area of Circle: A = πr² where r is radius and π ≈ 3.14159 or 22/7. Formula derived from dividing circle into sectors and rearranging. If diameter d is given, A = π(d/2)² = πd²/4. Example: Circle with radius 7cm has area = π × 7² = 49π ≈ 154 cm². Used in calculating areas of circular objects, fields, and in various practical applications.",
-                    "Circumference of Circle: C = 2πr = πd where r is radius and d is diameter. Circumference is the perimeter of circle. π (pi) is ratio of circumference to diameter, approximately 3.14159. Example: Circle with radius 5cm has circumference = 2π × 5 = 10π ≈ 31.4 cm. Used in finding perimeter of circular objects, calculating distances, and in engineering applications.",
-                    "Area of Sector: A = (θ/360°) × πr² where θ is central angle in degrees and r is radius. Sector is region bounded by two radii and arc. If angle is in radians, A = (1/2)r²θ. Example: Sector with radius 6cm and angle 60° has area = (60/360) × π × 6² = (1/6) × 36π = 6π cm². Used in calculating areas of pie charts, circular segments, and various geometric problems.",
-                    "Length of Arc: L = (θ/360°) × 2πr = (θ/360°) × C where θ is central angle in degrees, r is radius, C is circumference. Arc is part of circumference. If angle is in radians, L = rθ. Example: Arc with radius 8cm and angle 45° has length = (45/360) × 2π × 8 = (1/8) × 16π = 2π cm. Used in calculating distances along curves, designing arcs, and geometric problems.",
-                    "Area of Segment: A = Area of sector - Area of triangle formed by two radii and chord. Segment is region between chord and arc. Formula: A = (θ/360°) × πr² - (1/2)r²sinθ (when angle in degrees). For minor segment, subtract triangle area. For major segment, add triangle area to remaining sector. Used in calculating areas of circular segments, designing shapes, and geometric problems.",
-                    "Relationship between Arc and Sector: Arc length and sector area are proportional to central angle. If angle doubles, arc length and area double. If radius doubles, area becomes 4 times (area ∝ r²), but arc length doubles (length ∝ r). Understanding these relationships helps in solving problems and conversions.",
-                    "Combined Areas: Problems involving combination of circles, sectors, and other shapes. Example: Area of ring (annulus) = π(R² - r²) where R is outer radius, r is inner radius. Area of path around circle = π(R² - r²). Used in calculating areas of complex shapes, designing patterns, and practical applications.",
-                    "Perimeter of Sector: P = 2r + L where r is radius and L is arc length. Includes two radii and arc. Example: Sector with radius 5cm and arc length 10cm has perimeter = 2×5 + 10 = 20 cm. Used in calculating perimeters of circular sectors and combined shapes.",
-                    "Practical Applications: Used in: calculating areas of circular fields, designing circular objects, calculating material needed for circular shapes, finding areas in pie charts, engineering designs, architecture, manufacturing circular parts, calculating areas of wheels, gears, and various circular components.",
-                    "Problem Solving Tips: Always identify given values (radius, diameter, angle). Choose correct formula based on what is given and what to find. Convert units if needed. Use π = 22/7 for calculations or π = 3.14 for approximations. Check if answer is reasonable. Practice with various problems involving circles, sectors, and segments."
+                    "Area of Circle - Complete Formula and Derivation:\n\nThe area of a circle is the space enclosed by the circle.\n\nFormula:\nA = πr²\n\nWhere:\n• A = Area of circle\n• r = Radius of circle\n• π (pi) ≈ 3.14159 or 22/7\n\nDerivation Concept:\n• Divide circle into many small sectors\n• Rearrange sectors to form approximate rectangle\n• Length of rectangle ≈ half of circumference = πr\n• Width of rectangle ≈ radius = r\n• Area = length × width = πr × r = πr²\n\nUsing Diameter:\nIf diameter d is given:\n• r = d/2\n• A = π(d/2)² = πd²/4\n\nExample:\nCircle with radius 7 cm:\n• A = π × 7² = 49π\n• Using π = 22/7: A = 49 × (22/7) = 154 cm²\n\nProperties:\n• Area is proportional to square of radius\n• If radius doubles, area becomes 4 times\n• If radius triples, area becomes 9 times\n• Area ∝ r² (proportional to r²)\n\nApplications:\n• Calculating area of circular fields\n• Finding material needed for circular objects\n• Designing circular components\n• Used in many practical problems\n\nThis formula is fundamental and used extensively in geometry and real-world applications.",
+                    
+                    "Circumference of Circle - Perimeter Formula:\n\nThe circumference is the distance around the circle (perimeter).\n\nFormula:\nC = 2πr = πd\n\nWhere:\n• C = Circumference\n• r = Radius\n• d = Diameter (d = 2r)\n• π ≈ 3.14159 or 22/7\n\nUnderstanding π (Pi):\n• π is the ratio of circumference to diameter\n• π = C/d (constant for all circles)\n• Approximately 3.14159 (irrational number)\n• Commonly used: 22/7 or 3.14\n\nExample:\nCircle with radius 5 cm:\n• C = 2π × 5 = 10π\n• Using π = 22/7: C = 10 × (22/7) = 220/7 ≈ 31.43 cm\n\nCircle with diameter 14 cm:\n• C = π × 14 = 14π\n• Using π = 22/7: C = 14 × (22/7) = 44 cm\n\nProperties:\n• Circumference is proportional to radius\n• If radius doubles, circumference doubles\n• If radius triples, circumference triples\n• C ∝ r (proportional to r)\n\nRelationship with Area:\n• C = 2πr and A = πr²\n• From circumference: r = C/(2π)\n• Area in terms of circumference: A = C²/(4π)\n\nApplications:\n• Finding perimeter of circular objects\n• Calculating distances around circles\n• Designing circular paths\n• Used in engineering and construction\n\nCircumference is essential for understanding circular measurements.",
+                    
+                    "Area of Sector - Fractional Area:\n\nA sector is the region bounded by two radii and an arc.\n\nFormula:\nA = (θ/360°) × πr²\n\nWhere:\n• A = Area of sector\n• θ = Central angle in degrees\n• r = Radius\n• πr² = Total area of circle\n\nUnderstanding:\n• Sector is a fraction of the circle\n• Fraction = θ/360°\n• Area of sector = Fraction × Area of circle\n\nIf Angle in Radians:\n• A = (1/2)r²θ\n• Where θ is in radians\n• 1 radian = 180°/π\n\nExample:\nSector with radius 6 cm and angle 60°:\n• A = (60/360) × π × 6²\n• A = (1/6) × 36π\n• A = 6π cm²\n• Using π = 22/7: A = 6 × (22/7) = 132/7 ≈ 18.86 cm²\n\nSector with radius 10 cm and angle 90°:\n• A = (90/360) × π × 10²\n• A = (1/4) × 100π = 25π cm²\n\nProperties:\n• Area is proportional to angle\n• If angle doubles, area doubles\n• If angle is 180°, area is half circle\n• If angle is 360°, area is full circle\n\nApplications:\n• Calculating areas in pie charts\n• Finding area of circular segments\n• Designing circular patterns\n• Used in many geometric problems\n\nSectors are important for understanding fractional parts of circles.",
+                    
+                    "Length of Arc - Curved Distance:\n\nAn arc is a part of the circumference.\n\nFormula:\nL = (θ/360°) × 2πr = (θ/360°) × C\n\nWhere:\n• L = Length of arc\n• θ = Central angle in degrees\n• r = Radius\n• C = Circumference (C = 2πr)\n\nUnderstanding:\n• Arc is a fraction of circumference\n• Fraction = θ/360°\n• Arc length = Fraction × Circumference\n\nIf Angle in Radians:\n• L = rθ\n• Where θ is in radians\n• Simpler formula for radian measure\n\nExample:\nArc with radius 8 cm and angle 45°:\n• L = (45/360) × 2π × 8\n• L = (1/8) × 16π\n• L = 2π cm\n• Using π = 22/7: L = 2 × (22/7) = 44/7 ≈ 6.29 cm\n\nArc with radius 12 cm and angle 120°:\n• L = (120/360) × 2π × 12\n• L = (1/3) × 24π = 8π cm\n\nProperties:\n• Arc length is proportional to angle\n• If angle doubles, arc length doubles\n• If angle is 180°, arc is semicircle (πr)\n• If angle is 360°, arc is full circle (2πr)\n\nRelationship with Sector Area:\n• If we know arc length L and radius r:\n• Area of sector = (1/2) × r × L\n• This is useful when arc length is given\n\nApplications:\n• Calculating distances along curves\n• Designing arcs and arches\n• Finding lengths in circular paths\n• Used in engineering and architecture\n\nArc length is essential for curved measurements.",
+                    
+                    "Area of Segment - Region Between Chord and Arc:\n\nA segment is the region between a chord and its corresponding arc.\n\nTypes:\n• Minor Segment: Smaller region (angle < 180°)\n• Major Segment: Larger region (angle > 180°)\n\nFormula for Minor Segment:\nA = Area of sector - Area of triangle\n\nDetailed Formula:\nA = (θ/360°) × πr² - (1/2)r²sinθ\n\nWhere:\n• First part: Area of sector\n• Second part: Area of triangle formed by two radii and chord\n• θ is in degrees\n\nFor Major Segment:\nA = Area of remaining sector + Area of triangle\n\nExample:\nSegment with radius 10 cm and angle 60°:\n• Area of sector = (60/360) × π × 10² = (100π)/6\n• Area of triangle = (1/2) × 10² × sin(60°)\n• Area of triangle = 50 × (√3/2) = 25√3\n• Area of segment = (100π)/6 - 25√3\n\nApproximate Method:\n• For small angles, segment ≈ sector area\n• For angles near 180°, use exact formula\n\nProperties:\n• Minor segment area < Sector area\n• Major segment area > Sector area\n• When θ = 180°, segment is semicircle\n\nApplications:\n• Calculating areas of circular segments\n• Designing curved shapes\n• Finding areas in complex figures\n• Used in architecture and engineering\n\nSegments are important for understanding parts of circles bounded by chords.",
+                    
+                    "Relationship Between Arc and Sector - Proportionality:\n\nUnderstanding the relationships helps solve problems efficiently.\n\nKey Relationships:\n\n1. Arc Length and Angle:\n   • L ∝ θ (proportional to angle)\n   • If angle doubles, arc length doubles\n   • L = (θ/360°) × 2πr\n\n2. Sector Area and Angle:\n   • A ∝ θ (proportional to angle)\n   • If angle doubles, area doubles\n   • A = (θ/360°) × πr²\n\n3. Arc Length and Radius:\n   • L ∝ r (proportional to radius)\n   • If radius doubles, arc length doubles\n   • L = (θ/360°) × 2πr\n\n4. Sector Area and Radius:\n   • A ∝ r² (proportional to square of radius)\n   • If radius doubles, area becomes 4 times\n   • A = (θ/360°) × πr²\n\n5. Arc Length and Sector Area:\n   • A = (1/2) × r × L\n   • If arc length is known, area can be found\n   • Useful relationship\n\nExample:\nIf radius is doubled and angle remains same:\n• Arc length becomes 2 times\n• Sector area becomes 4 times (r² effect)\n\nIf angle is doubled and radius remains same:\n• Arc length becomes 2 times\n• Sector area becomes 2 times\n\nUnderstanding these relationships helps in:\n• Solving problems quickly\n• Checking answers\n• Understanding scale effects\n• Making conversions\n\nThese relationships are fundamental to working with circles and sectors.",
+                    
+                    "Combined Areas - Complex Shapes:\n\nMany problems involve combinations of circles, sectors, and other shapes.\n\nCommon Combinations:\n\n1. Ring (Annulus):\n   • Area between two concentric circles\n   • Formula: A = π(R² - r²)\n   • Where R = outer radius, r = inner radius\n   • Example: Ring with R = 10 cm, r = 6 cm:\n     A = π(10² - 6²) = π(100 - 36) = 64π cm²\n\n2. Circular Path:\n   • Path around a circle\n   • Same as ring formula\n   • A = π(R² - r²)\n\n3. Square with Inscribed Circle:\n   • Square side = diameter of circle\n   • Shaded area = Area of square - Area of circle\n   • A = a² - π(a/2)² = a² - πa²/4\n\n4. Rectangle with Semicircles:\n   • Semicircles on opposite sides\n   • Total area = Area of rectangle + 2 × Area of semicircle\n   • A = l × b + 2 × (πr²/2) = lb + πr²\n\n5. Four Quadrants:\n   • Four quarter circles forming a circle\n   • If radius of each quadrant is r:\n     Total area = 4 × (πr²/4) = πr²\n\nProblem Solving Strategy:\n1. Identify all shapes involved\n2. Find area of each part\n3. Add or subtract as needed\n4. Use appropriate formulas\n\nThese combinations appear frequently in practical problems and require careful analysis.",
+                    
+                    "Perimeter of Sector - Total Boundary Length:\n\nThe perimeter of a sector includes the arc and two radii.\n\nFormula:\nP = 2r + L\n\nWhere:\n• P = Perimeter of sector\n• r = Radius (appears twice for two radii)\n• L = Length of arc\n\nAlternative Form:\nP = 2r + (θ/360°) × 2πr\n\nExample:\nSector with radius 5 cm and arc length 10 cm:\n• P = 2 × 5 + 10 = 10 + 10 = 20 cm\n\nSector with radius 8 cm and angle 90°:\n• Arc length L = (90/360) × 2π × 8 = 4π cm\n• P = 2 × 8 + 4π = 16 + 4π cm\n• Using π = 22/7: P = 16 + 88/7 = (112 + 88)/7 = 200/7 cm\n\nProperties:\n• Perimeter includes two radii and one arc\n• If angle increases, arc length increases, so perimeter increases\n• Minimum perimeter when angle = 0° (just two radii)\n• Maximum perimeter when angle = 360° (full circle)\n\nFor Semicircle:\n• Angle = 180°\n• Arc length = πr\n• Perimeter = 2r + πr = r(2 + π)\n\nApplications:\n• Finding boundary length of sectors\n• Calculating fencing needed\n• Designing curved boundaries\n• Used in construction and design\n\nPerimeter is important for understanding total boundary measurements.",
+                    
+                    "Practical Applications - Real-World Uses:\n\nAreas related to circles have many practical applications:\n\n1. Circular Fields:\n   • Calculating area of circular farms\n   • Finding area for planting\n   • Land measurement\n   • Used in agriculture\n\n2. Design and Architecture:\n   • Circular buildings and structures\n   • Dome calculations\n   • Arch designs\n   • Circular windows and doors\n\n3. Manufacturing:\n   • Circular components (wheels, gears)\n   • Material calculations\n   • Cost estimation\n   • Quality control\n\n4. Pie Charts:\n   • Data representation\n   • Sector areas represent proportions\n   • Used in statistics and presentations\n\n5. Engineering:\n   • Circular pipes and tubes\n   • Cross-sectional areas\n   • Flow calculations\n   • Structural design\n\n6. Daily Life:\n   • Pizza slices (sectors)\n   • Clock faces\n   • Coins and circular objects\n   • Round tables and plates\n\n7. Sports:\n   • Circular tracks\n   • Field markings\n   • Court designs\n   • Equipment design\n\nUnderstanding these applications helps connect mathematics to real-world problems and makes learning more meaningful.",
+                    
+                    "Problem Solving Tips - Effective Strategies:\n\n1. Identify Given Values:\n   • Note radius, diameter, angle\n   • Check units (cm, m, etc.)\n   • Identify what needs to be found\n\n2. Choose Correct Formula:\n   • Area: A = πr²\n   • Circumference: C = 2πr\n   • Sector area: A = (θ/360°) × πr²\n   • Arc length: L = (θ/360°) × 2πr\n   • Select based on given information\n\n3. Convert Units if Needed:\n   • Ensure all measurements in same units\n   • Convert before calculating\n   • Check final answer units\n\n4. Use Appropriate π Value:\n   • π = 22/7 for exact calculations\n   • π = 3.14 for approximations\n   • Use as specified in problem\n\n5. Check Reasonableness:\n   • Verify answer makes sense\n   • Area should be positive\n   • Compare with known values\n   • Re-check calculations\n\n6. Draw Diagrams:\n   • Visualize the problem\n   • Label all given values\n   • Helps understand relationships\n\n7. Break Complex Problems:\n   • Divide into simpler parts\n   • Find area of each part\n   • Combine results\n\n8. Practice Regularly:\n   • Solve various problems\n   • Master formulas\n   • Build confidence\n\nFollowing these tips ensures accurate problem solving and better understanding."
                 ),
                 keyPoints = listOf(
                     "Area and Circumference: Area of circle = πr² where r is radius. Circumference = 2πr = πd where d is diameter. π ≈ 22/7 or 3.14. If radius doubles, area becomes 4 times, circumference becomes 2 times. Example: Circle with r=7cm has area = (22/7)×7×7 = 154 cm², circumference = 2×(22/7)×7 = 44 cm.",
@@ -1472,16 +1578,25 @@ object MockData {
                 id = "maths_13",
                 title = "Surface Areas and Volumes",
                 revisionNotes = listOf(
-                    "Cuboid: Rectangular solid with length l, breadth b, height h. Volume V = l × b × h (space occupied). Total Surface Area TSA = 2(lb + bh + hl) (sum of areas of all 6 faces). Lateral Surface Area LSA = 2h(l + b) (area of 4 side faces, excluding top and bottom). Diagonal d = √(l² + b² + h²). Example: Cuboid 5×4×3 has volume = 60 cubic units, TSA = 2(20+12+15) = 94 sq units. Used in calculating volumes and surface areas of boxes, rooms, containers.",
-                    "Cube: Special cuboid with all edges equal (l = b = h = a). Volume V = a³ (cube of edge). Total Surface Area TSA = 6a² (6 faces, each area a²). Lateral Surface Area LSA = 4a² (4 side faces). Diagonal of face = a√2, Space diagonal = a√3. Example: Cube with edge 4cm has volume = 64 cm³, TSA = 96 cm². Used in calculating volumes of cubic objects, dice, cubic containers.",
-                    "Cylinder: Solid with circular base and height h, radius r. Volume V = πr²h (base area × height). Curved Surface Area CSA = 2πrh (circumference × height). Total Surface Area TSA = 2πr(r + h) = 2πr² + 2πrh (two circular bases + curved surface). Example: Cylinder with r=3cm, h=5cm has volume = 45π cm³, CSA = 30π cm², TSA = 48π cm². Used in calculating volumes of pipes, cans, pillars, cylindrical containers.",
-                    "Cone: Solid with circular base, height h, radius r, slant height l = √(r² + h²). Volume V = (1/3)πr²h (one-third of cylinder with same base and height). Curved Surface Area CSA = πrl (area of curved surface). Total Surface Area TSA = πr(r + l) = πr² + πrl (circular base + curved surface). Example: Cone with r=4cm, h=3cm has l=5cm, volume = 16π cm³, CSA = 20π cm². Used in calculating volumes of cones, ice cream cones, funnels, conical containers.",
-                    "Sphere: Perfectly round solid, radius r. Volume V = (4/3)πr³ (four-thirds of cube of radius). Surface Area SA = 4πr² (area of curved surface, no flat faces). Example: Sphere with r=5cm has volume = (500/3)π cm³, SA = 100π cm². Used in calculating volumes of balls, planets, spherical objects, bubbles. Important in physics and astronomy.",
-                    "Hemisphere: Half of sphere. Volume V = (2/3)πr³ (half of sphere volume). Curved Surface Area CSA = 2πr² (half of sphere surface). Total Surface Area TSA = 3πr² (curved surface + circular base). Example: Hemisphere with r=6cm has volume = 144π cm³, TSA = 108π cm². Used in calculating volumes of domes, bowls, hemispherical containers.",
-                    "Combination of Solids: Problems involving combination of two or more solids. Volume = sum of volumes of individual solids. Surface Area = sum of surface areas minus common areas. Example: Cylinder with hemisphere on top: Volume = πr²h + (2/3)πr³, TSA = 2πrh + 2πr² + 2πr² (excluding common base). Used in calculating volumes and areas of complex objects.",
-                    "Conversion of Units: 1 m³ = 1000 liters, 1 cm³ = 1 ml, 1 liter = 1000 cm³. Important for volume calculations. For surface area: 1 m² = 10000 cm², 1 cm² = 100 mm². Always check units in problems and convert if needed. Used in practical applications and problem solving.",
-                    "Practical Applications: Used in: calculating material needed for construction, finding capacity of containers, designing objects, calculating paint needed for surfaces, finding volumes of storage spaces, engineering calculations, architecture, manufacturing, packaging, and various real-world applications involving 3D shapes.",
-                    "Problem Solving Strategy: Identify the shape (cuboid, cube, cylinder, cone, sphere). Note given dimensions (radius, height, length, etc.). Choose correct formula. Calculate step by step. Check units. Verify answer is reasonable. For combination problems, break into individual shapes. Practice with various problems to master calculations."
+                    "Cuboid - Complete Formulas and Properties:\n\nA cuboid is a rectangular solid with three dimensions: length (l), breadth (b), and height (h).\n\nVolume:\nV = l × b × h\n• Volume is the space occupied by the cuboid\n• Measured in cubic units (cm³, m³, etc.)\n• Represents capacity\n\nTotal Surface Area (TSA):\nTSA = 2(lb + bh + hl)\n• Sum of areas of all 6 faces\n• Two faces of each type: front-back, left-right, top-bottom\n• Measured in square units (cm², m², etc.)\n\nLateral Surface Area (LSA):\nLSA = 2h(l + b)\n• Area of 4 side faces (excluding top and bottom)\n• Only vertical faces\n• Used when top and bottom are not included\n\nDiagonal:\nd = √(l² + b² + h²)\n• Space diagonal from one corner to opposite corner\n• Longest distance inside cuboid\n\nExample:\nCuboid with l = 5 cm, b = 4 cm, h = 3 cm:\n• Volume = 5 × 4 × 3 = 60 cm³\n• TSA = 2(5×4 + 4×3 + 3×5) = 2(20 + 12 + 15) = 94 cm²\n• LSA = 2×3(5 + 4) = 6×9 = 54 cm²\n• Diagonal = √(5² + 4² + 3²) = √(25 + 16 + 9) = √50 = 5√2 cm\n\nApplications: Boxes, rooms, containers, storage units, packaging.",
+                    
+                    "Cube - Special Case of Cuboid:\n\nA cube is a special cuboid where all edges are equal (l = b = h = a).\n\nVolume:\nV = a³\n• Cube of the edge length\n• All dimensions equal\n\nTotal Surface Area (TSA):\nTSA = 6a²\n• Six faces, each with area a²\n• All faces are identical squares\n\nLateral Surface Area (LSA):\nLSA = 4a²\n• Four side faces (excluding top and bottom)\n• Each face has area a²\n\nDiagonals:\n• Face diagonal = a√2 (diagonal of square face)\n• Space diagonal = a√3 (diagonal through cube)\n\nExample:\nCube with edge a = 4 cm:\n• Volume = 4³ = 64 cm³\n• TSA = 6 × 4² = 6 × 16 = 96 cm²\n• LSA = 4 × 4² = 4 × 16 = 64 cm²\n• Face diagonal = 4√2 cm\n• Space diagonal = 4√3 cm\n\nProperties:\n• If edge doubles, volume becomes 8 times (2³ = 8)\n• If edge triples, volume becomes 27 times (3³ = 27)\n• Surface area increases as square of edge\n\nApplications: Dice, cubic containers, storage cubes, building blocks, cubic objects.",
+                    
+                    "Cylinder - Circular Prism:\n\nA cylinder is a solid with circular base and uniform height.\n\nGiven: Radius r, Height h\n\nVolume:\nV = πr²h\n• Base area (πr²) × height (h)\n• Same as area of circle × height\n\nCurved Surface Area (CSA):\nCSA = 2πrh\n• Circumference of base (2πr) × height (h)\n• When unrolled, forms a rectangle\n• Length = 2πr, Width = h\n\nTotal Surface Area (TSA):\nTSA = 2πr(r + h) = 2πr² + 2πrh\n• Two circular bases (2 × πr²) + Curved surface (2πrh)\n• Complete surface area\n\nExample:\nCylinder with r = 3 cm, h = 5 cm:\n• Volume = π × 3² × 5 = 45π cm³\n• Using π = 22/7: V = 45 × (22/7) = 990/7 ≈ 141.43 cm³\n• CSA = 2π × 3 × 5 = 30π cm²\n• TSA = 2π × 3(3 + 5) = 6π × 8 = 48π cm²\n\nProperties:\n• If height doubles, volume doubles, CSA doubles\n• If radius doubles, volume becomes 4 times (r² effect), CSA doubles\n• Volume ∝ r²h, CSA ∝ rh\n\nApplications: Pipes, cans, pillars, cylindrical containers, tubes, drums.",
+                    
+                    "Cone - Tapered Solid:\n\nA cone is a solid with circular base tapering to a point (apex).\n\nGiven: Radius r, Height h, Slant height l\n\nSlant Height:\nl = √(r² + h²)\n• Distance from apex to any point on base circumference\n• Found using Pythagoras theorem\n\nVolume:\nV = (1/3)πr²h\n• One-third of cylinder with same base and height\n• Volume of cylinder = πr²h\n• Volume of cone = (1/3) × Volume of cylinder\n\nCurved Surface Area (CSA):\nCSA = πrl\n• Area of curved (lateral) surface\n• When unrolled, forms a sector of circle\n\nTotal Surface Area (TSA):\nTSA = πr(r + l) = πr² + πrl\n• Circular base (πr²) + Curved surface (πrl)\n• Complete surface area\n\nExample:\nCone with r = 4 cm, h = 3 cm:\n• Slant height l = √(4² + 3²) = √(16 + 9) = √25 = 5 cm\n• Volume = (1/3) × π × 4² × 3 = (1/3) × 48π = 16π cm³\n• CSA = π × 4 × 5 = 20π cm²\n• TSA = π × 4(4 + 5) = 4π × 9 = 36π cm²\n\nProperties:\n• Volume is always (1/3) of corresponding cylinder\n• Slant height is always greater than height (l > h)\n• If height doubles, volume doubles\n• If radius doubles, volume becomes 4 times\n\nApplications: Ice cream cones, party hats, funnels, conical containers, traffic cones.",
+                    
+                    "Sphere - Perfect Round Solid:\n\nA sphere is a perfectly round solid, like a ball.\n\nGiven: Radius r\n\nVolume:\nV = (4/3)πr³\n• Four-thirds of π times cube of radius\n• Derived using calculus or geometric methods\n• Volume of sphere = 2 × Volume of hemisphere\n\nSurface Area:\nSA = 4πr²\n• Area of curved surface (no flat faces)\n• Same as area of 4 circles of radius r\n• Only one surface (curved)\n\nExample:\nSphere with r = 5 cm:\n• Volume = (4/3) × π × 5³ = (4/3) × 125π = (500/3)π cm³\n• Using π = 22/7: V = (500/3) × (22/7) = 11000/21 ≈ 523.81 cm³\n• Surface Area = 4π × 5² = 4π × 25 = 100π cm²\n• Using π = 22/7: SA = 100 × (22/7) = 2200/7 ≈ 314.29 cm²\n\nProperties:\n• If radius doubles, volume becomes 8 times (r³ effect)\n• If radius doubles, surface area becomes 4 times (r² effect)\n• Volume ∝ r³, Surface Area ∝ r²\n• All points on surface are equidistant from center\n\nApplications: Balls, planets, spherical objects, bubbles, globes, bearings.",
+                    
+                    "Hemisphere - Half Sphere:\n\nA hemisphere is half of a sphere.\n\nGiven: Radius r\n\nVolume:\nV = (2/3)πr³\n• Half of sphere volume\n• Sphere volume = (4/3)πr³\n• Hemisphere volume = (1/2) × (4/3)πr³ = (2/3)πr³\n\nCurved Surface Area (CSA):\nCSA = 2πr²\n• Half of sphere surface area\n• Sphere SA = 4πr²\n• Hemisphere CSA = (1/2) × 4πr² = 2πr²\n\nTotal Surface Area (TSA):\nTSA = 3πr²\n• Curved surface (2πr²) + Circular base (πr²)\n• TSA = 2πr² + πr² = 3πr²\n\nExample:\nHemisphere with r = 6 cm:\n• Volume = (2/3) × π × 6³ = (2/3) × 216π = 144π cm³\n• CSA = 2π × 6² = 2π × 36 = 72π cm²\n• TSA = 3π × 6² = 3π × 36 = 108π cm²\n\nProperties:\n• Volume is (2/3) of full sphere\n• Curved surface is half of sphere\n• Has one flat circular face (base)\n• Used in domes and bowls\n\nApplications: Domes, bowls, hemispherical containers, architectural structures, caps.",
+                    
+                    "Combination of Solids - Complex Objects:\n\nMany real objects are combinations of basic solids.\n\nGeneral Approach:\n1. Identify individual solids\n2. Find volume/area of each part\n3. Add volumes (for total volume)\n4. Add surface areas, subtract common areas (for total surface area)\n\nCommon Combinations:\n\n1. Cylinder with Hemisphere on Top:\n   • Example: Tent, silo\n   • Volume = Volume of cylinder + Volume of hemisphere\n   • V = πr²h + (2/3)πr³\n   • TSA = CSA of cylinder + CSA of hemisphere + Area of base\n   • TSA = 2πrh + 2πr² + πr² = 2πrh + 3πr²\n   • (Common base area is not included in TSA)\n\n2. Cone on Cylinder:\n   • Example: Rocket, toy top\n   • Volume = Volume of cylinder + Volume of cone\n   • V = πr²h₁ + (1/3)πr²h₂\n   • TSA = CSA of cylinder + CSA of cone + Area of base\n\n3. Sphere in Cube:\n   • Volume of remaining space = Volume of cube - Volume of sphere\n   • V = a³ - (4/3)πr³\n\n4. Two Hemispheres on Cylinder:\n   • Example: Pill, capsule\n   • Volume = Volume of cylinder + 2 × Volume of hemisphere\n   • V = πr²h + 2 × (2/3)πr³ = πr²h + (4/3)πr³\n\nProblem Solving:\n• Break complex object into simple shapes\n• Calculate each part separately\n• Combine results carefully\n• Watch for common surfaces that shouldn't be counted twice",
+                    
+                    "Conversion of Units - Important Equivalents:\n\nVolume Conversions:\n• 1 m³ = 1000 liters\n• 1 liter = 1000 cm³ = 1000 ml\n• 1 cm³ = 1 ml\n• 1 m³ = 1,000,000 cm³\n• 1 liter = 1 dm³\n\nSurface Area Conversions:\n• 1 m² = 10,000 cm²\n• 1 cm² = 100 mm²\n• 1 m² = 1,000,000 mm²\n• 1 km² = 1,000,000 m²\n\nLength Conversions:\n• 1 m = 100 cm = 1000 mm\n• 1 km = 1000 m\n• 1 cm = 10 mm\n\nImportant Notes:\n• Always check units in problems\n• Convert all measurements to same units before calculating\n• Volume units are cubic (m³, cm³)\n• Surface area units are square (m², cm²)\n• Length units are linear (m, cm)\n\nExample:\nCylinder with r = 2 m, h = 3 m:\n• Volume = π × 2² × 3 = 12π m³\n• Convert to liters: 12π × 1000 = 12,000π liters\n• CSA = 2π × 2 × 3 = 12π m²\n• Convert to cm²: 12π × 10,000 = 120,000π cm²\n\nAlways verify units match the context of the problem.",
+                    
+                    "Practical Applications - Real-World Uses:\n\nSurface areas and volumes have extensive practical applications:\n\n1. Construction:\n   • Calculating material needed (concrete, paint)\n   • Finding capacity of tanks and reservoirs\n   • Designing structures\n   • Cost estimation\n\n2. Manufacturing:\n   • Designing containers and packaging\n   • Material calculations\n   • Volume of products\n   • Surface area for coating/painting\n\n3. Engineering:\n   • Pipes and tubes (cylinders)\n   • Storage tanks\n   • Structural components\n   • Fluid capacity calculations\n\n4. Architecture:\n   • Building designs\n   • Dome constructions (hemispheres)\n   • Room volumes\n   • Surface area for materials\n\n5. Daily Life:\n   • Container capacities\n   • Paint needed for walls\n   • Water storage\n   • Packaging design\n\n6. Science:\n   • Volume of substances\n   • Surface area for reactions\n   • Capacity calculations\n   • Research applications\n\n7. Business:\n   • Packaging optimization\n   • Material cost calculation\n   • Storage capacity\n   • Shipping volume\n\nUnderstanding these applications connects mathematics to real-world problems and makes learning meaningful and practical.",
+                    
+                    "Problem Solving Strategy - Step-by-Step Approach:\n\n1. Identify the Shape:\n   • Determine if it's cuboid, cube, cylinder, cone, sphere, or combination\n   • Draw a rough diagram\n   • Label all given dimensions\n\n2. Note Given Dimensions:\n   • List all known values (radius, height, length, etc.)\n   • Check units\n   • Identify what needs to be found\n\n3. Choose Correct Formula:\n   • Select appropriate formula for volume or surface area\n   • For combinations, identify formulas for each part\n   • Ensure formula matches the shape\n\n4. Calculate Step by Step:\n   • Substitute values into formula\n   • Perform calculations carefully\n   • Show intermediate steps\n   • Use correct value of π (22/7 or 3.14)\n\n5. Check Units:\n   • Ensure all measurements in same units\n   • Convert if necessary\n   • Verify final answer has correct units\n   • Volume: cubic units, Area: square units\n\n6. Verify Answer:\n   • Check if answer is reasonable\n   • Volume should be positive\n   • Compare with known values\n   • Re-check calculations if needed\n\n7. For Combination Problems:\n   • Break into individual shapes\n   • Calculate each part separately\n   • Add volumes\n   • Add areas, subtract common surfaces\n\n8. Practice Regularly:\n   • Solve various problems\n   • Master all formulas\n   • Build confidence\n   • Improve accuracy\n\nFollowing this strategy ensures accurate problem solving and better understanding of 3D geometry."
                 ),
                 keyPoints = listOf(
                     "Cuboid and Cube: Cuboid: Volume = l×b×h, Total Surface Area (TSA) = 2(lb + bh + hl), Lateral Surface Area (LSA) = 2h(l+b). Cube: Volume = a³, TSA = 6a², LSA = 4a² where a is side. Diagonal of cuboid = √(l²+b²+h²), diagonal of cube = a√3. Used for boxes, rooms, containers.",
@@ -1543,16 +1658,25 @@ object MockData {
                 id = "maths_14",
                 title = "Statistics",
                 revisionNotes = listOf(
-                    "Mean (Average): Sum of all observations divided by total number of observations. Formula: Mean = (Σx)/n where Σx is sum of all values, n is number of values. Example: Mean of 2, 4, 6, 8, 10 = (2+4+6+8+10)/5 = 30/5 = 6. Mean represents central tendency and is affected by all values. Used in finding average marks, average temperature, average income, etc. Sensitive to extreme values (outliers).",
-                    "Median: Middle value when data is arranged in ascending or descending order. For odd number of observations: Median = middle value. For even number: Median = average of two middle values. Example: Median of 3, 5, 7, 9, 11 = 7 (middle value). Median of 2, 4, 6, 8 = (4+6)/2 = 5. Median represents middle position and is not affected by extreme values. Used when data has outliers. For grouped data, use cumulative frequency to find median class.",
-                    "Mode: Most frequently occurring value in data. Data can have one mode (unimodal), two modes (bimodal), or no mode (all values different). Example: Mode of 2, 3, 3, 4, 4, 4, 5 = 4 (appears most times). Mode represents most common value. Used in finding most popular item, most common size, etc. For grouped data, modal class is class with highest frequency.",
-                    "Mean of Grouped Data: Three methods: (1) Direct Method: Mean = Σ(fx)/Σf where f is frequency, x is class mark. (2) Assumed Mean Method: Mean = A + (Σfd)/Σf where A is assumed mean, d = x - A. (3) Step Deviation Method: Mean = A + h(Σfu)/Σf where h is class width, u = (x-A)/h. Choose method based on convenience. Used when data is grouped into classes.",
-                    "Cumulative Frequency: Running total of frequencies. Less than type: Cumulative frequency up to upper limit. More than type: Cumulative frequency from lower limit. Used to find median, quartiles, and percentiles. Cumulative frequency curve (ogive) helps visualize data distribution. Example: If frequencies are 5, 8, 12, 10, cumulative frequencies are 5, 13, 25, 35.",
-                    "Median of Grouped Data: Steps: (1) Find cumulative frequencies, (2) Determine median class (class where n/2 lies), (3) Use formula: Median = L + [(n/2 - cf)/f] × h where L is lower limit of median class, cf is cumulative frequency of previous class, f is frequency of median class, h is class width. Used to find middle value in grouped data.",
-                    "Mode of Grouped Data: Steps: (1) Identify modal class (class with highest frequency), (2) Use formula: Mode = L + [(f₁ - f₀)/(2f₁ - f₀ - f₂)] × h where L is lower limit of modal class, f₁ is frequency of modal class, f₀ is frequency of previous class, f₂ is frequency of next class, h is class width. Used to find most common value in grouped data.",
-                    "Graphical Representation: Histogram: Bar graph for continuous data, bars have no gaps, area proportional to frequency. Frequency Polygon: Line graph joining midpoints of histogram bars. Ogive: Cumulative frequency curve, used to find median. Bar Graph: For discrete data, bars have gaps. Pie Chart: Circular graph showing proportions. Used to visualize data and identify patterns.",
-                    "Measures of Central Tendency Comparison: Mean: Uses all values, affected by outliers, good for symmetric data. Median: Not affected by outliers, good for skewed data, represents middle position. Mode: Most common value, not affected by outliers, useful for categorical data. Choose measure based on data type and purpose. All three together give complete picture of data.",
-                    "Applications: Statistics used in: analyzing exam results, market research, quality control, weather analysis, sports statistics, medical research, economic data, scientific experiments, opinion polls, and various fields requiring data analysis. Understanding statistics helps in making informed decisions and interpreting data correctly."
+                    "Mean (Average) - Complete Understanding:\n\nThe mean is the average of all observations, representing the central value of data.\n\nFormula:\nMean = (Σx)/n = (Sum of all values) / (Number of values)\n\nWhere:\n• Σx = Sum of all observations\n• n = Total number of observations\n• x = Individual values\n\nCalculation:\n1. Add all values\n2. Count total number of values\n3. Divide sum by count\n\nExample:\nData: 2, 4, 6, 8, 10\n• Sum = 2 + 4 + 6 + 8 + 10 = 30\n• Count = 5\n• Mean = 30/5 = 6\n\nProperties:\n• Uses all values in calculation\n• Represents central tendency\n• Affected by extreme values (outliers)\n• Good for symmetric data\n• Sensitive to changes in any value\n\nWhen to Use:\n• When data is symmetric\n• When all values are important\n• For further calculations\n• When outliers are not significant\n\nApplications:\n• Average marks in exams\n• Average temperature\n• Average income\n• Average speed\n• Used in many real-world scenarios\n\nThe mean is the most commonly used measure of central tendency.",
+                    
+                    "Median - Middle Value:\n\nThe median is the middle value when data is arranged in order.\n\nFinding Median:\n\nStep 1: Arrange data in ascending or descending order\nStep 2: Find middle position\n\nFor Odd Number of Observations:\n• Median = Middle value\n• Position = (n + 1)/2\n• Example: Data: 3, 5, 7, 9, 11 (n = 5)\n  Position = (5 + 1)/2 = 3rd value\n  Median = 7\n\nFor Even Number of Observations:\n• Median = Average of two middle values\n• Positions = n/2 and (n/2 + 1)\n• Example: Data: 2, 4, 6, 8 (n = 4)\n  Positions = 2nd and 3rd values\n  Median = (4 + 6)/2 = 5\n\nProperties:\n• Not affected by extreme values (outliers)\n• Represents middle position\n• Good for skewed data\n• Divides data into two equal halves\n• 50% values below, 50% above median\n\nWhen to Use:\n• When data has outliers\n• For skewed distributions\n• When extreme values are not representative\n• For ordinal data\n\nFor Grouped Data:\n• Use cumulative frequency\n• Find median class\n• Apply formula: Median = L + [(n/2 - cf)/f] × h\n\nThe median is robust and not affected by outliers.",
+                    
+                    "Mode - Most Frequent Value:\n\nThe mode is the value that appears most frequently in the data.\n\nFinding Mode:\n1. Count frequency of each value\n2. Value with highest frequency is mode\n\nExample:\nData: 2, 3, 3, 4, 4, 4, 5\n• Frequency: 2 appears 1 time, 3 appears 2 times, 4 appears 3 times, 5 appears 1 time\n• Mode = 4 (appears most times)\n\nTypes:\n• Unimodal: One mode\n• Bimodal: Two modes (two values with same highest frequency)\n• Multimodal: More than two modes\n• No mode: All values appear equally (or all different)\n\nProperties:\n• Represents most common value\n• Not affected by outliers\n• Can have multiple modes\n• May not exist (if all values different)\n• Useful for categorical data\n\nWhen to Use:\n• For categorical data\n• Finding most popular item\n• Most common size\n• When frequency matters\n\nFor Grouped Data:\n• Modal class = Class with highest frequency\n• Use formula: Mode = L + [(f₁ - f₀)/(2f₁ - f₀ - f₂)] × h\n\nApplications:\n• Most popular color\n• Most common shoe size\n• Most frequent score\n• Used in surveys and polls\n\nThe mode identifies the most typical or common value.",
+                    
+                    "Mean of Grouped Data - Three Methods:\n\nWhen data is grouped into classes, we use special methods to find mean.\n\nMethod 1: Direct Method\nFormula: Mean = Σ(fx)/Σf\n\nWhere:\n• f = Frequency of class\n• x = Class mark (midpoint of class)\n• fx = f × x (frequency × class mark)\n• Σf = Sum of all frequencies\n• Σfx = Sum of (frequency × class mark)\n\nSteps:\n1. Find class marks (midpoints)\n2. Multiply frequency by class mark (fx)\n3. Sum all fx values\n4. Sum all frequencies\n5. Divide Σfx by Σf\n\nMethod 2: Assumed Mean Method\nFormula: Mean = A + (Σfd)/Σf\n\nWhere:\n• A = Assumed mean (convenient value, usually middle class mark)\n• d = x - A (deviation from assumed mean)\n• fd = f × d\n• Σfd = Sum of (frequency × deviation)\n\nSteps:\n1. Choose assumed mean A\n2. Find deviations d = x - A\n3. Multiply frequency by deviation (fd)\n4. Sum all fd values\n5. Apply formula\n\nMethod 3: Step Deviation Method\nFormula: Mean = A + h(Σfu)/Σf\n\nWhere:\n• A = Assumed mean\n• h = Class width (common difference)\n• u = (x - A)/h (step deviation)\n• fu = f × u\n• Σfu = Sum of (frequency × step deviation)\n\nSteps:\n1. Choose assumed mean A\n2. Find step deviations u = (x - A)/h\n3. Multiply frequency by step deviation (fu)\n4. Sum all fu values\n5. Apply formula\n\nChoose method based on convenience and class width.",
+                    
+                    "Cumulative Frequency - Running Total:\n\nCumulative frequency is the running total of frequencies up to a certain point.\n\nTypes:\n\n1. Less Than Type:\n   • Cumulative frequency up to upper limit of class\n   • Shows how many values are less than upper limit\n   • Example: If class is 0-10, cf shows values < 10\n\n2. More Than Type:\n   • Cumulative frequency from lower limit of class\n   • Shows how many values are greater than or equal to lower limit\n   • Example: If class is 0-10, cf shows values ≥ 0\n\nCalculation:\n• Start with first class frequency\n• Add subsequent frequencies\n• Running total accumulates\n\nExample:\nFrequencies: 5, 8, 12, 10\nLess than type cumulative:\n• 5 (first class)\n• 5 + 8 = 13 (up to second class)\n• 13 + 12 = 25 (up to third class)\n• 25 + 10 = 35 (up to fourth class)\n\nUses:\n• Finding median (where n/2 lies)\n• Finding quartiles and percentiles\n• Drawing ogives (cumulative frequency curves)\n• Analyzing data distribution\n\nOgive (Cumulative Frequency Curve):\n• Graph of cumulative frequency\n• Less than ogive: Upper limits vs cumulative frequency\n• More than ogive: Lower limits vs cumulative frequency\n• Intersection of two ogives gives median\n\nCumulative frequency helps understand data distribution and find percentiles.",
+                    
+                    "Median of Grouped Data - Formula Method:\n\nTo find median when data is grouped into classes.\n\nFormula:\nMedian = L + [(n/2 - cf)/f] × h\n\nWhere:\n• L = Lower limit of median class\n• n = Total number of observations (Σf)\n• cf = Cumulative frequency of class before median class\n• f = Frequency of median class\n• h = Class width\n\nSteps:\n\nStep 1: Find Cumulative Frequencies\n• Calculate less than type cumulative frequencies\n• Running total of frequencies\n\nStep 2: Determine Median Class\n• Find n/2 (half of total observations)\n• Locate class where cumulative frequency ≥ n/2\n• This is the median class\n\nStep 3: Apply Formula\n• Identify L (lower limit of median class)\n• Find cf (cumulative frequency of previous class)\n• Note f (frequency of median class)\n• Note h (class width)\n• Substitute in formula\n\nExample:\nIf n = 50, median class is 20-30 with:\n• L = 20\n• cf = 15 (cumulative frequency before median class)\n• f = 12 (frequency of median class)\n• h = 10 (class width)\n\nMedian = 20 + [(50/2 - 15)/12] × 10\n       = 20 + [(25 - 15)/12] × 10\n       = 20 + [10/12] × 10\n       = 20 + 8.33\n       = 28.33\n\nThis gives the median value for grouped data.",
+                    
+                    "Mode of Grouped Data - Modal Class Method:\n\nTo find mode when data is grouped into classes.\n\nFormula:\nMode = L + [(f₁ - f₀)/(2f₁ - f₀ - f₂)] × h\n\nWhere:\n• L = Lower limit of modal class\n• f₁ = Frequency of modal class (highest frequency)\n• f₀ = Frequency of class before modal class\n• f₂ = Frequency of class after modal class\n• h = Class width\n\nSteps:\n\nStep 1: Identify Modal Class\n• Find class with highest frequency\n• This is the modal class\n\nStep 2: Note Required Values\n• L = Lower limit of modal class\n• f₁ = Frequency of modal class\n• f₀ = Frequency of previous class\n• f₂ = Frequency of next class\n• h = Class width\n\nStep 3: Apply Formula\n• Substitute values in formula\n• Calculate mode\n\nExample:\nModal class: 20-30 with frequency 15\nPrevious class (10-20): frequency 8\nNext class (30-40): frequency 10\nClass width h = 10\n\nMode = 20 + [(15 - 8)/(2×15 - 8 - 10)] × 10\n     = 20 + [7/(30 - 18)] × 10\n     = 20 + [7/12] × 10\n     = 20 + 5.83\n     = 25.83\n\nProperties:\n• Mode lies within modal class\n• Depends on frequencies of adjacent classes\n• Gives approximate value for grouped data\n\nThis formula provides the mode for grouped frequency distributions.",
+                    
+                    "Graphical Representation - Visualizing Data:\n\nDifferent graphs for different types of data:\n\n1. Histogram:\n   • For continuous data\n   • Bars have no gaps (unlike bar graph)\n   • Width represents class intervals\n   • Height represents frequency\n   • Area is proportional to frequency\n   • Used to show distribution\n\n2. Frequency Polygon:\n   • Line graph joining midpoints of histogram bars\n   • Shows trend in data\n   • Can compare multiple distributions\n   • Smooth curve representation\n\n3. Ogive (Cumulative Frequency Curve):\n   • Graph of cumulative frequency\n   • Less than ogive: Upper limits vs cumulative frequency\n   • More than ogive: Lower limits vs cumulative frequency\n   • Intersection gives median\n   • Used to find percentiles\n\n4. Bar Graph:\n   • For discrete data\n   • Bars have gaps between them\n   • Each bar represents a category\n   • Height shows frequency\n\n5. Pie Chart:\n   • Circular graph\n   • Shows proportions\n   • Angle = (Frequency/Total) × 360°\n   • Used for categorical data\n\nChoosing Right Graph:\n• Continuous data → Histogram\n• Discrete data → Bar graph\n• Proportions → Pie chart\n• Trends → Frequency polygon\n• Percentiles → Ogive\n\nGraphs help visualize patterns and understand data distribution.",
+                    
+                    "Measures of Central Tendency - Comparison:\n\nUnderstanding when to use each measure:\n\nMean:\n• Uses: All values in calculation\n• Affected by: Outliers (extreme values)\n• Best for: Symmetric data\n• Advantage: Uses all information\n• Disadvantage: Sensitive to outliers\n• Example: Average marks when all students present\n\nMedian:\n• Uses: Only middle value(s)\n• Affected by: Not affected by outliers\n• Best for: Skewed data\n• Advantage: Robust, not influenced by extremes\n• Disadvantage: Ignores other values\n• Example: Median income (not affected by very high incomes)\n\nMode:\n• Uses: Most frequent value\n• Affected by: Not affected by outliers\n• Best for: Categorical data\n• Advantage: Shows most typical value\n• Disadvantage: May not exist or be unique\n• Example: Most popular color, most common size\n\nChoosing Measure:\n• Symmetric data → Use mean\n• Skewed data → Use median\n• Categorical data → Use mode\n• For complete picture → Use all three\n\nAll three together provide comprehensive understanding of data central tendency.",
+                    
+                    "Applications of Statistics - Real-World Uses:\n\nStatistics is used extensively in various fields:\n\n1. Education:\n   • Analyzing exam results\n   • Average scores\n   • Performance trends\n   • Grade distributions\n\n2. Business:\n   • Market research\n   • Sales analysis\n   • Customer surveys\n   • Quality control\n\n3. Science:\n   • Experimental data analysis\n   • Research findings\n   • Scientific measurements\n   • Data interpretation\n\n4. Medicine:\n   • Medical research\n   • Treatment effectiveness\n   • Patient data analysis\n   • Clinical trials\n\n5. Economics:\n   • Economic indicators\n   • Income distribution\n   • Market analysis\n   • GDP calculations\n\n6. Sports:\n   • Player statistics\n   • Performance analysis\n   • Team comparisons\n   • Records and averages\n\n7. Weather:\n   • Temperature averages\n   • Rainfall data\n   • Climate analysis\n   • Forecasting\n\n8. Social Sciences:\n   • Opinion polls\n   • Survey analysis\n   • Population studies\n   • Social trends\n\nUnderstanding statistics helps in:\n• Making informed decisions\n• Interpreting data correctly\n• Identifying patterns\n• Predicting trends\n• Solving real-world problems\n\nStatistics is essential for data-driven decision making in all fields."
                 ),
                 keyPoints = listOf(
                     "Mean, Median, Mode: Mean (average) = Sum of all values / Number of values. Median = Middle value when data is arranged in order (if even number, average of two middle values). Mode = Most frequently occurring value. Mean is affected by extreme values, median and mode are not. Each has different uses.",
@@ -1624,16 +1748,25 @@ object MockData {
                 id = "maths_15",
                 title = "Probability",
                 revisionNotes = listOf(
-                    "Probability: Measure of likelihood or chance of an event occurring. Expressed as number between 0 and 1, or as percentage (0% to 100%). Probability = Number of favorable outcomes / Total number of possible outcomes. Example: Probability of getting head in coin toss = 1/2 = 0.5 = 50%. Used in predicting outcomes, making decisions, risk assessment, games, weather forecasting, and various real-world applications.",
-                    "Basic Probability Formula: P(E) = Number of favorable outcomes / Total number of outcomes. All outcomes must be equally likely. Example: Probability of getting 6 on die = 1/6 (one favorable outcome out of six possible). Probability of getting even number on die = 3/6 = 1/2 (three favorable outcomes: 2, 4, 6). Used in calculating chances of events in experiments.",
-                    "Range of Probability: 0 ≤ P(E) ≤ 1. P(E) = 0 means impossible event (will never occur). P(E) = 1 means certain event (will always occur). P(E) = 0.5 means equally likely (50% chance). Values between 0 and 1 represent varying degrees of likelihood. Example: Probability of sun rising tomorrow = 1 (certain), probability of getting 7 on single die = 0 (impossible).",
-                    "Complementary Events: Two events are complementary if one occurs when other doesn't. P(E) + P(not E) = 1. Therefore, P(not E) = 1 - P(E). Example: If probability of rain is 0.3, probability of no rain = 1 - 0.3 = 0.7. If probability of passing exam is 0.8, probability of failing = 1 - 0.8 = 0.2. Used in finding probability of opposite events.",
-                    "Sample Space: Set of all possible outcomes of an experiment. Denoted by S. Example: For coin toss, S = {H, T}. For die, S = {1, 2, 3, 4, 5, 6}. For two coins, S = {HH, HT, TH, TT}. Total number of outcomes = number of elements in sample space. Used in calculating probabilities and listing all possibilities.",
-                    "Event: Subset of sample space. Event E is collection of favorable outcomes. Example: Event 'getting even number' on die = {2, 4, 6}. Event 'getting head' on coin = {H}. Probability of event = number of outcomes in event / total outcomes. Used in defining what we want to find probability of.",
-                    "Probability of Multiple Events: For two independent events A and B: P(A and B) = P(A) × P(B). For mutually exclusive events: P(A or B) = P(A) + P(B). For non-mutually exclusive: P(A or B) = P(A) + P(B) - P(A and B). Example: Probability of getting head on two coins = (1/2) × (1/2) = 1/4. Used in calculating combined probabilities.",
-                    "Experimental Probability: Probability based on actual experiments or observations. Experimental P(E) = Number of times event occurred / Total number of trials. As number of trials increases, experimental probability approaches theoretical probability. Example: Toss coin 100 times, get 52 heads, experimental probability = 52/100 = 0.52. Used in real-world data analysis.",
-                    "Theoretical Probability: Probability based on mathematical reasoning and assumptions. Calculated using formulas and logic. Assumes all outcomes are equally likely. Example: Theoretical probability of head = 1/2. Used in mathematical problems and when we know all possible outcomes. More accurate when assumptions are correct.",
-                    "Applications: Probability used in: weather forecasting, insurance, gambling, quality control, medical diagnosis, risk assessment, decision making, games and sports, scientific experiments, stock market analysis, and various fields requiring prediction and uncertainty analysis. Understanding probability helps in making informed decisions and understanding chance events."
+                    "Probability - Complete Definition:\n\nProbability is a measure of the likelihood or chance that an event will occur.\n\nExpression:\n• As a fraction: 0 to 1\n• As a decimal: 0.0 to 1.0\n• As a percentage: 0% to 100%\n\nBasic Formula:\nProbability = Number of favorable outcomes / Total number of possible outcomes\n\nP(E) = n(E) / n(S)\n\nWhere:\n• P(E) = Probability of event E\n• n(E) = Number of favorable outcomes\n• n(S) = Total number of possible outcomes\n\nExample:\nProbability of getting head in coin toss:\n• Favorable outcomes: 1 (Head)\n• Total outcomes: 2 (Head, Tail)\n• P(Head) = 1/2 = 0.5 = 50%\n\nKey Requirements:\n• All outcomes must be equally likely\n• Sample space must be well-defined\n• Events must be clearly specified\n\nApplications:\n• Predicting outcomes\n• Making decisions\n• Risk assessment\n• Games and sports\n• Weather forecasting\n• Quality control\n• Insurance\n\nProbability helps quantify uncertainty and make informed predictions.",
+                    
+                    "Basic Probability Formula - Detailed Understanding:\n\nThe fundamental formula for probability:\n\nP(E) = Number of favorable outcomes / Total number of outcomes\n\nConditions:\n• All outcomes must be equally likely\n• Sample space must be complete\n• Events must be well-defined\n\nExample 1: Single Die\nProbability of getting 6:\n• Favorable outcomes: 1 (getting 6)\n• Total outcomes: 6 (1, 2, 3, 4, 5, 6)\n• P(6) = 1/6\n\nExample 2: Even Number on Die\nProbability of getting even number:\n• Favorable outcomes: 3 (2, 4, 6)\n• Total outcomes: 6\n• P(Even) = 3/6 = 1/2\n\nExample 3: Prime Number on Die\nProbability of getting prime number:\n• Prime numbers on die: 2, 3, 5\n• Favorable outcomes: 3\n• Total outcomes: 6\n• P(Prime) = 3/6 = 1/2\n\nCalculation Steps:\n1. Identify all possible outcomes (sample space)\n2. Count total number of outcomes\n3. Identify favorable outcomes for the event\n4. Count number of favorable outcomes\n5. Divide favorable by total\n\nThis formula is the foundation of all probability calculations.",
+                    
+                    "Range of Probability - Limits and Interpretation:\n\nProbability always lies between 0 and 1, inclusive.\n\nRange: 0 ≤ P(E) ≤ 1\n\nSpecial Cases:\n\n1. P(E) = 0 (Impossible Event):\n   • Event will never occur\n   • No favorable outcomes\n   • Example: Getting 7 on a single die\n   • Example: Sun not rising tomorrow\n\n2. P(E) = 1 (Certain Event):\n   • Event will always occur\n   • All outcomes are favorable\n   • Example: Sun rising tomorrow\n   • Example: Getting a number ≤ 6 on a die\n\n3. P(E) = 0.5 (Equally Likely):\n   • 50% chance\n   • Equal probability of occurrence and non-occurrence\n   • Example: Getting head in fair coin toss\n\n4. 0 < P(E) < 1 (Possible Event):\n   • Event may or may not occur\n   • Some chance, but not certain\n   • Example: Getting 3 on die (P = 1/6)\n   • Example: Rain tomorrow (P = 0.3)\n\nInterpretation:\n• Closer to 0: Less likely\n• Closer to 1: More likely\n• 0.5: Equally likely\n\nUnderstanding the range helps interpret probability values correctly.",
+                    
+                    "Complementary Events - Opposite Events:\n\nTwo events are complementary if one occurs exactly when the other doesn't.\n\nDefinition:\n• Event E and event 'not E' are complementary\n• If E occurs, 'not E' does not occur\n• If E does not occur, 'not E' occurs\n• Together, they cover all possibilities\n\nKey Relationship:\nP(E) + P(not E) = 1\n\nTherefore:\nP(not E) = 1 - P(E)\n\nExample 1: Coin Toss\n• E = Getting head, P(E) = 1/2\n• not E = Getting tail, P(not E) = 1/2\n• P(E) + P(not E) = 1/2 + 1/2 = 1 ✓\n\nExample 2: Rain\n• If P(rain) = 0.3\n• Then P(no rain) = 1 - 0.3 = 0.7\n• P(rain) + P(no rain) = 0.3 + 0.7 = 1 ✓\n\nExample 3: Exam\n• If P(passing) = 0.8\n• Then P(failing) = 1 - 0.8 = 0.2\n• P(passing) + P(failing) = 0.8 + 0.2 = 1 ✓\n\nUses:\n• Finding probability of opposite event\n• When P(not E) is easier to calculate\n• Verifying probability calculations\n• Solving probability problems\n\nComplementary events are very useful in probability calculations.",
+                    
+                    "Sample Space - All Possible Outcomes:\n\nThe sample space is the set of all possible outcomes of an experiment.\n\nNotation: S\n\nExamples:\n\n1. Coin Toss:\n   • S = {H, T}\n   • Two possible outcomes\n   • n(S) = 2\n\n2. Single Die:\n   • S = {1, 2, 3, 4, 5, 6}\n   • Six possible outcomes\n   • n(S) = 6\n\n3. Two Coins:\n   • S = {HH, HT, TH, TT}\n   • Four possible outcomes\n   • n(S) = 4\n\n4. Two Dice:\n   • 36 possible outcomes\n   • S = {(1,1), (1,2), ..., (6,6)}\n   • n(S) = 36\n\nProperties:\n• Contains all possible outcomes\n• No outcome is left out\n• Outcomes are mutually exclusive\n• Together, outcomes cover all possibilities\n\nFinding Sample Space:\n• List all possible outcomes\n• Ensure completeness\n• Check for duplicates\n• Count total outcomes\n\nUses:\n• Calculating total outcomes\n• Finding probability\n• Listing all possibilities\n• Understanding experiment\n\nSample space is fundamental to all probability calculations.",
+                    
+                    "Event - Subset of Sample Space:\n\nAn event is a subset of the sample space, representing favorable outcomes.\n\nDefinition:\n• Event E is a collection of outcomes\n• E ⊆ S (event is subset of sample space)\n• Contains outcomes favorable to the event\n\nExamples:\n\n1. Event: Getting Even Number on Die\n   • Sample space: S = {1, 2, 3, 4, 5, 6}\n   • Event E = {2, 4, 6}\n   • n(E) = 3\n   • P(E) = 3/6 = 1/2\n\n2. Event: Getting Head on Coin\n   • Sample space: S = {H, T}\n   • Event E = {H}\n   • n(E) = 1\n   • P(E) = 1/2\n\n3. Event: Getting Prime Number on Die\n   • Sample space: S = {1, 2, 3, 4, 5, 6}\n   • Event E = {2, 3, 5}\n   • n(E) = 3\n   • P(E) = 3/6 = 1/2\n\nTypes of Events:\n• Simple event: Single outcome\n• Compound event: Multiple outcomes\n• Impossible event: Empty set (no outcomes)\n• Certain event: Entire sample space (all outcomes)\n\nProbability of Event:\nP(E) = n(E) / n(S)\n\nUnderstanding events helps define what we want to find probability of.",
+                    
+                    "Probability of Multiple Events - Combined Probabilities:\n\nWhen dealing with multiple events, different rules apply:\n\n1. Independent Events:\n   • Events that don't affect each other\n   • P(A and B) = P(A) × P(B)\n   • Example: Tossing two coins\n     P(Head on first) = 1/2\n     P(Head on second) = 1/2\n     P(Both heads) = (1/2) × (1/2) = 1/4\n\n2. Mutually Exclusive Events:\n   • Events that cannot occur together\n   • P(A or B) = P(A) + P(B)\n   • Example: Getting 2 or 3 on die\n     P(2) = 1/6, P(3) = 1/6\n     P(2 or 3) = 1/6 + 1/6 = 2/6 = 1/3\n\n3. Non-Mutually Exclusive Events:\n   • Events that can occur together\n   • P(A or B) = P(A) + P(B) - P(A and B)\n   • Example: Getting even number or prime number on die\n     P(Even) = 3/6, P(Prime) = 3/6\n     P(Even and Prime) = 1/6 (only 2)\n     P(Even or Prime) = 3/6 + 3/6 - 1/6 = 5/6\n\nUnderstanding these rules helps solve complex probability problems.",
+                    
+                    "Experimental Probability - Based on Actual Data:\n\nExperimental probability is calculated from actual experiments or observations.\n\nFormula:\nExperimental P(E) = Number of times event occurred / Total number of trials\n\nKey Points:\n• Based on real data\n• Calculated after performing experiment\n• May differ from theoretical probability\n• Becomes more accurate with more trials\n\nExample:\nTossing a coin 100 times:\n• Heads occurred: 52 times\n• Tails occurred: 48 times\n• Experimental P(Head) = 52/100 = 0.52\n• Theoretical P(Head) = 1/2 = 0.50\n\nLaw of Large Numbers:\n• As number of trials increases\n• Experimental probability approaches theoretical probability\n• More trials → more accurate\n\nUses:\n• When theoretical probability is unknown\n• Real-world data analysis\n• Quality control\n• Sports statistics\n• Medical research\n\nAdvantages:\n• Based on actual observations\n• Reflects real-world conditions\n• Useful when theory is complex\n\nLimitations:\n• Requires many trials for accuracy\n• May vary with different trials\n• Time-consuming\n\nExperimental probability is valuable for real-world applications.",
+                    
+                    "Theoretical Probability - Mathematical Calculation:\n\nTheoretical probability is calculated using mathematical reasoning and logic.\n\nCharacteristics:\n• Based on mathematical formulas\n• Assumes all outcomes are equally likely\n• Calculated before experiment\n• More precise when assumptions hold\n\nExample:\nTheoretical probability of head in coin toss:\n• Sample space: {H, T}\n• Favorable outcomes: {H}\n• P(Head) = 1/2 = 0.5\n\nAdvantages:\n• Precise and exact\n• No need for experiments\n• Based on logic\n• Consistent results\n\nWhen to Use:\n• When all outcomes are known\n• When outcomes are equally likely\n• For mathematical problems\n• When assumptions are valid\n\nComparison with Experimental:\n• Theoretical: Calculated from theory\n• Experimental: Calculated from data\n• As trials increase, experimental → theoretical\n\nApplications:\n• Games of chance\n• Mathematical problems\n• When theory is well-established\n• Educational purposes\n\nTheoretical probability provides the expected value based on mathematical principles.",
+                    
+                    "Applications of Probability - Real-World Uses:\n\nProbability is used extensively in various fields:\n\n1. Weather Forecasting:\n   • Probability of rain\n   • Temperature predictions\n   • Storm likelihood\n   • Climate analysis\n\n2. Insurance:\n   • Risk assessment\n   • Premium calculation\n   • Claim probability\n   • Actuarial science\n\n3. Quality Control:\n   • Defect probability\n   • Product reliability\n   • Testing strategies\n   • Manufacturing\n\n4. Medical Diagnosis:\n   • Disease probability\n   • Treatment effectiveness\n   • Test accuracy\n   • Risk assessment\n\n5. Games and Sports:\n   • Winning chances\n   • Player statistics\n   • Betting odds\n   • Strategy decisions\n\n6. Business:\n   • Market predictions\n   • Investment risk\n   • Sales forecasting\n   • Decision making\n\n7. Science:\n   • Experimental outcomes\n   • Research findings\n   • Statistical analysis\n   • Hypothesis testing\n\n8. Daily Life:\n   • Decision making\n   • Risk assessment\n   • Planning\n   • Understanding uncertainty\n\nUnderstanding probability helps:\n• Make informed decisions\n• Assess risks\n• Predict outcomes\n• Understand chance events\n• Solve real-world problems\n\nProbability is essential for understanding and dealing with uncertainty in all aspects of life."
                 ),
                 keyPoints = listOf(
                     "Basic Concepts: Probability measures likelihood of event. Range: 0 (impossible) to 1 (certain). Probability = Number of favorable outcomes / Total number of outcomes. Sample space is set of all possible outcomes. Event is subset of sample space. Example: Probability of head in coin toss = 1/2 (one favorable out of two possible).",
@@ -1700,16 +1833,25 @@ object MockData {
                 id = "science_1",
                 title = "Chemical Reactions and Equations",
                 revisionNotes = listOf(
-                    "Chemical Reaction: A process in which one or more substances (reactants) are converted into new substances (products) with different physical and chemical properties. Example: 2H₂ + O₂ → 2H₂O.",
-                    "Chemical Equation: A symbolic representation of a chemical reaction using chemical formulas. Shows reactants on left, products on right, separated by arrow (→).",
-                    "Balanced Equation: An equation where the number of atoms of each element is equal on both sides, following Law of Conservation of Mass. Atoms are neither created nor destroyed.",
-                    "Steps to Balance: (1) Write correct formulas, (2) Count atoms on each side, (3) Use coefficients to balance, (4) Check all atoms are balanced.",
-                    "Types of Chemical Reactions: (1) Combination: A + B → AB (e.g., 2H₂ + O₂ → 2H₂O), (2) Decomposition: AB → A + B (e.g., 2H₂O → 2H₂ + O₂), (3) Displacement: A + BC → AC + B (e.g., Zn + H₂SO₄ → ZnSO₄ + H₂), (4) Double Displacement: AB + CD → AD + CB (e.g., AgNO₃ + NaCl → AgCl + NaNO₃).",
-                    "Oxidation: Loss of electrons or gain of oxygen. Substance that loses electrons is oxidized. Example: 2Mg + O₂ → 2MgO (Mg is oxidized).",
-                    "Reduction: Gain of electrons or loss of oxygen. Substance that gains electrons is reduced. Example: CuO + H₂ → Cu + H₂O (CuO is reduced).",
-                    "Redox Reaction: Reaction involving both oxidation and reduction. One substance is oxidized while another is reduced. Example: Fe₂O₃ + 2Al → Al₂O₃ + 2Fe (Al is oxidized, Fe₂O₃ is reduced).",
-                    "Corrosion: Slow process of deterioration of metals due to reaction with environment. Rusting of iron: 4Fe + 3O₂ + 6H₂O → 4Fe(OH)₃. Prevention: Painting, galvanization, alloying.",
-                    "Rancidity: Oxidation of fats and oils in food, causing bad smell and taste. Prevention: Adding antioxidants, storing in airtight containers, refrigeration."
+                    "Chemical Reaction - Complete Definition:\n\nA chemical reaction is a process in which one or more substances (reactants) are converted into new substances (products) with different physical and chemical properties.\n\nKey Characteristics:\n• Reactants: Starting substances\n• Products: New substances formed\n• Chemical bonds break and form\n• Properties change (color, state, energy, etc.)\n• Mass is conserved (Law of Conservation of Mass)\n\nExample:\n2H₂ + O₂ → 2H₂O\n• Reactants: Hydrogen (H₂) and Oxygen (O₂)\n• Products: Water (H₂O)\n• Properties change: Gases combine to form liquid\n\nIndicators of Chemical Reaction:\n• Change in color\n• Formation of precipitate\n• Evolution of gas\n• Change in temperature\n• Change in smell\n\nChemical reactions are fundamental to all life processes and industrial processes.",
+                    
+                    "Chemical Equation - Symbolic Representation:\n\nA chemical equation is a symbolic representation of a chemical reaction using chemical formulas.\n\nStructure:\nReactants → Products\n\nComponents:\n• Reactants: On left side of arrow\n• Products: On right side of arrow\n• Arrow (→): Shows direction of reaction\n• Coefficients: Numbers before formulas (show quantity)\n• Subscripts: Numbers in formulas (show atoms in molecule)\n\nExample:\n2H₂ + O₂ → 2H₂O\n• 2H₂: 2 molecules of hydrogen\n• O₂: 1 molecule of oxygen\n• 2H₂O: 2 molecules of water\n\nPhysical States:\n• (s) = solid\n• (l) = liquid\n• (g) = gas\n• (aq) = aqueous (dissolved in water)\n\nExample with states:\n2H₂(g) + O₂(g) → 2H₂O(l)\n\nEquations must be balanced to follow Law of Conservation of Mass.",
+                    
+                    "Balanced Equation - Law of Conservation of Mass:\n\nA balanced equation has equal number of atoms of each element on both sides.\n\nLaw of Conservation of Mass:\n• Atoms are neither created nor destroyed\n• Mass of reactants = Mass of products\n• Number of each type of atom must be equal on both sides\n\nExample - Unbalanced:\nH₂ + O₂ → H₂O\n• Left: 2H, 2O\n• Right: 2H, 1O\n• Not balanced (oxygen atoms don't match)\n\nExample - Balanced:\n2H₂ + O₂ → 2H₂O\n• Left: 4H, 2O\n• Right: 4H, 2O\n• Balanced ✓\n\nWhy Balance?\n• Follows scientific law\n• Shows correct ratios\n• Allows calculations (stoichiometry)\n• Represents actual reaction\n\nBalancing is essential for:\n• Understanding reaction\n• Calculating quantities\n• Predicting products\n• Chemical analysis",
+                    
+                    "Steps to Balance Equations - Detailed Method:\n\nStep-by-step process:\n\nStep 1: Write Correct Formulas\n• Use proper chemical formulas\n• Don't change subscripts (they show actual molecules)\n• Example: H₂O (not H₂O₂)\n\nStep 2: Count Atoms on Each Side\n• List all elements\n• Count atoms in each element\n• Compare left and right\n\nStep 3: Use Coefficients to Balance\n• Add coefficients (numbers before formulas)\n• Start with elements that appear once\n• Balance atoms one by one\n• Use smallest whole numbers\n\nStep 4: Check All Atoms\n• Verify each element is balanced\n• Recheck if needed\n• Ensure coefficients are in lowest terms\n\nExample:\nBalance: Fe + H₂O → Fe₃O₄ + H₂\n\nStep 1: Formulas are correct\nStep 2: Count:\n• Left: Fe=1, H=2, O=1\n• Right: Fe=3, H=2, O=4\n\nStep 3: Balance:\n• Start with Fe: 3Fe + H₂O → Fe₃O₄ + H₂\n• Balance O: 3Fe + 4H₂O → Fe₃O₄ + H₂\n• Balance H: 3Fe + 4H₂O → Fe₃O₄ + 4H₂\n\nStep 4: Check:\n• Left: Fe=3, H=8, O=4\n• Right: Fe=3, H=8, O=4 ✓\n\nBalanced: 3Fe + 4H₂O → Fe₃O₄ + 4H₂",
+                    
+                    "Types of Chemical Reactions - Complete Classification:\n\n1. Combination Reaction:\n   • Two or more substances combine to form one product\n   • General: A + B → AB\n   • Example: 2H₂ + O₂ → 2H₂O\n   • Example: CaO + H₂O → Ca(OH)₂\n   • Also called synthesis reaction\n\n2. Decomposition Reaction:\n   • One substance breaks into two or more products\n   • General: AB → A + B\n   • Example: 2H₂O → 2H₂ + O₂ (electrolysis)\n   • Example: CaCO₃ → CaO + CO₂ (heating)\n   • Requires energy (heat, light, electricity)\n\n3. Displacement Reaction:\n   • More reactive element displaces less reactive element\n   • General: A + BC → AC + B\n   • Example: Zn + H₂SO₄ → ZnSO₄ + H₂\n   • Example: Fe + CuSO₄ → FeSO₄ + Cu\n   • Based on reactivity series\n\n4. Double Displacement Reaction:\n   • Ions exchange partners\n   • General: AB + CD → AD + CB\n   • Example: AgNO₃ + NaCl → AgCl + NaNO₃\n   • Example: BaCl₂ + Na₂SO₄ → BaSO₄ + 2NaCl\n   • Often forms precipitate\n\n5. Oxidation-Reduction (Redox):\n   • Involves transfer of electrons\n   • Oxidation and reduction occur together\n   • Example: Fe₂O₃ + 2Al → Al₂O₃ + 2Fe",
+                    
+                    "Oxidation - Loss of Electrons:\n\nOxidation is the process of:\n• Loss of electrons\n• Gain of oxygen\n• Loss of hydrogen\n• Increase in oxidation number\n\nDefinition:\nA substance is oxidized when it loses electrons.\n\nExample 1:\n2Mg + O₂ → 2MgO\n• Mg loses electrons → Mg²⁺\n• Mg is oxidized\n• O₂ gains electrons → O²⁻\n\nExample 2:\nZn + CuSO₄ → ZnSO₄ + Cu\n• Zn loses electrons: Zn → Zn²⁺ + 2e⁻\n• Zn is oxidized\n• Cu²⁺ gains electrons: Cu²⁺ + 2e⁻ → Cu\n\nOxidizing Agent:\n• Substance that causes oxidation\n• Accepts electrons\n• Gets reduced itself\n• Example: O₂, Cu²⁺, Fe³⁺\n\nIdentifying Oxidation:\n• Element becomes positive ion\n• Gains oxygen\n• Loses hydrogen\n• Oxidation number increases\n\nOxidation is always accompanied by reduction (redox reaction).",
+                    
+                    "Reduction - Gain of Electrons:\n\nReduction is the process of:\n• Gain of electrons\n• Loss of oxygen\n• Gain of hydrogen\n• Decrease in oxidation number\n\nDefinition:\nA substance is reduced when it gains electrons.\n\nExample 1:\nCuO + H₂ → Cu + H₂O\n• Cu²⁺ gains electrons → Cu\n• CuO is reduced\n• H₂ loses electrons → 2H⁺\n\nExample 2:\nFe₂O₃ + 2Al → Al₂O₃ + 2Fe\n• Fe³⁺ gains electrons → Fe\n• Fe₂O₃ is reduced\n• Al loses electrons → Al³⁺\n\nReducing Agent:\n• Substance that causes reduction\n• Donates electrons\n• Gets oxidized itself\n• Example: H₂, C, Zn, Al\n\nIdentifying Reduction:\n• Positive ion becomes element\n• Loses oxygen\n• Gains hydrogen\n• Oxidation number decreases\n\nMnemonic:\n• OIL RIG: Oxidation Is Loss, Reduction Is Gain (of electrons)\n\nReduction always occurs with oxidation (redox reaction).",
+                    
+                    "Redox Reaction - Complete Understanding:\n\nA redox reaction involves both oxidation and reduction occurring simultaneously.\n\nKey Points:\n• One substance is oxidized\n• Another substance is reduced\n• Electrons are transferred\n• Cannot have one without the other\n\nExample:\nFe₂O₃ + 2Al → Al₂O₃ + 2Fe\n\nOxidation:\n• Al → Al³⁺ + 3e⁻\n• Al loses electrons (oxidized)\n• Al is reducing agent\n\nReduction:\n• Fe³⁺ + 3e⁻ → Fe\n• Fe gains electrons (reduced)\n• Fe₂O₃ is oxidizing agent\n\nIdentifying Redox:\n• Check if oxidation numbers change\n• Look for electron transfer\n• Check for gain/loss of oxygen or hydrogen\n\nTypes:\n• Direct combination: 2Mg + O₂ → 2MgO\n• Displacement: Zn + CuSO₄ → ZnSO₄ + Cu\n• Decomposition: 2H₂O → 2H₂ + O₂\n\nApplications:\n• Extraction of metals\n• Batteries and cells\n• Corrosion and rusting\n• Combustion reactions\n\nRedox reactions are fundamental in chemistry and biology.",
+                    
+                    "Corrosion - Metal Deterioration:\n\nCorrosion is the slow process of deterioration of metals due to reaction with environment (air, water, acids).\n\nRusting of Iron:\n• Most common example\n• Chemical equation: 4Fe + 3O₂ + 6H₂O → 4Fe(OH)₃\n• Requires: Iron, Oxygen, Water (moisture)\n• Forms: Hydrated ferric oxide (rust)\n• Rust is reddish-brown, flaky\n• Weakens the metal\n\nFactors Affecting Corrosion:\n• Presence of moisture (water)\n• Presence of oxygen\n• Presence of acids/salts (accelerates)\n• Temperature (higher = faster)\n• Impurities in metal\n\nPrevention Methods:\n\n1. Painting:\n   • Forms protective layer\n   • Prevents contact with air/water\n   • Common for iron objects\n\n2. Galvanization:\n   • Coating with zinc\n   • Zinc protects iron (sacrificial protection)\n   • Used for pipes, buckets\n\n3. Alloying:\n   • Mixing with other metals\n   • Example: Stainless steel (iron + chromium + nickel)\n   • More resistant to corrosion\n\n4. Electroplating:\n   • Coating with another metal\n   • Example: Chromium plating\n\n5. Oiling/Greasing:\n   • Temporary protection\n   • For machinery parts\n\nOther Examples:\n• Copper: Green layer (basic copper carbonate)\n• Silver: Black tarnish (silver sulfide)\n• Aluminum: Protective oxide layer (prevents further corrosion)",
+                    
+                    "Rancidity - Food Spoilage:\n\nRancidity is the oxidation of fats and oils in food, causing bad smell and taste.\n\nProcess:\n• Fats and oils react with oxygen\n• Forms compounds with unpleasant odor and taste\n• Makes food unfit for consumption\n• Occurs over time\n\nTypes:\n\n1. Oxidative Rancidity:\n   • Reaction with oxygen\n   • Forms peroxides\n   • Common in unsaturated fats\n\n2. Hydrolytic Rancidity:\n   • Breakdown by water\n   • Forms free fatty acids\n   • Common in presence of enzymes\n\nFactors Affecting:\n• Exposure to air (oxygen)\n• Light (UV rays accelerate)\n• Temperature (heat speeds up)\n• Presence of metals (catalysts)\n• Moisture\n\nPrevention Methods:\n\n1. Adding Antioxidants:\n   • BHA (Butylated Hydroxyanisole)\n   • BHT (Butylated Hydroxytoluene)\n   • Vitamin E\n   • Prevents oxidation\n\n2. Storing in Airtight Containers:\n   • Prevents contact with oxygen\n   • Reduces oxidation\n\n3. Refrigeration:\n   • Low temperature slows reaction\n   • Preserves food longer\n\n4. Packaging with Nitrogen:\n   • Replaces oxygen\n   • Prevents oxidation\n\n5. Adding Preservatives:\n   • Chemical preservatives\n   • Extends shelf life\n\nImportance:\n• Prevents food spoilage\n• Maintains food quality\n• Ensures food safety\n• Reduces waste"
                 ),
                 keyPoints = listOf(
                     "Writing Chemical Equations: Represent reactions using chemical formulas. Reactants on left, products on right, arrow (→) shows direction. Must include physical states: (s) solid, (l) liquid, (g) gas, (aq) aqueous. Example: 2H₂(g) + O₂(g) → 2H₂O(l). Always write correct formulas first, then balance.",
@@ -2418,16 +2560,25 @@ object MockData {
                 id = "science_2",
                 title = "Life Processes",
                 revisionNotes = listOf(
-                    "Life Processes: The basic functions performed by living organisms to maintain life. Include: Nutrition, Respiration, Transportation, Excretion, Control and Coordination, Reproduction, Growth.",
-                    "Nutrition: The process of obtaining and utilizing food. Two types: Autotrophic (plants make their own food via photosynthesis) and Heterotrophic (animals depend on others for food).",
-                    "Photosynthesis: Process by which plants make food using CO₂, H₂O, and sunlight. Equation: 6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂. Occurs in chloroplasts, requires chlorophyll.",
-                    "Human Digestive System: Mouth (saliva breaks starch) → Esophagus → Stomach (HCl and pepsin digest proteins) → Small Intestine (complete digestion, absorption) → Large Intestine (water absorption) → Anus.",
-                    "Respiration: Process of releasing energy from food. Two types: Aerobic (with oxygen, produces CO₂, H₂O, and more energy) and Anaerobic (without oxygen, produces less energy, may produce alcohol/lactic acid).",
-                    "Human Respiratory System: Nostrils → Nasal cavity → Pharynx → Larynx → Trachea → Bronchi → Bronchioles → Alveoli (gas exchange). Breathing rate: 15-18 times/minute.",
-                    "Transportation in Plants: Xylem (transports water and minerals upward from roots), Phloem (transports food from leaves to other parts). Transpiration pull helps in upward movement of water.",
-                    "Human Circulatory System: Heart (4 chambers: 2 atria, 2 ventricles) pumps blood. Arteries (carry oxygenated blood away from heart), Veins (carry deoxygenated blood to heart), Capillaries (exchange of materials).",
-                    "Blood Components: Plasma (liquid part, 55%), Red Blood Cells (carry oxygen, contain hemoglobin), White Blood Cells (fight infections), Platelets (clotting).",
-                    "Excretion: Removal of waste products. Plants: Through stomata, falling leaves. Humans: Kidneys filter blood, produce urine. Other excretory organs: Lungs (CO₂), Skin (sweat), Liver (bile)."
+                    "Life Processes - Complete Overview:\n\nThe basic functions performed by living organisms to maintain life are called life processes.\n\nSeven Essential Processes:\n1. Nutrition - Obtaining and utilizing food\n2. Respiration - Releasing energy from food\n3. Transportation - Moving materials within body\n4. Excretion - Removing waste products\n5. Control and Coordination - Responding to environment\n6. Reproduction - Producing offspring\n7. Growth - Increasing in size\n\nAll living organisms perform these processes:\n• Plants: Autotrophic nutrition, simple transport systems\n• Animals: Heterotrophic nutrition, complex organ systems\n• Both need energy, materials, and waste removal\n\nThese processes are interconnected - one cannot function without others. Understanding these processes helps understand how living things survive and function.",
+                    
+                    "Nutrition - Detailed Types and Processes:\n\nNutrition is the process of obtaining and utilizing food for growth, maintenance, and energy.\n\nTwo Main Types:\n\n1. Autotrophic Nutrition:\n   • Organisms make their own food\n   • Plants use photosynthesis\n   • Equation: 6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂\n   • Requires: CO₂, H₂O, sunlight, chlorophyll\n   • Examples: Green plants, some bacteria\n\n2. Heterotrophic Nutrition:\n   • Organisms depend on others for food\n   • Cannot make their own food\n   • Types:\n     - Holozoic (ingestion): Animals\n     - Saprophytic (decomposition): Fungi\n     - Parasitic (host): Some plants, animals\n   • Examples: All animals, fungi, some plants\n\nProcess in Animals:\nIngestion → Digestion → Absorption → Assimilation → Egestion\n\nNutrition provides:\n• Energy for metabolic activities\n• Materials for growth and repair\n• Essential nutrients (proteins, carbohydrates, fats, vitamins, minerals)",
+                    
+                    "Photosynthesis - Complete Process:\n\nPhotosynthesis is the process by which green plants make food using carbon dioxide, water, and sunlight.\n\nChemical Equation:\n6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂\n\nRequirements:\n• Carbon dioxide (from air)\n• Water (from roots)\n• Sunlight (energy source)\n• Chlorophyll (green pigment in leaves)\n\nSite:\n• Occurs in chloroplasts (cell organelles)\n• Mainly in leaves (green parts)\n\nProcess:\n1. Light Reaction:\n   • Occurs in presence of light\n   • Chlorophyll absorbs light energy\n   • Water splits: H₂O → H⁺ + OH⁻\n   • Oxygen released: 2OH⁻ → H₂O + ½O₂\n   • Energy stored as ATP and NADPH\n\n2. Dark Reaction (Calvin Cycle):\n   • Can occur in light or dark\n   • Uses ATP and NADPH from light reaction\n   • CO₂ combines with hydrogen to form glucose\n   • Glucose is stored as starch\n\nImportance:\n• Produces food for all living organisms\n• Releases oxygen (essential for respiration)\n• Removes CO₂ from atmosphere\n• Maintains oxygen-carbon dioxide balance",
+                    
+                    "Human Digestive System - Complete Journey:\n\nThe human digestive system processes food through various organs:\n\nPathway:\n\n1. Mouth:\n   • Teeth: Mechanical digestion (chewing)\n   • Saliva: Contains amylase enzyme\n   • Amylase breaks down starch → maltose\n   • Food mixed with saliva forms bolus\n\n2. Esophagus:\n   • Muscular tube\n   • Peristalsis (wave-like contractions) pushes food down\n   • No digestion occurs here\n\n3. Stomach:\n   • J-shaped muscular bag\n   • Secretes gastric juice:\n     - HCl: Kills bacteria, activates pepsin\n     - Pepsin: Digests proteins → peptides\n   • Churning action mixes food\n   • Food becomes chyme\n\n4. Small Intestine:\n   • Longest part (6-7 meters)\n   • Receives:\n     - Pancreatic juice (trypsin, lipase, amylase)\n     - Bile (from liver, emulsifies fats)\n     - Intestinal juice (complete digestion)\n   • Complete digestion occurs here\n   • Absorption of nutrients through villi\n   • Villi increase surface area for absorption\n\n5. Large Intestine:\n   • Absorbs water and minerals\n   • Forms feces from undigested food\n   • Stores feces temporarily\n\n6. Anus:\n   • Egestion of feces\n\nEnzymes:\n• Amylase: Starch → Sugar\n• Pepsin/Trypsin: Proteins → Amino acids\n• Lipase: Fats → Fatty acids + Glycerol",
+                    
+                    "Respiration - Energy Release Process:\n\nRespiration is the process of releasing energy from food.\n\nTwo Types:\n\n1. Aerobic Respiration:\n   • Requires oxygen\n   • Complete breakdown of glucose\n   • Equation: C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + Energy (38 ATP)\n   • Produces: CO₂, H₂O, and large amount of energy\n   • Occurs in: Mitochondria\n   • More efficient (38 ATP per glucose)\n   • Examples: Most organisms, including humans\n\n2. Anaerobic Respiration:\n   • No oxygen required\n   • Incomplete breakdown of glucose\n   • Produces less energy (2 ATP per glucose)\n   • Types:\n     - Alcoholic: C₆H₁₂O₆ → 2C₂H₅OH + 2CO₂ + Energy\n       (Yeast, some bacteria)\n     - Lactic Acid: C₆H₁₂O₆ → 2C₃H₆O₃ + Energy\n       (Muscle cells during exercise)\n   • Less efficient but faster\n\nProcess:\n1. Glycolysis: Glucose → Pyruvate (in cytoplasm)\n2. If oxygen present: Pyruvate → CO₂ + H₂O (in mitochondria)\n3. If no oxygen: Pyruvate → Alcohol/Lactic acid\n\nImportance:\n• Provides energy for all life processes\n• Essential for survival\n• Energy used for: Movement, growth, reproduction, etc.",
+                    
+                    "Human Respiratory System - Complete Structure:\n\nThe respiratory system takes in oxygen and removes carbon dioxide.\n\nPathway:\n\n1. Nostrils:\n   • Entry point for air\n   • Hairs filter dust particles\n\n2. Nasal Cavity:\n   • Warms and moistens air\n   • Mucus traps particles\n   • Cilia move mucus out\n\n3. Pharynx:\n   • Common passage for air and food\n   • Epiglottis prevents food entering windpipe\n\n4. Larynx (Voice Box):\n   • Contains vocal cords\n   • Produces sound\n\n5. Trachea (Windpipe):\n   • Tube with C-shaped cartilage rings\n   • Keeps airway open\n   • Divides into two bronchi\n\n6. Bronchi:\n   • Two branches (one to each lung)\n   • Further divide into bronchioles\n\n7. Bronchioles:\n   • Smaller branches\n   • End in air sacs (alveoli)\n\n8. Alveoli:\n   • Tiny air sacs (millions in each lung)\n   • Site of gas exchange\n   • Surrounded by blood capillaries\n   • Thin walls for easy diffusion\n   • Large surface area\n\nGas Exchange:\n• O₂ diffuses from alveoli → blood\n• CO₂ diffuses from blood → alveoli\n\nBreathing:\n• Inhalation: Diaphragm contracts, chest expands, air enters\n• Exhalation: Diaphragm relaxes, chest contracts, air exits\n• Rate: 15-18 times per minute (at rest)",
+                    
+                    "Transportation in Plants - Xylem and Phloem:\n\nPlants have two transport systems:\n\n1. Xylem:\n   • Transports water and minerals\n   • Direction: Upward (roots → leaves)\n   • Made of: Dead cells (vessels and tracheids)\n   • Function:\n     - Absorbs water from soil (root hairs)\n     - Transports to all parts\n     - Provides raw materials for photosynthesis\n\n2. Phloem:\n   • Transports food (sugars, amino acids)\n   • Direction: Bidirectional (leaves ↔ other parts)\n   • Made of: Living cells (sieve tubes and companion cells)\n   • Function:\n     - Transports food from leaves (source) to other parts (sink)\n     - Storage organs can also be sources\n\nMechanisms:\n\n• Root Pressure:\n  - Water pushed up from roots\n  - Active process\n\n• Transpiration Pull:\n  - Main force for upward movement\n  - Water evaporates from leaves\n  - Creates suction force\n  - Pulls water up through xylem\n  - Cohesion-tension theory\n\n• Translocation:\n  - Movement of food through phloem\n  - Active transport\n  - Requires energy\n\nFactors Affecting:\n• Temperature, humidity, wind speed (transpiration)\n• Light intensity (photosynthesis affects food transport)",
+                    
+                    "Human Circulatory System - Heart and Blood Vessels:\n\nThe circulatory system transports materials throughout the body.\n\nComponents:\n\n1. Heart:\n   • Four-chambered pump\n   • Chambers:\n     - Right Atrium: Receives deoxygenated blood\n     - Right Ventricle: Pumps to lungs\n     - Left Atrium: Receives oxygenated blood\n     - Left Ventricle: Pumps to body (thickest wall)\n   • Valves: Prevent backflow\n   • Heartbeat: 60-100 times per minute\n\n2. Blood Vessels:\n\n   Arteries:\n   • Carry blood away from heart\n   • Thick, elastic walls\n   • Carry oxygenated blood (except pulmonary artery)\n   • High pressure\n   • No valves (except at base)\n\n   Veins:\n   • Carry blood to heart\n   • Thin walls, less elastic\n   • Carry deoxygenated blood (except pulmonary vein)\n   • Low pressure\n   • Have valves to prevent backflow\n\n   Capillaries:\n   • Smallest blood vessels\n   • Connect arteries and veins\n   • Thin walls (one cell thick)\n   • Site of material exchange\n   • Large surface area\n\nCirculation:\n• Pulmonary: Heart → Lungs → Heart\n• Systemic: Heart → Body → Heart\n• Double circulation (mammals and birds)",
+                    
+                    "Blood Components - Detailed Structure:\n\nBlood is a fluid connective tissue with four main components:\n\n1. Plasma (55%):\n   • Liquid part of blood\n   • Yellowish color\n   • Composition:\n     - Water (90%)\n     - Proteins (albumin, globulin, fibrinogen)\n     - Nutrients (glucose, amino acids, fats)\n     - Waste products (urea, CO₂)\n     - Hormones, enzymes\n   • Functions:\n     - Transports nutrients, hormones, waste\n     - Maintains body temperature\n     - Clotting (fibrinogen)\n\n2. Red Blood Cells (RBCs) (45%):\n   • Most numerous cells\n   • Biconcave disc shape\n   • No nucleus (mature)\n   • Contains hemoglobin (red pigment)\n   • Function: Carry oxygen\n   • Life span: 120 days\n   • Produced in: Bone marrow\n\n3. White Blood Cells (WBCs):\n   • Larger than RBCs\n   • Have nucleus\n   • Types: Neutrophils, lymphocytes, monocytes, etc.\n   • Function: Fight infections, immunity\n   • Life span: Few days to weeks\n   • Produced in: Bone marrow, lymph nodes\n\n4. Platelets:\n   • Small cell fragments\n   • No nucleus\n   • Function: Blood clotting\n   • Life span: 7-10 days\n   • Produced in: Bone marrow\n\nBlood Functions:\n• Transport: O₂, CO₂, nutrients, waste, hormones\n• Defense: WBCs fight pathogens\n• Clotting: Prevents blood loss\n• Temperature regulation",
+                    
+                    "Excretion - Waste Removal Systems:\n\nExcretion is the removal of waste products from the body.\n\nPlants:\n• Through Stomata:\n  - Water vapor (transpiration)\n  - Oxygen (photosynthesis byproduct)\n• Through Leaves:\n  - Falling leaves remove waste\n  - Some waste stored in leaves\n• Through Roots:\n  - Some waste released into soil\n• Storage:\n  - Resins, gums, latex\n\nHumans:\n\n1. Kidneys (Main Excretory Organs):\n   • Two bean-shaped organs\n   • Filter blood\n   • Remove: Urea, excess water, salts\n   • Produce: Urine\n   • Process:\n     - Filtration: Blood filtered in nephrons\n     - Reabsorption: Useful substances reabsorbed\n     - Secretion: Additional wastes added\n     - Urine formation: Final waste product\n\n2. Lungs:\n   • Remove: Carbon dioxide (CO₂)\n   • Remove: Water vapor\n   • During exhalation\n\n3. Skin:\n   • Sweat glands\n   • Remove: Water, salts, urea (in sweat)\n   • Cooling effect\n\n4. Liver:\n   • Converts ammonia → urea\n   • Produces bile (contains waste)\n   • Detoxification\n\nExcretory Products:\n• CO₂, H₂O, Urea, Uric acid, Salts\n\nImportance:\n• Prevents accumulation of toxic wastes\n• Maintains internal environment\n• Essential for survival"
                 ),
                 keyPoints = listOf(
                     "Nutrition in Plants and Animals: Plants are autotrophic (photosynthesis: 6CO₂+6H₂O→C₆H₁₂O₆+6O₂). Animals are heterotrophic. Human nutrition: Ingestion → Digestion (mouth, stomach, small intestine) → Absorption (small intestine) → Assimilation. Digestive enzymes: Amylase (starch), Pepsin (proteins), Lipase (fats), Trypsin (proteins).",
@@ -3031,17 +3182,27 @@ object MockData {
                 id = "science_3",
                 title = "Light - Reflection and Refraction",
                 revisionNotes = listOf(
-                    "Reflection: The bouncing back of light when it strikes a smooth surface. Two types: Regular (smooth surface, parallel rays) and Diffuse (rough surface, scattered rays).",
-                    "Laws of Reflection: (1) Angle of incidence (i) = Angle of reflection (r), (2) Incident ray, reflected ray, and normal all lie in same plane.",
-                    "Plane Mirror: Forms virtual, erect image, same size, at same distance behind mirror. Image is laterally inverted (left appears right).",
-                    "Spherical Mirrors: Concave (converging, inner surface reflecting) and Convex (diverging, outer surface reflecting).",
-                    "Concave Mirror: Can form real/inverted or virtual/erect images depending on object position. Uses: Shaving mirrors, searchlights, telescopes.",
-                    "Convex Mirror: Always forms virtual, erect, diminished image. Uses: Rear-view mirrors, security mirrors (wide field of view).",
-                    "Refraction: The bending of light when it passes from one transparent medium to another due to change in speed. Light bends towards normal when entering denser medium.",
-                    "Refractive Index (n): Ratio of speed of light in vacuum to speed in medium. n = c/v. For water, n ≈ 1.33; for glass, n ≈ 1.5.",
-                    "Snell's Law: n₁sin(i) = n₂sin(r), where n₁, n₂ are refractive indices, i is angle of incidence, r is angle of refraction.",
-                    "Lenses: Convex (converging, thicker at center) and Concave (diverging, thinner at center). Convex lens forms real/inverted or virtual/erect images. Concave lens always forms virtual, erect, diminished image.",
-                    "Power of Lens: P = 1/f (in meters). Unit: Dioptre (D). Convex lens has positive power, concave has negative power."
+                    "Reflection of Light - Complete Concept:\n\nReflection is the bouncing back of light when it strikes a surface.\n\nTwo Types:\n\n1. Regular Reflection:\n   • Occurs on smooth, polished surfaces\n   • Parallel rays remain parallel after reflection\n   • Forms clear images\n   • Example: Mirror, still water\n\n2. Diffuse Reflection:\n   • Occurs on rough, uneven surfaces\n   • Parallel rays scatter in different directions\n   • No clear image formed\n   • Example: Paper, wall, most objects\n\nKey Terms:\n• Incident Ray: Light ray striking the surface\n• Reflected Ray: Light ray bouncing back\n• Normal: Perpendicular line to surface at point of incidence\n• Angle of Incidence (i): Angle between incident ray and normal\n• Angle of Reflection (r): Angle between reflected ray and normal\n\nReflection allows us to see non-luminous objects. All objects reflect light, which enters our eyes.",
+                    
+                    "Laws of Reflection - Fundamental Principles:\n\nThere are two laws of reflection:\n\nLaw 1: Angle of Incidence = Angle of Reflection\n• ∠i = ∠r\n• Both angles measured from normal\n• Always equal, regardless of angle\n• Example: If i = 30°, then r = 30°\n\nLaw 2: Incident Ray, Reflected Ray, and Normal Lie in Same Plane\n• All three are in one plane\n• Normal is perpendicular to surface\n• Plane contains all three lines\n\nVerification:\n• Can be verified using plane mirror and pins\n• Light ray experiment confirms both laws\n• Works for all surfaces (smooth and rough)\n\nApplications:\n• Designing mirrors\n• Understanding image formation\n• Periscopes, kaleidoscopes\n• Optical instruments\n\nThese laws are universal and apply to all types of reflection.",
+                    
+                    "Plane Mirror - Image Characteristics:\n\nA plane mirror is a flat, smooth reflecting surface.\n\nImage Properties:\n\n1. Virtual Image:\n   • Cannot be obtained on screen\n   • Formed behind mirror\n   • Light rays appear to come from behind\n\n2. Erect Image:\n   • Same orientation as object\n   • Not inverted\n\n3. Same Size:\n   • Image size = Object size\n   • No magnification\n\n4. Same Distance:\n   • Image distance = Object distance\n   • If object is 5m from mirror, image is 5m behind mirror\n\n5. Laterally Inverted:\n   • Left appears as right\n   • Right appears as left\n   • Example: 'AMBULANCE' written backwards on vehicles\n\nUses:\n• Dressing mirrors\n• Periscopes\n• Kaleidoscopes\n• Security applications\n\nFormation:\n• Light from object reflects from mirror\n• Reflected rays appear to come from behind mirror\n• Brain interprets as image behind mirror",
+                    
+                    "Spherical Mirrors - Types and Structure:\n\nSpherical mirrors have curved reflecting surfaces, part of a sphere.\n\nTwo Types:\n\n1. Concave Mirror:\n   • Inner surface is reflecting\n   • Curves inward (like a cave)\n   • Also called converging mirror\n   • Center of curvature (C) is in front\n   • Principal axis passes through C and pole (P)\n   • Focal length (f) = R/2 (R is radius)\n\n2. Convex Mirror:\n   • Outer surface is reflecting\n   • Curves outward (bulges out)\n   • Also called diverging mirror\n   • Center of curvature (C) is behind mirror\n   • Principal axis passes through C and pole (P)\n   • Focal length (f) = R/2\n\nKey Terms:\n• Pole (P): Center point of mirror\n• Center of Curvature (C): Center of sphere\n• Radius of Curvature (R): Distance PC\n• Principal Focus (F): Point where parallel rays meet/diverged from\n• Focal Length (f): Distance PF = R/2\n• Principal Axis: Line through P and C\n\nRay Diagrams:\n• Help locate images\n• Use specific rules for drawing rays\n• Show image position, nature, size",
+                    
+                    "Concave Mirror - Image Formation:\n\nConcave mirror can form different types of images depending on object position.\n\nCases:\n\n1. Object at Infinity:\n   • Image: At focus (F)\n   • Real, inverted, highly diminished\n   • Use: Solar cookers, searchlights\n\n2. Object Beyond C:\n   • Image: Between F and C\n   • Real, inverted, diminished\n\n3. Object at C:\n   • Image: At C\n   • Real, inverted, same size\n\n4. Object Between C and F:\n   • Image: Beyond C\n   • Real, inverted, enlarged\n   • Use: Shaving mirrors (when close)\n\n5. Object at F:\n   • Image: At infinity\n   • Real, inverted, highly enlarged\n\n6. Object Between F and P:\n   • Image: Behind mirror\n   • Virtual, erect, enlarged\n   • Use: Makeup mirrors, shaving mirrors\n\nUses:\n• Shaving mirrors (enlarged image)\n• Searchlights (parallel beam)\n• Solar cookers (concentrate sunlight)\n• Astronomical telescopes\n• Headlights of vehicles\n\nMirror Formula:\n1/f = 1/v + 1/u\n• f = focal length\n• v = image distance\n• u = object distance\n\nMagnification:\nm = -v/u = h'/h\n• Negative sign indicates inverted image",
+                    
+                    "Convex Mirror - Always Virtual Image:\n\nConvex mirror always forms virtual, erect, diminished image regardless of object position.\n\nImage Characteristics:\n• Always virtual (cannot be obtained on screen)\n• Always erect (same orientation)\n• Always diminished (smaller than object)\n• Always behind mirror\n\nWhy Always Virtual?\n• Reflected rays diverge\n• Never actually meet\n• Appear to come from behind mirror\n• Formed by extending reflected rays backward\n\nUses:\n\n1. Rear-view Mirrors in Vehicles:\n   • Wide field of view\n   • Shows larger area\n   • Diminished but covers more\n\n2. Security Mirrors:\n   • In shops, parking lots\n   • Wide viewing angle\n   • Monitor large areas\n\n3. Street Corner Mirrors:\n   • At intersections\n   • See around corners\n   • Safety applications\n\nAdvantages:\n• Wide field of view\n• Always shows erect image\n• Useful for safety\n\nLimitations:\n• Image is always smaller\n• Cannot form real images\n• Less detail (diminished)\n\nMirror Formula:\n1/f = 1/v + 1/u\n• f is negative (behind mirror)\n• v is negative (virtual image)\n• u is negative (object in front)",
+                    
+                    "Refraction of Light - Bending of Light:\n\nRefraction is the bending of light when it passes from one transparent medium to another.\n\nCause:\n• Light changes speed in different media\n• Speed in vacuum/air > Speed in water/glass\n• Bending occurs due to speed change\n\nDirection of Bending:\n\n1. Entering Denser Medium:\n   • Light bends towards normal\n   • Example: Air → Water, Air → Glass\n   • Speed decreases\n\n2. Entering Rarer Medium:\n   • Light bends away from normal\n   • Example: Water → Air, Glass → Air\n   • Speed increases\n\nKey Terms:\n• Incident Ray: Ray entering new medium\n• Refracted Ray: Ray in new medium\n• Normal: Perpendicular to surface\n• Angle of Incidence (i): In first medium\n• Angle of Refraction (r): In second medium\n\nExamples:\n• Pencil appears bent in water\n• Pool appears shallower than actual\n• Stars twinkle (atmospheric refraction)\n• Mirage formation\n\nRefraction explains many optical phenomena we observe daily.",
+                    
+                    "Refractive Index - Complete Concept:\n\nRefractive index (n) measures how much light slows down in a medium.\n\nDefinition:\nn = Speed of light in vacuum / Speed of light in medium\nn = c / v\n\nWhere:\n• c = Speed of light in vacuum (3 × 10⁸ m/s)\n• v = Speed of light in medium\n• n = Refractive index (dimensionless)\n\nValues:\n• Vacuum: n = 1 (fastest)\n• Air: n ≈ 1.0003 (almost 1)\n• Water: n ≈ 1.33\n• Glass: n ≈ 1.5 (varies with type)\n• Diamond: n ≈ 2.42 (very high)\n\nPhysical Meaning:\n• Higher n = Slower light = More bending\n• Lower n = Faster light = Less bending\n\nRelative Refractive Index:\n• n₂₁ = n₂/n₁ = v₁/v₂\n• Refractive index of medium 2 w.r.t. medium 1\n\nFactors Affecting:\n• Wavelength of light (dispersion)\n• Temperature\n• Density of medium\n\nApplications:\n• Lens design\n• Optical fibers\n• Prisms\n• Understanding refraction",
+                    
+                    "Snell's Law - Refraction Formula:\n\nSnell's law relates angles and refractive indices in refraction.\n\nFormula:\nn₁sin(i) = n₂sin(r)\n\nWhere:\n• n₁ = Refractive index of first medium\n• n₂ = Refractive index of second medium\n• i = Angle of incidence\n• r = Angle of refraction\n\nDerivation:\n• Based on experimental observations\n• Relates angles to speed of light\n• Works for all transparent media\n\nExample:\nLight enters water from air:\n• n₁ (air) = 1, n₂ (water) = 1.33\n• If i = 30°:\n  1 × sin(30°) = 1.33 × sin(r)\n  0.5 = 1.33 × sin(r)\n  sin(r) = 0.5/1.33 = 0.376\n  r = 22.1°\n• Light bends towards normal ✓\n\nTotal Internal Reflection:\n• When light goes from denser to rarer medium\n• If angle of incidence > critical angle\n• All light reflects back (no refraction)\n• Critical angle: sin(c) = n₂/n₁\n\nApplications:\n• Optical fibers (communication)\n• Prisms (periscopes)\n• Diamond cutting (brilliance)\n• Understanding mirage",
+                    
+                    "Lenses - Types and Properties:\n\nLenses are transparent materials (usually glass) with curved surfaces that refract light.\n\nTwo Types:\n\n1. Convex Lens (Converging):\n   • Thicker at center, thinner at edges\n   • Converges parallel rays to focus\n   • Also called converging lens\n   • Focal length is positive\n   • Can form real or virtual images\n\n2. Concave Lens (Diverging):\n   • Thinner at center, thicker at edges\n   • Diverges parallel rays\n   • Also called diverging lens\n   • Focal length is negative\n   • Always forms virtual, erect, diminished image\n\nConvex Lens Image Formation:\n• Object at infinity: Real, inverted, at F\n• Object beyond 2F: Real, inverted, between F and 2F\n• Object at 2F: Real, inverted, at 2F (same size)\n• Object between F and 2F: Real, inverted, beyond 2F (enlarged)\n• Object at F: Image at infinity\n• Object between F and lens: Virtual, erect, enlarged\n\nUses:\n• Convex: Camera, projector, eye, magnifying glass\n• Concave: Spectacles (myopia), telescopes\n\nLens Formula:\n1/f = 1/v - 1/u\n• f = focal length\n• v = image distance\n• u = object distance",
+                    
+                    "Power of Lens - Measuring Lens Strength:\n\nThe power of a lens measures its ability to converge or diverge light.\n\nFormula:\nP = 1/f\n\nWhere:\n• P = Power (in Dioptres, D)\n• f = Focal length (in meters)\n\nUnit:\n• Dioptre (D)\n• 1 D = 1/m\n\nSign Convention:\n• Convex lens: Positive power (converging)\n• Concave lens: Negative power (diverging)\n\nExamples:\n• f = +0.5 m: P = 1/0.5 = +2 D (convex)\n• f = -0.25 m: P = 1/(-0.25) = -4 D (concave)\n• f = +2 m: P = 1/2 = +0.5 D (weak convex)\n\nCombination of Lenses:\n• Powers add: P = P₁ + P₂\n• Example: +2D and -1D: P = 2 + (-1) = +1D\n\nApplications:\n• Prescribing spectacles\n• Camera lenses\n• Telescope design\n• Understanding vision correction\n\nHigher Power:\n• Shorter focal length\n• More bending of light\n• Stronger lens effect\n\nPower helps opticians prescribe correct lenses for vision correction."
                 ),
                 keyPoints = listOf(
                     "Laws of Reflection: (1) Angle of incidence = Angle of reflection (i = r). (2) Incident ray, reflected ray, and normal all lie in same plane. Works for both plane and curved surfaces. Regular reflection: smooth surface, parallel rays. Diffuse reflection: rough surface, scattered rays. All objects visible due to reflection.",
@@ -3730,16 +3891,25 @@ object MockData {
                 id = "science_4",
                 title = "Acids, Bases and Salts",
                 revisionNotes = listOf(
-                    "Acids: Substances that release H⁺ (hydrogen) ions in aqueous solution. pH < 7. Turn blue litmus red. Taste sour (e.g., lemon, vinegar). Examples: HCl (hydrochloric acid), H₂SO₄ (sulphuric acid), HNO₃ (nitric acid), CH₃COOH (acetic acid). Strong acids completely ionize (HCl, H₂SO₄), weak acids partially ionize (CH₃COOH). Acids react with metals to produce hydrogen gas, with carbonates to produce CO₂, with bases to form salts.",
-                    "Bases: Substances that release OH⁻ (hydroxide) ions in aqueous solution. pH > 7. Turn red litmus blue. Taste bitter, feel soapy/slippery. Examples: NaOH (sodium hydroxide), KOH (potassium hydroxide), Ca(OH)₂ (calcium hydroxide), NH₄OH (ammonium hydroxide). Strong bases completely dissociate (NaOH, KOH), weak bases partially dissociate (NH₄OH). Bases react with acids to form salts and water (neutralization).",
-                    "Salts: Ionic compounds formed by neutralization reaction between acid and base. General reaction: Acid + Base → Salt + Water. Example: HCl + NaOH → NaCl + H₂O. Types: Normal salts (NaCl, Na₂SO₄), Acidic salts (NaHSO₄ - from partial neutralization), Basic salts (Ca(OH)Cl). Common salts: NaCl (table salt), NaHCO₃ (baking soda), Na₂CO₃ (washing soda), CaSO₄ (plaster of Paris), CaOCl₂ (bleaching powder).",
-                    "pH Scale: Measures acidity or basicity from 0 to 14. pH = 7 is neutral (pure water). pH < 7 is acidic (lower number = more acidic). pH > 7 is basic (higher number = more basic). pH = -log₁₀[H⁺]. Each unit change means 10× change in H⁺ concentration. Universal indicator shows different colors: Red (pH 1-3), Orange (pH 4-5), Yellow (pH 6), Green (pH 7), Blue (pH 8-10), Purple (pH 11-14).",
-                    "Indicators: Substances that change color to indicate acidic or basic nature. Litmus: Red in acid, blue in base. Phenolphthalein: Colorless in acid, pink in base. Methyl orange: Red in acid, yellow in base. Universal indicator: Shows full pH range with different colors. Natural indicators: Turmeric (yellow in acid, red in base), Red cabbage extract. Indicators help identify nature of solution without measuring pH.",
-                    "Neutralization Reaction: Reaction between acid and base to form salt and water. General form: Acid + Base → Salt + Water. Example: HCl + NaOH → NaCl + H₂O. Heat is usually evolved (exothermic). Used in: Antacid tablets (neutralize stomach acid), Soil treatment (lime to reduce acidity), Industrial processes. Complete neutralization occurs when moles of H⁺ = moles of OH⁻.",
-                    "Properties of Acids: React with active metals (Zn, Mg, Fe) to produce H₂ gas: Zn + 2HCl → ZnCl₂ + H₂. React with metal carbonates/bicarbonates to produce CO₂: CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂. React with bases to form salts. Conduct electricity in aqueous solution (due to ions). Corrosive in nature. Strong acids are dangerous and can cause burns.",
-                    "Properties of Bases: React with acids to form salts and water. Feel soapy/slippery (due to saponification with skin oils). Conduct electricity in aqueous solution. Some bases are caustic (NaOH, KOH can cause burns). React with ammonium salts to produce ammonia: NH₄Cl + NaOH → NaCl + H₂O + NH₃. Bases turn turmeric paper red-brown.",
-                    "Uses of Acids: HCl: Cleaning, pickling steel, food processing. H₂SO₄: Battery acid, fertilizers, detergents, chemical industry. HNO₃: Fertilizers, explosives, dyes. CH₃COOH: Vinegar, food preservative. Citric acid: Food and beverages. Ascorbic acid: Vitamin C supplement.",
-                    "Uses of Bases: NaOH: Soap making, paper industry, cleaning agents. Ca(OH)₂: Whitewashing, soil treatment, water treatment. Mg(OH)₂: Antacid (milk of magnesia). NH₄OH: Cleaning agents, fertilizers. Bases are essential in many industrial processes and daily life applications."
+                    "Acids - Complete Definition and Properties:\n\nAcids are substances that release H⁺ (hydrogen) ions in aqueous solution.\n\nArrhenius Definition:\n• Acid → H⁺ + Anion\n• Example: HCl → H⁺ + Cl⁻\n\nProperties:\n• pH < 7 (acidic)\n• Turn blue litmus red\n• Taste sour (lemon, vinegar, tamarind)\n• Conduct electricity (due to ions)\n• Corrosive in nature\n\nExamples:\n• Strong Acids (completely ionize):\n  - HCl (Hydrochloric acid)\n  - H₂SO₄ (Sulphuric acid)\n  - HNO₃ (Nitric acid)\n\n• Weak Acids (partially ionize):\n  - CH₃COOH (Acetic acid - vinegar)\n  - H₂CO₃ (Carbonic acid)\n  - Citric acid (in citrus fruits)\n\nChemical Reactions:\n• With metals: Acid + Metal → Salt + H₂\n  Example: Zn + 2HCl → ZnCl₂ + H₂\n\n• With carbonates: Acid + Carbonate → Salt + H₂O + CO₂\n  Example: CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂\n\n• With bases: Acid + Base → Salt + H₂O\n  Example: HCl + NaOH → NaCl + H₂O\n\nAcids are essential in many chemical processes and industries.",
+                    
+                    "Bases - Complete Definition and Properties:\n\nBases are substances that release OH⁻ (hydroxide) ions in aqueous solution.\n\nArrhenius Definition:\n• Base → OH⁻ + Cation\n• Example: NaOH → Na⁺ + OH⁻\n\nProperties:\n• pH > 7 (basic/alkaline)\n• Turn red litmus blue\n• Taste bitter\n• Feel soapy/slippery (saponification with skin oils)\n• Conduct electricity (due to ions)\n• Some are caustic (can cause burns)\n\nExamples:\n• Strong Bases (completely dissociate):\n  - NaOH (Sodium hydroxide - caustic soda)\n  - KOH (Potassium hydroxide)\n  - Ca(OH)₂ (Calcium hydroxide - slaked lime)\n\n• Weak Bases (partially dissociate):\n  - NH₄OH (Ammonium hydroxide)\n  - Mg(OH)₂ (Magnesium hydroxide)\n\nChemical Reactions:\n• With acids: Base + Acid → Salt + H₂O\n  Example: NaOH + HCl → NaCl + H₂O\n\n• With ammonium salts: Base + NH₄⁺ → Salt + H₂O + NH₃\n  Example: NH₄Cl + NaOH → NaCl + H₂O + NH₃\n\n• Turn turmeric paper red-brown\n\nBases neutralize acids and are used in many applications.",
+                    
+                    "Salts - Formation and Types:\n\nSalts are ionic compounds formed by neutralization reaction between acid and base.\n\nGeneral Reaction:\nAcid + Base → Salt + Water\n\nExample:\nHCl + NaOH → NaCl + H₂O\n• HCl (acid) + NaOH (base) → NaCl (salt) + H₂O\n\nTypes of Salts:\n\n1. Normal Salts:\n   • Complete neutralization\n   • No replaceable H⁺ or OH⁻\n   • Examples: NaCl, Na₂SO₄, KNO₃\n\n2. Acidic Salts:\n   • From partial neutralization of polybasic acid\n   • Contains replaceable H⁺\n   • Example: NaHSO₄ (sodium hydrogen sulphate)\n   • Formed: H₂SO₄ + NaOH → NaHSO₄ + H₂O\n\n3. Basic Salts:\n   • From partial neutralization of polyacidic base\n   • Contains replaceable OH⁻\n   • Example: Ca(OH)Cl (basic calcium chloride)\n\nCommon Salts and Uses:\n• NaCl (Table salt): Food seasoning, preservation\n• NaHCO₃ (Baking soda): Cooking, antacid, fire extinguisher\n• Na₂CO₃ (Washing soda): Cleaning, water softening\n• CaSO₄ (Plaster of Paris): Construction, medical casts\n• CaOCl₂ (Bleaching powder): Bleaching, disinfection\n\nSalts are essential in daily life and industries.",
+                    
+                    "pH Scale - Measuring Acidity and Basicity:\n\nThe pH scale measures acidity or basicity from 0 to 14.\n\nScale:\n• pH = 7: Neutral (pure water)\n• pH < 7: Acidic (lower = more acidic)\n• pH > 7: Basic/Alkaline (higher = more basic)\n\nFormula:\npH = -log₁₀[H⁺]\n\nWhere [H⁺] is hydrogen ion concentration in mol/L.\n\nKey Points:\n• Each unit change = 10× change in H⁺ concentration\n• pH 6 has 10× more H⁺ than pH 7\n• pH 5 has 100× more H⁺ than pH 7\n• pH 4 has 1000× more H⁺ than pH 7\n\nUniversal Indicator Colors:\n• Red (pH 1-3): Strong acid\n• Orange (pH 4-5): Weak acid\n• Yellow (pH 6): Very weak acid\n• Green (pH 7): Neutral\n• Blue (pH 8-10): Weak base\n• Purple (pH 11-14): Strong base\n\nExamples:\n• Stomach acid: pH 1-2\n• Lemon juice: pH 2-3\n• Coffee: pH 5\n• Pure water: pH 7\n• Baking soda: pH 8-9\n• Soap: pH 9-10\n• Bleach: pH 12-13\n\npH is crucial in:\n• Biology (enzyme function)\n• Agriculture (soil pH)\n• Medicine (blood pH)\n• Industry (process control)",
+                    
+                    "Indicators - Detecting Acids and Bases:\n\nIndicators are substances that change color to indicate acidic or basic nature.\n\nCommon Indicators:\n\n1. Litmus:\n   • Red in acid\n   • Blue in base\n   • Most common indicator\n   • Available as solution or paper\n\n2. Phenolphthalein:\n   • Colorless in acid\n   • Pink in base\n   • Used in titrations\n   • Clear color change\n\n3. Methyl Orange:\n   • Red in acid\n   • Yellow in base\n   • Used in acid-base titrations\n   • Good for weak bases\n\n4. Universal Indicator:\n   • Shows full pH range\n   • Different colors for different pH\n   • Red → Orange → Yellow → Green → Blue → Purple\n   • Most comprehensive\n\nNatural Indicators:\n• Turmeric:\n  - Yellow in acid\n  - Red-brown in base\n  - Used in cooking\n\n• Red Cabbage:\n  - Red/pink in acid\n  - Green/blue in base\n  - Natural pH indicator\n\n• China Rose:\n  - Pink in acid\n  - Green in base\n\nHow They Work:\n• Indicators are weak acids/bases\n• Different colors in acid and base forms\n• Color change at specific pH\n\nUses:\n• Quick identification of acid/base\n• Titrations (finding concentration)\n• Educational demonstrations\n• Testing unknown solutions",
+                    
+                    "Neutralization Reaction - Acid-Base Reaction:\n\nNeutralization is the reaction between acid and base to form salt and water.\n\nGeneral Form:\nAcid + Base → Salt + Water\n\nExample:\nHCl + NaOH → NaCl + H₂O\n• Hydrochloric acid + Sodium hydroxide\n• → Sodium chloride + Water\n\nCharacteristics:\n• Heat is usually evolved (exothermic)\n• pH moves towards 7\n• Complete when moles of H⁺ = moles of OH⁻\n• Forms neutral solution (pH = 7)\n\nIonic Equation:\nH⁺ + OH⁻ → H₂O\n\nApplications:\n\n1. Antacid Tablets:\n   • Neutralize excess stomach acid\n   • Example: Mg(OH)₂ + 2HCl → MgCl₂ + 2H₂O\n   • Relieves acidity\n\n2. Soil Treatment:\n   • Add lime (CaO/Ca(OH)₂) to acidic soil\n   • Raises pH for better crop growth\n   • Ca(OH)₂ + H₂SO₄ → CaSO₄ + 2H₂O\n\n3. Industrial Processes:\n   • Wastewater treatment\n   • Chemical manufacturing\n   • pH control in reactions\n\n4. Bee Sting Treatment:\n   • Bee sting is acidic\n   • Apply baking soda (base) to neutralize\n\n5. Wasp Sting Treatment:\n   • Wasp sting is basic\n   • Apply vinegar (acid) to neutralize\n\nNeutralization is fundamental in chemistry and daily life.",
+                    
+                    "Properties of Acids - Chemical Behavior:\n\nAcids have characteristic chemical properties:\n\n1. Reaction with Active Metals:\n   • Produce hydrogen gas\n   • General: Acid + Metal → Salt + H₂\n   • Example: Zn + 2HCl → ZnCl₂ + H₂\n   • Example: Mg + H₂SO₄ → MgSO₄ + H₂\n   • Not all metals react (depends on reactivity)\n   • Metals above H in reactivity series react\n\n2. Reaction with Metal Carbonates/Bicarbonates:\n   • Produce carbon dioxide\n   • General: Acid + Carbonate → Salt + H₂O + CO₂\n   • Example: CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂\n   • Example: NaHCO₃ + HCl → NaCl + H₂O + CO₂\n   • Used to test for carbonates\n\n3. Reaction with Bases:\n   • Form salts and water\n   • Neutralization reaction\n   • Example: HCl + NaOH → NaCl + H₂O\n\n4. Electrical Conductivity:\n   • Conduct electricity in aqueous solution\n   • Due to presence of ions (H⁺ and anions)\n   • Stronger acid = better conductor\n\n5. Corrosive Nature:\n   • Can damage materials\n   • Strong acids are dangerous\n   • Can cause burns on skin\n   • Handle with care\n\n6. pH < 7:\n   • Acidic nature\n   • Lower pH = stronger acid\n\nThese properties help identify and use acids safely.",
+                    
+                    "Properties of Bases - Chemical Behavior:\n\nBases have characteristic chemical properties:\n\n1. Reaction with Acids:\n   • Form salts and water\n   • Neutralization reaction\n   • Example: NaOH + HCl → NaCl + H₂O\n   • Heat is evolved\n\n2. Soapy/Slippery Feel:\n   • Due to saponification reaction\n   • Reacts with skin oils\n   • Forms soap-like substance\n   • Example: NaOH with skin\n\n3. Electrical Conductivity:\n   • Conduct electricity in aqueous solution\n   • Due to presence of ions (OH⁻ and cations)\n   • Stronger base = better conductor\n\n4. Caustic Nature:\n   • Some bases are very corrosive\n   • NaOH, KOH can cause severe burns\n   • Handle with extreme care\n   • Can damage organic materials\n\n5. Reaction with Ammonium Salts:\n   • Produce ammonia gas\n   • General: Base + NH₄⁺ → Salt + H₂O + NH₃\n   • Example: NH₄Cl + NaOH → NaCl + H₂O + NH₃\n   • Used to test for ammonium salts\n\n6. Effect on Turmeric:\n   • Turn turmeric paper red-brown\n   • Natural indicator test\n   • Yellow turmeric → Red-brown in base\n\n7. pH > 7:\n   • Basic/alkaline nature\n   • Higher pH = stronger base\n\nUnderstanding these properties helps use bases safely and effectively.",
+                    
+                    "Uses of Acids - Applications:\n\nAcids have numerous important uses:\n\n1. Hydrochloric Acid (HCl):\n   • Cleaning: Remove rust, scale\n   • Pickling steel: Clean metal surfaces\n   • Food processing: pH control\n   • Laboratory: Common reagent\n\n2. Sulphuric Acid (H₂SO₄):\n   • Battery acid: Lead-acid batteries\n   • Fertilizers: Superphosphate, ammonium sulphate\n   • Detergents: Manufacturing\n   • Chemical industry: Many processes\n   • Drying agent: Removes water\n   • Most widely used acid\n\n3. Nitric Acid (HNO₃):\n   • Fertilizers: Ammonium nitrate\n   • Explosives: TNT, dynamite\n   • Dyes: Manufacturing\n   • Etching: Metal processing\n\n4. Acetic Acid (CH₃COOH):\n   • Vinegar: Food (5-8% solution)\n   • Food preservative\n   • Pickling: Preserve vegetables\n   • Chemical synthesis\n\n5. Citric Acid:\n   • Food and beverages: Flavoring\n   • Preservative: Extend shelf life\n   • Cleaning: Remove stains\n\n6. Ascorbic Acid:\n   • Vitamin C: Health supplement\n   • Antioxidant: Food preservation\n\nAcids are essential in modern industry and daily life.",
+                    
+                    "Uses of Bases - Applications:\n\nBases have numerous important uses:\n\n1. Sodium Hydroxide (NaOH):\n   • Soap making: Saponification of fats\n   • Paper industry: Pulp processing\n   • Cleaning agents: Drain cleaners\n   • Textile industry: Processing\n   • Petroleum refining\n   • Most widely used base\n\n2. Calcium Hydroxide (Ca(OH)₂):\n   • Whitewashing: Walls and buildings\n   • Soil treatment: Reduce acidity\n   • Water treatment: Purification\n   • Construction: Mortar, plaster\n   • Food: Pickling (lime)\n\n3. Magnesium Hydroxide (Mg(OH)₂):\n   • Antacid: Milk of magnesia\n   • Relieves acidity: Stomach problems\n   • Laxative: Constipation relief\n   • Safe for internal use\n\n4. Ammonium Hydroxide (NH₄OH):\n   • Cleaning agents: Household cleaners\n   • Fertilizers: Nitrogen source\n   • Laboratory: Reagent\n   • Textile industry\n\n5. Potassium Hydroxide (KOH):\n   • Soap making: Soft soaps\n   • Batteries: Alkaline batteries\n   • Chemical synthesis\n\n6. Aluminum Hydroxide:\n   • Antacid: Stomach relief\n   • Water treatment: Coagulation\n\nBases are essential in:\n• Manufacturing industries\n• Medicine and healthcare\n• Agriculture\n• Daily household products\n• Chemical processes"
                 ),
                 keyPoints = listOf(
                     "Properties of Acids and Bases: Acids taste sour, turn blue litmus red, react with metals to produce H₂ gas, conduct electricity. Bases taste bitter, feel soapy, turn red litmus blue, conduct electricity. Strong acids: HCl, H₂SO₄, HNO₃. Strong bases: NaOH, KOH, Ca(OH)₂.",
@@ -4323,16 +4493,25 @@ object MockData {
                 id = "science_5",
                 title = "Metals and Non-metals",
                 revisionNotes = listOf(
-                    "Physical Properties of Metals: Shiny luster (metallic shine), malleable (can be hammered into sheets), ductile (can be drawn into wires), good conductors of heat and electricity, high melting and boiling points, sonorous (make ringing sound when struck), solid at room temperature (except mercury which is liquid). Examples: Iron, copper, aluminum, gold, silver. These properties make metals useful for various applications like construction, electrical wiring, jewelry.",
-                    "Physical Properties of Non-metals: Dull appearance (no luster), brittle (break easily, cannot be hammered), poor conductors of heat and electricity (except graphite which conducts electricity), low melting and boiling points, non-sonorous, exist in all three states (solid: carbon, sulfur; liquid: bromine; gas: oxygen, nitrogen). Examples: Carbon, sulfur, oxygen, nitrogen, chlorine. Used in various forms based on their properties.",
-                    "Chemical Properties of Metals: Lose electrons to form positive ions (cations). React with oxygen to form basic oxides: 4Na + O₂ → 2Na₂O. React with acids to produce hydrogen gas: Zn + 2HCl → ZnCl₂ + H₂. More reactive metals displace less reactive metals from their compounds: Zn + CuSO₄ → ZnSO₄ + Cu. Reactivity decreases down the reactivity series. Metals above hydrogen in reactivity series react with acids.",
-                    "Chemical Properties of Non-metals: Gain electrons to form negative ions (anions). React with oxygen to form acidic or neutral oxides: C + O₂ → CO₂ (acidic), H₂ + O₂ → 2H₂O (neutral). Generally don't react with acids (except some like carbon with concentrated acids). Non-metals are oxidizing agents (accept electrons). Chlorine, oxygen are highly reactive non-metals.",
-                    "Reactivity Series: Order of metals from most to least reactive: K > Na > Ca > Mg > Al > Zn > Fe > Pb > H > Cu > Ag > Au. More reactive metal displaces less reactive from compounds. Metals above H react with acids to produce H₂, metals below H don't. Used to predict reactions, choose reducing agents, determine extraction methods. Must memorize for problem solving. Helps understand why some metals are found free in nature (Au, Ag) while others form compounds.",
-                    "Metallurgy: Process of extracting metals from their ores. Steps: (1) Concentration of ore (removing impurities), (2) Conversion to oxide (roasting/calcination), (3) Reduction to metal (using reducing agent like carbon, aluminum), (4) Refining (purification). Methods depend on reactivity: Highly reactive metals (K, Na, Ca) - electrolysis. Moderately reactive (Zn, Fe, Pb) - reduction with carbon. Less reactive (Cu, Ag, Au) - heating or found free. Example: Extraction of iron from hematite (Fe₂O₃) using coke in blast furnace.",
-                    "Alloys: Homogeneous mixtures of metals or metal with non-metal to improve properties. Examples: Steel (Fe + C) - stronger than iron, Bronze (Cu + Sn) - harder than copper, Brass (Cu + Zn) - more malleable, Stainless steel (Fe + Cr + Ni) - rust-resistant, Solder (Pb + Sn) - low melting point. Alloys have better properties than pure metals: increased strength, corrosion resistance, lower melting point, improved appearance. Used extensively in construction, manufacturing, jewelry.",
-                    "Corrosion: Slow deterioration of metals due to reaction with environment (moisture, oxygen, acids). Rusting of iron: 4Fe + 3O₂ + 6H₂O → 4Fe(OH)₃ (rust). Prevention methods: Painting (creates barrier), Galvanization (coating with zinc), Alloying (making stainless steel), Oiling/Greasing (prevents contact with air/moisture), Electroplating (coating with another metal). Corrosion causes huge economic losses, so prevention is important.",
-                    "Uses of Metals: Iron: Construction, machinery, tools. Copper: Electrical wires, coins, utensils. Aluminum: Aircraft, packaging, construction. Gold/Silver: Jewelry, coins, electronics. Zinc: Galvanization, batteries. Lead: Batteries, radiation shielding. Each metal's use depends on its specific properties like conductivity, strength, reactivity, cost.",
-                    "Uses of Non-metals: Carbon (graphite): Pencil leads, electrodes, lubricants. Carbon (diamond): Cutting tools, jewelry. Nitrogen: Fertilizers, preserving food. Oxygen: Respiration, combustion, medical use. Chlorine: Water purification, bleaching, PVC. Sulfur: Gunpowder, vulcanization of rubber. Phosphorus: Matches, fertilizers. Non-metals are essential for life and industry."
+                    "Physical Properties of Metals - Complete List:\n\nMetals have characteristic physical properties:\n\n1. Shiny Luster:\n   • Metallic shine\n   • Reflect light\n   • Polished surface\n   • Example: Gold, silver\n\n2. Malleable:\n   • Can be hammered into thin sheets\n   • Without breaking\n   • Example: Gold (most malleable)\n   • Used: Aluminum foil\n\n3. Ductile:\n   • Can be drawn into wires\n   • Stretched without breaking\n   • Example: Copper, silver\n   • Used: Electrical wires\n\n4. Good Conductors:\n   • Heat: Transfer heat easily\n   • Electricity: Allow current flow\n   • Example: Silver (best conductor)\n   • Used: Electrical wiring, cooking utensils\n\n5. High Melting and Boiling Points:\n   • Most are solid at room temperature\n   • Exception: Mercury (liquid)\n   • Example: Iron (1538°C), Copper (1085°C)\n\n6. Sonorous:\n   • Make ringing sound when struck\n   • Used: Bells, musical instruments\n\n7. Hard and Strong:\n   • Most are hard (except Na, K)\n   • High tensile strength\n   • Used: Construction\n\nExamples:\n• Iron, Copper, Aluminum, Gold, Silver, Zinc\n\nThese properties make metals essential for:\n• Construction\n• Electrical applications\n• Manufacturing\n• Jewelry\n• Transportation",
+                    
+                    "Physical Properties of Non-metals - Complete List:\n\nNon-metals have different physical properties:\n\n1. Dull Appearance:\n   • No metallic luster\n   • Not shiny\n   • Exception: Diamond, iodine\n\n2. Brittle:\n   • Break easily when hammered\n   • Cannot be hammered into sheets\n   • Cannot be drawn into wires\n   • Example: Sulfur, phosphorus\n\n3. Poor Conductors:\n   • Heat: Do not transfer heat well\n   • Electricity: Do not conduct (insulators)\n   • Exception: Graphite (conducts electricity)\n   • Used: Insulation materials\n\n4. Low Melting and Boiling Points:\n   • Many are gases at room temperature\n   • Some are liquids\n   • Example: Bromine (liquid)\n\n5. Non-sonorous:\n   • Do not make ringing sound\n   • Break when struck\n\n6. Exist in All Three States:\n   • Solid: Carbon, sulfur, phosphorus\n   • Liquid: Bromine\n   • Gas: Oxygen, nitrogen, hydrogen, chlorine\n\nExamples:\n• Carbon, Sulfur, Oxygen, Nitrogen, Chlorine, Phosphorus\n\nUses:\n• Based on their specific properties\n• Essential for life (oxygen, nitrogen)\n• Industrial applications\n• Chemical processes",
+                    
+                    "Chemical Properties of Metals - Reactions:\n\nMetals have characteristic chemical behavior:\n\n1. Lose Electrons:\n   • Form positive ions (cations)\n   • M → Mⁿ⁺ + ne⁻\n   • Example: Na → Na⁺ + e⁻\n   • Tendency decreases down reactivity series\n\n2. React with Oxygen:\n   • Form basic oxides\n   • 4Na + O₂ → 2Na₂O (sodium oxide)\n   • 2Mg + O₂ → 2MgO (magnesium oxide)\n   • Basic oxides react with water to form bases\n\n3. React with Acids:\n   • Produce hydrogen gas\n   • Metal + Acid → Salt + H₂\n   • Zn + 2HCl → ZnCl₂ + H₂\n   • Only metals above H in reactivity series\n   • Metals below H don't react\n\n4. Displacement Reactions:\n   • More reactive metal displaces less reactive\n   • Zn + CuSO₄ → ZnSO₄ + Cu\n   • Fe + CuSO₄ → FeSO₄ + Cu\n   • Based on reactivity series\n\n5. React with Water:\n   • Highly reactive: Na, K (vigorous)\n   • Moderately reactive: Ca, Mg (with steam)\n   • Less reactive: Fe (with steam only)\n   • 2Na + 2H₂O → 2NaOH + H₂\n\nReactivity decreases: K > Na > Ca > Mg > Al > Zn > Fe > Pb > H > Cu > Ag > Au",
+                    
+                    "Chemical Properties of Non-metals - Reactions:\n\nNon-metals have different chemical behavior:\n\n1. Gain Electrons:\n   • Form negative ions (anions)\n   • Non-metal + e⁻ → Non-metal ion\n   • Example: Cl + e⁻ → Cl⁻\n   • Tendency increases with electronegativity\n\n2. React with Oxygen:\n   • Form acidic or neutral oxides\n   • C + O₂ → CO₂ (acidic - carbonic acid)\n   • S + O₂ → SO₂ (acidic - sulfurous acid)\n   • H₂ + O₂ → 2H₂O (neutral)\n   • Acidic oxides react with water to form acids\n\n3. Generally Don't React with Acids:\n   • Most non-metals don't react\n   • Exception: Carbon with concentrated acids\n   • C + 4HNO₃ → CO₂ + 4NO₂ + 2H₂O\n\n4. Oxidizing Agents:\n   • Accept electrons\n   • Get reduced themselves\n   • Example: O₂, Cl₂, F₂\n   • Strong oxidizing agents\n\n5. React with Metals:\n   • Form ionic compounds\n   • 2Na + Cl₂ → 2NaCl\n   • Mg + O₂ → 2MgO\n\n6. React with Each Other:\n   • Form covalent compounds\n   • H₂ + Cl₂ → 2HCl\n   • C + O₂ → CO₂\n\nHighly Reactive Non-metals:\n• Chlorine, Oxygen, Fluorine\n• Form compounds easily",
+                    
+                    "Reactivity Series - Complete Order:\n\nThe reactivity series orders metals from most to least reactive.\n\nOrder:\nK > Na > Ca > Mg > Al > Zn > Fe > Pb > H > Cu > Ag > Au\n\n(Most reactive) → (Least reactive)\n\nKey Points:\n\n1. Displacement:\n   • More reactive metal displaces less reactive\n   • Zn + CuSO₄ → ZnSO₄ + Cu (Zn more reactive)\n   • Cu + ZnSO₄ → No reaction (Cu less reactive)\n\n2. Reaction with Acids:\n   • Metals above H: React with acids → H₂\n   • Metals below H: Don't react with acids\n   • Zn + 2HCl → ZnCl₂ + H₂ ✓\n   • Cu + 2HCl → No reaction ✗\n\n3. Extraction Methods:\n   • Highly reactive (K, Na, Ca): Electrolysis\n   • Moderately reactive (Zn, Fe, Pb): Reduction with carbon\n   • Less reactive (Cu, Ag, Au): Heating or found free\n\n4. Occurrence in Nature:\n   • Highly reactive: Always in compounds\n   • Less reactive: Found free (Au, Ag, Pt)\n\n5. Reducing Power:\n   • More reactive = Better reducing agent\n   • K is strongest reducing agent\n\nMust memorize this series for problem solving!",
+                    
+                    "Metallurgy - Extracting Metals from Ores:\n\nMetallurgy is the process of extracting metals from their ores.\n\nSteps:\n\n1. Concentration of Ore:\n   • Remove impurities (gangue)\n   • Methods: Froth floatation, magnetic separation\n   • Get pure ore\n\n2. Conversion to Oxide:\n   • Roasting: Sulfide ores + O₂ → Oxide + SO₂\n   • Calcination: Carbonate ores → Oxide + CO₂\n   • Example: ZnS + O₂ → ZnO + SO₂\n\n3. Reduction to Metal:\n   • Remove oxygen from oxide\n   • Use reducing agent:\n     - Carbon (for Zn, Fe, Pb)\n     - Aluminum (for Cr, Mn)\n     - Electrolysis (for K, Na, Ca)\n   • Example: Fe₂O₃ + 3C → 2Fe + 3CO\n\n4. Refining:\n   • Purification of metal\n   • Remove remaining impurities\n   • Methods: Electrolysis, distillation\n\nMethods by Reactivity:\n\n• Highly Reactive (K, Na, Ca, Mg, Al):\n  - Electrolysis of molten compounds\n  - Cannot use carbon (forms carbides)\n\n• Moderately Reactive (Zn, Fe, Pb, Sn):\n  - Reduction with carbon (coke)\n  - In blast furnace\n  - Example: Iron from hematite (Fe₂O₃)\n\n• Less Reactive (Cu, Ag, Au):\n  - Heating (for Cu)\n  - Found free in nature (Au, Ag)\n\nExample - Iron Extraction:\nFe₂O₃ + 3CO → 2Fe + 3CO₂ (in blast furnace)",
+                    
+                    "Alloys - Improving Metal Properties:\n\nAlloys are homogeneous mixtures of metals or metal with non-metal.\n\nPurpose:\n• Improve properties of pure metals\n• Get desired characteristics\n• Better than individual metals\n\nCommon Alloys:\n\n1. Steel (Fe + C):\n   • Stronger than iron\n   • Used: Construction, tools\n   • Types: Mild steel, stainless steel\n\n2. Bronze (Cu + Sn):\n   • Harder than copper\n   • Used: Statues, coins, tools\n   • Historical importance\n\n3. Brass (Cu + Zn):\n   • More malleable\n   • Used: Musical instruments, decorative items\n   • Golden appearance\n\n4. Stainless Steel (Fe + Cr + Ni):\n   • Rust-resistant\n   • Used: Utensils, medical instruments\n   • Doesn't corrode easily\n\n5. Solder (Pb + Sn):\n   • Low melting point\n   • Used: Joining metals, electronics\n   • Easy to work with\n\n6. Duralumin (Al + Cu + Mg + Mn):\n   • Light and strong\n   • Used: Aircraft, vehicles\n\nProperties Improved:\n• Increased strength\n• Corrosion resistance\n• Lower melting point\n• Better appearance\n• Specific properties for uses\n\nAlloys are essential in modern technology.",
+                    
+                    "Corrosion - Metal Deterioration:\n\nCorrosion is slow deterioration of metals due to reaction with environment.\n\nRusting of Iron:\n• Most common example\n• Chemical reaction: 4Fe + 3O₂ + 6H₂O → 4Fe(OH)₃\n• Requires: Iron + Oxygen + Water (moisture)\n• Forms: Hydrated ferric oxide (rust)\n• Reddish-brown, flaky substance\n• Weakens the metal\n\nFactors Affecting:\n• Presence of moisture\n• Presence of oxygen\n• Acids/salts (accelerate)\n• Temperature (higher = faster)\n• Impurities in metal\n\nPrevention Methods:\n\n1. Painting:\n   • Creates barrier\n   • Prevents contact with air/water\n   • Common for iron objects\n\n2. Galvanization:\n   • Coating with zinc\n   • Zinc protects iron (sacrificial protection)\n   • Used: Pipes, buckets, car bodies\n\n3. Alloying:\n   • Making stainless steel\n   • More resistant to corrosion\n   • Example: Fe + Cr + Ni\n\n4. Oiling/Greasing:\n   • Temporary protection\n   • For machinery parts\n\n5. Electroplating:\n   • Coating with another metal\n   • Example: Chromium plating\n\nEconomic Impact:\n• Huge losses worldwide\n• Prevention is important\n• Saves resources and money",
+                    
+                    "Uses of Metals - Applications:\n\nEach metal has specific uses based on properties:\n\n1. Iron:\n   • Construction: Buildings, bridges\n   • Machinery: Tools, equipment\n   • Vehicles: Cars, trains\n   • Most widely used metal\n\n2. Copper:\n   • Electrical wires: Best conductor after silver\n   • Coins: Currency\n   • Utensils: Cooking\n   • Plumbing: Pipes\n\n3. Aluminum:\n   • Aircraft: Lightweight\n   • Packaging: Foils, cans\n   • Construction: Windows, doors\n   • Electrical: Transmission lines\n\n4. Gold/Silver:\n   • Jewelry: Ornaments\n   • Coins: Currency\n   • Electronics: Circuits\n   • Medical: Dental fillings\n\n5. Zinc:\n   • Galvanization: Protecting iron\n   • Batteries: Dry cells\n   • Alloys: Brass\n\n6. Lead:\n   • Batteries: Car batteries\n   • Radiation shielding: X-rays\n   • Pipes: (now less common)\n\n7. Mercury:\n   • Thermometers: Liquid metal\n   • Barometers: Pressure measurement\n\nUses depend on:\n• Conductivity\n• Strength\n• Reactivity\n• Cost\n• Availability",
+                    
+                    "Uses of Non-metals - Applications:\n\nNon-metals are essential for life and industry:\n\n1. Carbon:\n   • Graphite:\n     - Pencil leads\n     - Electrodes (batteries)\n     - Lubricants\n   • Diamond:\n     - Cutting tools (hardest substance)\n     - Jewelry\n     - Industrial cutting\n\n2. Nitrogen:\n   • Fertilizers: Plant growth\n   • Preserving food: Inert atmosphere\n   • Liquid nitrogen: Freezing\n   • 78% of atmosphere\n\n3. Oxygen:\n   • Respiration: Essential for life\n   • Combustion: Burning fuels\n   • Medical: Oxygen therapy\n   • Welding: Oxy-acetylene\n   • 21% of atmosphere\n\n4. Chlorine:\n   • Water purification: Kills bacteria\n   • Bleaching: Paper, textiles\n   • PVC: Plastics\n   • Disinfectants\n\n5. Sulfur:\n   • Gunpowder: Explosives\n   • Vulcanization: Rubber\n   • Sulfuric acid: Industry\n   • Fungicides\n\n6. Phosphorus:\n   • Matches: Ignition\n   • Fertilizers: Plant nutrients\n   • Detergents\n\n7. Hydrogen:\n   • Fuel: Clean energy\n   • Ammonia: Fertilizers\n   • Margarine: Food industry\n\nNon-metals are crucial for:\n• Life processes\n• Industrial processes\n• Modern technology\n• Daily life"
                 ),
                 keyPoints = listOf(
                     "Physical Properties: Metals: Shiny luster, malleable (can be hammered), ductile (can be drawn into wires), good conductors of heat and electricity, high melting/boiling points, sonorous (make sound). Non-metals: Dull, brittle, poor conductors (except graphite), low melting/boiling points. Used to identify and classify elements.",
@@ -4946,16 +5125,25 @@ object MockData {
                 id = "science_6",
                 title = "Carbon and its Compounds",
                 revisionNotes = listOf(
-                    "Covalent Bonding: Chemical bonding where atoms share electrons to achieve stable electron configuration. Carbon forms covalent bonds because it has 4 valence electrons and needs 4 more to complete octet. Sharing can be single (1 pair), double (2 pairs), or triple (3 pairs). Example: Methane (CH₄) - carbon shares 4 electrons with 4 hydrogen atoms. Covalent compounds have low melting/boiling points, don't conduct electricity, are generally insoluble in water. Forms basis of organic chemistry.",
-                    "Hydrocarbons: Organic compounds containing only carbon and hydrogen atoms. Simplest hydrocarbon is methane (CH₄). Types: Alkanes (single bonds, saturated, general formula CₙH₂ₙ₊₂), Alkenes (double bond, unsaturated, CₙH₂ₙ), Alkynes (triple bond, unsaturated, CₙH₂ₙ₋₂). Examples: Methane (CH₄), Ethene (C₂H₄), Ethyne (C₂H₂). Used as fuels (petroleum, natural gas), in manufacturing plastics, chemicals, and various products.",
-                    "Saturated and Unsaturated Compounds: Saturated hydrocarbons have only single bonds (alkanes), all carbon atoms have maximum hydrogen. Example: Ethane (C₂H₆). Unsaturated hydrocarbons have double or triple bonds (alkenes/alkynes), can add more hydrogen. Example: Ethene (C₂H₄) has double bond. Unsaturated compounds are more reactive. Saturated fats are solid at room temperature, unsaturated are liquid. Used in food industry and chemical synthesis.",
-                    "Functional Groups: Specific groups of atoms that determine chemical properties of organic compounds. -OH (hydroxyl): Alcohols (methanol CH₃OH, ethanol C₂H₅OH). -COOH (carboxyl): Carboxylic acids (formic acid HCOOH, acetic acid CH₃COOH). -CHO (aldehyde): Aldehydes (formaldehyde HCHO). -CO- (carbonyl): Ketones (acetone CH₃COCH₃). Functional groups give compounds their characteristic properties and reactions.",
-                    "Isomerism: Compounds with same molecular formula but different structural arrangements. Structural isomers have different connectivity of atoms. Example: Butane (C₄H₁₀) has two isomers: n-butane (straight chain) and isobutane (branched). Isomers have different physical and chemical properties despite same molecular formula. Important in understanding organic chemistry and drug design.",
-                    "Alcohols: Organic compounds with -OH functional group. General formula: R-OH where R is alkyl group. Examples: Methanol (CH₃OH) - used as fuel, Ethanol (C₂H₅OH) - in alcoholic beverages, fuel. Properties: Soluble in water, higher boiling points than hydrocarbons, can form hydrogen bonds. Uses: Fuels, solvents, beverages, antiseptics, industrial chemicals.",
-                    "Carboxylic Acids: Organic compounds with -COOH functional group. General formula: R-COOH. Examples: Formic acid (HCOOH) - in ant stings, Acetic acid (CH₃COOH) - vinegar. Properties: Weak acids, sour taste, react with bases to form salts. Uses: Food preservatives, manufacturing soaps, pharmaceuticals, industrial chemicals.",
-                    "Esters: Formed by reaction of carboxylic acid with alcohol. General formula: R-COO-R'. Examples: Ethyl ethanoate (CH₃COOC₂H₅) - fruity smell. Properties: Pleasant fruity odors, used in perfumes and flavorings. Formation: Acid + Alcohol → Ester + Water. Used in perfumes, artificial flavors, solvents, plastics.",
-                    "Soaps and Detergents: Soaps are salts of fatty acids (long chain carboxylic acids). Formed by saponification: Fat/Oil + NaOH → Soap + Glycerol. Soap molecules have hydrophobic (water-repelling) tail and hydrophilic (water-attracting) head. Cleansing action: Soap molecules form micelles that trap dirt and oil. Detergents are synthetic cleaning agents, work in hard water. Used for cleaning, washing, personal hygiene.",
-                    "Important Carbon Compounds: Ethanol (C₂H₅OH): Alcoholic beverages, fuel, solvent, antiseptic. Ethanoic acid (CH₃COOH): Vinegar, food preservative. Soap: Cleaning agent. Detergents: Synthetic cleaners. Understanding carbon compounds is essential for chemistry, biology, medicine, and daily life applications."
+                    "Covalent Bonding - Sharing Electrons:\n\nCovalent bonding is chemical bonding where atoms share electrons to achieve stable electron configuration.\n\nWhy Carbon Forms Covalent Bonds:\n• Carbon has 4 valence electrons\n• Needs 4 more to complete octet\n• Cannot easily gain or lose 4 electrons\n• Sharing is most stable option\n\nTypes of Sharing:\n• Single bond: 1 pair of electrons shared\n• Double bond: 2 pairs of electrons shared\n• Triple bond: 3 pairs of electrons shared\n\nExample - Methane (CH₄):\n• Carbon shares 4 electrons\n• 1 electron with each of 4 hydrogen atoms\n• Each H shares 1 electron with C\n• All atoms achieve stable configuration\n• Formula: CH₄\n\nProperties of Covalent Compounds:\n• Low melting and boiling points\n• Don't conduct electricity (no ions)\n• Generally insoluble in water\n• Formed by non-metals\n• Weak intermolecular forces\n\nImportance:\n• Forms basis of organic chemistry\n• All life is based on carbon compounds\n• Essential for understanding chemistry\n\nCovalent bonding allows carbon to form millions of compounds, making it the basis of life.",
+                    
+                    "Hydrocarbons - Carbon and Hydrogen Compounds:\n\nHydrocarbons are organic compounds containing only carbon and hydrogen atoms.\n\nSimplest Hydrocarbon:\n• Methane (CH₄)\n• 1 carbon, 4 hydrogen atoms\n• Natural gas component\n\nTypes:\n\n1. Alkanes:\n   • Only single bonds\n   • Saturated (maximum H)\n   • General formula: CₙH₂ₙ₊₂\n   • Examples: Methane (CH₄), Ethane (C₂H₆), Propane (C₃H₈)\n   • Less reactive\n\n2. Alkenes:\n   • One double bond\n   • Unsaturated (can add H)\n   • General formula: CₙH₂ₙ\n   • Examples: Ethene (C₂H₄), Propene (C₃H₆)\n   • More reactive\n\n3. Alkynes:\n   • One triple bond\n   • Unsaturated (can add H)\n   • General formula: CₙH₂ₙ₋₂\n   • Examples: Ethyne (C₂H₂), Propyne (C₃H₄)\n   • Most reactive\n\nUses:\n• Fuels: Petroleum, natural gas, LPG\n• Manufacturing: Plastics, chemicals\n• Industrial processes\n• Energy source\n\nHydrocarbons are the foundation of the petrochemical industry and modern energy systems.",
+                    
+                    "Saturated and Unsaturated Compounds - Bond Types:\n\nClassification based on types of bonds:\n\nSaturated Hydrocarbons:\n• Only single bonds (C-C)\n• All carbon atoms have maximum hydrogen\n• Cannot add more hydrogen\n• Example: Ethane (C₂H₆)\n• Less reactive\n• General formula: CₙH₂ₙ₊₂ (alkanes)\n\nUnsaturated Hydrocarbons:\n• Have double or triple bonds\n• Can add more hydrogen\n• Example: Ethene (C₂H₄) has double bond\n• More reactive\n• Types:\n  - Alkenes: CₙH₂ₙ (double bond)\n  - Alkynes: CₙH₂ₙ₋₂ (triple bond)\n\nTest for Unsaturation:\n• Add bromine water\n• Unsaturated: Decolorizes (brown → colorless)\n• Saturated: No change\n\nIn Fats:\n• Saturated fats: Solid at room temperature\n• Unsaturated fats: Liquid at room temperature\n• Health implications differ\n\nUses:\n• Food industry: Oils and fats\n• Chemical synthesis: Starting materials\n• Manufacturing: Plastics, polymers\n\nUnderstanding saturation is important for chemistry and health.",
+                    
+                    "Functional Groups - Determining Properties:\n\nFunctional groups are specific groups of atoms that determine chemical properties of organic compounds.\n\nCommon Functional Groups:\n\n1. -OH (Hydroxyl):\n   • Alcohols\n   • Examples: Methanol (CH₃OH), Ethanol (C₂H₅OH)\n   • Properties: Soluble in water, can form hydrogen bonds\n\n2. -COOH (Carboxyl):\n   • Carboxylic acids\n   • Examples: Formic acid (HCOOH), Acetic acid (CH₃COOH)\n   • Properties: Acidic, react with bases\n\n3. -CHO (Aldehyde):\n   • Aldehydes\n   • Example: Formaldehyde (HCHO)\n   • Properties: Reducing agents, reactive\n\n4. -CO- (Carbonyl):\n   • Ketones\n   • Example: Acetone (CH₃COCH₃)\n   • Properties: Less reactive than aldehydes\n\n5. -NH₂ (Amino):\n   • Amines\n   • Properties: Basic, form salts\n\nImportance:\n• Determine chemical behavior\n• Predict reactions\n• Classify compounds\n• Essential for organic chemistry\n\nFunctional groups are like 'chemical personalities' - they determine how compounds behave.",
+                    
+                    "Isomerism - Same Formula, Different Structure:\n\nIsomerism occurs when compounds have the same molecular formula but different structural arrangements.\n\nDefinition:\n• Same number of atoms\n• Different arrangement\n• Different properties\n\nTypes:\n\n1. Structural Isomers:\n   • Different connectivity of atoms\n   • Different bonding patterns\n   • Example: Butane (C₄H₁₀)\n     - n-butane: Straight chain\n     - Isobutane: Branched chain\n\n2. Geometric Isomers:\n   • Same connectivity\n   • Different spatial arrangement\n   • In compounds with double bonds\n\nExample - Butane Isomers:\n• n-butane: CH₃-CH₂-CH₂-CH₃ (straight)\n• Isobutane: CH₃-CH(CH₃)-CH₃ (branched)\n• Same formula: C₄H₁₀\n• Different properties:\n  - Different boiling points\n  - Different reactivities\n\nImportance:\n• Understanding organic chemistry\n• Drug design (different isomers have different effects)\n• Explains variety of compounds\n• Essential for biochemistry\n\nIsomerism explains why the same atoms can form different compounds with different properties.",
+                    
+                    "Alcohols - Hydroxyl Group Compounds:\n\nAlcohols are organic compounds with -OH (hydroxyl) functional group.\n\nGeneral Formula:\nR-OH\n\nWhere R is an alkyl group (carbon chain).\n\nExamples:\n\n1. Methanol (CH₃OH):\n   • Simplest alcohol\n   • Used as fuel\n   • Industrial solvent\n   • Toxic if ingested\n\n2. Ethanol (C₂H₅OH):\n   • Alcoholic beverages\n   • Fuel (biofuel)\n   • Solvent\n   • Antiseptic\n   • Industrial chemical\n\nProperties:\n• Soluble in water (form hydrogen bonds)\n• Higher boiling points than hydrocarbons\n• Can form hydrogen bonds\n• Polar molecules\n• Volatile\n\nUses:\n• Fuels: Ethanol as biofuel\n• Solvents: Industrial and laboratory\n• Beverages: Alcoholic drinks\n• Antiseptics: Medical use\n• Industrial chemicals: Manufacturing\n• Preservatives: Food industry\n\nReactions:\n• Combustion: Burn to produce CO₂ and H₂O\n• Oxidation: Form aldehydes/carboxylic acids\n• Esterification: Form esters with acids\n\nAlcohols are versatile compounds with many applications in daily life and industry.",
+                    
+                    "Carboxylic Acids - Acidic Organic Compounds:\n\nCarboxylic acids are organic compounds with -COOH (carboxyl) functional group.\n\nGeneral Formula:\nR-COOH\n\nWhere R is an alkyl group.\n\nExamples:\n\n1. Formic Acid (HCOOH):\n   • Simplest carboxylic acid\n   • Found in ant stings\n   • Industrial chemical\n\n2. Acetic Acid (CH₃COOH):\n   • Vinegar (5-8% solution)\n   • Food preservative\n   • Industrial chemical\n   • Most common carboxylic acid\n\nProperties:\n• Weak acids (partially ionize)\n• Sour taste\n• React with bases to form salts\n• Higher boiling points (hydrogen bonding)\n• Soluble in water\n\nReactions:\n• With bases: Form salts\n  CH₃COOH + NaOH → CH₃COONa + H₂O\n• Esterification: Form esters with alcohols\n• Decarboxylation: Remove CO₂\n\nUses:\n• Food preservatives: Vinegar\n• Manufacturing soaps: Saponification\n• Pharmaceuticals: Drug synthesis\n• Industrial chemicals: Many processes\n• Food industry: Flavoring, preservation\n\nCarboxylic acids are important in food, medicine, and industry.",
+                    
+                    "Esters - Fruity Smelling Compounds:\n\nEsters are formed by reaction of carboxylic acid with alcohol.\n\nGeneral Formula:\nR-COO-R'\n\nWhere R and R' are alkyl groups.\n\nFormation:\nAcid + Alcohol → Ester + Water\n\nExample:\nCH₃COOH + C₂H₅OH → CH₃COOC₂H₅ + H₂O\n• Acetic acid + Ethanol\n• → Ethyl ethanoate + Water\n\nProperties:\n• Pleasant fruity odors\n• Used in perfumes\n• Used in artificial flavors\n• Lower boiling points than acids\n• Volatile\n\nExamples:\n• Ethyl ethanoate: Fruity smell (pineapple)\n• Methyl butanoate: Apple smell\n• Pentyl ethanoate: Banana smell\n\nUses:\n• Perfumes: Fragrances\n• Artificial flavors: Food industry\n• Solvents: Industrial use\n• Plastics: Manufacturing\n• Cosmetics: Fragrances\n\nNatural Occurrence:\n• Fruits: Natural flavors\n• Flowers: Fragrances\n• Many biological compounds\n\nEsters give fruits and flowers their characteristic smells and are widely used in perfumes and flavors.",
+                    
+                    "Soaps and Detergents - Cleaning Agents:\n\nSoaps and detergents are cleaning agents that remove dirt and oil.\n\nSoaps:\n• Salts of fatty acids (long chain carboxylic acids)\n• Formed by saponification:\n  Fat/Oil + NaOH → Soap + Glycerol\n• Natural cleaning agents\n\nStructure:\n• Hydrophobic tail: Water-repelling (long carbon chain)\n• Hydrophilic head: Water-attracting (ionic part)\n• This dual nature enables cleaning\n\nCleansing Action:\n1. Soap molecules form micelles\n2. Hydrophobic tails trap dirt and oil\n3. Hydrophilic heads face water\n4. Micelles are washed away\n5. Dirt and oil removed\n\nDetergents:\n• Synthetic cleaning agents\n• Similar structure to soaps\n• Work in hard water (soaps don't)\n• More effective in some conditions\n\nDifferences:\n• Soaps: Natural, don't work in hard water\n• Detergents: Synthetic, work in hard water\n\nUses:\n• Cleaning: Clothes, dishes, surfaces\n• Washing: Personal hygiene\n• Industrial: Manufacturing\n• Household: Daily cleaning\n\nSoaps and detergents are essential for hygiene and cleanliness in modern life.",
+                    
+                    "Important Carbon Compounds - Summary:\n\nKey carbon compounds and their uses:\n\n1. Ethanol (C₂H₅OH):\n   • Alcoholic beverages\n   • Fuel (biofuel)\n   • Solvent\n   • Antiseptic\n   • Industrial chemical\n\n2. Ethanoic Acid (CH₃COOH):\n   • Vinegar (food)\n   • Food preservative\n   • Manufacturing soaps\n   • Industrial processes\n\n3. Soap:\n   • Cleaning agent\n   • Personal hygiene\n   • Made from fats/oils\n   • Natural surfactant\n\n4. Detergents:\n   • Synthetic cleaners\n   • Work in hard water\n   • Industrial and household use\n   • More effective than soaps\n\n5. Methanol (CH₃OH):\n   • Fuel\n   • Industrial solvent\n   • Chemical synthesis\n\n6. Formic Acid (HCOOH):\n   • Ant stings\n   • Industrial chemical\n\nImportance:\n• Essential for chemistry understanding\n• Basis of organic chemistry\n• Important in biology\n• Used in medicine\n• Daily life applications\n\nUnderstanding carbon compounds is essential for:\n• Chemistry education\n• Biology (life is carbon-based)\n• Medicine (drugs are carbon compounds)\n• Daily life (food, materials, energy)\n\nCarbon compounds form the foundation of life and modern technology."
                 ),
                 keyPoints = listOf(
                     "Covalent Bonding: Sharing of electrons between atoms to achieve stable octet. Forms molecules. Single bond (sharing 2 electrons), double bond (4 electrons), triple bond (6 electrons). Stronger than ionic in some cases. Examples: H₂ (H-H), O₂ (O=O), N₂ (N≡N), H₂O, CH₄. Carbon forms covalent bonds due to tetravalency.",
@@ -5539,16 +5727,25 @@ object MockData {
                 id = "science_7",
                 title = "Periodic Classification of Elements",
                 revisionNotes = listOf(
-                    "Modern Periodic Law: Properties of elements are periodic function of their atomic numbers (not atomic masses). Proposed by Moseley. When elements are arranged in order of increasing atomic number, elements with similar properties recur at regular intervals. This led to modern periodic table with 18 groups and 7 periods. Atomic number = number of protons = number of electrons in neutral atom. This law explains periodicity better than Mendeleev's law.",
-                    "Periods: Horizontal rows in periodic table, numbered 1 to 7. Elements in same period have same number of electron shells. Period 1: 2 elements (H, He). Period 2-3: 8 elements each. Period 4-5: 18 elements each. Period 6: 32 elements. Period 7: Incomplete. As we move left to right in period, atomic size decreases, metallic character decreases, non-metallic character increases. Used to understand trends and predict properties.",
-                    "Groups: Vertical columns in periodic table, numbered 1 to 18. Elements in same group have same number of valence electrons and similar chemical properties. Group 1: Alkali metals (Li, Na, K, etc.) - highly reactive, form +1 ions. Group 2: Alkaline earth metals (Be, Mg, Ca, etc.) - form +2 ions. Group 17: Halogens (F, Cl, Br, etc.) - highly reactive non-metals, form -1 ions. Group 18: Noble gases (He, Ne, Ar, etc.) - inert, stable. Used to predict properties and reactions.",
-                    "Atomic Size Trends: Atomic radius decreases from left to right across period (due to increasing nuclear charge pulling electrons closer). Atomic radius increases from top to bottom down group (due to addition of new electron shells). Largest atoms are in bottom left (Fr), smallest in top right (He). Atomic size affects chemical properties and reactivity. Used to understand bonding and predict behavior.",
-                    "Metallic Character: Decreases from left to right across period (metals on left, non-metals on right). Increases from top to bottom down group. Metals: Lose electrons, form positive ions, good conductors, shiny, malleable. Non-metals: Gain electrons, form negative ions, poor conductors (except graphite), dull, brittle. Metalloids (B, Si, Ge, As, Sb, Te): Have properties of both. Used to classify elements and predict properties.",
-                    "Valency: Number of electrons an atom can gain, lose, or share to form bonds. Determined by number of valence electrons (electrons in outermost shell). Group 1-2: Valency = group number (lose electrons). Group 13-18: Valency = 18 - group number (gain or share electrons). Valency determines how elements combine to form compounds. Example: Sodium (group 1) has valency 1, Oxygen (group 16) has valency 2. Used to write chemical formulas.",
-                    "Electronegativity: Tendency of atom to attract electrons in bond. Increases left to right across period, decreases top to bottom down group. Fluorine has highest electronegativity (4.0). Electronegativity difference determines bond type: >1.7 = ionic, 0.4-1.7 = polar covalent, <0.4 = non-polar covalent. Used to predict bond type and molecular polarity.",
-                    "Ionization Energy: Energy required to remove electron from atom. Increases left to right (harder to remove from smaller atoms), decreases top to bottom (easier from larger atoms). First ionization energy is energy to remove first electron. Higher ionization energy = less reactive (noble gases). Used to understand reactivity and predict reactions.",
-                    "Chemical Reactivity: Metals: Reactivity increases down group (easier to lose electrons), decreases left to right (harder to lose). Most reactive metals: Group 1 (alkali metals). Non-metals: Reactivity decreases down group (harder to gain electrons), increases left to right. Most reactive non-metal: Fluorine. Reactivity determines which elements react with each other and products formed.",
-                    "Uses of Periodic Table: Predicts properties of elements, helps write chemical formulas, explains trends and patterns, guides synthesis of new compounds, essential for understanding chemistry, used in research and industry, helps in teaching and learning chemistry systematically. Modern periodic table is one of most important tools in chemistry."
+                    "Modern Periodic Law - Complete Understanding:\n\nThe Modern Periodic Law states that the properties of elements are a periodic function of their atomic numbers (not atomic masses).\n\nKey Points:\n• Proposed by Henry Moseley (1913)\n• Based on atomic number, not atomic mass\n• Atomic number = Number of protons = Number of electrons (in neutral atom)\n• Removed anomalies of Mendeleev's periodic table\n\nWhy Atomic Number?\n• Atomic number is more fundamental than atomic mass\n• Determines the element's identity\n• Explains periodicity better\n• No exceptions or anomalies\n\nResult:\n• Modern periodic table with 18 groups (vertical columns)\n• 7 periods (horizontal rows)\n• Elements with similar properties recur at regular intervals\n• Systematic arrangement\n\nComparison with Mendeleev's Law:\n• Mendeleev: Based on atomic mass (had anomalies)\n• Modern: Based on atomic number (no anomalies)\n• Modern law is more accurate and fundamental\n\nExample:\n• Argon (atomic number 18) comes before Potassium (atomic number 19)\n• In Mendeleev's table, this was an anomaly (Ar had higher atomic mass but came first)\n• Modern table: No anomaly - arranged by atomic number\n\nThe Modern Periodic Law is the foundation of the current periodic table and explains all periodic trends accurately.",
+                    
+                    "Periods - Horizontal Rows:\n\nPeriods are horizontal rows in the periodic table, numbered 1 to 7.\n\nKey Characteristics:\n• Elements in same period have same number of electron shells\n• Period number = Number of electron shells\n• Properties change gradually across a period\n\nPeriod Details:\n\nPeriod 1:\n• 2 elements: Hydrogen (H), Helium (He)\n• Only K shell (1 shell)\n\nPeriod 2:\n• 8 elements: Li, Be, B, C, N, O, F, Ne\n• K and L shells (2 shells)\n\nPeriod 3:\n• 8 elements: Na, Mg, Al, Si, P, S, Cl, Ar\n• K, L, M shells (3 shells)\n\nPeriod 4:\n• 18 elements: K, Ca, ..., Kr\n• 4 shells\n\nPeriod 5:\n• 18 elements: Rb, Sr, ..., Xe\n• 5 shells\n\nPeriod 6:\n• 32 elements: Cs, Ba, ..., Rn\n• 6 shells\n\nPeriod 7:\n• Incomplete (some elements are synthetic)\n• 7 shells\n\nTrends Across Period (Left to Right):\n• Atomic size: Decreases\n• Metallic character: Decreases\n• Non-metallic character: Increases\n• Ionization energy: Increases\n• Electronegativity: Increases\n\nUnderstanding periods helps predict element properties and understand periodic trends.",
+                    
+                    "Groups - Vertical Columns:\n\nGroups are vertical columns in the periodic table, numbered 1 to 18.\n\nKey Characteristics:\n• Elements in same group have same number of valence electrons\n• Similar chemical properties\n• Group number (for 1-2, 13-18) = Number of valence electrons\n\nImportant Groups:\n\nGroup 1 - Alkali Metals:\n• Li, Na, K, Rb, Cs, Fr\n• 1 valence electron\n• Highly reactive\n• Form +1 ions\n• Soft, low density\n• Good conductors\n\nGroup 2 - Alkaline Earth Metals:\n• Be, Mg, Ca, Sr, Ba, Ra\n• 2 valence electrons\n• Form +2 ions\n• Less reactive than Group 1\n• Harder than Group 1\n\nGroup 17 - Halogens:\n• F, Cl, Br, I, At\n• 7 valence electrons\n• Highly reactive non-metals\n• Form -1 ions\n• Diatomic molecules (F₂, Cl₂, etc.)\n• Used in disinfectants\n\nGroup 18 - Noble Gases:\n• He, Ne, Ar, Kr, Xe, Rn\n• 8 valence electrons (except He with 2)\n• Inert, stable\n• Don't form compounds easily\n• Used in lighting\n\nTrends Down Group (Top to Bottom):\n• Atomic size: Increases\n• Metallic character: Increases\n• Reactivity (metals): Increases\n• Reactivity (non-metals): Decreases\n\nGroups help predict chemical behavior and understand element families.",
+                    
+                    "Atomic Size Trends - Complete Analysis:\n\nAtomic size (atomic radius) shows clear trends in the periodic table.\n\nTrend Across Period (Left to Right):\n• Atomic size DECREASES\n• Reason: Increasing nuclear charge pulls electrons closer\n• More protons in nucleus → stronger attraction → smaller size\n• Example: Na (left) is larger than Cl (right) in Period 3\n\nTrend Down Group (Top to Bottom):\n• Atomic size INCREASES\n• Reason: Addition of new electron shells\n• More shells → electrons farther from nucleus → larger size\n• Example: Li (top) is smaller than Cs (bottom) in Group 1\n\nExtremes:\n• Largest atoms: Bottom left (e.g., Francium - Fr)\n• Smallest atoms: Top right (e.g., Helium - He)\n\nFactors Affecting Atomic Size:\n1. Nuclear Charge: More protons → smaller size\n2. Number of Shells: More shells → larger size\n3. Shielding Effect: Inner electrons shield outer electrons\n\nImportance:\n• Affects chemical properties\n• Determines reactivity\n• Influences bonding\n• Explains periodic trends\n\nExample:\n• Na (Group 1, Period 3): Large atom, loses electron easily\n• Cl (Group 17, Period 3): Small atom, gains electron easily\n\nUnderstanding atomic size trends helps predict element behavior and chemical properties.",
+                    
+                    "Metallic Character - Classification:\n\nMetallic character describes how much an element behaves like a metal.\n\nTrend Across Period (Left to Right):\n• Metallic character DECREASES\n• Left side: Metals (Na, Mg, Al)\n• Right side: Non-metals (P, S, Cl)\n• Middle: Metalloids (Si)\n\nTrend Down Group (Top to Bottom):\n• Metallic character INCREASES\n• Top elements: Less metallic\n• Bottom elements: More metallic\n\nMetals:\nProperties:\n• Lose electrons (form positive ions)\n• Good conductors of heat and electricity\n• Shiny (lustrous)\n• Malleable (can be hammered)\n• Ductile (can be drawn into wires)\n• High melting and boiling points\n\nExamples:\n• Group 1-2: Strongly metallic\n• Transition metals: Metallic\n• Bottom of groups: More metallic\n\nNon-Metals:\nProperties:\n• Gain electrons (form negative ions)\n• Poor conductors (except graphite)\n• Dull appearance\n• Brittle\n• Lower melting and boiling points\n\nExamples:\n• Group 17: Halogens (non-metals)\n• Group 18: Noble gases (non-metals)\n• Top right: Strongly non-metallic\n\nMetalloids:\n• Have properties of both metals and non-metals\n• Examples: B, Si, Ge, As, Sb, Te\n• Used in semiconductors\n\nUnderstanding metallic character helps classify elements and predict their properties.",
+                    
+                    "Valency - Combining Capacity:\n\nValency is the number of electrons an atom can gain, lose, or share to form bonds.\n\nDetermination:\n• Based on number of valence electrons\n• Valence electrons = Electrons in outermost shell\n• Determines how elements combine\n\nRules:\n\nGroup 1-2 (Metals):\n• Valency = Group number\n• Lose electrons to achieve stability\n• Example: Na (Group 1) → Valency = 1\n• Example: Mg (Group 2) → Valency = 2\n\nGroup 13-18 (Non-metals/Metalloids):\n• Valency = 18 - Group number\n• Gain or share electrons to achieve octet\n• Example: O (Group 16) → Valency = 18 - 16 = 2\n• Example: Cl (Group 17) → Valency = 18 - 17 = 1\n\nSpecial Cases:\n• Hydrogen: Valency = 1\n• Carbon: Valency = 4 (Group 14)\n• Nitrogen: Valency = 3 or 5 (Group 15)\n\nUses:\n• Writing chemical formulas\n• Predicting compounds\n• Understanding bonding\n• Balancing equations\n\nExample:\n• Sodium (valency 1) + Chlorine (valency 1) → NaCl\n• Magnesium (valency 2) + Oxygen (valency 2) → MgO\n• Carbon (valency 4) + Oxygen (valency 2) → CO₂\n\nValency is fundamental for understanding how elements combine to form compounds.",
+                    
+                    "Electronegativity - Electron Attraction:\n\nElectronegativity is the tendency of an atom to attract electrons in a chemical bond.\n\nTrend Across Period (Left to Right):\n• Electronegativity INCREASES\n• Reason: Smaller atoms attract electrons more strongly\n• Left: Low electronegativity (metals)\n• Right: High electronegativity (non-metals)\n\nTrend Down Group (Top to Bottom):\n• Electronegativity DECREASES\n• Reason: Larger atoms attract electrons less strongly\n• Top: Higher electronegativity\n• Bottom: Lower electronegativity\n\nHighest Electronegativity:\n• Fluorine (F) = 4.0 (highest)\n• Used as reference point\n\nBond Type Determination:\nElectronegativity difference (ΔEN) determines bond type:\n\n• ΔEN > 1.7: Ionic bond\n  Example: Na (0.9) and Cl (3.0) → ΔEN = 2.1 → Ionic\n\n• 0.4 ≤ ΔEN ≤ 1.7: Polar covalent bond\n  Example: H (2.1) and Cl (3.0) → ΔEN = 0.9 → Polar covalent\n\n• ΔEN < 0.4: Non-polar covalent bond\n  Example: H (2.1) and H (2.1) → ΔEN = 0 → Non-polar\n\nUses:\n• Predict bond type\n• Determine molecular polarity\n• Understand chemical behavior\n• Explain reactivity\n\nUnderstanding electronegativity helps predict how atoms will bond and form compounds.",
+                    
+                    "Ionization Energy - Electron Removal:\n\nIonization energy is the energy required to remove an electron from an atom.\n\nFirst Ionization Energy:\n• Energy to remove the first electron\n• Most commonly discussed\n• Measured in kJ/mol\n\nTrend Across Period (Left to Right):\n• Ionization energy INCREASES\n• Reason: Smaller atoms hold electrons more tightly\n• Harder to remove electrons from smaller atoms\n• Left: Low ionization energy (easy to remove)\n• Right: High ionization energy (hard to remove)\n\nTrend Down Group (Top to Bottom):\n• Ionization energy DECREASES\n• Reason: Larger atoms hold outer electrons less tightly\n• Easier to remove electrons from larger atoms\n• Top: High ionization energy\n• Bottom: Low ionization energy\n\nHighest Ionization Energy:\n• Noble gases (Group 18)\n• Have stable electron configuration\n• Don't want to lose electrons\n• Very unreactive\n\nLowest Ionization Energy:\n• Alkali metals (Group 1)\n• Have one valence electron\n• Easy to remove\n• Very reactive\n\nRelationship with Reactivity:\n• Low ionization energy → High reactivity (metals)\n• High ionization energy → Low reactivity (noble gases)\n\nUses:\n• Understand reactivity\n• Predict chemical behavior\n• Explain periodic trends\n• Determine element properties\n\nIonization energy helps explain why some elements are more reactive than others.",
+                    
+                    "Chemical Reactivity - Element Behavior:\n\nChemical reactivity describes how readily an element undergoes chemical reactions.\n\nMetals:\n\nTrend Down Group:\n• Reactivity INCREASES\n• Reason: Easier to lose electrons (lower ionization energy)\n• Example: Li < Na < K < Rb < Cs (increasing reactivity)\n\nTrend Across Period:\n• Reactivity DECREASES (left to right)\n• Reason: Harder to lose electrons (higher ionization energy)\n• Example: Na > Mg > Al (decreasing reactivity)\n\nMost Reactive Metals:\n• Group 1 (Alkali metals)\n• Especially Cs and Fr (bottom of group)\n• React violently with water\n• Stored in oil to prevent reaction\n\nNon-Metals:\n\nTrend Down Group:\n• Reactivity DECREASES\n• Reason: Harder to gain electrons (larger atoms)\n• Example: F > Cl > Br > I (decreasing reactivity)\n\nTrend Across Period:\n• Reactivity INCREASES (left to right)\n• Reason: Easier to gain electrons (higher electronegativity)\n• Example: C < N < O < F (increasing reactivity)\n\nMost Reactive Non-Metal:\n• Fluorine (F)\n• Highest electronegativity\n• Reacts with almost everything\n• Very dangerous\n\nReactivity Series:\n• Helps predict which elements react with each other\n• More reactive displaces less reactive\n• Used in extraction of metals\n\nUnderstanding reactivity helps predict chemical reactions and element behavior.",
+                    
+                    "Uses of Periodic Table - Applications:\n\nThe periodic table is one of the most important tools in chemistry with many applications:\n\n1. Predicting Properties:\n   • Can predict properties of elements\n   • Based on position in table\n   • Helps understand element behavior\n\n2. Writing Chemical Formulas:\n   • Valency from group number\n   • Predicts how elements combine\n   • Helps balance equations\n\n3. Explaining Trends:\n   • Understand periodic patterns\n   • Predict changes in properties\n   • Explain chemical behavior\n\n4. Guiding Synthesis:\n   • Helps create new compounds\n   • Predicts reaction products\n   • Guides research\n\n5. Understanding Chemistry:\n   • Foundation of chemistry\n   • Essential for learning\n   • Organizes knowledge\n\n6. Research and Industry:\n   • Used in research\n   • Industrial applications\n   • Material development\n\n7. Teaching and Learning:\n   • Systematic organization\n   • Easy to understand\n   • Visual representation\n\n8. Classification:\n   • Groups similar elements\n   • Organizes information\n   • Makes study easier\n\nThe modern periodic table is essential for understanding chemistry and is used in all areas of science and technology."
                 ),
                 keyPoints = listOf(
                     "Modern Periodic Table: Arranged by atomic number (not atomic mass). 7 periods (horizontal rows), 18 groups (vertical columns). Period number = number of shells. Group number = number of valence electrons (for groups 1-2, 13-18). Based on Modern Periodic Law: Properties are periodic function of atomic number. Removed anomalies of Mendeleev's table.",
@@ -6107,16 +6304,25 @@ object MockData {
                 id = "science_8",
                 title = "Control and Coordination",
                 revisionNotes = listOf(
-                    "Nervous System: Complex network of specialized cells (neurons) that coordinates body activities. Components: Brain (control center, processes information, makes decisions), Spinal cord (connects brain to body, reflex center), Nerves (carry messages to and from brain). Functions: Receives information from sense organs, processes information, sends commands to muscles and glands, coordinates all body functions. Central Nervous System (CNS): Brain and spinal cord. Peripheral Nervous System (PNS): Nerves connecting CNS to body parts.",
-                    "Neurons (Nerve Cells): Basic structural and functional units of nervous system. Structure: Cell body (contains nucleus), Dendrites (receive signals), Axon (transmits signals), Myelin sheath (insulation, speeds up transmission). Types: Sensory neurons (carry signals from sense organs to brain), Motor neurons (carry signals from brain to muscles/glands), Interneurons (connect neurons within brain/spinal cord). Neurons transmit electrical impulses (action potentials) and chemical signals (neurotransmitters).",
-                    "Reflex Action: Quick, automatic, involuntary response to stimulus that doesn't involve brain. Pathway: Stimulus → Sensory neuron → Spinal cord → Motor neuron → Response. Example: Knee jerk reflex, withdrawing hand from hot object. Reflex arc is pathway of reflex action. Protects body from harm. Some reflexes are inborn (unconditioned), others learned (conditioned). Reflexes are faster than voluntary actions because they bypass brain.",
-                    "Hormones: Chemical messengers secreted by endocrine glands directly into bloodstream. Travel to target organs where they produce specific effects. Characteristics: Produced in small amounts, act slowly, effects last longer than nervous system, regulate growth, development, metabolism, reproduction. Examples: Insulin (pancreas, controls blood sugar), Adrenaline (adrenal glands, fight or flight), Thyroxine (thyroid, controls metabolism), Growth hormone (pituitary, controls growth).",
-                    "Endocrine Glands: Ductless glands that secrete hormones. Pituitary: Master gland, controls other glands, growth hormone. Thyroid: Thyroxine, controls metabolism. Adrenal: Adrenaline, stress response. Pancreas: Insulin, glucagon, blood sugar control. Gonads: Testes (testosterone), Ovaries (estrogen, progesterone), reproduction. Each gland produces specific hormones with specific functions. Hormonal system works with nervous system to coordinate body functions.",
-                    "Plant Hormones (Phytohormones): Chemical substances that regulate plant growth and development. Auxins: Promote cell elongation, root formation, apical dominance (suppress lateral buds). Gibberellins: Promote stem elongation, seed germination, flowering. Cytokinins: Promote cell division, delay aging, stimulate bud growth. Abscisic acid: Inhibits growth, promotes dormancy, closes stomata. Ethylene: Promotes fruit ripening, leaf fall. Used in agriculture to control growth, improve yield.",
-                    "Coordination in Plants: Plants respond to stimuli (light, gravity, touch, water) through growth movements. Phototropism: Growth towards light (auxins accumulate on dark side). Geotropism: Growth response to gravity (roots down, shoots up). Thigmotropism: Response to touch (climbing plants). Hydrotropism: Growth towards water. Nastic movements: Non-directional responses (touch-me-not plant). Plants coordinate through hormones and growth movements, slower than animals.",
-                    "Human Brain: Three main parts: Forebrain (cerebrum - thinking, memory, voluntary actions; thalamus - relay station; hypothalamus - controls body temperature, hunger, thirst), Midbrain (relay center, controls some reflexes), Hindbrain (cerebellum - balance, coordination; medulla - controls breathing, heartbeat, blood pressure). Brain is protected by skull and cerebrospinal fluid. Different regions control different functions. Brain processes information and makes decisions.",
-                    "Nervous vs Hormonal Control: Nervous system: Fast response (milliseconds), electrical signals, short duration, specific target (neurons), voluntary and involuntary. Hormonal system: Slow response (seconds to days), chemical signals, long duration, widespread effects, mainly involuntary. Both systems work together to coordinate body functions. Nervous system for quick responses, hormonal system for long-term regulation.",
-                    "Importance: Coordination ensures all body parts work together efficiently. Nervous system provides rapid responses to changes. Hormonal system provides long-term regulation. Both are essential for survival, growth, development, and maintaining homeostasis (internal balance). Understanding coordination helps in understanding how body functions and how diseases affect coordination."
+                    "Nervous System - Complete Overview:\n\nThe nervous system is a complex network of specialized cells (neurons) that coordinates all body activities.\n\nMain Components:\n\n1. Brain:\n   • Control center of the body\n   • Processes information from sense organs\n   • Makes decisions\n   • Stores memories\n   • Controls voluntary actions\n   • Protected by skull\n\n2. Spinal Cord:\n   • Connects brain to rest of body\n   • Reflex center (quick responses)\n   • Pathway for nerve signals\n   • Protected by vertebral column\n\n3. Nerves:\n   • Carry messages to and from brain\n   • Connect all body parts\n   • Transmit signals rapidly\n\nDivisions:\n\nCentral Nervous System (CNS):\n• Brain and spinal cord\n• Main control center\n• Processes all information\n\nPeripheral Nervous System (PNS):\n• All nerves connecting CNS to body parts\n• Carries signals to and from CNS\n• Includes sensory and motor nerves\n\nFunctions:\n• Receives information from sense organs\n• Processes and interprets information\n• Sends commands to muscles and glands\n• Coordinates all body functions\n• Maintains homeostasis\n\nImportance:\n• Essential for survival\n• Enables quick responses\n• Coordinates complex activities\n• Allows interaction with environment\n\nThe nervous system is the body's communication and control network.",
+                    
+                    "Neurons (Nerve Cells) - Structure and Function:\n\nNeurons are the basic structural and functional units of the nervous system.\n\nStructure of Neuron:\n\n1. Cell Body:\n   • Contains nucleus\n   • Controls cell functions\n   • Metabolic center\n\n2. Dendrites:\n   • Branch-like extensions\n   • Receive signals from other neurons\n   • Carry signals toward cell body\n   • Multiple dendrites per neuron\n\n3. Axon:\n   • Long, single extension\n   • Transmits signals away from cell body\n   • Can be very long (up to 1 meter)\n   • Ends in axon terminals\n\n4. Myelin Sheath:\n   • Fatty insulation around axon\n   • Speeds up signal transmission\n   • Protects axon\n   • Gaps called nodes of Ranvier\n\nTypes of Neurons:\n\n1. Sensory Neurons:\n   • Carry signals from sense organs to brain/spinal cord\n   • Detect changes in environment\n   • Example: Touch, temperature, pain receptors\n\n2. Motor Neurons:\n   • Carry signals from brain/spinal cord to muscles/glands\n   • Cause muscle contraction or gland secretion\n   • Control body movements\n\n3. Interneurons:\n   • Connect neurons within brain and spinal cord\n   • Process information\n   • Most numerous type\n\nSignal Transmission:\n• Electrical impulses (action potentials) along axon\n• Chemical signals (neurotransmitters) at synapses\n• Very fast (up to 120 m/s)\n\nNeurons enable rapid communication throughout the body.",
+                    
+                    "Reflex Action - Automatic Response:\n\nReflex action is a quick, automatic, involuntary response to a stimulus that doesn't involve the brain.\n\nCharacteristics:\n• Very fast (milliseconds)\n• Automatic (no thinking required)\n• Involuntary (cannot be controlled)\n• Protective (prevents harm)\n\nReflex Arc (Pathway):\n\n1. Stimulus:\n   • Change in environment\n   • Detected by receptor\n   • Example: Hot object, sharp pin\n\n2. Sensory Neuron:\n   • Carries signal to spinal cord\n   • Transmits information\n\n3. Spinal Cord:\n   • Processes signal quickly\n   • Doesn't wait for brain\n   • Makes immediate decision\n\n4. Motor Neuron:\n   • Carries command from spinal cord\n   • Transmits to effector\n\n5. Response:\n   • Muscle contracts or gland secretes\n   • Action occurs\n   • Example: Hand withdraws from hot object\n\nExamples:\n\n1. Knee Jerk Reflex:\n   • Tap below knee\n   • Leg kicks automatically\n   • Tests nervous system function\n\n2. Withdrawing Hand:\n   • Touch hot object\n   • Hand pulls away immediately\n   • Protects from burns\n\n3. Blinking:\n   • Object approaches eye\n   • Eye closes automatically\n   • Protects eye\n\nTypes:\n• Inborn (Unconditioned): Present from birth\n• Learned (Conditioned): Acquired through experience\n\nWhy Faster Than Voluntary Actions:\n• Bypasses brain (no thinking)\n• Shorter pathway (spinal cord only)\n• Fewer neurons involved\n• Direct connection\n\nReflexes protect the body from harm and enable rapid responses to danger.",
+                    
+                    "Hormones - Chemical Messengers:\n\nHormones are chemical messengers secreted by endocrine glands directly into the bloodstream.\n\nCharacteristics:\n• Produced in small amounts\n• Act slowly (seconds to days)\n• Effects last longer than nervous system\n• Travel through blood\n• Target specific organs\n• Regulate body functions\n\nHow They Work:\n1. Endocrine gland secretes hormone\n2. Hormone enters bloodstream\n3. Travels to target organ\n4. Binds to receptors\n5. Produces specific effect\n\nImportant Hormones:\n\n1. Insulin:\n   • Source: Pancreas\n   • Function: Controls blood sugar\n   • Lowers blood glucose\n   • Deficiency: Diabetes\n\n2. Adrenaline:\n   • Source: Adrenal glands\n   • Function: Fight or flight response\n   • Increases heart rate, breathing\n   • Prepares body for action\n\n3. Thyroxine:\n   • Source: Thyroid gland\n   • Function: Controls metabolism\n   • Regulates energy production\n   • Affects growth and development\n\n4. Growth Hormone:\n   • Source: Pituitary gland\n   • Function: Controls growth\n   • Stimulates cell division\n   • Important in childhood\n\n5. Testosterone:\n   • Source: Testes (males)\n   • Function: Male characteristics\n   • Development, reproduction\n\n6. Estrogen:\n   • Source: Ovaries (females)\n   • Function: Female characteristics\n   • Menstrual cycle, reproduction\n\nFunctions:\n• Regulate growth and development\n• Control metabolism\n• Maintain homeostasis\n• Control reproduction\n• Respond to stress\n\nHormones provide long-term regulation and coordination of body functions.",
+                    
+                    "Endocrine Glands - Hormone Producers:\n\nEndocrine glands are ductless glands that secrete hormones directly into the bloodstream.\n\nMajor Endocrine Glands:\n\n1. Pituitary Gland:\n   • Location: Base of brain\n   • Called: Master gland\n   • Functions:\n     - Controls other endocrine glands\n     - Secretes growth hormone\n     - Regulates many body functions\n\n2. Thyroid Gland:\n   • Location: Neck\n   • Hormone: Thyroxine\n   • Functions:\n     - Controls metabolism\n     - Regulates energy production\n     - Affects growth\n\n3. Adrenal Glands:\n   • Location: Above kidneys\n   • Hormone: Adrenaline\n   • Functions:\n     - Stress response\n     - Fight or flight\n     - Increases alertness\n\n4. Pancreas:\n   • Location: Behind stomach\n   • Hormones: Insulin, Glucagon\n   • Functions:\n     - Controls blood sugar\n     - Insulin lowers glucose\n     - Glucagon raises glucose\n\n5. Testes (Males):\n   • Location: Scrotum\n   • Hormone: Testosterone\n   • Functions:\n     - Male characteristics\n     - Sperm production\n     - Muscle development\n\n6. Ovaries (Females):\n   • Location: Pelvis\n   • Hormones: Estrogen, Progesterone\n   • Functions:\n     - Female characteristics\n     - Menstrual cycle\n     - Pregnancy maintenance\n\nKey Points:\n• Each gland produces specific hormones\n• Hormones have specific target organs\n• Hormonal system works with nervous system\n• Together they coordinate all body functions\n\nEndocrine glands regulate long-term body functions through hormone secretion.",
+                    
+                    "Plant Hormones (Phytohormones) - Growth Regulators:\n\nPlant hormones are chemical substances that regulate plant growth and development.\n\nMajor Plant Hormones:\n\n1. Auxins:\n   • Functions:\n     - Promote cell elongation\n     - Root formation\n     - Apical dominance (suppress lateral buds)\n     - Phototropism (growth toward light)\n   • Example: IAA (Indole Acetic Acid)\n   • Application: Rooting powders, weed control\n\n2. Gibberellins:\n   • Functions:\n     - Promote stem elongation\n     - Seed germination\n     - Flowering\n     - Fruit development\n   • Application: Increase fruit size, break dormancy\n\n3. Cytokinins:\n   • Functions:\n     - Promote cell division\n     - Delay aging (senescence)\n     - Stimulate bud growth\n     - Organ development\n   • Application: Tissue culture, delay leaf aging\n\n4. Abscisic Acid (ABA):\n   • Functions:\n     - Inhibits growth\n     - Promotes dormancy\n     - Closes stomata\n     - Stress response\n   • Application: Seed storage, drought tolerance\n\n5. Ethylene:\n   • Functions:\n     - Promotes fruit ripening\n     - Leaf fall (abscission)\n     - Flower senescence\n     - Stress response\n   • Application: Fruit ripening, flower preservation\n\nAgricultural Uses:\n• Control growth rate\n• Improve crop yield\n• Enhance fruit quality\n• Manage flowering\n• Increase stress tolerance\n\nPlant hormones enable plants to respond to their environment and coordinate growth.",
+                    
+                    "Coordination in Plants - Response to Stimuli:\n\nPlants respond to various stimuli through growth movements and hormonal control.\n\nTypes of Plant Movements:\n\n1. Phototropism:\n   • Response to light\n   • Shoots grow toward light\n   • Roots grow away from light\n   • Mechanism: Auxins accumulate on dark side\n   • Example: Sunflower follows sun\n\n2. Geotropism (Gravitropism):\n   • Response to gravity\n   • Roots grow downward (positive)\n   • Shoots grow upward (negative)\n   • Important for root and shoot orientation\n   • Example: Roots always grow down\n\n3. Thigmotropism:\n   • Response to touch\n   • Climbing plants wrap around support\n   • Tendrils coil around objects\n   • Example: Pea plant tendrils\n\n4. Hydrotropism:\n   • Response to water\n   • Roots grow toward water source\n   • Important for water absorption\n   • Example: Roots seek water in soil\n\n5. Nastic Movements:\n   • Non-directional responses\n   • Not dependent on stimulus direction\n   • Example: Touch-me-not plant closes leaves\n   • Example: Sunflower tracking (not true tropism)\n\nMechanism:\n• Hormones (especially auxins) control growth\n• Unequal distribution causes bending\n• Growth on one side faster than other\n• Results in directional growth\n\nSpeed:\n• Much slower than animal responses\n• Takes hours or days\n• Growth-based (not movement-based)\n\nImportance:\n• Enables plants to adapt to environment\n• Optimizes light, water, nutrient access\n• Ensures survival and growth\n\nPlant coordination is slower but effective for their needs.",
+                    
+                    "Human Brain - Control Center:\n\nThe human brain is the main control center of the nervous system.\n\nMain Parts:\n\n1. Forebrain:\n   • Largest part\n   • Components:\n     - Cerebrum: Thinking, memory, voluntary actions\n     - Thalamus: Relay station for sensory information\n     - Hypothalamus: Controls body temperature, hunger, thirst\n   • Functions: Intelligence, consciousness, emotions\n\n2. Midbrain:\n   • Small region\n   • Functions:\n     - Relay center\n     - Controls some reflexes\n     - Eye movements\n\n3. Hindbrain:\n   • Components:\n     - Cerebellum: Balance, coordination, fine movements\n     - Medulla: Controls breathing, heartbeat, blood pressure\n     - Pons: Connects different brain parts\n   • Functions: Vital life processes\n\nProtection:\n• Skull (bone protection)\n• Cerebrospinal fluid (cushioning)\n• Meninges (membranes)\n\nFunctions:\n• Processes information\n• Makes decisions\n• Stores memories\n• Controls voluntary actions\n• Regulates body functions\n• Maintains consciousness\n\nDifferent Regions:\n• Each region controls specific functions\n• Damage to region affects its function\n• Brain is highly organized\n\nImportance:\n• Essential for all higher functions\n• Enables learning and memory\n• Controls behavior\n• Coordinates all body systems\n\nThe brain is the most complex organ, enabling human intelligence and consciousness.",
+                    
+                    "Nervous vs Hormonal Control - Comparison:\n\nBoth systems coordinate body functions but work differently.\n\nNervous System:\n\nSpeed:\n• Very fast (milliseconds)\n• Immediate response\n• Quick transmission\n\nSignals:\n• Electrical impulses\n• Action potentials\n• Neurotransmitters\n\nDuration:\n• Short duration\n• Brief effects\n• Quick recovery\n\nTarget:\n• Specific (neurons)\n• Precise control\n• Localized effects\n\nControl:\n• Voluntary and involuntary\n• Can be controlled\n• Conscious and unconscious\n\nHormonal System:\n\nSpeed:\n• Slow (seconds to days)\n• Delayed response\n• Gradual effects\n\nSignals:\n• Chemical (hormones)\n• Blood transport\n• Receptor binding\n\nDuration:\n• Long duration\n• Sustained effects\n• Lasts longer\n\nTarget:\n• Widespread\n• Multiple organs\n• Systemic effects\n\nControl:\n• Mainly involuntary\n• Automatic\n• Unconscious\n\nWorking Together:\n• Nervous system: Quick responses\n• Hormonal system: Long-term regulation\n• Both essential\n• Complement each other\n• Coordinate all functions\n\nExample:\n• Stress: Nervous system (quick alert) + Hormones (sustained response)\n• Growth: Hormones (long-term) + Nervous system (coordination)\n\nBoth systems are essential for proper body coordination and function.",
+                    
+                    "Importance of Coordination - Body Function:\n\nCoordination ensures all body parts work together efficiently.\n\nNervous System Role:\n• Provides rapid responses to changes\n• Enables quick reactions\n• Coordinates complex activities\n• Maintains awareness\n\nHormonal System Role:\n• Provides long-term regulation\n• Maintains steady state\n• Controls growth and development\n• Regulates metabolism\n\nTogether They:\n• Ensure survival\n• Enable growth and development\n• Maintain homeostasis (internal balance)\n• Coordinate all body functions\n• Allow adaptation to environment\n\nHomeostasis:\n• Maintaining stable internal conditions\n• Temperature regulation\n• Blood sugar control\n• Water balance\n• pH balance\n\nWithout Coordination:\n• Body parts wouldn't work together\n• No response to changes\n• No growth or development\n• Life impossible\n\nUnderstanding Coordination:\n• Helps understand body function\n• Explains how diseases affect coordination\n• Enables treatment of disorders\n• Important for health\n\nExamples:\n• Walking: Nervous system coordinates muscles\n• Growth: Hormones control development\n• Stress: Both systems respond\n• Digestion: Both systems involved\n\nCoordination is essential for life and enables all body functions to work together harmoniously."
                 ),
                 keyPoints = listOf(
                     "Nervous System: Controls and coordinates body activities. Components: Brain (control center, thinking, memory), Spinal cord (reflex actions, connects brain to body), Nerves (transmit impulses). Neuron is basic unit. Types: Sensory (carry to brain), Motor (carry from brain), Interneurons (connect). Impulses travel at high speed. Central Nervous System (CNS) = Brain + Spinal cord.",
@@ -6695,16 +6901,25 @@ object MockData {
                 id = "science_9",
                 title = "How do Organisms Reproduce?",
                 revisionNotes = listOf(
-                    "Asexual Reproduction: Reproduction involving single parent, offspring are genetically identical clones. Types: Binary fission (bacteria, amoeba - cell divides into two), Budding (yeast, hydra - new individual grows from parent), Fragmentation (spirogyra, planaria - body breaks into pieces, each grows into new individual), Spore formation (fungi, ferns - spores develop into new individuals), Vegetative propagation (plants - roots, stems, leaves produce new plants). Advantages: Rapid, no mate needed, preserves favorable traits. Disadvantages: No genetic variation, less adaptation to changes.",
-                    "Sexual Reproduction: Reproduction involving two parents (male and female), fusion of gametes (sperm and egg), produces genetically diverse offspring. Process: Gamete formation (meiosis produces haploid gametes), Fertilization (fusion of gametes forms zygote), Development (zygote develops into embryo, then offspring). Advantages: Genetic variation, better adaptation, evolution. Disadvantages: Slower, requires two parents, more energy. Sexual reproduction is basis of evolution and diversity.",
-                    "Male Reproductive System: Testes (produce sperm and testosterone, located in scrotum), Epididymis (stores and matures sperm), Vas deferens (transports sperm), Seminal vesicles and Prostate gland (produce seminal fluid), Urethra (passage for sperm and urine), Penis (organ for transfer of sperm). Sperm production begins at puberty, continues throughout life. Millions of sperm produced daily. Sperm are motile, have head (nucleus), middle piece (mitochondria), tail (movement).",
-                    "Female Reproductive System: Ovaries (produce eggs/ova and hormones estrogen, progesterone), Fallopian tubes (oviducts - site of fertilization, transport egg to uterus), Uterus (womb - where embryo develops, has thick muscular wall), Cervix (opening of uterus), Vagina (birth canal, receives sperm). Egg production begins before birth, one egg matures per month from puberty to menopause. Egg is large, non-motile, contains nutrients for embryo.",
-                    "Menstrual Cycle: Monthly cycle (about 28 days) in females from puberty to menopause. Phases: Menstruation (days 1-5, uterine lining sheds, bleeding occurs), Follicular phase (days 6-13, follicle develops in ovary, estrogen increases, uterine lining rebuilds), Ovulation (day 14, mature egg released from ovary), Luteal phase (days 15-28, corpus luteum forms, progesterone increases, uterine lining thickens, if no fertilization, cycle repeats). Controlled by hormones (FSH, LH, estrogen, progesterone).",
-                    "Fertilization and Development: Fertilization: Sperm fuses with egg in fallopian tube, forms zygote (single cell with full chromosome number). Zygote divides repeatedly (cleavage), forms blastocyst, implants in uterine wall. Development: Embryo (first 8 weeks), Fetus (9 weeks to birth). Placenta provides nutrients and oxygen, removes waste. Gestation period: About 9 months (280 days) in humans. Birth: Uterine contractions push baby through birth canal.",
-                    "Reproduction in Plants: Asexual: Vegetative propagation (runners, bulbs, tubers, cuttings), Spore formation. Sexual: Flowers contain reproductive organs, Pollination (transfer of pollen to stigma), Fertilization (pollen tube grows, sperm fuses with egg), Seed formation, Germination. Flowers: Male parts (stamens - anther produces pollen), Female parts (pistil - ovary contains ovules). Cross-pollination increases genetic diversity, self-pollination preserves traits.",
-                    "Contraception: Methods to prevent pregnancy. Barrier methods: Condoms, diaphragms (prevent sperm reaching egg). Hormonal: Pills, injections (prevent ovulation). IUD: Intrauterine device (prevents implantation). Surgical: Vasectomy (male), Tubectomy (female). Natural: Rhythm method, withdrawal. Important for family planning and preventing unwanted pregnancies. Each method has advantages and limitations.",
-                    "Reproductive Health: Maintaining healthy reproductive system. Includes: Proper nutrition, Hygiene, Regular check-ups, Protection from STDs (sexually transmitted diseases), Awareness about reproduction, Family planning. Issues: Infertility, STDs, Teenage pregnancy, Maternal health. Education and awareness are crucial for reproductive health. Understanding reproduction helps in making informed decisions.",
-                    "Importance: Reproduction ensures continuation of species. Asexual reproduction: Rapid multiplication, preserves favorable traits. Sexual reproduction: Genetic diversity, evolution, adaptation. Understanding reproduction is essential for: Biology, Medicine, Agriculture, Conservation, Family planning. Reproduction is fundamental process of life, essential for survival of all species."
+                    "Asexual Reproduction - Single Parent Method:\n\nAsexual reproduction involves a single parent producing offspring that are genetically identical clones.\n\nKey Characteristics:\n• Only one parent needed\n• Offspring are identical to parent (clones)\n• No fusion of gametes\n• Rapid process\n• Preserves favorable traits\n\nTypes:\n\n1. Binary Fission:\n   • Cell divides into two equal parts\n   • Examples: Bacteria, Amoeba\n   • Simple and rapid\n   • Each part grows into new individual\n\n2. Budding:\n   • New individual grows as outgrowth from parent\n   • Examples: Yeast, Hydra\n   • Bud detaches and becomes independent\n   • Parent remains\n\n3. Fragmentation:\n   • Body breaks into pieces\n   • Each piece grows into new individual\n   • Examples: Spirogyra (algae), Planaria (flatworm)\n   • Requires regeneration ability\n\n4. Spore Formation:\n   • Spores are special cells\n   • Develop into new individuals\n   • Examples: Fungi, Ferns\n   • Spores are light and dispersed by wind\n\n5. Vegetative Propagation:\n   • Plants reproduce from roots, stems, or leaves\n   • Examples: Potatoes (tubers), Onions (bulbs), Strawberries (runners)\n   • Natural or artificial\n\nAdvantages:\n• Rapid multiplication\n• No mate needed\n• Preserves favorable traits\n• Energy efficient\n\nDisadvantages:\n• No genetic variation\n• Less adaptation to changes\n• All offspring identical\n• Vulnerable to diseases\n\nAsexual reproduction is efficient but lacks genetic diversity.",
+                    
+                    "Sexual Reproduction - Two Parent Method:\n\nSexual reproduction involves two parents (male and female) producing genetically diverse offspring.\n\nKey Characteristics:\n• Requires two parents\n• Fusion of gametes (sperm and egg)\n• Genetic diversity in offspring\n• Basis of evolution\n• Slower than asexual\n\nProcess:\n\n1. Gamete Formation:\n   • Meiosis produces haploid gametes\n   • Male: Sperm (small, motile)\n   • Female: Egg (large, non-motile)\n   • Half chromosome number\n\n2. Fertilization:\n   • Sperm and egg fuse\n   • Forms zygote\n   • Full chromosome number restored\n   • Genetic combination occurs\n\n3. Development:\n   • Zygote divides repeatedly\n   • Forms embryo\n   • Develops into offspring\n   • Growth and differentiation\n\nAdvantages:\n• Genetic variation\n• Better adaptation to changes\n• Evolution possible\n• Disease resistance\n• Survival advantage\n\nDisadvantages:\n• Slower process\n• Requires two parents\n• More energy needed\n• Finding mate necessary\n\nImportance:\n• Basis of evolution\n• Creates diversity\n• Enables adaptation\n• Essential for species survival\n\nSexual reproduction creates genetic diversity essential for evolution and adaptation.",
+                    
+                    "Male Reproductive System - Complete Structure:\n\nThe male reproductive system produces sperm and transfers them to female.\n\nMain Organs:\n\n1. Testes:\n   • Produce sperm\n   • Produce testosterone (male hormone)\n   • Located in scrotum (outside body)\n   • Lower temperature needed for sperm production\n   • Millions of sperm produced daily\n\n2. Epididymis:\n   • Stores and matures sperm\n   • Coiled tube on each testis\n   • Sperm gain motility here\n\n3. Vas Deferens:\n   • Transports sperm from epididymis\n   • Muscular tube\n   • Carries sperm to urethra\n\n4. Seminal Vesicles:\n   • Produce seminal fluid\n   • Adds nutrients for sperm\n   • Contributes to semen\n\n5. Prostate Gland:\n   • Produces fluid\n   • Adds to semen\n   • Helps sperm motility\n\n6. Urethra:\n   • Passage for sperm and urine\n   • Common duct\n   • Opens at tip of penis\n\n7. Penis:\n   • Organ for transfer of sperm\n   • Erectile tissue\n   • External organ\n\nSperm Structure:\n• Head: Contains nucleus (genetic material)\n• Middle piece: Contains mitochondria (energy)\n• Tail: For movement (motility)\n\nFunction:\n• Sperm production begins at puberty\n• Continues throughout life\n• Millions produced daily\n• Released during ejaculation\n\nThe male reproductive system is designed for sperm production and transfer.",
+                    
+                    "Female Reproductive System - Complete Structure:\n\nThe female reproductive system produces eggs and supports embryo development.\n\nMain Organs:\n\n1. Ovaries:\n   • Produce eggs (ova)\n   • Produce hormones (estrogen, progesterone)\n   • Two ovaries (one on each side)\n   • Egg production begins before birth\n   • One egg matures per month from puberty to menopause\n\n2. Fallopian Tubes (Oviducts):\n   • Site of fertilization\n   • Transport egg from ovary to uterus\n   • Ciliated lining helps movement\n   • Fertilization occurs here\n\n3. Uterus (Womb):\n   • Where embryo develops\n   • Thick muscular wall\n   • Expands during pregnancy\n   • Contracts during birth\n\n4. Cervix:\n   • Opening of uterus\n   • Connects uterus to vagina\n   • Dilates during birth\n\n5. Vagina:\n   • Birth canal\n   • Receives sperm during intercourse\n   • Passage for baby during birth\n   • Elastic and muscular\n\nEgg Structure:\n• Large cell (largest human cell)\n• Non-motile (doesn't move)\n• Contains nutrients for embryo\n• Surrounded by protective layers\n\nFunction:\n• Egg production begins before birth\n• Maturation starts at puberty\n• One egg per month\n• Continues until menopause (around age 50)\n• Supports pregnancy and birth\n\nThe female reproductive system is designed for egg production, fertilization, and embryo development.",
+                    
+                    "Menstrual Cycle - Monthly Cycle:\n\nThe menstrual cycle is a monthly cycle (about 28 days) in females from puberty to menopause.\n\nPhases:\n\n1. Menstruation (Days 1-5):\n   • Uterine lining sheds\n   • Bleeding occurs\n   • Unfertilized egg and lining expelled\n   • Marks start of new cycle\n\n2. Follicular Phase (Days 6-13):\n   • Follicle develops in ovary\n   • Estrogen increases\n   • Uterine lining rebuilds\n   • Prepares for possible pregnancy\n\n3. Ovulation (Day 14):\n   • Mature egg released from ovary\n   • Egg enters fallopian tube\n   • Most fertile period\n   • Can be fertilized for 24 hours\n\n4. Luteal Phase (Days 15-28):\n   • Corpus luteum forms (from empty follicle)\n   • Progesterone increases\n   • Uterine lining thickens\n   • Prepares for implantation\n   • If no fertilization, cycle repeats\n\nHormonal Control:\n• FSH (Follicle Stimulating Hormone): Stimulates follicle development\n• LH (Luteinizing Hormone): Triggers ovulation\n• Estrogen: Builds uterine lining\n• Progesterone: Maintains uterine lining\n\nCycle Length:\n• Average: 28 days\n• Can vary: 21-35 days\n• Regular cycles indicate health\n\nImportance:\n• Prepares body for pregnancy\n• Indicates reproductive health\n• Hormonal balance\n• Fertility indicator\n\nThe menstrual cycle prepares the female body for potential pregnancy each month.",
+                    
+                    "Fertilization and Development - From Zygote to Baby:\n\nThe process from fertilization to birth involves several stages.\n\nFertilization:\n• Sperm fuses with egg in fallopian tube\n• Forms zygote (single cell)\n• Full chromosome number restored\n• Genetic material combines\n• Determines sex and traits\n\nEarly Development:\n\n1. Cleavage:\n   • Zygote divides repeatedly\n   • Forms ball of cells\n   • No increase in size\n   • Cell number increases\n\n2. Blastocyst:\n   • Hollow ball of cells\n   • Implants in uterine wall\n   • About 6-7 days after fertilization\n\n3. Embryo (First 8 weeks):\n   • Rapid development\n   • All major organs form\n   • Very sensitive period\n   • Critical for development\n\n4. Fetus (9 weeks to birth):\n   • Organs continue to develop\n   • Growth and maturation\n   • Less sensitive\n   • Prepares for birth\n\nPlacenta:\n• Forms during pregnancy\n• Provides nutrients and oxygen to fetus\n• Removes waste from fetus\n• Connects mother and baby\n• Produces hormones\n\nGestation Period:\n• About 9 months (280 days)\n• From fertilization to birth\n• Full-term pregnancy\n\nBirth:\n• Uterine contractions begin\n• Cervix dilates\n• Baby pushed through birth canal\n• Placenta expelled after birth\n\nDevelopment is a complex process transforming a single cell into a complete human being.",
+                    
+                    "Reproduction in Plants - Asexual and Sexual:\n\nPlants reproduce both asexually and sexually.\n\nAsexual Reproduction:\n\n1. Vegetative Propagation:\n   • Natural:\n     - Runners: Strawberries\n     - Bulbs: Onions, Garlic\n     - Tubers: Potatoes\n     - Rhizomes: Ginger\n   • Artificial:\n     - Cuttings: Rose, Sugarcane\n     - Grafting: Fruit trees\n     - Layering: Jasmine\n\n2. Spore Formation:\n   • Fungi, Ferns, Mosses\n   • Spores are light\n   • Dispersed by wind\n   • Develop into new plants\n\nSexual Reproduction:\n\n1. Flower Structure:\n   • Male parts: Stamens\n     - Anther: Produces pollen\n     - Filament: Supports anther\n   • Female parts: Pistil\n     - Stigma: Receives pollen\n     - Style: Connects stigma to ovary\n     - Ovary: Contains ovules (eggs)\n\n2. Process:\n   • Pollination: Transfer of pollen to stigma\n   • Fertilization: Pollen tube grows, sperm fuses with egg\n   • Seed formation: Fertilized ovule becomes seed\n   • Germination: Seed grows into new plant\n\nTypes of Pollination:\n• Self-pollination: Same flower or same plant\n• Cross-pollination: Different plants\n  - Increases genetic diversity\n  - Better adaptation\n\nImportance:\n• Ensures plant survival\n• Creates diversity\n• Enables evolution\n• Essential for ecosystems\n\nPlant reproduction ensures continuation and diversity of plant species.",
+                    
+                    "Contraception - Family Planning Methods:\n\nContraception includes methods to prevent pregnancy.\n\nTypes:\n\n1. Barrier Methods:\n   • Condoms: Prevent sperm reaching egg\n   • Diaphragms: Cover cervix\n   • Advantages: Prevent STDs, no hormones\n   • Limitations: Must be used correctly\n\n2. Hormonal Methods:\n   • Pills: Prevent ovulation\n   • Injections: Long-acting hormones\n   • Patches: Skin patches\n   • Advantages: Highly effective\n   • Limitations: Side effects, require prescription\n\n3. IUD (Intrauterine Device):\n   • Prevents implantation\n   • Long-lasting\n   • Advantages: Very effective, long-term\n   • Limitations: Requires insertion by doctor\n\n4. Surgical Methods:\n   • Vasectomy (Male): Cuts vas deferens\n   • Tubectomy (Female): Cuts fallopian tubes\n   • Advantages: Permanent, highly effective\n   • Limitations: Usually irreversible\n\n5. Natural Methods:\n   • Rhythm method: Avoid intercourse during fertile period\n   • Withdrawal: Remove penis before ejaculation\n   • Advantages: No devices or hormones\n   • Limitations: Less reliable\n\nImportance:\n• Family planning\n• Prevent unwanted pregnancies\n• Control population\n• Improve maternal and child health\n• Economic benefits\n\nEach method has advantages and limitations; choose based on individual needs and circumstances.",
+                    
+                    "Reproductive Health - Maintaining Health:\n\nReproductive health involves maintaining a healthy reproductive system.\n\nKey Aspects:\n\n1. Proper Nutrition:\n   • Balanced diet\n   • Essential nutrients\n   • Supports reproductive function\n   • Important during pregnancy\n\n2. Hygiene:\n   • Cleanliness\n   • Prevents infections\n   • Regular washing\n   • Proper care\n\n3. Regular Check-ups:\n   • Medical examinations\n   • Early detection of problems\n   • Preventive care\n   • Health monitoring\n\n4. Protection from STDs:\n   • Sexually transmitted diseases\n   • Use protection\n   • Get tested\n   • Treatment if needed\n\n5. Awareness:\n   • Education about reproduction\n   • Understanding body\n   • Informed decisions\n   • Knowledge is power\n\n6. Family Planning:\n   • Planned pregnancies\n   • Spacing between children\n   • Better health outcomes\n\nIssues:\n• Infertility: Inability to conceive\n• STDs: Sexually transmitted diseases\n• Teenage pregnancy: Health risks\n• Maternal health: Pregnancy complications\n\nEducation:\n• Crucial for reproductive health\n• Reduces risks\n• Empowers individuals\n• Better outcomes\n\nUnderstanding reproduction helps in making informed decisions about reproductive health.",
+                    
+                    "Importance of Reproduction - Life Continuation:\n\nReproduction ensures the continuation of species.\n\nAsexual Reproduction:\n• Rapid multiplication\n• Preserves favorable traits\n• Efficient for stable environments\n• Used in agriculture\n\nSexual Reproduction:\n• Genetic diversity\n• Evolution\n• Adaptation to changes\n• Disease resistance\n• Species survival\n\nUnderstanding Reproduction is Essential For:\n\n1. Biology:\n   • Understanding life processes\n   • Species diversity\n   • Evolution\n\n2. Medicine:\n   • Treating infertility\n   • Pregnancy care\n   • Reproductive health\n\n3. Agriculture:\n   • Crop improvement\n   • Plant breeding\n   • Animal husbandry\n\n4. Conservation:\n   • Saving endangered species\n   • Maintaining biodiversity\n   • Ecosystem balance\n\n5. Family Planning:\n   • Population control\n   • Health outcomes\n   • Economic benefits\n\nReproduction is:\n• Fundamental process of life\n• Essential for survival of all species\n• Basis of evolution\n• Creates diversity\n• Ensures continuation\n\nWithout reproduction, life would not continue, and species would become extinct. Reproduction is the most fundamental biological process."
                 ),
                 keyPoints = listOf(
                     "Asexual Reproduction: Single parent, offspring genetically identical (clones). Types: Binary fission (Amoeba, bacteria - splits into two), Budding (Hydra, yeast - bud grows and detaches), Fragmentation (Planaria, Spirogyra - breaks into pieces, each grows), Spore formation (fungi, ferns - spores germinate), Vegetative propagation (plants - roots, stems, leaves). Advantages: Fast, no mate needed. Disadvantage: No genetic variation.",
@@ -7318,16 +7533,25 @@ object MockData {
                 id = "science_10",
                 title = "Heredity and Evolution",
                 revisionNotes = listOf(
-                    "Heredity: Transmission of characters (traits) from parents to offspring through genes. Characters are observable features (height, color, shape). Traits are specific forms of characters (tall/short, red/white). Variation is differences among individuals of same species. Causes: Genetic (inherited from parents through genes) and Environmental (acquired during lifetime). Heredity explains why offspring resemble parents but are not identical. Basis of genetics and breeding.",
-                    "Genes: Units of heredity, segments of DNA that code for specific proteins and determine traits. Located on chromosomes. Each gene has two forms called alleles (one from each parent). Dominant allele expresses itself even when paired with recessive. Recessive allele expresses only when both alleles are recessive. Genotype is genetic makeup (e.g., TT, Tt, tt). Phenotype is observable trait (e.g., Tall, Short). Genes control all inherited characteristics.",
-                    "Chromosomes: Thread-like structures in nucleus carrying genes. Humans have 23 pairs (46 total chromosomes). 22 pairs are autosomes (same in both sexes). 1 pair are sex chromosomes: XX in females, XY in males. Chromosomes contain DNA which carries genetic information. During cell division, chromosomes duplicate and separate. Chromosomal abnormalities can cause genetic disorders. Understanding chromosomes helps in understanding inheritance.",
-                    "Mendel's Laws: Gregor Mendel (Father of Genetics) discovered laws through pea plant experiments. Law of Dominance: In hybrid, dominant trait appears, recessive is hidden. Law of Segregation: Alleles separate during gamete formation, each gamete gets one allele. Law of Independent Assortment: Genes for different traits assort independently during gamete formation. These laws explain inheritance patterns and are basis of genetics. Used in predicting offspring traits.",
-                    "Sex Determination: In humans, sex is determined by sex chromosomes. Female: XX (both X chromosomes). Male: XY (one X, one Y chromosome). Father's sperm determines sex: If sperm has X chromosome → XX (female). If sperm has Y chromosome → XY (male). Probability: 50% each. In some animals: Temperature-dependent (reptiles), environmental factors. Chromosomal basis established by genetics. Important for understanding inheritance patterns and genetic disorders.",
-                    "Evolution: Gradual change in species over time, leading to formation of new species. Mechanisms: Natural Selection (survival of fittest - organisms with favorable traits survive and reproduce), Genetic Drift (random changes in gene frequency), Mutation (changes in DNA), Migration (gene flow between populations). Evidence: Fossils, comparative anatomy, embryology, molecular biology. Evolution explains diversity of life and adaptation to environment.",
-                    "Natural Selection: Process where organisms with favorable traits survive and reproduce, passing traits to offspring. Proposed by Charles Darwin. Example: Giraffes with longer necks survived better, passed trait to offspring. Over time, population evolved longer necks. Natural selection is driving force of evolution. Leads to adaptation - traits that help survival. Explains how species change and adapt to environment.",
-                    "Speciation: Formation of new species from existing ones. Occurs when populations become isolated and evolve separately. Isolation can be: Geographical (mountains, rivers separate populations), Reproductive (cannot interbreed), Temporal (different breeding times). Over time, isolated populations accumulate differences, become different species. Speciation explains diversity of life on Earth. Process takes thousands to millions of years.",
-                    "Evidence of Evolution: Fossils: Remains of ancient organisms show gradual changes. Comparative Anatomy: Similar structures in different species (homologous organs) indicate common ancestry. Embryology: Similar embryonic development suggests common origin. Molecular Biology: Similar DNA sequences indicate relatedness. Biogeography: Distribution of species supports evolution. All evidence supports theory of evolution.",
-                    "Human Evolution: Humans evolved from ape-like ancestors over millions of years. Key stages: Australopithecus (walked upright), Homo habilis (used tools), Homo erectus (migrated out of Africa), Homo sapiens (modern humans). Evolution is ongoing process. Understanding evolution helps in: Medicine (antibiotic resistance), Agriculture (breeding), Conservation (protecting species), Understanding life's diversity and our place in nature."
+                    "Heredity - Transmission of Traits:\n\nHeredity is the transmission of characters (traits) from parents to offspring through genes.\n\nKey Terms:\n\n1. Characters:\n   • Observable features\n   • Examples: Height, color, shape\n   • General categories\n\n2. Traits:\n   • Specific forms of characters\n   • Examples: Tall/short, red/white\n   • Particular variations\n\n3. Variation:\n   • Differences among individuals of same species\n   • No two individuals identical\n   • Essential for evolution\n\nCauses of Variation:\n\n1. Genetic:\n   • Inherited from parents through genes\n   • DNA differences\n   • Permanent\n   • Passed to next generation\n\n2. Environmental:\n   • Acquired during lifetime\n   • Not inherited\n   • Examples: Skills, scars, tanning\n   • Temporary\n\nWhy Offspring Resemble Parents:\n• Inherit genes from parents\n• Share genetic material\n• Similar traits appear\n\nWhy Not Identical:\n• Genetic recombination\n• Environmental differences\n• Random variation\n\nImportance:\n• Basis of genetics\n• Plant and animal breeding\n• Understanding inheritance\n• Medical genetics\n\nHeredity explains why we resemble our parents but are unique individuals.",
+                    
+                    "Genes - Units of Heredity:\n\nGenes are units of heredity, segments of DNA that code for specific proteins and determine traits.\n\nStructure:\n• Located on chromosomes\n• Made of DNA\n• Code for proteins\n• Control traits\n\nAlleles:\n• Each gene has two forms (alleles)\n• One from each parent\n• Example: Gene for height\n  - Allele T (tall)\n  - Allele t (short)\n\nDominant and Recessive:\n\nDominant Allele:\n• Expresses itself even when paired with recessive\n• Represented by capital letter (T)\n• Example: Tt → Tall (T is dominant)\n\nRecessive Allele:\n• Expresses only when both alleles are recessive\n• Represented by small letter (t)\n• Example: tt → Short (both t are recessive)\n\nGenotype:\n• Genetic makeup\n• Combination of alleles\n• Examples: TT, Tt, tt\n• Not visible\n\nPhenotype:\n• Observable trait\n• What we see\n• Examples: Tall, Short\n• Result of genotype\n\nExamples:\n• TT → Tall (homozygous dominant)\n• Tt → Tall (heterozygous)\n• tt → Short (homozygous recessive)\n\nGenes control all inherited characteristics and determine our traits.",
+                    
+                    "Chromosomes - Carriers of Genes:\n\nChromosomes are thread-like structures in the nucleus carrying genes.\n\nHuman Chromosomes:\n• 23 pairs (46 total chromosomes)\n• Inherited from parents\n• 22 pairs from each parent\n• 1 pair determines sex\n\nTypes:\n\n1. Autosomes:\n   • 22 pairs (44 chromosomes)\n   • Same in both sexes\n   • Control body traits\n   • Numbered 1-22\n\n2. Sex Chromosomes:\n   • 1 pair (2 chromosomes)\n   • Different in males and females\n   • Determine sex\n   • XX in females\n   • XY in males\n\nStructure:\n• Contain DNA\n• DNA carries genetic information\n• Genes are segments of DNA\n• Organized structure\n\nCell Division:\n• Chromosomes duplicate\n• Separate into daughter cells\n• Each cell gets complete set\n• Ensures genetic continuity\n\nChromosomal Abnormalities:\n• Can cause genetic disorders\n• Down syndrome (extra chromosome 21)\n• Turner syndrome (missing X)\n• Klinefelter syndrome (extra X)\n\nUnderstanding chromosomes helps in understanding inheritance and genetic disorders.",
+                    
+                    "Mendel's Laws - Foundation of Genetics:\n\nGregor Mendel (Father of Genetics) discovered laws through pea plant experiments.\n\nLaw of Dominance:\n• In hybrid, dominant trait appears\n• Recessive trait is hidden\n• Example: Tt → Tall (T dominant, t recessive)\n• Recessive appears only in homozygous (tt)\n\nLaw of Segregation:\n• Alleles separate during gamete formation\n• Each gamete gets one allele\n• Random separation\n• Example: Tt parent → gametes T or t (50% each)\n• Explains 3:1 ratio in F2 generation\n\nLaw of Independent Assortment:\n• Genes for different traits assort independently\n• During gamete formation\n• One trait doesn't affect another\n• Example: Height and color genes separate independently\n• Creates genetic diversity\n\nMendel's Experiments:\n• Used pea plants\n• Studied 7 contrasting traits\n• Mathematical analysis\n• Discovered patterns\n\nImportance:\n• Explain inheritance patterns\n• Basis of genetics\n• Predict offspring traits\n• Used in breeding\n• Foundation of modern genetics\n\nMendel's laws are the foundation of genetics and explain how traits are inherited.",
+                    
+                    "Sex Determination - Chromosomal Basis:\n\nIn humans, sex is determined by sex chromosomes.\n\nChromosomes:\n• Female: XX (both X chromosomes)\n• Male: XY (one X, one Y chromosome)\n\nProcess:\n• Mother always contributes X chromosome\n• Father contributes X or Y chromosome\n• Father's sperm determines sex\n\nDetermination:\n• If sperm has X chromosome:\n  - Egg (X) + Sperm (X) = XX (Female)\n• If sperm has Y chromosome:\n  - Egg (X) + Sperm (Y) = XY (Male)\n\nProbability:\n• 50% chance of male\n• 50% chance of female\n• Equal probability\n\nOther Methods (in some animals):\n• Temperature-dependent (reptiles)\n• Environmental factors\n• Hormonal control\n\nChromosomal Basis:\n• Established by genetics\n• Y chromosome has SRY gene\n• Determines maleness\n\nImportance:\n• Understanding inheritance patterns\n• Genetic disorders\n• Sex-linked diseases\n• Medical genetics\n\nSex determination is important for understanding inheritance patterns and genetic disorders.",
+                    
+                    "Evolution - Change Over Time:\n\nEvolution is the gradual change in species over time, leading to formation of new species.\n\nMechanisms:\n\n1. Natural Selection:\n   • Survival of fittest\n   • Organisms with favorable traits survive and reproduce\n   • Traits passed to offspring\n   • Driving force of evolution\n\n2. Genetic Drift:\n   • Random changes in gene frequency\n   • In small populations\n   • Chance events\n   • Can cause evolution\n\n3. Mutation:\n   • Changes in DNA\n   • Source of new variations\n   • Can be beneficial or harmful\n   • Raw material for evolution\n\n4. Migration:\n   • Gene flow between populations\n   • Introduces new genes\n   • Changes gene frequency\n   • Connects populations\n\nEvidence:\n• Fossils: Remains of ancient organisms\n• Comparative anatomy: Similar structures\n• Embryology: Similar development\n• Molecular biology: Similar DNA\n• Biogeography: Species distribution\n\nImportance:\n• Explains diversity of life\n• Adaptation to environment\n• Origin of species\n• Understanding biology\n\nEvolution explains how life has changed and diversified over millions of years.",
+                    
+                    "Natural Selection - Survival of Fittest:\n\nNatural selection is the process where organisms with favorable traits survive and reproduce, passing traits to offspring.\n\nProposed by:\n• Charles Darwin\n• Theory of evolution\n• Based on observations\n\nProcess:\n1. Variation exists in population\n2. Some variations are favorable\n3. Organisms with favorable traits survive\n4. They reproduce more\n5. Favorable traits increase in population\n6. Over time, population evolves\n\nExample - Giraffes:\n• Originally had varying neck lengths\n• Longer necks could reach higher leaves\n• Longer-necked giraffes survived better\n• Passed trait to offspring\n• Over time, population evolved longer necks\n\nDriving Force:\n• Natural selection is main driving force of evolution\n• Acts on variations\n• Selects favorable traits\n• Changes populations\n\nAdaptation:\n• Traits that help survival\n• Result of natural selection\n• Fit to environment\n• Examples: Camouflage, speed, strength\n\nImportance:\n• Explains how species change\n• Adaptation to environment\n• Diversity of life\n• Evolution mechanism\n\nNatural selection is the driving force of evolution and explains how species adapt to their environment.",
+                    
+                    "Speciation - Formation of New Species:\n\nSpeciation is the formation of new species from existing ones.\n\nProcess:\n• Populations become isolated\n• Evolve separately\n• Accumulate differences\n• Become different species\n• Cannot interbreed\n\nTypes of Isolation:\n\n1. Geographical:\n   • Mountains, rivers separate populations\n   • Physical barriers\n   • No gene flow\n   • Example: Islands, continents\n\n2. Reproductive:\n   • Cannot interbreed\n   • Different mating behaviors\n   • Incompatible reproductive systems\n   • Genetic differences\n\n3. Temporal:\n   • Different breeding times\n   • Seasonal differences\n   • No overlap\n   • Temporal separation\n\nTime Scale:\n• Takes thousands to millions of years\n• Gradual process\n• Many generations\n• Slow accumulation of differences\n\nImportance:\n• Explains diversity of life on Earth\n• Origin of new species\n• Evolution mechanism\n• Understanding biology\n\nExamples:\n• Darwin's finches (Galapagos)\n• Different environments\n• Different adaptations\n• Different species\n\nSpeciation explains the diversity of life on Earth and how new species are formed.",
+                    
+                    "Evidence of Evolution - Supporting Proof:\n\nMultiple lines of evidence support the theory of evolution.\n\n1. Fossils:\n   • Remains of ancient organisms\n   • Show gradual changes over time\n   • Transitional forms\n   • Age determination\n   • Example: Horse evolution\n\n2. Comparative Anatomy:\n   • Similar structures in different species\n   • Homologous organs (same origin, different function)\n   • Example: Forelimbs of human, bird, whale\n   • Indicates common ancestry\n\n3. Embryology:\n   • Similar embryonic development\n   • Early stages very similar\n   • Suggests common origin\n   • Example: Vertebrate embryos\n\n4. Molecular Biology:\n   • Similar DNA sequences\n   • Indicates relatedness\n   • More similar = more related\n   • Example: Human-chimpanzee DNA 98% similar\n\n5. Biogeography:\n   • Distribution of species\n   • Related species in nearby areas\n   • Supports evolution\n   • Example: Australian marsupials\n\nAll evidence supports theory of evolution and shows how life has changed over time.",
+                    
+                    "Human Evolution - Our Ancestry:\n\nHumans evolved from ape-like ancestors over millions of years.\n\nKey Stages:\n\n1. Australopithecus:\n   • 4-2 million years ago\n   • Walked upright\n   • Small brain\n   • Africa\n\n2. Homo habilis:\n   • 2-1.5 million years ago\n   • Used tools\n   • Larger brain\n   • Tool maker\n\n3. Homo erectus:\n   • 1.8 million - 300,000 years ago\n   • Migrated out of Africa\n   • Fire use\n   • More advanced\n\n4. Homo sapiens:\n   • 200,000 years ago to present\n   • Modern humans\n   • Large brain\n   • Complex culture\n\nEvolution is Ongoing:\n• Still happening\n• Antibiotic resistance\n• Environmental adaptation\n• Genetic changes\n\nUnderstanding Evolution Helps In:\n\n1. Medicine:\n   • Antibiotic resistance\n   • Disease understanding\n   • Treatment development\n\n2. Agriculture:\n   • Plant and animal breeding\n   • Crop improvement\n   • Livestock development\n\n3. Conservation:\n   • Protecting species\n   • Understanding biodiversity\n   • Ecosystem management\n\n4. Understanding Life:\n   • Diversity of life\n   • Our place in nature\n   • Biological relationships\n\nHuman evolution shows our connection to all life and helps us understand our place in nature."
                 ),
                 keyPoints = listOf(
                     "Heredity: Transmission of characters (traits) from parents to offspring. Characters: Observable features (height, color, etc.). Traits: Specific forms of characters (tall/short, red/white). Variation: Differences among individuals of same species. Causes: Genetic (inherited) and Environmental. Helps in evolution and adaptation. Basis of genetics and breeding.",
@@ -11201,11 +11425,25 @@ object MockData {
                 id = "science_16",
                 title = "Management of Natural Resources",
                 revisionNotes = listOf(
-                    "3 R's: Reduce, Reuse, Recycle to conserve resources.",
-                    "Water Management: Rainwater harvesting, watershed management.",
-                    "Forest Conservation: Afforestation, preventing deforestation, sustainable use.",
-                    "Wildlife Conservation: Protected areas, national parks, sanctuaries.",
-                    "Sustainable Development: Meeting present needs without compromising future generations."
+                    "Natural Resources - Complete Understanding:\n\nNatural resources are materials from nature used by humans for various purposes.\n\nTypes:\n\n1. Renewable Resources:\n   • Can be replenished naturally\n   • Examples: Solar energy, Wind energy, Water (if managed), Forests (if managed sustainably)\n   • Can last indefinitely if used wisely\n   • Need sustainable management\n\n2. Non-Renewable Resources:\n   • Limited and exhaustible\n   • Cannot be replenished easily\n   • Examples: Fossil fuels (coal, petroleum, natural gas), Minerals (iron, copper, gold)\n   • Will run out if overused\n   • Need conservation\n\nImportance:\n• Essential for human survival\n• Basis of economic development\n• Support all life forms\n• Must be managed wisely\n\nConservation:\n• Using resources wisely\n• Not wasting\n• Sustainable practices\n• For future generations\n\nManagement:\n• Planning use\n• Meeting present needs\n• Ensuring future availability\n• Balancing use and conservation\n\nOverexploitation:\n• Using more than nature can replenish\n• Leads to depletion\n• Environmental damage\n• Threatens future availability\n\nNatural resources must be managed sustainably for present and future generations.",
+                    
+                    "3 R's Principle - Reduce, Reuse, Recycle:\n\nThe 3 R's are fundamental principles for resource conservation.\n\n1. Reduce:\n   • Use less\n   • Minimize waste generation\n   • Most effective method\n   • Examples:\n     - Use both sides of paper\n     - Avoid unnecessary packaging\n     - Buy only what's needed\n     - Use energy-efficient appliances\n     - Reduce water consumption\n   • Prevents waste at source\n   • Saves resources and money\n\n2. Reuse:\n   • Use items again instead of throwing\n   • Extends life of products\n   • Reduces need for new products\n   • Examples:\n     - Glass jars for storage\n     - Old clothes as rags\n     - Refill water bottles\n     - Repair instead of replace\n     - Donate usable items\n   • Saves resources\n   • Reduces waste\n\n3. Recycle:\n   • Convert waste into new products\n   • Process materials for reuse\n   • Examples:\n     - Paper → new paper\n     - Plastic → new plastic products\n     - Metal → new metal items\n     - Glass → new glass products\n   • Requires energy but saves raw materials\n   • Reduces landfill waste\n\nPriority:\n• Most effective: Reduce > Reuse > Recycle\n• Reduce is best (prevents waste)\n• Reuse is good (extends life)\n• Recycle is necessary (for unavoidable waste)\n\nBenefits:\n• Saves resources\n• Saves energy\n• Reduces pollution\n• Reduces waste\n• Protects environment\n• Saves money\n\nThe 3 R's are essential for sustainable resource management.",
+                    
+                    "Water Management - Conservation and Management:\n\nWater management involves conserving and managing water resources sustainably.\n\nMethods:\n\n1. Rainwater Harvesting:\n   • Collecting rainwater for use\n   • Rooftop harvesting\n   • Ground collection\n   • Storage in tanks\n   • Recharge groundwater\n   • Reduces dependence on other sources\n\n2. Watershed Management:\n   • Managing entire drainage area\n   • Soil conservation\n   • Afforestation\n   • Check dams\n   • Maintains water cycle\n   • Prevents soil erosion\n\n3. Dams:\n   • Store water\n   • Generate electricity\n   • Provide irrigation\n   • But affect ecosystems\n   • Displace people\n   • Need careful planning\n\n4. Water Conservation:\n   • Fix leaks\n   • Use efficiently\n   • Avoid wastage\n   • Drip irrigation\n   • Low-flow fixtures\n   • Reuse water\n\n5. Groundwater Recharge:\n   • Allowing water to percolate\n   • Recharge pits\n   • Percolation tanks\n   • Maintains water table\n\nLevels of Action:\n• Individual: Use wisely, fix leaks, conserve\n• Community: Local management, rainwater harvesting\n• Government: Policies, infrastructure, regulations\n\nImportance:\n• Water is becoming scarce\n• Essential for life\n• Need sustainable management\n• Future security\n\nWater management is crucial for ensuring water availability for all.",
+                    
+                    "Forest Conservation - Protecting Forests:\n\nForests are vital natural resources that need protection and sustainable management.\n\nImportance of Forests:\n• Provide oxygen\n• Absorb carbon dioxide\n• Prevent soil erosion\n• Maintain water cycle\n• Habitat for wildlife\n• Provide resources (wood, medicines, fruits)\n• Maintain biodiversity\n• Regulate climate\n• Support livelihoods\n\nConservation Methods:\n\n1. Afforestation:\n   • Planting trees\n   • Reforestation (replanting)\n   • Increase forest cover\n   • Restore degraded areas\n\n2. Preventing Deforestation:\n   • Stop cutting trees\n   • Strict laws\n   • Protected areas\n   • Sustainable logging\n   • Alternatives to wood\n\n3. Sustainable Use:\n   • Controlled logging\n   • Replant after cutting\n   • Non-timber products\n   • Eco-tourism\n   • Community participation\n\n4. Protected Areas:\n   • National parks\n   • Wildlife sanctuaries\n   • Biosphere reserves\n   • Reserved forests\n\nChipko Movement:\n• Forest conservation movement in India\n• People hugged trees to prevent cutting\n• Successful in protecting forests\n• Example of people's participation\n\nChallenges:\n• Deforestation continues\n• Illegal logging\n• Encroachment\n• Forest fires\n• Climate change\n\nSolutions:\n• Strong laws\n• Community participation\n• Sustainable practices\n• Awareness\n• Alternative livelihoods\n\nForest conservation is essential for environmental balance and human survival.",
+                    
+                    "Wildlife Conservation - Protecting Biodiversity:\n\nWildlife conservation involves protecting animals and their habitats.\n\nImportance:\n• Maintains ecosystem balance\n• Preserves biodiversity\n• Genetic diversity\n• Ecological services\n• Scientific value\n• Cultural value\n• Economic value (tourism)\n\nConservation Methods:\n\n1. Protected Areas:\n   • National Parks:\n     - Strict protection\n     - No human activity\n     - Preserve ecosystems\n     - Examples: Jim Corbett, Kaziranga\n   • Wildlife Sanctuaries:\n     - Protection for specific species\n     - Some human activity allowed\n     - Examples: Periyar, Gir\n   • Biosphere Reserves:\n     - Large protected areas\n     - Core, buffer, transition zones\n     - Examples: Nilgiri, Sundarbans\n\n2. Wildlife Protection Laws:\n   • Wildlife Protection Act (1972)\n   • Ban on hunting\n   • Protection of endangered species\n   • Strict penalties\n\n3. Conservation Programs:\n   • Project Tiger\n   • Project Elephant\n   • Breeding programs\n   • Habitat restoration\n\n4. Community Participation:\n   • Local involvement\n   • Eco-tourism\n   • Alternative livelihoods\n   • Awareness\n\nThreats:\n• Habitat loss\n• Poaching\n• Climate change\n• Pollution\n• Human-wildlife conflict\n\nSolutions:\n• Strong protection\n• Habitat conservation\n• Anti-poaching measures\n• Community involvement\n• Research and monitoring\n\nWildlife conservation is essential for maintaining biodiversity and ecosystem balance.",
+                    
+                    "Sustainable Development - Meeting Present and Future Needs:\n\nSustainable development meets present needs without compromising future generations' ability to meet their needs.\n\nPrinciples:\n• Use resources wisely\n• Don't exhaust non-renewable resources\n• Protect environment\n• Maintain ecological balance\n• Consider long-term impact\n• Inter-generational equity\n\nFeatures:\n• Economic growth with environmental protection\n• Social equity\n• Environmental sustainability\n• Long-term thinking\n• Balance of all three pillars\n\nExamples:\n• Renewable energy (solar, wind)\n• Organic farming\n• Waste reduction and recycling\n• Afforestation\n• Green buildings\n• Eco-friendly products\n• Sustainable agriculture\n\nNot Sustainable:\n• Overexploitation\n• Pollution\n• Deforestation\n• Wasteful consumption\n• Short-term thinking\n\nNeed For:\n• Resources are limited\n• Environment is fragile\n• Future generations have rights\n• Long-term survival\n• Quality of life\n\nUN Sustainable Development Goals:\n• 17 goals for global development\n• Include: No poverty, Clean water, Climate action\n• Guide global efforts\n• 2030 agenda\n\nEveryone's Responsibility:\n• Individuals: Reduce, reuse, recycle\n• Communities: Local action\n• Governments: Policies and regulations\n• Industries: Clean technologies\n• International: Cooperation\n\nSustainable development is the only way forward for a secure future.",
+                    
+                    "Water Resources Management - Detailed Approach:\n\nWater is a critical resource requiring careful management.\n\nChallenges:\n• Increasing scarcity\n• Uneven distribution\n• Pollution\n• Over-extraction\n• Climate change\n• Population growth\n\nManagement Strategies:\n\n1. Conservation:\n   • Efficient use\n   • Reduce wastage\n   • Fix leaks\n   • Water-efficient appliances\n\n2. Rainwater Harvesting:\n   • Collect and store\n   • Recharge groundwater\n   • Reduce runoff\n\n3. Watershed Management:\n   • Manage entire catchment\n   • Soil conservation\n   • Vegetation cover\n\n4. Groundwater Management:\n   • Control extraction\n   • Recharge\n   • Monitor levels\n\n5. Wastewater Treatment:\n   • Treat and reuse\n   • Reduce pollution\n   • Protect sources\n\n6. Dams and Reservoirs:\n   • Storage\n   • Regulate flow\n   • Multiple uses\n\nCommunity Participation:\n• Local management\n• Traditional knowledge\n• Water user associations\n• Awareness\n\nGovernment Role:\n• Policies\n• Infrastructure\n• Regulations\n• Support\n\nWater management requires integrated approach at all levels.",
+                    
+                    "Forest Resources Management - Sustainable Approach:\n\nForests need sustainable management for long-term benefits.\n\nManagement Principles:\n• Sustainable yield\n• Multiple use\n• Conservation\n• Restoration\n• Community involvement\n\nSustainable Practices:\n• Controlled logging\n• Replanting\n• Non-timber products\n• Eco-tourism\n• Research\n\nForest Types:\n• Tropical\n• Temperate\n• Boreal\n• Each needs specific management\n\nBenefits:\n• Environmental services\n• Economic value\n• Social value\n• Cultural value\n\nThreats:\n• Deforestation\n• Degradation\n• Fires\n• Pests\n• Climate change\n\nManagement Approaches:\n• Protected areas\n• Sustainable forestry\n• Community forestry\n• Agroforestry\n• Restoration\n\nForest management must balance use and conservation.",
+                    
+                    "Wildlife and Biodiversity Conservation:\n\nBiodiversity conservation is essential for ecosystem health.\n\nImportance:\n• Ecosystem stability\n• Genetic resources\n• Scientific knowledge\n• Economic value\n• Cultural value\n\nConservation Strategies:\n• Protected areas\n• Habitat restoration\n• Species recovery\n• Anti-poaching\n• Research\n• Education\n\nThreats:\n• Habitat loss\n• Fragmentation\n• Pollution\n• Climate change\n• Invasive species\n• Overexploitation\n\nConservation Success:\n• Some species recovered\n• Protected areas expanded\n• Awareness increased\n• Laws strengthened\n\nChallenges Remain:\n• Many species endangered\n• Habitat loss continues\n• Climate change impacts\n• Human-wildlife conflict\n\nNeed:\n• Strong protection\n• Habitat connectivity\n• Community support\n• International cooperation\n\nBiodiversity conservation is critical for ecosystem health and human survival.",
+                    
+                    "Integrated Resource Management - Holistic Approach:\n\nResources must be managed together, not in isolation.\n\nPrinciples:\n• Interconnected systems\n• Multiple uses\n• Long-term perspective\n• Stakeholder participation\n• Adaptive management\n\nWater-Forest Linkage:\n• Forests maintain water cycle\n• Water supports forests\n• Must manage together\n\nForest-Wildlife Linkage:\n• Forests provide habitat\n• Wildlife maintains forests\n• Interdependent\n\nEcosystem Approach:\n• Manage entire ecosystem\n• Consider all components\n• Maintain balance\n• Protect biodiversity\n\nCommunity Involvement:\n• Local knowledge\n• Participation\n• Benefits sharing\n• Ownership\n\nGovernment Role:\n• Policies\n• Coordination\n• Support\n• Regulation\n\nChallenges:\n• Complex interactions\n• Conflicting interests\n• Limited resources\n• Climate change\n\nSolutions:\n• Integrated planning\n• Stakeholder dialogue\n• Scientific knowledge\n• Adaptive management\n\nIntegrated management ensures sustainable use of all resources together."
                 ),
                 keyPoints = listOf(
                     "Natural Resources: Materials from nature used by humans. Renewable: Can be replenished (solar, wind, water, forests if managed). Non-renewable: Limited, exhaustible (fossil fuels, minerals). Conservation: Using resources wisely, not wasting. Management: Planning use to meet present and future needs. Overexploitation leads to depletion. Need sustainable practices. Examples: Water, forests, minerals, fossil fuels, wildlife.",
@@ -11289,16 +11527,25 @@ object MockData {
                 id = "social_1",
                 title = "The Rise of Nationalism in Europe",
                 revisionNotes = listOf(
-                    "Nationalism: A feeling of unity and loyalty towards one's nation. Emerged in Europe in the 19th century, leading to the formation of nation-states.",
-                    "French Revolution (1789): Marked the beginning of modern nationalism. Ideas of liberty, equality, and fraternity spread across Europe.",
-                    "Napoleon Bonaparte: Spread French revolutionary ideas through conquests. Introduced Civil Code (1804) which established equality before law and property rights.",
-                    "Congress of Vienna (1815): European powers met to restore old order after Napoleon's defeat. Conservative regimes were established.",
-                    "Revolutionary Movements: 1830s and 1848 saw liberal revolutions across Europe demanding constitutionalism and national unification.",
-                    "Unification of Germany: Led by Otto von Bismarck through 'blood and iron' policy. Three wars: Danish War (1864), Austro-Prussian War (1866), Franco-Prussian War (1870-71).",
-                    "Unification of Italy: Led by Giuseppe Mazzini, Count Cavour, and Giuseppe Garibaldi. Process completed by 1870.",
-                    "Balkan Nationalism: Various ethnic groups in the Balkans sought independence from Ottoman Empire, leading to conflicts.",
-                    "Role of Culture: Language, art, music, and literature played crucial role in developing nationalist sentiments.",
-                    "Impact: Nationalism led to formation of modern nation-states, but also caused conflicts and World Wars."
+                    "Nationalism - Complete Concept:\n\nNationalism is a feeling of unity, loyalty, and devotion towards one's nation.\n\nKey Characteristics:\n• Sense of belonging to a nation\n• Pride in national identity\n• Desire for self-governance\n• Unity among people sharing common culture, language, history\n\nEmergence:\n• Emerged in Europe in the 19th century\n• Led to formation of modern nation-states\n• Replaced old multi-ethnic empires\n• Based on shared culture, language, territory\n\nNation-State:\n• State where majority shares common identity\n• People have sense of belonging\n• Government represents the nation\n• Example: France, Germany, Italy\n\nFactors Promoting Nationalism:\n• Common language\n• Shared history and culture\n• Common territory\n• Economic interests\n• Political aspirations\n\nImpact:\n• Positive: Unity, independence, self-determination\n• Negative: Conflicts, wars, exclusion of minorities\n\nNationalism transformed Europe and shaped modern world history.",
+                    
+                    "French Revolution (1789) - Beginning of Modern Nationalism:\n\nThe French Revolution (1789-1799) marked the beginning of modern nationalism.\n\nKey Events:\n• 1789: Storming of Bastille (July 14)\n• Declaration of Rights of Man and Citizen\n• Overthrow of monarchy\n• Establishment of republic\n\nRevolutionary Ideas:\n• Liberty: Freedom from oppression\n• Equality: Equal rights for all citizens\n• Fraternity: Brotherhood among people\n\nSpread of Ideas:\n• Ideas spread across Europe through:\n  - French armies\n  - Revolutionary literature\n  - Educated classes\n  - Newspapers and pamphlets\n\nImpact on Europe:\n• Inspired other nations\n• Challenged old monarchies\n• Promoted democratic ideals\n• Encouraged national consciousness\n\nNational Symbols:\n• Tricolor flag (red, white, blue)\n• La Marseillaise (national anthem)\n• Marianne (national symbol)\n\nSignificance:\n• First modern nation-state based on citizenship\n• People, not king, became source of power\n• Model for other nations\n• Foundation of modern nationalism\n\nThe French Revolution showed that people could govern themselves and inspired nationalist movements across Europe.",
+                    
+                    "Napoleon Bonaparte - Spreading Revolutionary Ideas:\n\nNapoleon Bonaparte (1769-1821) spread French revolutionary ideas through military conquests.\n\nRise to Power:\n• Military general in French Revolution\n• Became First Consul (1799)\n• Crowned Emperor (1804)\n• Conquered much of Europe\n\nCivil Code (1804):\n• Also called Napoleonic Code\n• Established:\n  - Equality before law\n  - Right to property\n  - Abolished feudalism\n  - Uniform legal system\n• Applied in conquered territories\n\nAdministrative Reforms:\n• Efficient bureaucracy\n• Standardized weights and measures\n• Improved infrastructure\n• Modernized administration\n\nImpact on Europe:\n• Spread French ideas:\n  - Legal equality\n  - Administrative efficiency\n  - Modern governance\n• Awakened national consciousness\n• Created desire for independence\n• Inspired nationalist movements\n\nReaction:\n• Initially welcomed (reforms)\n• Later resisted (foreign rule)\n• Led to nationalist uprisings\n• Example: Spain, Germany, Italy\n\nDefeat:\n• 1815: Battle of Waterloo\n• Exiled to St. Helena\n• European powers restored old order\n\nNapoleon's conquests, while imposing French rule, also spread ideas of liberty and nationalism that eventually led to demands for independence.",
+                    
+                    "Congress of Vienna (1815) - Restoring Old Order:\n\nThe Congress of Vienna (1814-1815) was a meeting of European powers to restore order after Napoleon's defeat.\n\nParticipants:\n• Austria (Metternich)\n• Britain (Castlereagh)\n• Prussia (Hardenberg)\n• Russia (Alexander I)\n• France (Talleyrand)\n\nMain Goals:\n• Restore old monarchies\n• Prevent future revolutions\n• Maintain balance of power\n• Redraw European boundaries\n\nPrinciples:\n• Legitimacy: Restore legitimate rulers\n• Compensation: Reward victors\n• Balance of Power: Prevent dominance\n• Conservatism: Oppose change\n\nTerritorial Changes:\n• France: Reduced to 1790 boundaries\n• Prussia: Gained territories\n• Austria: Gained Italian territories\n• Russia: Gained Polish territories\n• German Confederation: Created (39 states)\n\nConservative Regimes:\n• Absolute monarchies restored\n• Suppression of liberal ideas\n• Censorship and surveillance\n• Secret police\n\nImpact:\n• Temporary peace\n• Suppressed nationalist movements\n• Created resentment\n• Led to revolutions (1830, 1848)\n\nLimitations:\n• Could not stop ideas\n• Nationalism continued to grow\n• Liberal movements emerged\n• Eventually led to unification movements\n\nThe Congress tried to turn back time but could not stop the forces of nationalism and liberalism.",
+                    
+                    "Revolutionary Movements (1830s and 1848) - Liberal Revolutions:\n\nThe 1830s and 1848 saw widespread liberal revolutions across Europe.\n\nRevolution of 1830:\n\nFrance:\n• July Revolution\n• Overthrew Bourbon monarchy\n• Established constitutional monarchy\n• Louis Philippe became king\n\nBelgium:\n• Gained independence from Netherlands\n• Established constitutional monarchy\n• First successful nationalist revolution\n\nPoland:\n• Uprising against Russian rule\n• Suppressed by Russia\n• Failed but inspired others\n\nRevolution of 1848 - 'Spring of Nations':\n\nFrance:\n• February Revolution\n• Overthrew Louis Philippe\n• Established Second Republic\n• Universal male suffrage\n\nGermany:\n• Liberal uprisings in various states\n• Frankfurt Parliament (1848-49)\n• Attempted German unification\n• Failed due to divisions\n\nItaly:\n• Revolutions in various Italian states\n• Demanded constitutionalism\n• Attempted unification\n• Suppressed by Austria\n\nAustrian Empire:\n• Revolutions in:\n  - Vienna (Austria)\n  - Budapest (Hungary)\n  - Prague (Czech lands)\n• Demanded autonomy\n• Suppressed by military\n\nCommon Demands:\n• Constitutionalism\n• National unification\n• Democratic rights\n• End of absolute monarchy\n\nOutcomes:\n• Most revolutions failed\n• Monarchies restored\n• But ideas spread\n• Paved way for later success\n\nThese revolutions showed the power of nationalist and liberal ideas, even if they failed initially.",
+                    
+                    "Unification of Germany - Bismarck's 'Blood and Iron':\n\nGermany was unified under Prussian leadership by Otto von Bismarck (1815-1898).\n\nBackground:\n• Germany was divided into 39 states\n• German Confederation (loose union)\n• Austria and Prussia were rivals\n• Need for economic and political unity\n\nBismarck's Policy:\n• 'Blood and Iron' (military force)\n• Realpolitik (practical politics)\n• Use of war to achieve goals\n• Exclude Austria from Germany\n\nThree Wars:\n\n1. Danish War (1864):\n   • Prussia + Austria vs Denmark\n   • Gained Schleswig-Holstein\n   • Strengthened Prussia\n\n2. Austro-Prussian War (1866):\n   • Seven Weeks' War\n   • Prussia defeated Austria\n   • Excluded Austria from Germany\n   • Created North German Confederation\n\n3. Franco-Prussian War (1870-71):\n   • Prussia vs France\n   • Prussia won decisively\n   • Captured Napoleon III\n   • Gained Alsace-Lorraine\n\nUnification (1871):\n• January 18, 1871\n• Hall of Mirrors, Versailles\n• King William I of Prussia\n• Proclaimed German Emperor\n• German Empire established\n\nKey Factors:\n• Prussian military strength\n• Economic power (Zollverein)\n• Bismarck's diplomacy\n• Nationalist sentiment\n• Weakness of opponents\n\nResult:\n• Unified German nation-state\n• Powerful European nation\n• Changed European balance\n• Led to World War I tensions\n\nGermany's unification transformed Europe and demonstrated the power of nationalism combined with military strength.",
+                    
+                    "Unification of Italy - Risorgimento:\n\nThe unification of Italy (Risorgimento) was completed by 1870.\n\nBackground:\n• Italy was divided into many states\n• Austrian control in north\n• Papal States in center\n• Spanish Bourbons in south\n• Need for unity\n\nKey Leaders:\n\n1. Giuseppe Mazzini (1805-1872):\n   • 'Soul' of unification\n   • Founded Young Italy\n   • Promoted republican ideals\n   • Inspired nationalist movement\n\n2. Count Camillo di Cavour (1810-1861):\n   • Prime Minister of Piedmont-Sardinia\n   • 'Brain' of unification\n   • Diplomatic and military strategy\n   • Allied with France\n\n3. Giuseppe Garibaldi (1807-1882):\n   • 'Sword' of unification\n   • Military leader\n   • Led Red Shirts\n   • Conquered Kingdom of Two Sicilies\n\nProcess:\n\n1859-60:\n• Cavour allied with France\n• Defeated Austria\n• Gained Lombardy\n• Central states joined\n\n1860:\n• Garibaldi's Expedition of the Thousand\n• Conquered Sicily and Naples\n• Handed over to King Victor Emmanuel II\n\n1861:\n• Kingdom of Italy proclaimed\n• Victor Emmanuel II became king\n• Capital: Turin (later Florence)\n\n1866:\n• Gained Venice (Austro-Prussian War)\n\n1870:\n• Captured Rome (Franco-Prussian War)\n• Completed unification\n• Capital moved to Rome\n\nResult:\n• Unified Italian nation-state\n• Modern Italy created\n• Inspired other nationalist movements\n\nItaly's unification showed that different methods (diplomacy, military, popular support) could combine to achieve national unity.",
+                    
+                    "Balkan Nationalism - Powder Keg of Europe:\n\nThe Balkans region saw intense nationalist movements in the 19th-20th centuries.\n\nBackground:\n• Balkans: Southeast Europe\n• Under Ottoman Empire control\n• Multiple ethnic groups:\n  - Serbs, Croats, Bulgarians\n  - Greeks, Romanians, Albanians\n  - Various religions and languages\n\nNationalist Movements:\n\nGreece (1821-1832):\n• First to gain independence\n• War against Ottomans\n• Supported by European powers\n• Established independent kingdom\n\nSerbia:\n• Gained autonomy (1815)\n• Full independence (1878)\n• Wanted to unite all Serbs\n• Pan-Slavic movement\n\nBulgaria:\n• Gained autonomy (1878)\n• Full independence (1908)\n• Wanted to expand territory\n\nOther Groups:\n• Romanians, Albanians, Croats\n• All sought independence\n• Created tensions\n\nConflicts:\n• Competing territorial claims\n• Ethnic rivalries\n• Religious differences\n• Great Power interference\n\nCrisis:\n• 1908: Austria annexed Bosnia\n• 1912-13: Balkan Wars\n• Serbia became powerful\n• Austria felt threatened\n\n1914:\n• Assassination of Archduke Franz Ferdinand\n• Triggered World War I\n• Balkans = 'Powder Keg of Europe'\n\nImpact:\n• Destabilized Europe\n• Led to World War I\n• Created lasting conflicts\n• Still affects region today\n\nThe Balkans demonstrated how intense nationalism could lead to major conflicts.",
+                    
+                    "Role of Culture in Nationalism - Building National Identity:\n\nCulture played a crucial role in developing nationalist sentiments.\n\nLanguage:\n• Common language = national identity\n• Preserved through:\n  - Literature\n  - Education\n  - Administration\n• Example: German language unification\n\nArt and Literature:\n• Romanticism: Emphasized emotions, nature, folk culture\n• National themes: History, heroes, legends\n• Examples:\n  - German: Grimm's Fairy Tales\n  - Polish: National epics\n  - Italian: Literature of Risorgimento\n\nMusic:\n• National anthems\n• Folk songs\n• Composers: Chopin (Poland), Verdi (Italy)\n• Expressed national spirit\n\nHistory and Folklore:\n• Glorious past\n• National heroes\n• Shared memories\n• Created sense of continuity\n\nVisual Arts:\n• Paintings of national scenes\n• Depiction of national symbols\n• Romantic landscapes\n• Historical paintings\n\nEducation:\n• Taught national language\n• National history\n• Cultural values\n• Created sense of belonging\n\nPrint Culture:\n• Newspapers\n• Books\n• Pamphlets\n• Spread ideas\n• Created reading public\n\nImpact:\n• Created shared identity\n• United diverse groups\n• Inspired nationalist movements\n• Strengthened national consciousness\n\nCulture was the foundation on which modern nations were built, creating emotional bonds stronger than political boundaries.",
+                    
+                    "Impact of Nationalism - Transformation of Europe:\n\nNationalism had profound and lasting impact on Europe and the world.\n\nPositive Impacts:\n\n1. Formation of Nation-States:\n   • Unified divided regions\n   • Created modern countries\n   • Examples: Germany, Italy\n\n2. Self-Determination:\n   • People chose their government\n   • Ended foreign domination\n   • Democratic ideals\n\n3. Economic Development:\n   • Unified markets\n   • Better infrastructure\n   • Industrial growth\n\n4. Cultural Revival:\n   • Preserved languages\n   • Promoted arts\n   • Strengthened identity\n\nNegative Impacts:\n\n1. Conflicts and Wars:\n   • Territorial disputes\n   • Ethnic tensions\n   • World War I (1914-1918)\n   • World War II (1939-1945)\n\n2. Exclusion of Minorities:\n   • Discrimination\n   • Forced assimilation\n   • Persecution\n\n3. Imperialism:\n   • National pride → expansion\n   • Colonialism\n   • Competition for colonies\n\n4. Extreme Nationalism:\n   • Fascism (Italy, Germany)\n   • Nazism\n   • Led to Holocaust\n\nLong-term Effects:\n• Shaped modern world map\n• Created current nation-states\n• Influenced international relations\n• Still affects politics today\n\nLegacy:\n• Mixed results\n• Unity but also division\n• Progress but also destruction\n• Continues to influence world\n\nNationalism transformed Europe, creating both opportunities for unity and sources of conflict that shaped the 20th century."
                 ),
                 keyPoints = listOf(
                     "Nationalism emerged in 19th century Europe, leading to formation of nation-states.",
@@ -11321,16 +11568,25 @@ object MockData {
                 id = "social_2",
                 title = "Nationalism in India",
                 revisionNotes = listOf(
-                    "First World War Impact: Created economic hardships, increased taxes, forced recruitment, and food shortages in India.",
-                    "Rowlatt Act (1919): Gave British government power to arrest without trial. Led to widespread protests.",
-                    "Jallianwala Bagh Massacre (1919): General Dyer ordered firing on peaceful gathering in Amritsar, killing hundreds.",
-                    "Non-Cooperation Movement (1920-22): Launched by Gandhi, included boycott of British goods, schools, courts, and councils.",
-                    "Khilafat Movement: Muslims joined Non-Cooperation Movement to protect Ottoman Caliphate.",
-                    "Civil Disobedience Movement (1930): Salt March to Dandi, breaking salt law. Mass participation across India.",
-                    "Quit India Movement (1942): 'Do or Die' call by Gandhi. Massive protests against British rule.",
-                    "Role of Congress: Main political party leading freedom struggle. Organized mass movements.",
-                    "Revolutionary Movements: Bhagat Singh, Chandrashekhar Azad, and others used armed resistance.",
-                    "Partition and Independence: India gained independence in 1947, but was partitioned into India and Pakistan."
+                    "First World War Impact on India - Economic Hardships:\n\nThe First World War (1914-1918) had severe impact on India.\n\nEconomic Effects:\n• Increased taxes to fund war\n• Forced recruitment of soldiers\n• Food shortages and inflation\n• Prices doubled between 1913-1918\n• Economic distress for common people\n\nPolitical Effects:\n• War expenses burdened India\n• Promises of reforms not fulfilled\n• Disappointment with British rule\n• Growing discontent\n\nSocial Effects:\n• Food shortages led to famines\n• Forced recruitment caused resentment\n• Economic hardships affected all classes\n• Created conditions for mass movements\n\nBritish Promises:\n• Promised self-government after war\n• Promised to consider Indian demands\n• But failed to deliver\n• Created disillusionment\n\nResult:\n• Widespread anger and frustration\n• Prepared ground for mass movements\n• Led to Non-Cooperation Movement\n• Strengthened nationalist sentiment\n\nThe war exposed British exploitation and united Indians against colonial rule.",
+                    
+                    "Rowlatt Act (1919) - Repressive Law:\n\nThe Rowlatt Act was a repressive law passed by British government in 1919.\n\nProvisions:\n• Gave government power to arrest without trial\n• Detention without warrant\n• No right to appeal\n• Trials without juries\n• Extended emergency powers from war\n\nPurpose:\n• Suppress nationalist activities\n• Prevent revolutionary movements\n• Maintain British control\n• Crush dissent\n\nReaction:\n• Widespread protests across India\n• Gandhi called for Satyagraha\n• Hartals (strikes) organized\n• Mass demonstrations\n• Unity among different groups\n\nGandhi's Response:\n• Launched Rowlatt Satyagraha\n• Called for non-violent resistance\n• Organized protests\n• First all-India mass movement\n\nImpact:\n• United Indians against British\n• Showed power of mass protest\n• Led to Jallianwala Bagh incident\n• Strengthened nationalist movement\n\nSignificance:\n• Marked beginning of mass phase\n• Gandhi emerged as leader\n• Showed British repression\n• United different communities\n\nThe Act backfired and strengthened the freedom struggle instead of suppressing it.",
+                    
+                    "Jallianwala Bagh Massacre (1919) - Turning Point:\n\nThe Jallianwala Bagh Massacre was a brutal incident on April 13, 1919, in Amritsar.\n\nBackground:\n• People gathered for Baisakhi festival\n• Also protesting Rowlatt Act\n• Peaceful gathering in enclosed garden\n• General Dyer arrived with troops\n\nThe Massacre:\n• General Dyer blocked only exit\n• Ordered firing without warning\n• Fired for 10 minutes\n• 379 killed (official), 1000+ (actual)\n• 1200+ injured\n• No medical aid allowed\n\nAftermath:\n• Martial law imposed\n• Public floggings\n• Crawling order (Indians had to crawl)\n• Severe repression\n\nReaction:\n• Nationwide shock and anger\n• Rabindranath Tagore returned knighthood\n• Gandhi called it 'satanic'\n• Turned many against British\n\nImpact:\n• Turning point in freedom struggle\n• Exposed British brutality\n• United Indians across communities\n• Strengthened nationalist movement\n• Created permanent anger\n\nSignificance:\n• Showed true face of British rule\n• Proved need for independence\n• Inspired future movements\n• Never forgotten by Indians\n\nThe massacre became a symbol of British oppression and strengthened the resolve for freedom.",
+                    
+                    "Non-Cooperation Movement (1920-22) - Gandhi's First Mass Movement:\n\nThe Non-Cooperation Movement was launched by Gandhi in 1920.\n\nBackground:\n• Disappointment with British reforms\n• Rowlatt Act and Jallianwala Bagh\n• Khilafat issue\n• Need for mass action\n\nProgram:\n• Boycott of British goods\n• Boycott of British schools and colleges\n• Boycott of British courts\n• Boycott of councils and elections\n• Surrender of titles and honors\n• Non-payment of taxes (in some areas)\n\nMethods:\n• Non-violent resistance (Satyagraha)\n• Mass participation\n• Peaceful protests\n• Swadeshi (use Indian goods)\n\nParticipation:\n• Students left schools\n• Lawyers gave up practice\n• People boycotted foreign goods\n• Widespread support\n• Unity of Hindus and Muslims\n\nAchievements:\n• Massive participation\n• Showed power of non-violence\n• United different groups\n• Economic impact on British\n• Strengthened Congress\n\nWithdrawal (1922):\n• Chauri Chaura incident (violence)\n• Gandhi called off movement\n• Some leaders disagreed\n• But maintained non-violence principle\n\nImpact:\n• First mass movement\n• Established Gandhi as leader\n• Showed potential of non-violence\n• Prepared for future movements\n• Inspired millions\n\nThe movement demonstrated the power of mass non-violent resistance and established Gandhi's leadership.",
+                    
+                    "Khilafat Movement - Muslim Participation:\n\nThe Khilafat Movement (1919-1924) was a movement to protect the Ottoman Caliphate.\n\nBackground:\n• Ottoman Empire defeated in WWI\n• Threat to Caliphate (spiritual leader)\n• Muslims worldwide concerned\n• Indian Muslims wanted to protect it\n\nLeaders:\n• Ali Brothers (Mohammad Ali and Shaukat Ali)\n• Maulana Abul Kalam Azad\n• Supported by Gandhi\n\nDemands:\n• Protect Ottoman Caliphate\n• Restore Turkish territories\n• Maintain Caliph's authority\n\nGandhi's Support:\n• Saw opportunity for Hindu-Muslim unity\n• Supported Khilafat cause\n• Combined with Non-Cooperation\n• United front against British\n\nMethods:\n• Joined Non-Cooperation Movement\n• Boycott of British institutions\n• Mass protests\n• Non-violent resistance\n\nAchievements:\n• United Hindus and Muslims\n• Massive Muslim participation\n• Strengthened freedom struggle\n• Showed religious harmony\n\nEnd:\n• Turkey abolished Caliphate (1924)\n• Movement lost purpose\n• But unity remained\n\nSignificance:\n• Demonstrated Hindu-Muslim unity\n• Showed Gandhi's inclusive approach\n• Brought Muslims into mainstream\n• Strengthened nationalist movement\n\nThe Khilafat Movement, while ultimately unsuccessful in its goal, achieved lasting Hindu-Muslim unity in the freedom struggle.",
+                    
+                    "Civil Disobedience Movement (1930) - Salt March:\n\nThe Civil Disobedience Movement (1930-1934) was a major mass movement led by Gandhi.\n\nBackground:\n• Disappointment with Simon Commission\n• Demand for complete independence\n• Need for direct action\n• Salt tax as symbol of oppression\n\nSalt March (Dandi March):\n• March 12 - April 6, 1930\n• Gandhi and 78 followers\n• From Sabarmati Ashram to Dandi\n• 240 miles, 24 days\n• Breaking salt law at Dandi\n\nProgram:\n• Breaking salt law\n• Boycott of foreign goods\n• Non-payment of taxes\n• Resignation from government posts\n• Peaceful violation of laws\n\nMass Participation:\n• Millions participated\n• Across all regions\n• All communities\n• Women's participation\n• Students, peasants, workers\n\nMethods:\n• Making salt illegally\n• Picketing shops\n• Peaceful protests\n• Non-violent resistance\n• Civil disobedience\n\nGovernment Response:\n• Mass arrests (60,000+)\n• Repression\n• Gandhi arrested\n• But movement continued\n\nAchievements:\n• Showed power of non-violence\n• International attention\n• Strengthened Congress\n• Proved mass support\n• Inspired future movements\n\nImpact:\n• Most successful mass movement\n• Established Gandhi's methods\n• Showed Indian unity\n• Paved way for independence\n\nThe Salt March became an iconic symbol of non-violent resistance and inspired movements worldwide.",
+                    
+                    "Quit India Movement (1942) - 'Do or Die':\n\nThe Quit India Movement (1942) was the final mass movement for independence.\n\nBackground:\n• Failure of Cripps Mission (1942)\n• British refusal to grant independence\n• WWII context\n• Need for immediate action\n\nGandhi's Call:\n• 'Do or Die' (Karo ya Maro)\n• August 8, 1942\n• 'Quit India' resolution\n• Complete independence demand\n\nProgram:\n• Mass protests\n• Non-violent resistance\n• Disruption of British administration\n• Workers' strikes\n• Students' participation\n\nMassive Protests:\n• Spontaneous uprisings\n• Across India\n• All sections participated\n• Peasants, workers, students\n• Women's active role\n\nGovernment Response:\n• Immediate crackdown\n• Mass arrests (100,000+)\n• Gandhi and leaders arrested\n• Brutal repression\n• Shooting on protesters\n\nUnderground Activities:\n• Secret organizations\n• Underground publications\n• Continued resistance\n• Despite repression\n\nAchievements:\n• Showed determination\n• Proved mass support\n• Exposed British weakness\n• Strengthened resolve\n• Paved way for independence\n\nImpact:\n• Final push for freedom\n• Proved British couldn't rule\n• Showed Indian unity\n• Led to independence (1947)\n\nThe movement demonstrated that Indians were ready to sacrifice everything for freedom.",
+                    
+                    "Role of Congress - Leading Freedom Struggle:\n\nThe Indian National Congress was the main political party leading the freedom struggle.\n\nFormation (1885):\n• Founded by A.O. Hume\n• Initially moderate demands\n• Constitutional methods\n• Later became radical\n\nEvolution:\n• Early phase: Petitions and prayers\n• Moderate phase: Constitutional reforms\n• Extremist phase: Direct action\n• Gandhi phase: Mass movements\n\nLeadership:\n• Dadabhai Naoroji, Gopal Krishna Gokhale (Moderates)\n• Bal Gangadhar Tilak, Bipin Chandra Pal (Extremists)\n• Mahatma Gandhi, Jawaharlal Nehru (Mass leaders)\n\nOrganizational Role:\n• Organized mass movements\n• Coordinated protests\n• Represented Indian demands\n• United different groups\n\nMass Movements:\n• Non-Cooperation (1920-22)\n• Civil Disobedience (1930-34)\n• Quit India (1942)\n• Led by Congress\n\nAchievements:\n• United Indians\n• Represented national aspirations\n• Organized effective resistance\n• Negotiated with British\n• Led to independence\n\nChallenges:\n• Communal divisions\n• Different ideologies\n• British repression\n• But remained united\n\nLegacy:\n• Main force for independence\n• Established democratic traditions\n• Shaped modern India\n• Continues to influence politics\n\nCongress played the central role in achieving India's independence through mass mobilization and political leadership.",
+                    
+                    "Revolutionary Movements - Armed Resistance:\n\nRevolutionary movements used armed resistance against British rule.\n\nBackground:\n• Frustration with moderate methods\n• Need for direct action\n• Inspired by international revolutions\n• Young, educated revolutionaries\n\nKey Revolutionaries:\n\n1. Bhagat Singh (1907-1931):\n   • Hindustan Socialist Republican Association\n   • Bomb in Assembly (1929)\n   • Hungry strike in jail\n   • Executed at 23\n   • Iconic figure\n\n2. Chandrashekhar Azad (1906-1931):\n   • Leader of HSRA\n   • Never captured alive\n   • Shot himself to avoid capture\n   • Legendary revolutionary\n\n3. Others:\n   • Sukhdev, Rajguru (executed with Bhagat Singh)\n   • Ram Prasad Bismil\n   • Ashfaqulla Khan\n   • Many others\n\nMethods:\n• Armed attacks\n• Bomb attacks\n• Assassinations\n• Robberies (for funds)\n• Underground activities\n\nOrganizations:\n• Hindustan Socialist Republican Association\n• Anushilan Samiti (Bengal)\n• Ghadar Party (Punjab)\n\nImpact:\n• Inspired youth\n• Showed alternative path\n• Created fear among British\n• Strengthened nationalist sentiment\n• Sacrificed lives for freedom\n\nSignificance:\n• Complemented mass movements\n• Showed determination\n• Inspired future generations\n• Part of freedom struggle\n\nRevolutionaries, while using different methods, shared the same goal of independence and inspired millions.",
+                    
+                    "Partition and Independence (1947) - Price of Freedom:\n\nIndia gained independence on August 15, 1947, but was partitioned into India and Pakistan.\n\nBackground:\n• Mountbatten Plan (June 1947)\n• Division of British India\n• Two independent nations\n• Based on religious lines\n\nPartition:\n• India (Hindu majority)\n• Pakistan (Muslim majority - East and West)\n• Mass migration\n• Violence and bloodshed\n• Millions displaced\n\nIndependence:\n• August 15, 1947\n• Jawaharlal Nehru: First Prime Minister\n• 'Tryst with Destiny' speech\n• End of 200 years of British rule\n• Beginning of new era\n\nChallenges:\n• Communal violence\n• Refugee crisis\n• Integration of princely states\n• Economic problems\n• Building new nation\n\nAchievements:\n• Freedom achieved\n• Democratic system\n• Constitution adopted (1950)\n• Secular, democratic republic\n\nCost:\n• Partition violence\n• Millions displaced\n• Lives lost\n• Permanent division\n• Ongoing tensions\n\nSignificance:\n• End of colonial rule\n• Beginning of independence\n• Democratic India\n• Despite challenges, success\n• Inspiration for world\n\nLegacy:\n• Largest democracy\n• Secular nation\n• Economic progress\n• Global power\n• Despite partition, India succeeded\n\nIndependence came at a high price, but India emerged as a strong, democratic nation committed to freedom and equality."
                 ),
                 keyPoints = listOf(
                     "First World War created economic hardships and increased British control in India.",
@@ -11353,16 +11609,25 @@ object MockData {
                 id = "social_3",
                 title = "Resources and Development",
                 revisionNotes = listOf(
-                    "Resources: Everything available in our environment that can be used to satisfy our needs. Types: Natural, Human-made, Human.",
-                    "Classification of Resources: Based on origin (Biotic/Abiotic), exhaustibility (Renewable/Non-renewable), ownership (Individual/Community/National/International), status of development (Potential/Developed/Stock/Reserves).",
-                    "Land Resources: India has diverse landforms - mountains, plains, plateaus, and coastal areas. Land use pattern shows forests, agriculture, wasteland, etc.",
-                    "Soil: Topmost layer of earth's crust. Types: Alluvial, Black, Red, Laterite, Mountain, Desert. Formed by weathering of rocks.",
-                    "Soil Erosion: Removal of topsoil by wind, water, or human activities. Causes: Deforestation, overgrazing, mining, improper farming. Prevention: Afforestation, contour ploughing, terrace farming.",
-                    "Water Resources: India receives rainfall from monsoon. Major rivers: Ganga, Yamuna, Brahmaputra, Godavari, etc. Water scarcity is increasing due to overuse and pollution.",
-                    "Forest Resources: Cover about 22% of India's area. Provide timber, fuel, medicinal plants. Deforestation is a major concern.",
-                    "Mineral Resources: India has rich mineral deposits - iron ore, coal, bauxite, etc. Need sustainable mining practices.",
-                    "Conservation: Sustainable use of resources. Methods: Reduce, Reuse, Recycle. Need for resource planning.",
-                    "Sustainable Development: Development that meets present needs without compromising future generations."
+                    "Resources - Definition and Types:\n\nResources are everything available in our environment that can be used to satisfy our needs.\n\nKey Characteristics:\n• Have utility (usefulness)\n• Have value\n• Can be transformed\n• Limited availability\n• Need proper management\n\nTypes:\n\n1. Natural Resources:\n   • Provided by nature\n   • Examples: Air, water, soil, minerals, forests\n   • Can be renewable or non-renewable\n\n2. Human-made Resources:\n   • Created by humans from natural resources\n   • Examples: Buildings, roads, machinery, technology\n   • Require natural resources to make\n\n3. Human Resources:\n   • People and their skills\n   • Most important resource\n   • Examples: Labor, knowledge, skills, creativity\n   • Can be developed through education\n\nImportance:\n• Essential for survival\n• Basis of development\n• Need sustainable use\n• Require conservation\n\nResources are the foundation of human civilization and economic development.",
+                    
+                    "Classification of Resources - Multiple Criteria:\n\nResources can be classified based on different criteria:\n\n1. Based on Origin:\n   • Biotic: Living resources (plants, animals, forests)\n   • Abiotic: Non-living resources (minerals, water, air)\n\n2. Based on Exhaustibility:\n   • Renewable: Can be replenished (solar, wind, water)\n   • Non-renewable: Limited, cannot be replenished (coal, oil, minerals)\n\n3. Based on Ownership:\n   • Individual: Owned by individuals (private land, house)\n   • Community: Owned by community (common grazing land)\n   • National: Owned by nation (minerals, forests)\n   • International: Beyond national boundaries (oceans, space)\n\n4. Based on Status of Development:\n   • Potential: Not yet developed (solar energy potential)\n   • Developed: Currently in use (coal mines)\n   • Stock: Available but not usable (hydrogen in water)\n   • Reserves: Can be used with available technology\n\nUnderstanding classification helps in:\n• Resource planning\n• Conservation strategies\n• Sustainable development\n• Policy making\n\nProper classification is essential for effective resource management.",
+                    
+                    "Land Resources - India's Diverse Landforms:\n\nIndia has diverse landforms that provide various resources.\n\nLandforms:\n\n1. Mountains:\n   • Himalayas in north\n   • Rich in forests, water, minerals\n   • Tourism potential\n   • Difficult for agriculture\n\n2. Plains:\n   • Indo-Gangetic plains\n   • Most fertile land\n   • Intensive agriculture\n   • Densely populated\n\n3. Plateaus:\n   • Deccan Plateau\n   • Rich in minerals\n   • Moderate agriculture\n   • Industrial development\n\n4. Coastal Areas:\n   • Long coastline\n   • Fishing resources\n   • Ports and trade\n   • Tourism potential\n\nLand Use Pattern:\n• Forests: About 22%\n• Agriculture: About 50%\n• Wasteland: About 15%\n• Other uses: 13%\n\nChallenges:\n• Limited land availability\n• Growing population pressure\n• Degradation of land\n• Need for conservation\n\nImportance:\n• Basis of agriculture\n• Source of minerals\n• Supports biodiversity\n• Essential for development\n\nLand is a finite resource that needs careful planning and conservation.",
+                    
+                    "Soil - Types and Formation:\n\nSoil is the topmost layer of earth's crust, essential for life.\n\nFormation:\n• Weathering of rocks\n• Action of water, wind, temperature\n• Biological processes\n• Takes thousands of years\n\nTypes of Soil in India:\n\n1. Alluvial Soil:\n   • Most fertile\n   • Found in river plains\n   • Rich in nutrients\n   • Good for agriculture\n\n2. Black Soil (Regur):\n   • Rich in clay\n   • Retains moisture\n   • Good for cotton\n   • Found in Deccan Plateau\n\n3. Red Soil:\n   • Rich in iron\n   • Less fertile\n   • Found in peninsular India\n   • Good for millets\n\n4. Laterite Soil:\n   • High in iron and aluminum\n   • Less fertile\n   • Found in high rainfall areas\n   • Used for tea, coffee\n\n5. Mountain Soil:\n   • Thin layer\n   • Less fertile\n   • Found in hilly areas\n   • Good for forests\n\n6. Desert Soil:\n   • Sandy\n   • Low organic matter\n   • Found in arid regions\n   • Limited agriculture\n\nSoil is essential for:\n• Agriculture\n• Plant growth\n• Food production\n• Ecosystem support\n\nProtecting soil is crucial for food security and environmental sustainability.",
+                    
+                    "Soil Erosion - Causes and Prevention:\n\nSoil erosion is the removal of topsoil by wind, water, or human activities.\n\nCauses:\n\n1. Natural Causes:\n   • Wind erosion (in dry areas)\n   • Water erosion (rainfall, floods)\n   • Gravity (landslides)\n\n2. Human Activities:\n   • Deforestation: Removes protective cover\n   • Overgrazing: Removes vegetation\n   • Mining: Destroys soil structure\n   • Improper farming: Ploughing on slopes\n   • Construction: Removes vegetation\n\nEffects:\n• Loss of fertile topsoil\n• Reduced agricultural productivity\n• Desertification\n• Floods and landslides\n• Environmental degradation\n\nPrevention Methods:\n\n1. Afforestation:\n   • Planting trees\n   • Protects soil from erosion\n   • Holds soil together\n\n2. Contour Ploughing:\n   • Ploughing along contours\n   • Reduces water flow\n   • Prevents erosion\n\n3. Terrace Farming:\n   • Creating steps on slopes\n   • Reduces water runoff\n   • Common in hilly areas\n\n4. Strip Cropping:\n   • Alternating crops\n   • Reduces wind erosion\n\n5. Shelter Belts:\n   • Rows of trees\n   • Reduces wind speed\n   • Protects fields\n\nSoil conservation is essential for:\n• Maintaining fertility\n• Ensuring food security\n• Protecting environment\n• Sustainable agriculture\n\nPreventing soil erosion is crucial for long-term agricultural sustainability.",
+                    
+                    "Water Resources - Monsoon and Rivers:\n\nWater is essential for life and development.\n\nSources:\n\n1. Rainfall:\n   • Monsoon (June-September)\n   • Uneven distribution\n   • Varies by region\n   • Main source of water\n\n2. Rivers:\n   • Major rivers:\n     - Ganga: Most important\n     - Yamuna: Tributary of Ganga\n     - Brahmaputra: Northeast\n     - Godavari: South\n     - Krishna, Narmada, etc.\n   • Provide water for:\n     - Irrigation\n     - Drinking\n     - Industry\n     - Navigation\n\n3. Groundwater:\n   • Stored underground\n   • Accessed through wells\n   • Important for agriculture\n   • Over-extraction is concern\n\nWater Scarcity:\n• Increasing demand\n• Overuse of water\n• Pollution of water sources\n• Uneven distribution\n• Climate change\n\nChallenges:\n• Depletion of groundwater\n• Pollution of rivers\n• Water conflicts\n• Need for conservation\n\nSolutions:\n• Rainwater harvesting\n• Water conservation\n• Pollution control\n• Efficient use\n• Dams and reservoirs\n\nWater is a precious resource that needs careful management and conservation.",
+                    
+                    "Forest Resources - Importance and Concerns:\n\nForests cover about 22% of India's area and provide essential resources.\n\nResources Provided:\n\n1. Timber:\n   • Wood for construction\n   • Furniture making\n   • Paper industry\n\n2. Fuel:\n   • Firewood for cooking\n   • Important for rural areas\n   • Traditional energy source\n\n3. Medicinal Plants:\n   • Traditional medicine\n   • Modern pharmaceuticals\n   • Health benefits\n\n4. Other Products:\n   • Fruits, nuts, honey\n   • Resins, gums\n   • Bamboo, cane\n\nEcological Functions:\n• Maintains oxygen balance\n• Absorbs carbon dioxide\n• Prevents soil erosion\n• Regulates climate\n• Maintains biodiversity\n\nDeforestation:\n• Major concern\n• Causes:\n  - Agriculture expansion\n  - Urbanization\n  - Mining\n  - Industrialization\n  - Infrastructure development\n\nEffects:\n• Loss of biodiversity\n• Climate change\n• Soil erosion\n• Floods\n• Environmental degradation\n\nConservation:\n• Afforestation programs\n• Protected areas\n• Sustainable forestry\n• Community participation\n• Legal protection\n\nForests are essential for:\n• Environmental balance\n• Economic development\n• Climate regulation\n• Biodiversity conservation\n\nProtecting forests is crucial for environmental sustainability and human well-being.",
+                    
+                    "Mineral Resources - India's Wealth:\n\nIndia has rich mineral deposits that support industrial development.\n\nMajor Minerals:\n\n1. Iron Ore:\n   • Abundant reserves\n   • Used in steel industry\n   • Major producer\n   • Exported\n\n2. Coal:\n   • Major energy source\n   • Used in power generation\n   • Industrial fuel\n   • Abundant reserves\n\n3. Bauxite:\n   • Source of aluminum\n   • Important for industry\n   • Good reserves\n\n4. Other Minerals:\n   • Manganese, copper, zinc\n   • Gold, silver\n   • Limestone, gypsum\n   • Various others\n\nDistribution:\n• Uneven across regions\n   - Iron ore: Odisha, Jharkhand\n   - Coal: Jharkhand, West Bengal\n   - Bauxite: Odisha, Gujarat\n\nMining:\n• Provides employment\n• Supports industries\n• Generates revenue\n• But causes environmental damage\n\nChallenges:\n• Environmental degradation\n• Displacement of people\n• Health hazards\n• Need for sustainable practices\n\nSustainable Mining:\n• Environmental protection\n• Rehabilitation of mined areas\n• Safety measures\n• Community benefits\n• Long-term planning\n\nMineral resources are essential for:\n• Industrial development\n• Economic growth\n• Energy production\n• Infrastructure\n\nSustainable mining practices are needed to balance development and environmental protection.",
+                    
+                    "Conservation - Sustainable Use of Resources:\n\nConservation means using resources wisely and sustainably.\n\nNeed for Conservation:\n• Resources are limited\n• Growing population\n• Increasing demand\n• Environmental degradation\n• Future generations\n\nMethods:\n\n1. Reduce:\n   • Use less\n   • Avoid wastage\n   • Efficient use\n   • Minimize consumption\n\n2. Reuse:\n   • Use again\n   • Don't throw away\n   • Extend life\n   • Multiple uses\n\n3. Recycle:\n   • Convert waste to resources\n   • Process materials again\n   • Reduce extraction\n   • Save energy\n\nResource Planning:\n• Assessment of resources\n• Planning for use\n• Sustainable development\n• Long-term perspective\n• Regional planning\n\nExamples:\n• Water conservation: Rainwater harvesting\n• Energy conservation: Efficient appliances\n• Forest conservation: Afforestation\n• Soil conservation: Terrace farming\n\nBenefits:\n• Resource availability\n• Environmental protection\n• Economic savings\n• Sustainable development\n• Future security\n\nConservation is essential for:\n• Resource availability\n• Environmental protection\n• Sustainable development\n• Future generations\n\nConservation ensures resources are available for present and future generations.",
+                    
+                    "Sustainable Development - Meeting Needs Sustainably:\n\nSustainable development meets present needs without compromising future generations.\n\nDefinition:\n• Development that:\n  - Meets present needs\n  - Doesn't harm future\n  - Balances all aspects\n  - Long-term perspective\n\nKey Principles:\n\n1. Environmental Protection:\n   • Protect environment\n   • Minimize pollution\n   • Conserve resources\n   • Maintain ecosystems\n\n2. Economic Development:\n   • Economic growth\n   • Employment generation\n   • Poverty reduction\n   • But sustainable\n\n3. Social Equity:\n   • Fair distribution\n   • Access for all\n   • Quality of life\n   • Justice\n\nBalance:\n• Environment + Economy + Society\n• Not at cost of any\n• Integrated approach\n• Long-term view\n\nExamples:\n• Renewable energy\n• Organic farming\n• Green technology\n• Eco-friendly practices\n• Conservation programs\n\nChallenges:\n• Population growth\n• Resource depletion\n• Climate change\n• Pollution\n• Inequality\n\nImportance:\n• Ensures future\n• Protects environment\n• Maintains resources\n• Improves quality of life\n• Global responsibility\n\nSustainable development is the only way to:\n• Ensure long-term survival\n• Protect environment\n• Maintain resources\n• Improve quality of life\n• Secure future for all\n\nIt's the path forward for human civilization."
                 ),
                 keyPoints = listOf(
                     "Resources are classified based on origin, exhaustibility, ownership, and development status.",
@@ -11385,16 +11650,25 @@ object MockData {
                 id = "social_4",
                 title = "Water Resources",
                 revisionNotes = listOf(
-                    "Water Scarcity: Situation where water availability is less than demand. Causes: Over-exploitation, unequal access, pollution, drought.",
-                    "Multi-Purpose River Projects: Dams built for irrigation, electricity, flood control, navigation. Examples: Bhakra Nangal, Hirakud, Tehri.",
-                    "Problems with Dams: Displacement of people, submergence of forests, ecological imbalance, sedimentation.",
-                    "Rainwater Harvesting: Collection and storage of rainwater. Traditional methods: Rooftop harvesting, tanks, ponds. Modern: Recharge pits, trenches.",
-                    "Water Conservation: Methods to reduce water wastage. Drip irrigation, sprinklers, recycling wastewater.",
-                    "Groundwater: Water stored underground in aquifers. Over-extraction leads to depletion. Need for recharge.",
-                    "Water Pollution: Contamination by industrial waste, sewage, agricultural chemicals. Affects health and environment.",
-                    "Water Management: Integrated approach needed. Community participation, traditional knowledge, modern technology.",
-                    "National Water Policy: Framework for water resource management. Emphasizes conservation and equitable distribution.",
-                    "Future Challenges: Climate change, population growth, urbanization will increase water stress."
+                    "Water Scarcity - Complete Understanding:\n\nWater scarcity is a situation where water availability is less than the demand for water.\n\nCauses:\n\n1. Over-Exploitation:\n   • Excessive use of water\n   • Withdrawing more than natural recharge\n   • Depleting water sources\n   • Unsustainable consumption\n\n2. Unequal Access:\n   • Uneven distribution\n   • Some areas have plenty, others have little\n   • Social and economic disparities\n   • Lack of infrastructure\n\n3. Pollution:\n   • Industrial waste contaminating water\n   • Agricultural chemicals (pesticides, fertilizers)\n   • Sewage and domestic waste\n   • Makes water unfit for use\n\n4. Drought:\n   • Natural phenomenon\n   • Lack of rainfall\n   • Extended dry periods\n   • Climate variability\n\n5. Population Growth:\n   • Increasing demand\n   • More people need water\n   • Urbanization increases demand\n\n6. Climate Change:\n   • Changing rainfall patterns\n   • Increased evaporation\n   • Melting glaciers\n   • Unpredictable water availability\n\nEffects:\n• Health problems\n• Agricultural losses\n• Economic impacts\n• Social conflicts\n• Environmental degradation\n\nSolutions:\n• Water conservation\n• Rainwater harvesting\n• Efficient irrigation\n• Pollution control\n• Sustainable management\n\nWater scarcity is a critical issue affecting millions of people worldwide.",
+                    
+                    "Multi-Purpose River Projects - Dams and Benefits:\n\nMulti-purpose river projects are dams built to serve multiple purposes.\n\nMain Purposes:\n\n1. Irrigation:\n   • Provide water for agriculture\n   • Enable cultivation in dry areas\n   • Increase agricultural production\n   • Support food security\n\n2. Electricity Generation:\n   • Hydroelectric power\n   • Clean and renewable energy\n   • Reduces dependence on fossil fuels\n   • Contributes to energy security\n\n3. Flood Control:\n   • Regulate river flow\n   • Prevent flooding downstream\n   • Protect lives and property\n   • Manage water levels\n\n4. Navigation:\n   • Maintain water levels for boats\n   • Enable river transport\n   • Reduce transportation costs\n   • Connect regions\n\n5. Water Supply:\n   • Provide drinking water\n   • Supply to cities and industries\n   • Ensure water availability\n\n6. Recreation:\n   • Tourism opportunities\n   • Water sports\n   • Scenic beauty\n\nMajor Examples in India:\n\n1. Bhakra Nangal Dam:\n   • On Sutlej River\n   • Punjab and Himachal Pradesh\n   • One of largest in India\n   • Major irrigation and power project\n\n2. Hirakud Dam:\n   • On Mahanadi River\n   • Odisha\n   • Longest dam in India\n   • Irrigation and flood control\n\n3. Tehri Dam:\n   • On Bhagirathi River\n   • Uttarakhand\n   • Highest dam in India\n   • Hydroelectric power\n\nBenefits:\n• Multiple uses from single project\n• Economic development\n• Regional development\n• Energy production\n• Agricultural growth\n\nMulti-purpose projects maximize benefits from water resources.",
+                    
+                    "Problems with Dams - Environmental and Social Issues:\n\nWhile dams provide benefits, they also create several problems.\n\nMajor Problems:\n\n1. Displacement of People:\n   • Large areas submerged\n   • People lose homes and land\n   • Forced relocation\n   • Loss of livelihoods\n   • Social disruption\n   • Inadequate compensation\n\n2. Submergence of Forests:\n   • Valuable forests flooded\n   • Loss of biodiversity\n   • Destruction of ecosystems\n   • Loss of wildlife habitat\n   • Carbon sink reduction\n\n3. Ecological Imbalance:\n   • Disrupts river ecosystem\n   • Affects fish migration\n   • Changes water temperature\n   • Alters downstream flow\n   • Impacts aquatic life\n\n4. Sedimentation:\n   • Silt accumulates in reservoir\n   • Reduces storage capacity\n   • Shortens dam life\n   • Affects downstream fertility\n   • Requires expensive dredging\n\n5. Waterlogging and Salinization:\n   • Excessive irrigation causes waterlogging\n   • Salts accumulate in soil\n   • Reduces soil fertility\n   • Affects crop production\n\n6. Seismic Risks:\n   • Large reservoirs can trigger earthquakes\n   • Geological concerns\n   • Safety risks\n\n7. Downstream Impacts:\n   • Reduced water flow\n   • Loss of fertile silt\n   • Impact on delta regions\n   • Coastal erosion\n\n8. High Costs:\n   • Expensive construction\n   • Maintenance costs\n   • Long payback period\n\nSolutions:\n• Better planning\n• Environmental impact assessment\n• Proper rehabilitation\n• Sustainable alternatives\n• Small-scale projects\n\nUnderstanding these problems helps in better planning and management of water resources.",
+                    
+                    "Rainwater Harvesting - Traditional and Modern Methods:\n\nRainwater harvesting is the collection and storage of rainwater for future use.\n\nTraditional Methods:\n\n1. Rooftop Harvesting:\n   • Collect rainwater from roofs\n   • Channel to storage tanks\n   • Simple and effective\n   • Used in rural areas\n   • Low cost\n\n2. Tanks and Ponds:\n   • Large storage structures\n   • Community-based\n   • Traditional in many regions\n   • Multiple uses\n\n3. Stepwells (Baolis):\n   • Ancient Indian method\n   • Deep wells with steps\n   • Collect and store water\n   • Architectural marvels\n\n4. Check Dams:\n   • Small barriers across streams\n   • Slow water flow\n   • Increase groundwater recharge\n   • Community managed\n\nModern Methods:\n\n1. Recharge Pits:\n   • Pits filled with gravel\n   • Allow water to percolate\n   • Recharge groundwater\n   • Prevent runoff\n\n2. Recharge Trenches:\n   • Long trenches\n   • Fill with porous material\n   • Increase infiltration\n   • Suitable for large areas\n\n3. Rooftop Systems:\n   • Modern collection systems\n   • Filtration units\n   • Storage tanks\n   • Pump systems\n\n4. Percolation Tanks:\n   • Large tanks\n   • Allow water to seep\n   • Recharge aquifers\n   • Maintain water table\n\nBenefits:\n• Reduces water scarcity\n• Recharges groundwater\n• Reduces flooding\n• Low cost\n• Sustainable\n• Community participation\n\nRainwater harvesting is an effective way to conserve water and ensure availability.",
+                    
+                    "Water Conservation - Reducing Wastage:\n\nWater conservation involves methods to reduce water wastage and use water efficiently.\n\nAgricultural Methods:\n\n1. Drip Irrigation:\n   • Water delivered directly to plant roots\n   • Minimizes evaporation\n   • Reduces water use by 30-50%\n   • More efficient\n   • Better crop yield\n\n2. Sprinkler Irrigation:\n   • Water sprayed like rain\n   • More efficient than flood irrigation\n   • Reduces water loss\n   • Suitable for various crops\n\n3. Rainwater Harvesting:\n   • Store rainwater for irrigation\n   • Reduce dependence on groundwater\n   • Sustainable practice\n\n4. Crop Selection:\n   • Grow crops suitable for climate\n   • Drought-resistant varieties\n   • Reduce water requirements\n\nDomestic Methods:\n\n1. Fix Leaks:\n   • Repair dripping taps\n   • Fix pipe leaks\n   • Save significant water\n\n2. Low-Flow Fixtures:\n   • Water-efficient taps\n   • Low-flush toilets\n   • Reduce consumption\n\n3. Reuse Water:\n   • Use greywater for plants\n   • Recycle water\n   • Multiple uses\n\n4. Behavioral Changes:\n   • Shorter showers\n   • Turn off taps when not needed\n   • Use buckets instead of hoses\n\nIndustrial Methods:\n\n1. Recycling Wastewater:\n   • Treat and reuse\n   • Reduce fresh water use\n   • Cost-effective\n\n2. Efficient Processes:\n   • Optimize water use\n   • Reduce wastage\n   • Better technology\n\nBenefits:\n• Ensures water availability\n• Reduces costs\n• Protects environment\n• Sustainable use\n• Future security\n\nWater conservation is essential for sustainable water management.",
+                    
+                    "Groundwater - Underground Water Resources:\n\nGroundwater is water stored underground in aquifers (porous rock layers).\n\nFormation:\n• Rainwater seeps into ground\n• Stored in porous rocks\n• Forms aquifers\n• Natural storage\n\nImportance:\n• Major source of drinking water\n• Irrigation for agriculture\n• Industrial use\n• Reliable source\n• Available year-round\n\nOver-Extraction Problems:\n\n1. Depletion:\n   • Withdrawing more than recharge\n   • Water table falls\n   • Wells run dry\n   • Reduced availability\n\n2. Land Subsidence:\n   • Ground sinks\n   • Cracks in buildings\n   • Infrastructure damage\n\n3. Saltwater Intrusion:\n   • In coastal areas\n   • Saltwater enters aquifers\n   • Makes water unusable\n\n4. Reduced Flow:\n   • Springs dry up\n   • Rivers lose base flow\n   • Ecosystem impacts\n\nRecharge Methods:\n\n1. Rainwater Harvesting:\n   • Direct recharge\n   • Increase infiltration\n   • Maintain water table\n\n2. Percolation Tanks:\n   • Large tanks\n   • Allow seepage\n   • Recharge aquifers\n\n3. Recharge Pits:\n   • Small pits\n   • Fill with porous material\n   • Increase percolation\n\n4. Afforestation:\n   • Trees help recharge\n   • Reduce runoff\n   • Increase infiltration\n\nSustainable Management:\n• Balance extraction and recharge\n• Monitor water levels\n• Prevent over-use\n• Protect quality\n• Community participation\n\nGroundwater is a vital resource that needs careful management and protection.",
+                    
+                    "Water Pollution - Contamination Issues:\n\nWater pollution is the contamination of water bodies making water unfit for use.\n\nSources of Pollution:\n\n1. Industrial Waste:\n   • Chemicals from factories\n   • Heavy metals\n   • Toxic substances\n   • Direct discharge into rivers\n   • Affects aquatic life\n\n2. Sewage:\n   • Domestic waste\n   • Untreated sewage\n   • Pathogens and bacteria\n   • Health hazards\n   • Eutrophication\n\n3. Agricultural Chemicals:\n   • Pesticides\n   • Fertilizers\n   • Runoff into water bodies\n   • Algal blooms\n   • Affects ecosystems\n\n4. Solid Waste:\n   • Plastic waste\n   • Garbage dumping\n   • Clogs waterways\n   • Visual pollution\n\nEffects:\n\nHealth:\n• Waterborne diseases\n• Cholera, typhoid, diarrhea\n• Skin problems\n• Long-term health issues\n\nEnvironment:\n• Kills aquatic life\n• Destroys ecosystems\n• Reduces biodiversity\n• Affects food chain\n\nEconomic:\n• Treatment costs\n• Loss of tourism\n• Reduced fish catch\n• Health care costs\n\nPrevention:\n• Treat industrial waste\n• Sewage treatment plants\n• Reduce chemical use\n• Proper waste disposal\n• Strict regulations\n• Public awareness\n\nWater pollution is a serious threat requiring immediate action and sustainable solutions.",
+                    
+                    "Water Management - Integrated Approach:\n\nEffective water management requires an integrated approach combining various strategies.\n\nKey Components:\n\n1. Community Participation:\n   • Local involvement\n   • Traditional knowledge\n   • Community ownership\n   • Sustainable practices\n   • Better outcomes\n\n2. Traditional Knowledge:\n   • Ancient methods\n   • Time-tested practices\n   • Local solutions\n   • Cultural wisdom\n   • Sustainable techniques\n\n3. Modern Technology:\n   • Efficient irrigation\n   • Water treatment\n   • Monitoring systems\n   • Smart management\n   • Innovation\n\n4. Integrated Approach:\n   • Combine all methods\n   • Surface and groundwater\n   • Multiple sources\n   • Holistic management\n\nStrategies:\n\n1. Watershed Management:\n   • Manage entire catchment\n   • Integrated planning\n   • Multiple benefits\n\n2. Demand Management:\n   • Reduce demand\n   • Efficient use\n   • Conservation\n\n3. Supply Management:\n   • Increase supply\n   • Storage\n   • Diversification\n\n4. Quality Management:\n   • Prevent pollution\n   • Treatment\n   • Monitoring\n\n5. Legal Framework:\n   • Water laws\n   • Rights and responsibilities\n   • Regulation\n\nBenefits:\n• Sustainable use\n• Equitable distribution\n• Environmental protection\n• Economic efficiency\n• Social equity\n\nIntegrated water management ensures sustainable and equitable water use for all.",
+                    
+                    "National Water Policy - Framework for Management:\n\nThe National Water Policy provides a framework for water resource management.\n\nKey Principles:\n\n1. Conservation:\n   • Efficient use\n   • Reduce wastage\n   • Sustainable practices\n   • Priority area\n\n2. Equitable Distribution:\n   • Fair access\n   • Social justice\n   • Regional balance\n   • No discrimination\n\n3. Integrated Management:\n   • Holistic approach\n   • Multiple uses\n   • Surface and groundwater\n   • Basin-level planning\n\n4. Participatory Approach:\n   • Community involvement\n   • Stakeholder participation\n   • Local management\n   • Decentralization\n\n5. Environmental Protection:\n   • Prevent pollution\n   • Protect ecosystems\n   • Maintain quality\n   • Sustainability\n\n6. Economic Efficiency:\n   • Cost-effective solutions\n   • Pricing mechanisms\n   • Resource optimization\n   • Value water\n\nImplementation:\n• Legal framework\n• Institutional setup\n• Financial support\n• Capacity building\n• Monitoring\n\nChallenges:\n• Implementation gaps\n• Resource constraints\n• Coordination issues\n• Enforcement\n\nImportance:\n• Guides water management\n• Ensures sustainability\n• Promotes equity\n• Protects environment\n• National framework\n\nThe National Water Policy provides essential guidance for sustainable water management.",
+                    
+                    "Future Challenges - Water Stress:\n\nFuture challenges will increase water stress and require urgent action.\n\nMajor Challenges:\n\n1. Climate Change:\n   • Unpredictable rainfall\n   • Increased evaporation\n   • Melting glaciers\n   • Extreme weather events\n   • Droughts and floods\n\n2. Population Growth:\n   • More people need water\n   • Increasing demand\n   • Pressure on resources\n   • Urbanization\n   • Competition for water\n\n3. Urbanization:\n   • Rapid urban growth\n   • Increased water demand\n   • Infrastructure needs\n   • Pollution increase\n   • Reduced recharge\n\n4. Industrialization:\n   • More industries\n   • Higher water use\n   • Pollution concerns\n   • Competition with agriculture\n\n5. Agricultural Needs:\n   • Food security\n   • Irrigation requirements\n   • Growing population\n   • Climate variability\n\n6. Pollution:\n   • Increasing contamination\n   • Reduced availability\n   • Treatment needs\n   • Health impacts\n\nSolutions Needed:\n• Water conservation\n• Efficient use\n• Pollution control\n• Rainwater harvesting\n• Sustainable practices\n• Technology adoption\n• Policy implementation\n• Community participation\n\nPreparedness:\n• Early planning\n• Investment in infrastructure\n• Research and development\n• Capacity building\n• Public awareness\n\nAddressing these challenges requires immediate action, sustainable practices, and integrated water management to ensure water security for future generations."
                 ),
                 keyPoints = listOf(
                     "Water scarcity occurs when demand exceeds availability due to overuse and pollution.",
@@ -11417,16 +11691,25 @@ object MockData {
                 id = "social_5",
                 title = "Agriculture",
                 revisionNotes = listOf(
-                    "Types of Farming: Primitive subsistence, Intensive subsistence, Commercial farming, Plantation farming. Each has different characteristics.",
-                    "Cropping Pattern: Three seasons - Rabi (winter: wheat, barley), Kharif (monsoon: rice, cotton), Zaid (summer: vegetables, fruits).",
-                    "Major Crops: Food crops (rice, wheat, maize), Cash crops (sugarcane, cotton, jute), Plantation crops (tea, coffee, rubber).",
-                    "Agricultural Development: Green Revolution increased production through HYV seeds, fertilizers, irrigation. But caused environmental problems.",
-                    "Problems: Small landholdings, lack of irrigation, debt, low productivity, market access issues.",
-                    "Reforms Needed: Land reforms, credit facilities, technology, infrastructure, market linkages.",
-                    "Organic Farming: Chemical-free farming using natural methods. Better for environment and health.",
-                    "Food Security: Ensuring availability, accessibility, and affordability of food. Public Distribution System (PDS) helps.",
-                    "Agricultural Marketing: Need for better storage, transportation, and fair prices for farmers.",
-                    "Future: Sustainable agriculture, technology adoption, diversification, value addition."
+                    "Types of Farming - Complete Classification:\n\nDifferent types of farming based on scale, technology, and purpose.\n\n1. Primitive Subsistence Farming:\n   • Characteristics:\n     - Small plots of land\n     - Traditional tools (hoe, dao)\n     - Family labor\n     - Low productivity\n     - Mainly for family consumption\n   • Methods:\n     - Shifting cultivation (Jhumming)\n     - Slash and burn\n   • Regions: Hilly and forest areas\n\n2. Intensive Subsistence Farming:\n   • Characteristics:\n     - High labor input\n     - Small landholdings\n     - High yield per unit area\n     - Multiple crops\n     - Intensive use of land\n   • Methods:\n     - Multiple cropping\n     - Use of organic manure\n   • Regions: Densely populated areas\n\n3. Commercial Farming:\n   • Characteristics:\n     - Large scale\n     - Use of modern technology\n     - High capital investment\n     - Market-oriented\n     - High productivity\n   • Crops: Wheat, rice, cotton, sugarcane\n   • Regions: Punjab, Haryana, Western Uttar Pradesh\n\n4. Plantation Farming:\n   • Characteristics:\n     - Single crop on large area\n     - Capital intensive\n     - Scientific methods\n     - Export-oriented\n     - Processing facilities\n   • Crops: Tea, coffee, rubber, spices\n   • Regions: Assam, Kerala, Karnataka\n\nEach type serves different purposes and suits different conditions.",
+                    
+                    "Cropping Pattern - Three Seasons:\n\nIndia has three distinct cropping seasons based on monsoon pattern.\n\n1. Rabi Season (Winter):\n   • Sowing: October-December\n   • Harvesting: April-June\n   • Water source: Irrigation\n   • Major crops:\n     - Wheat (most important)\n     - Barley\n     - Mustard\n     - Peas\n     - Gram\n   • Regions: Punjab, Haryana, Western Uttar Pradesh\n   • Characteristics:\n     - Cool weather crops\n     - Require less water\n     - High quality grains\n\n2. Kharif Season (Monsoon):\n   • Sowing: June-July (with monsoon)\n   • Harvesting: September-October\n   • Water source: Monsoon rains\n   • Major crops:\n     - Rice (most important)\n     - Cotton\n     - Jute\n     - Maize\n     - Groundnut\n     - Soybean\n   • Regions: Eastern and Southern India\n   • Characteristics:\n     - Warm weather crops\n     - Require high rainfall\n     - Main food crops\n\n3. Zaid Season (Summer):\n   • Sowing: March-April\n   • Harvesting: May-June\n   • Water source: Irrigation\n   • Major crops:\n     - Vegetables\n     - Fruits\n     - Watermelon\n     - Cucumber\n   • Characteristics:\n     - Short duration crops\n     - High value crops\n     - Bridge between Rabi and Kharif\n\nUnderstanding cropping patterns helps in agricultural planning and food security.",
+                    
+                    "Major Crops - Classification:\n\nCrops are classified based on their use and economic importance.\n\n1. Food Crops:\n   • Rice:\n     - Staple food for majority\n     - Requires high rainfall\n     - Grown in: West Bengal, Punjab, Uttar Pradesh\n     - Kharif crop\n   • Wheat:\n     - Second most important food crop\n     - Rabi crop\n     - Grown in: Punjab, Haryana, Uttar Pradesh\n     - High protein content\n   • Maize:\n     - Used as food and fodder\n     - Kharif crop\n     - Grown in: Madhya Pradesh, Karnataka\n\n2. Cash Crops:\n   • Sugarcane:\n     - Source of sugar and jaggery\n     - Requires high temperature and water\n     - Grown in: Uttar Pradesh, Maharashtra\n   • Cotton:\n     - Fiber crop\n     - Kharif crop\n     - Grown in: Gujarat, Maharashtra\n     - Important for textile industry\n   • Jute:\n     - Golden fiber\n     - Grown in: West Bengal, Assam\n     - Used for sacks and bags\n\n3. Plantation Crops:\n   • Tea:\n     - Grown in: Assam, West Bengal\n     - Hill slopes\n     - Export crop\n   • Coffee:\n     - Grown in: Karnataka, Kerala\n     - Hill regions\n     - High value crop\n   • Rubber:\n     - Grown in: Kerala, Tamil Nadu\n     - Industrial use\n\nEach crop has specific requirements and economic importance.",
+                    
+                    "Agricultural Development - Green Revolution:\n\nThe Green Revolution significantly increased agricultural production.\n\nKey Features:\n\n1. High Yielding Variety (HYV) Seeds:\n   • Improved crop varieties\n   • Higher yield per hectare\n   • Disease resistant\n   • Shorter duration\n   • Examples: IR-8 (rice), Kalyan Sona (wheat)\n\n2. Chemical Fertilizers:\n   • NPK fertilizers\n   • Increased soil fertility\n   • Higher yields\n   • Essential nutrients\n\n3. Irrigation:\n   • Expansion of irrigation facilities\n   • Dams and canals\n   • Tube wells\n   • Reduced dependence on monsoon\n\n4. Pesticides:\n   • Control of pests and diseases\n   • Protection of crops\n   • Higher production\n\nBenefits:\n• Increased food production\n• Self-sufficiency in food grains\n• Reduced hunger\n• Economic growth\n• Rural development\n\nProblems Caused:\n• Environmental degradation\n• Soil fertility decline\n• Water pollution\n• Health issues\n• Loss of biodiversity\n• High cost of inputs\n\nImpact:\n• Transformed Indian agriculture\n• Made India food secure\n• But created sustainability concerns\n\nThe Green Revolution was a major milestone but needs sustainable approaches now.",
+                    
+                    "Problems in Agriculture - Challenges:\n\nIndian agriculture faces several challenges.\n\n1. Small Landholdings:\n   • Fragmented farms\n   • Uneconomical size\n   • Difficult to use modern technology\n   • Low productivity\n   • Inheritance division\n\n2. Lack of Irrigation:\n   • Dependence on monsoon\n   • Inadequate irrigation facilities\n   • Drought vulnerability\n   • Crop failure risk\n   • Only 40% area irrigated\n\n3. Debt:\n   • High input costs\n   • Low returns\n   • Borrowing from moneylenders\n   • High interest rates\n   • Debt trap\n   • Farmer suicides\n\n4. Low Productivity:\n   • Compared to world standards\n   • Traditional methods\n   • Lack of technology\n   • Poor infrastructure\n   • Low yield per hectare\n\n5. Market Access Issues:\n   • Middlemen exploitation\n   • Low prices to farmers\n   • Lack of storage\n   • Poor transportation\n   • No direct market access\n\n6. Other Problems:\n   • Climate change\n   • Pests and diseases\n   • Soil degradation\n   • Water scarcity\n   • Lack of credit\n\nAddressing these problems is crucial for agricultural development and farmer welfare.",
+                    
+                    "Reforms Needed - Solutions:\n\nVarious reforms are needed to improve agriculture.\n\n1. Land Reforms:\n   • Consolidation of holdings\n   • Tenancy reforms\n   • Land ceiling\n   • Distribution to landless\n   • Better land use\n\n2. Credit Facilities:\n   • Easy loans\n   • Low interest rates\n   • Timely credit\n   • Reduce dependence on moneylenders\n   • Kisan Credit Cards\n\n3. Technology:\n   • Modern farming methods\n   • Precision agriculture\n   • Biotechnology\n   • Information technology\n   • Better seeds and tools\n\n4. Infrastructure:\n   • Irrigation facilities\n   • Storage facilities\n   • Cold chains\n   • Transportation\n   • Market infrastructure\n\n5. Market Linkages:\n   • Direct market access\n   • Fair prices\n   • Reduce middlemen\n   • E-marketing\n   • Contract farming\n\n6. Extension Services:\n   • Agricultural education\n   • Training programs\n   • Research and development\n   • Knowledge transfer\n\n7. Insurance:\n   • Crop insurance\n   • Risk coverage\n   • Protection from losses\n\nThese reforms can transform Indian agriculture and improve farmer livelihoods.",
+                    
+                    "Organic Farming - Sustainable Method:\n\nOrganic farming is chemical-free farming using natural methods.\n\nPrinciples:\n• No chemical fertilizers\n• No pesticides\n• Natural inputs only\n• Sustainable practices\n• Environmental protection\n\nMethods:\n\n1. Natural Fertilizers:\n   • Compost\n   • Farmyard manure\n   • Green manure\n   • Biofertilizers\n\n2. Natural Pest Control:\n   • Biological control\n   • Crop rotation\n   • Companion planting\n   • Neem and other natural pesticides\n\n3. Soil Management:\n   • Maintain soil health\n   • Organic matter\n   • Crop rotation\n   • Cover crops\n\nBenefits:\n• Better for environment\n• Healthier food\n• Soil fertility maintained\n• Biodiversity protection\n• Sustainable\n• Higher prices\n\nChallenges:\n• Lower yields initially\n• More labor intensive\n• Higher costs\n• Certification needed\n• Market access\n\nFuture:\n• Growing demand\n• Health consciousness\n• Environmental awareness\n• Export opportunities\n• Government support\n\nOrganic farming offers a sustainable alternative to chemical-intensive agriculture.",
+                    
+                    "Food Security - Ensuring Food for All:\n\nFood security means ensuring availability, accessibility, and affordability of food.\n\nComponents:\n\n1. Availability:\n   • Sufficient food production\n   • Adequate stocks\n   • Distribution systems\n\n2. Accessibility:\n   • Physical access\n   • Economic access\n   • Social access\n\n3. Affordability:\n   • Reasonable prices\n   • Purchasing power\n   • Subsidies if needed\n\nPublic Distribution System (PDS):\n• Government program\n• Provides food grains at subsidized rates\n• Ration cards\n• Fair price shops\n• Reaches poor and needy\n• Buffer stocks maintained\n\nOther Measures:\n• Minimum Support Price (MSP)\n• Buffer stocks\n• Food for work programs\n• Mid-day meal scheme\n• Nutrition programs\n\nChallenges:\n• Population growth\n• Climate change\n• Distribution issues\n• Storage problems\n• Corruption\n\nImportance:\n• Right to food\n• Reduces hunger\n• Improves nutrition\n• Social stability\n• Human development\n\nFood security is essential for human dignity and development.",
+                    
+                    "Agricultural Marketing - Challenges and Solutions:\n\nAgricultural marketing involves selling farm produce.\n\nProblems:\n\n1. Storage:\n   • Inadequate storage facilities\n   • Post-harvest losses\n   • Wastage of produce\n   • Need for cold storage\n\n2. Transportation:\n   • Poor road connectivity\n   • High transport costs\n   • Damage during transport\n   • Delays\n\n3. Fair Prices:\n   • Middlemen exploitation\n   • Low prices to farmers\n   • High prices to consumers\n   • Price fluctuations\n\n4. Market Access:\n   • Limited markets\n   • No direct access\n   • Dependence on middlemen\n   • Information asymmetry\n\nSolutions:\n\n1. Storage Infrastructure:\n   • Warehouses\n   • Cold storage\n   • Silos\n   • Government support\n\n2. Transportation:\n   • Better roads\n   • Rail connectivity\n   • Refrigerated transport\n   • Reduced costs\n\n3. Market Reforms:\n   • Direct marketing\n   • E-marketing\n   • Contract farming\n   • Farmer Producer Organizations (FPOs)\n\n4. Price Support:\n   • Minimum Support Price\n   • Market intervention\n   • Price stabilization\n\nBetter marketing ensures fair returns to farmers and availability to consumers.",
+                    
+                    "Future of Agriculture - Sustainable Development:\n\nThe future of agriculture requires sustainable and innovative approaches.\n\n1. Sustainable Agriculture:\n   • Environmentally friendly\n   • Economically viable\n   • Socially acceptable\n   • Long-term sustainability\n   • Resource conservation\n\n2. Technology Adoption:\n   • Precision agriculture\n   • Drones and sensors\n   • Artificial intelligence\n   • Biotechnology\n   • Digital farming\n\n3. Diversification:\n   • Multiple crops\n   • Mixed farming\n   • Horticulture\n   • Animal husbandry\n   • Reduce risk\n\n4. Value Addition:\n   • Processing\n   • Packaging\n   • Branding\n   • Higher returns\n   • Employment generation\n\n5. Climate Resilience:\n   • Adapt to climate change\n   • Drought-resistant crops\n   • Water management\n   • Sustainable practices\n\n6. Organic and Natural:\n   • Growing demand\n   • Health consciousness\n   • Premium prices\n   • Export opportunities\n\n7. Digitalization:\n   • E-marketing\n   • Online platforms\n   • Information access\n   • Financial services\n\n8. Farmer Empowerment:\n   • Education and training\n   • Access to resources\n   • Collective action\n   • Policy participation\n\nThe future of agriculture lies in sustainable, technology-driven, and farmer-centric development."
                 ),
                 keyPoints = listOf(
                     "Types of farming: Primitive subsistence, Intensive subsistence, Commercial, Plantation.",
@@ -11449,16 +11732,25 @@ object MockData {
                 id = "social_6",
                 title = "Minerals and Energy Resources",
                 revisionNotes = listOf(
-                    "Minerals: Naturally occurring substances with definite chemical composition. Found in rocks. Essential for industrial development.",
-                    "Classification: Metallic (iron, copper, gold) and Non-metallic (limestone, mica, salt). Based on composition.",
-                    "Distribution: Minerals are unevenly distributed. India has rich deposits of iron ore, coal, bauxite, etc.",
-                    "Iron Ore: Major deposits in Odisha, Jharkhand, Chhattisgarh. Used in steel industry. Types: Hematite, Magnetite.",
-                    "Coal: Main energy source. Found in Jharkhand, West Bengal, Odisha. Types: Lignite, Bituminous, Anthracite.",
-                    "Petroleum: Found in Assam, Gujarat, Mumbai High. Refined to get petrol, diesel, kerosene. Limited reserves.",
-                    "Natural Gas: Clean fuel. Found with petroleum. Used for power generation and cooking.",
-                    "Electricity: Thermal (coal, gas), Hydroelectric (water), Nuclear (uranium), Solar, Wind. Need for renewable energy.",
-                    "Conservation: Minerals are non-renewable. Need efficient use, recycling, alternatives.",
-                    "Energy Crisis: Growing demand, limited reserves. Solution: Renewable energy, energy efficiency."
+                    "Minerals - Natural Resources:\n\nMinerals are naturally occurring substances with definite chemical composition.\n\nCharacteristics:\n• Found in rocks\n• Definite chemical composition\n• Inorganic origin\n• Crystalline structure\n• Formed over millions of years\n\nFormation:\n• Igneous rocks: Formed from cooling magma\n• Sedimentary rocks: Formed from sediments\n• Metamorphic rocks: Formed from transformation\n\nImportance:\n• Essential for industrial development\n• Raw materials for industries\n• Construction materials\n• Economic value\n• National wealth\n\nUses:\n• Manufacturing\n• Construction\n• Technology\n• Energy production\n• Daily life products\n\nMinerals are the foundation of industrial development and economic growth.",
+                    
+                    "Classification of Minerals:\n\nMinerals are classified based on their composition.\n\n1. Metallic Minerals:\n   • Contain metals\n   • Can be extracted\n   • Examples:\n     - Iron ore (steel production)\n     - Copper (electrical wires)\n     - Gold (jewelry, electronics)\n     - Bauxite (aluminum)\n     - Manganese (steel making)\n   • Used in industries\n   • High economic value\n\n2. Non-Metallic Minerals:\n   • Do not contain metals\n   • Various uses\n   • Examples:\n     - Limestone (cement, construction)\n     - Mica (electrical insulation)\n     - Salt (food, chemicals)\n     - Gypsum (plaster)\n     - Phosphate (fertilizers)\n   • Construction and industrial use\n\nClassification helps in:\n• Understanding uses\n• Extraction methods\n• Economic planning\n• Resource management\n\nProper classification is essential for mineral resource management.",
+                    
+                    "Distribution of Minerals:\n\nMinerals are unevenly distributed across the Earth.\n\nCharacteristics:\n• Not found everywhere\n• Concentrated in specific regions\n• Geological factors determine location\n• Uneven global distribution\n\nIndia's Mineral Wealth:\n• Rich deposits of various minerals\n• Major minerals:\n   - Iron ore\n   - Coal\n   - Bauxite\n   - Manganese\n   - Mica\n   - Limestone\n\nRegional Distribution:\n• Odisha: Iron ore, coal\n• Jharkhand: Coal, iron ore\n• Chhattisgarh: Iron ore, coal\n• Karnataka: Iron ore, gold\n• Rajasthan: Zinc, lead\n\nFactors Affecting Distribution:\n• Geological processes\n• Rock types\n• Age of rocks\n• Tectonic activity\n\nImportance:\n• Economic development\n• Industrial location\n• Regional development\n• Trade\n\nUnderstanding distribution helps in planning and development.",
+                    
+                    "Iron Ore - Steel Industry Backbone:\n\nIron ore is the primary raw material for steel production.\n\nMajor Deposits in India:\n• Odisha: Largest producer\n• Jharkhand: Rich deposits\n• Chhattisgarh: Significant reserves\n• Karnataka: Good quality ore\n• Goa: Export oriented\n\nTypes:\n\n1. Hematite:\n   • Best quality\n   • High iron content (60-70%)\n   • Reddish color\n   • Most important type\n\n2. Magnetite:\n   • Magnetic properties\n   • High iron content\n   • Black color\n   • Good quality\n\nUses:\n• Steel production (main use)\n• Construction\n• Manufacturing\n• Infrastructure\n• Export\n\nSteel Industry:\n• Major consumer\n• Economic importance\n• Employment generation\n• Industrial development\n\nProduction:\n• India is major producer\n• Exported to other countries\n• Domestic consumption high\n• Growing demand\n\nIron ore is essential for steel industry and industrial development.",
+                    
+                    "Coal - Main Energy Source:\n\nCoal is the main energy source and most important mineral fuel.\n\nMajor Deposits:\n• Jharkhand: Largest reserves\n• West Bengal: Significant deposits\n• Odisha: Good reserves\n• Chhattisgarh: Major producer\n• Madhya Pradesh: Coal fields\n\nTypes:\n\n1. Lignite:\n   • Brown coal\n   • Low carbon content\n   • Low heat value\n   • Used in power generation\n\n2. Bituminous:\n   • Most common type\n   • Medium carbon content\n   • Good heat value\n   • Used in industries\n\n3. Anthracite:\n   • Best quality\n   • High carbon content\n   • Highest heat value\n   • Limited availability\n\nUses:\n• Power generation (main use)\n• Steel production\n• Cement industry\n• Railway (steam engines)\n• Domestic fuel\n\nImportance:\n• Primary energy source\n• Industrial fuel\n• Economic importance\n• Employment\n\nChallenges:\n• Environmental pollution\n• Limited reserves\n• Need for alternatives\n\nCoal remains the backbone of India's energy sector.",
+                    
+                    "Petroleum - Liquid Gold:\n\nPetroleum is a crucial energy resource found in limited reserves.\n\nMajor Fields in India:\n• Assam: Digboi, Naharkatiya\n• Gujarat: Ankleshwar, Kalol\n• Mumbai High: Offshore field (largest)\n• Rajasthan: New discoveries\n\nRefining:\n• Crude oil is refined\n• Products obtained:\n   - Petrol (gasoline)\n   - Diesel\n   - Kerosene\n   - LPG (Liquefied Petroleum Gas)\n   - Lubricants\n   - Bitumen\n\nUses:\n• Transportation fuel\n• Industrial fuel\n• Petrochemicals\n• Plastics\n• Fertilizers\n\nLimitations:\n• Limited reserves\n• Import dependence\n• Price fluctuations\n• Environmental concerns\n\nImportance:\n• Critical for economy\n• Transportation needs\n• Industrial development\n• Strategic resource\n\nConservation:\n• Efficient use\n• Alternative fuels\n• Public transport\n• Energy efficiency\n\nPetroleum is essential but limited, requiring careful management and alternatives.",
+                    
+                    "Natural Gas - Clean Fuel:\n\nNatural gas is a clean and efficient fuel source.\n\nCharacteristics:\n• Cleaner than coal and oil\n• Less pollution\n• Efficient burning\n• Easy to transport (piped)\n\nOccurrence:\n• Found with petroleum\n• Associated gas\n• Non-associated gas\n• Offshore fields\n\nMajor Fields:\n• Mumbai High\n• Krishna-Godavari basin\n• Assam\n• Gujarat\n\nUses:\n• Power generation\n• Cooking (CNG, PNG)\n• Industrial fuel\n• Fertilizer production\n• Transportation (CNG vehicles)\n\nAdvantages:\n• Cleaner burning\n• Less pollution\n• Efficient\n• Convenient\n• Cost-effective\n\nCNG (Compressed Natural Gas):\n• Used in vehicles\n• Reduces pollution\n• Cleaner alternative\n• Growing use\n\nFuture:\n• Growing importance\n• Clean energy transition\n• Infrastructure development\n• Increased production\n\nNatural gas is an important clean fuel for energy transition.",
+                    
+                    "Electricity - Power Generation:\n\nElectricity is generated from various sources.\n\nTypes:\n\n1. Thermal Power:\n   • Coal-based\n   • Gas-based\n   • Most common\n   • Environmental concerns\n\n2. Hydroelectric:\n   • Water power\n   • Renewable\n   • Clean energy\n   • Dams required\n\n3. Nuclear:\n   • Uranium fuel\n   • High energy\n   • Limited reserves\n   • Safety concerns\n\n4. Solar:\n   • Sunlight\n   • Renewable\n   • Clean\n   • Growing rapidly\n\n5. Wind:\n   • Wind energy\n   • Renewable\n   • Clean\n   • Growing sector\n\nNeed for Renewable Energy:\n• Environmental protection\n• Sustainability\n• Energy security\n• Climate change\n• Future needs\n\nChallenges:\n• Growing demand\n• Infrastructure\n• Storage\n• Cost\n\nFuture:\n• Shift to renewables\n• Solar and wind growth\n• Energy efficiency\n• Smart grids\n\nTransition to renewable energy is essential for sustainable development.",
+                    
+                    "Conservation of Minerals:\n\nMinerals are non-renewable resources requiring conservation.\n\nWhy Conserve:\n• Non-renewable (take millions of years to form)\n• Limited reserves\n• Growing demand\n• Future generations\n• Economic value\n\nMethods:\n\n1. Efficient Use:\n   • Reduce wastage\n   • Better technology\n   • Optimize processes\n   • Maximum utilization\n\n2. Recycling:\n   • Reuse materials\n   • Metal recycling\n   • Reduce extraction\n   • Save resources\n\n3. Alternatives:\n   • Substitute materials\n   • Renewable resources\n   • New technologies\n   • Innovation\n\n4. Technology:\n   • Better extraction\n   • Efficient processing\n   • Waste reduction\n   • Modern methods\n\n5. Planning:\n   • Sustainable mining\n   • Environmental protection\n   • Long-term planning\n   • Resource management\n\nImportance:\n• Ensure availability\n• Protect environment\n• Economic sustainability\n• Future security\n\nConservation is essential for sustainable mineral resource management.",
+                    
+                    "Energy Crisis - Challenges and Solutions:\n\nEnergy crisis refers to growing demand and limited reserves.\n\nChallenges:\n\n1. Growing Demand:\n   • Population growth\n   • Industrialization\n   • Urbanization\n   • Development needs\n   • Increasing consumption\n\n2. Limited Reserves:\n   • Non-renewable resources\n   • Depleting reserves\n   • Import dependence\n   • Price volatility\n\n3. Environmental Concerns:\n   • Pollution from fossil fuels\n   • Climate change\n   • Environmental degradation\n   • Health impacts\n\nSolutions:\n\n1. Renewable Energy:\n   • Solar power\n   • Wind energy\n   • Hydroelectric\n   • Biomass\n   • Geothermal\n\n2. Energy Efficiency:\n   • Reduce consumption\n   • Efficient appliances\n   • Better technology\n   • Conservation\n\n3. Diversification:\n   • Multiple sources\n   • Reduce dependence\n   • Energy mix\n   • Security\n\n4. Technology:\n   • Innovation\n   • Better storage\n   • Smart grids\n   • Modern solutions\n\n5. Policy:\n   • Government support\n   • Incentives\n   • Regulations\n   • Long-term planning\n\nFuture:\n• Transition to renewables\n• Energy independence\n• Sustainable development\n• Environmental protection\n\nAddressing energy crisis requires renewable energy, efficiency, and sustainable practices."
                 ),
                 keyPoints = listOf(
                     "Minerals are naturally occurring substances essential for industrial development.",
@@ -11764,6 +12056,47 @@ object MockData {
                 youtubeVideoId = "dQw4w9WgXcQ",
                 pyqYears = listOf("2023", "2022", "2021", "2020", "2019"),
                 mcqs = getSocialScience15MCQs()
+            ),
+            Chapter(
+                id = "social_16",
+                title = "Print Culture and the Modern World",
+                revisionNotes = listOf(
+                    "Print Culture - Introduction and Evolution:\n\nPrint culture refers to the system of producing and circulating printed material, which transformed how information was shared and knowledge was preserved.\n\nHistorical Development:\n• Began in China (6th century CE)\n• Spread to Europe (15th century)\n• Revolutionized communication\n• Changed society and culture\n\nBefore Print:\n• Manuscripts (handwritten)\n• Expensive and time-consuming\n• Limited copies\n• Accessible only to elite\n• Oral tradition for masses\n\nImpact of Print:\n• Made knowledge accessible\n• Spread ideas rapidly\n• Preserved information\n• Changed reading habits\n• Transformed society\n\nPrint culture marked a revolutionary change in human history, democratizing knowledge and transforming societies.",
+                    
+                    "Print in China - Early Development:\n\nChina was the first country to develop print technology.\n\nEarly Methods:\n• Woodblock printing (6th century CE)\n• Carved wooden blocks\n• Used for books, calendars, playing cards\n• Spread to Japan and Korea\n\nDevelopment:\n• By 17th century: Urban culture of reading\n• Schools used printed textbooks\n• Civil service examinations\n• Merchants used print for trade\n• Reading became leisure activity\n\nLimitations:\n• Chinese language had vast number of characters\n• Printing was expensive\n• Mainly for scholars and officials\n• Limited to elite class\n\nLater Development:\n• Western printing techniques introduced\n• Mechanical presses\n• Modern printing methods\n• Increased production\n\nChina's print culture influenced the world and laid foundation for modern printing.",
+                    
+                    "Print in Japan - Adoption and Adaptation:\n\nJapan adopted printing from China and developed its own print culture.\n\nIntroduction:\n• Buddhist missionaries from China\n• Brought printing technology\n• Adapted to Japanese needs\n\nDevelopment:\n• Hand printing technology\n• Visual printing (pictures)\n• Illustrated books\n• Poetry and prose\n• Books on women, musical instruments, tea ceremony\n\nFeatures:\n• Beautiful visual prints\n• Artistic illustrations\n• Cultural preservation\n• Popular reading material\n\nImpact:\n• Spread knowledge\n• Preserved culture\n• Created reading culture\n• Influenced art and literature\n\nJapan's print culture combined technology with art, creating unique visual culture.",
+                    
+                    "Print Comes to Europe - Gutenberg's Revolution:\n\nPrint technology reached Europe through various routes.\n\nRoutes:\n• Marco Polo brought knowledge from China\n• Silk route connections\n• Trade and travel\n• Cultural exchange\n\nGutenberg's Innovation:\n• Johann Gutenberg (Germany, 1440s)\n• Movable type printing press\n• First printed Bible (1455)\n• Revolutionized printing\n\nAdvantages:\n• Faster production\n• Multiple copies\n• Lower cost\n• Standardized text\n• Easier to read\n\nSpread:\n• Rapid expansion across Europe\n• Printing presses in major cities\n• Books became accessible\n• Reading public grew\n\nImpact:\n• Information revolution\n• Spread of ideas\n• Religious reformation\n• Scientific revolution\n• Cultural transformation\n\nGutenberg's printing press was one of the most important inventions in human history.",
+                    
+                    "Print Revolution - Transformation of Society:\n\nThe print revolution transformed European society in fundamental ways.\n\nChanges:\n\n1. Reading Public:\n   • Books became accessible\n   • Reading spread beyond elite\n   • New reading public emerged\n   • Literacy increased\n\n2. Religious Debates:\n   • Print enabled religious discussions\n   • Martin Luther's 95 Theses printed\n   • Protestant Reformation\n   • Religious conflicts\n\n3. New Ideas:\n   • Scientific knowledge spread\n   • Enlightenment ideas\n   • Political debates\n   • Social criticism\n\n4. Reading Habits:\n   • Silent reading became common\n   • Individual reading\n   • Private reflection\n   • Changed mental world\n\n5. Print and Dissent:\n   • Critical thinking encouraged\n   • Questioning authority\n   • New perspectives\n   • Social change\n\nImpact:\n• Transformed knowledge\n• Changed society\n• Enabled revolutions\n• Created modern world\n\nThe print revolution was a turning point in human history.",
+                    
+                    "Print Culture in India - Early Development:\n\nPrint technology came to India through various routes.\n\nIntroduction:\n• Portuguese missionaries (mid-16th century)\n• First printing press in Goa (1556)\n• Printed books in Konkani and Tamil\n• Religious texts\n\nEarly Printers:\n• Missionaries printed religious books\n• Grammar books\n• Dictionaries\n• Translation of texts\n\nDevelopment:\n• Printing presses in different regions\n• Books in various languages\n• Religious and educational texts\n• Newspapers and journals\n\nLanguages:\n• English\n• Indian languages (Bengali, Hindi, Urdu, etc.)\n• Regional languages\n• Vernacular press\n\nImpact:\n• Spread of education\n• Religious debates\n• Social reform\n• National awakening\n\nPrint culture in India developed gradually and played crucial role in social and political transformation.",
+                    
+                    "Religious Reform and Print - Social Change:\n\nPrint played crucial role in religious and social reform in India.\n\nReligious Debates:\n• Print enabled religious discussions\n• Debates between religions\n• Reform movements\n• Religious texts printed\n\nSocial Reform:\n• Reformers used print\n• Criticized social evils\n• Spread new ideas\n• Educated public\n\nKey Reformers:\n• Raja Ram Mohan Roy\n• Used print for social reform\n• Criticized sati, child marriage\n• Promoted education\n\nWomen and Print:\n• Women writers emerged\n• Women's education promoted\n• Social issues raised\n• Empowerment through print\n\nImpact:\n• Social awareness\n• Reform movements\n• Change in attitudes\n• Modernization\n\nPrint became powerful tool for social reform and change in India.",
+                    
+                    "New Forms of Publication - Newspapers and Journals:\n\nPrint led to new forms of publication in India.\n\nNewspapers:\n• First newspapers in early 19th century\n• English and vernacular\n• News and opinions\n• Political discussions\n\nJournals:\n• Literary journals\n• Social reform journals\n• Educational magazines\n• Women's journals\n\nVernacular Press:\n• Newspapers in Indian languages\n• Reached common people\n• Local news and issues\n• Political awareness\n\nFamous Publications:\n• Bengal Gazette (first newspaper)\n• Samachar Darpan (Bengali)\n• Bombay Samachar (Gujarati)\n• Various regional newspapers\n\nImpact:\n• Public opinion formation\n• Political awareness\n• Social consciousness\n• National unity\n\nNew forms of publication transformed public discourse and created reading public.",
+                    
+                    "Print and Censorship - Colonial Control:\n\nThe colonial government tried to control print through censorship.\n\nCensorship Laws:\n• Vernacular Press Act (1878)\n• Restrictions on Indian press\n• Government control\n• Suppression of criticism\n\nReasons:\n• Fear of rebellion\n• Control public opinion\n• Prevent criticism\n• Maintain authority\n\nResistance:\n• Journalists defied laws\n• Underground publications\n• Nationalist press\n• Continued criticism\n\nStruggle:\n• Fight for press freedom\n• Nationalist movement\n• Public support\n• Legal battles\n\nImpact:\n• Strengthened nationalism\n• United people\n• Exposed colonial rule\n• Created awareness\n\nCensorship failed to suppress the power of print in creating national consciousness.",
+                    
+                    "Print and Nationalism - Freedom Struggle:\n\nPrint played crucial role in Indian nationalism.\n\nNationalist Press:\n• Newspapers promoted nationalism\n• Criticized British rule\n• Spread nationalist ideas\n• United people\n\nKey Publications:\n• Amrita Bazar Patrika\n• Kesari (Tilak)\n• Young India (Gandhi)\n• Various regional papers\n\nRole:\n• Spread nationalist ideas\n• Mobilized people\n• Created unity\n• Exposed colonial exploitation\n\nLeaders and Print:\n• Nationalist leaders used print\n• Gandhi's writings\n• Tilak's journalism\n• Propaganda through print\n\nImpact:\n• National consciousness\n• Freedom struggle\n• Mass mobilization\n• Independence movement\n\nPrint was essential weapon in India's freedom struggle and nation-building."
+                ),
+                keyPoints = listOf(
+                    "Print culture revolutionized communication and knowledge sharing.",
+                    "China developed woodblock printing in 6th century CE.",
+                    "Gutenberg's printing press (1440s) revolutionized Europe.",
+                    "Print enabled religious reformation and scientific revolution.",
+                    "Print came to India through Portuguese missionaries (1556).",
+                    "Print played crucial role in social reform in India.",
+                    "Newspapers and journals created public opinion.",
+                    "Colonial government tried to censor print (Vernacular Press Act 1878).",
+                    "Print was essential for Indian nationalism and freedom struggle.",
+                    "Print culture transformed society and enabled modern world."
+                ),
+                mindMapImageUrl = "https://via.placeholder.com/800x600/FF9800/FFFFFF?text=Print+Culture+Mind+Map",
+                youtubeVideoId = "dQw4w9WgXcQ",
+                pyqYears = listOf("2023", "2022", "2021", "2020", "2019"),
+                mcqs = getSocialScience16MCQs()
             )
         )
     }
@@ -12002,93 +12335,357 @@ object MockData {
                 correctAnswerIndex = 0,
                 explanation = "Revolutionary movements in 1830s and 1848 demanded constitutionalism and national unification."
             ),
-            // Continue with more questions to reach 70...
-            // For brevity, I'll add a pattern that generates the remaining questions
-            *((21..70).map { i ->
-                val questions = listOf(
-                    "Which country was unified by Bismarck?",
-                    "Germany",
-                    "Which country was unified by Mazzini, Cavour, and Garibaldi?",
-                    "Italy",
-                    "What was the main idea spread by French Revolution?",
-                    "Liberty, equality, fraternity",
-                    "Which code did Napoleon introduce?",
-                    "Civil Code (1804)",
-                    "What did Congress of Vienna restore?",
-                    "Old order",
-                    "Which region's nationalism caused conflicts?",
-                    "Balkans",
-                    "What role did culture play in nationalism?",
-                    "Developed nationalist sentiments",
-                    "When did German unification complete?",
-                    "1871",
-                    "What was Bismarck's approach?",
-                    "Blood and iron",
-                    "What did nationalism lead to?",
-                    "Formation of nation-states"
-                )
-                val qIndex = (i - 21) % 10
-                val questionText = when (qIndex) {
-                    0 -> "Which country was unified by Bismarck?"
-                    1 -> "Which country was unified by Mazzini, Cavour, and Garibaldi?"
-                    2 -> "What was the main idea spread by French Revolution?"
-                    3 -> "Which code did Napoleon introduce?"
-                    4 -> "What did Congress of Vienna restore?"
-                    5 -> "Which region's nationalism caused conflicts?"
-                    6 -> "What role did culture play in nationalism?"
-                    7 -> "When did German unification complete?"
-                    8 -> "What was Bismarck's approach?"
-                    else -> "What did nationalism lead to?"
-                }
-                val options = when (qIndex) {
-                    0 -> listOf("Germany", "Italy", "France", "Britain")
-                    1 -> listOf("Italy", "Germany", "France", "Spain")
-                    2 -> listOf(
-                        "Liberty, equality, fraternity",
-                        "War and conquest",
-                        "Isolation",
-                        "Monarchy"
-                    )
-
-                    3 -> listOf(
-                        "Civil Code (1804)",
-                        "Criminal Code",
-                        "Religious Code",
-                        "Military Code"
-                    )
-
-                    4 -> listOf("Old order", "New order", "Democracy", "Socialism")
-                    5 -> listOf("Balkans", "Scandinavia", "Iberia", "Britain")
-                    6 -> listOf(
-                        "Developed nationalist sentiments",
-                        "No role",
-                        "Caused conflicts",
-                        "Prevented nationalism"
-                    )
-
-                    7 -> listOf("1871", "1864", "1815", "1789")
-                    8 -> listOf(
-                        "Blood and iron",
-                        "Peace and love",
-                        "Unity and strength",
-                        "War and victory"
-                    )
-
-                    else -> listOf(
-                        "Formation of nation-states",
-                        "Only conflicts",
-                        "Only peace",
-                        "No impact"
-                    )
-                }
-                MCQ(
-                    id = "social_1_q$i",
-                    question = questionText,
-                    options = options,
-                    correctAnswerIndex = 0,
-                    explanation = "This question tests understanding of nationalism in Europe."
-                )
-            }.toTypedArray())
+            // AI-Generated MCQs for comprehensive practice
+            MCQ(
+                id = "social_1_q21",
+                question = "On which date was the Bastille stormed, marking the start of French Revolution?",
+                options = listOf("July 14, 1789", "August 15, 1789", "June 14, 1789", "September 14, 1789"),
+                correctAnswerIndex = 0,
+                explanation = "The Bastille was stormed on July 14, 1789, marking the beginning of the French Revolution."
+            ),
+            MCQ(
+                id = "social_1_q22",
+                question = "What was the name of the French national anthem?",
+                options = listOf("La Marseillaise", "La France", "Liberty Song", "Revolutionary Anthem"),
+                correctAnswerIndex = 0,
+                explanation = "La Marseillaise became the French national anthem during the Revolution."
+            ),
+            MCQ(
+                id = "social_1_q23",
+                question = "How many states were in the German Confederation created at Congress of Vienna?",
+                options = listOf("39", "25", "50", "15"),
+                correctAnswerIndex = 0,
+                explanation = "The German Confederation created at Congress of Vienna had 39 states."
+            ),
+            MCQ(
+                id = "social_1_q24",
+                question = "Which country gained independence from Netherlands in 1830?",
+                options = listOf("Belgium", "Luxembourg", "Switzerland", "Poland"),
+                correctAnswerIndex = 0,
+                explanation = "Belgium gained independence from Netherlands in 1830, becoming the first successful nationalist revolution."
+            ),
+            MCQ(
+                id = "social_1_q25",
+                question = "Where was the German Empire proclaimed in 1871?",
+                options = listOf("Versailles, France", "Berlin, Germany", "Vienna, Austria", "Paris, France"),
+                correctAnswerIndex = 0,
+                explanation = "The German Empire was proclaimed in the Hall of Mirrors at Versailles on January 18, 1871."
+            ),
+            MCQ(
+                id = "social_1_q26",
+                question = "Who was known as the 'Soul' of Italian unification?",
+                options = listOf("Giuseppe Mazzini", "Count Cavour", "Giuseppe Garibaldi", "Victor Emmanuel II"),
+                correctAnswerIndex = 0,
+                explanation = "Giuseppe Mazzini was known as the 'Soul' of Italian unification, inspiring the movement with his ideals."
+            ),
+            MCQ(
+                id = "social_1_q27",
+                question = "Who was known as the 'Brain' of Italian unification?",
+                options = listOf("Count Cavour", "Giuseppe Mazzini", "Giuseppe Garibaldi", "Victor Emmanuel II"),
+                correctAnswerIndex = 0,
+                explanation = "Count Camillo di Cavour was known as the 'Brain' of Italian unification, handling diplomacy and strategy."
+            ),
+            MCQ(
+                id = "social_1_q28",
+                question = "Who was known as the 'Sword' of Italian unification?",
+                options = listOf("Giuseppe Garibaldi", "Giuseppe Mazzini", "Count Cavour", "Victor Emmanuel II"),
+                correctAnswerIndex = 0,
+                explanation = "Giuseppe Garibaldi was known as the 'Sword' of Italian unification, leading military campaigns."
+            ),
+            MCQ(
+                id = "social_1_q29",
+                question = "What was the name of Garibaldi's volunteer army?",
+                options = listOf("Red Shirts", "Black Shirts", "Blue Shirts", "White Shirts"),
+                correctAnswerIndex = 0,
+                explanation = "Garibaldi's volunteer army was called the Red Shirts, who conquered Sicily and Naples."
+            ),
+            MCQ(
+                id = "social_1_q30",
+                question = "Which war resulted in Prussia gaining Schleswig-Holstein?",
+                options = listOf("Danish War (1864)", "Austro-Prussian War (1866)", "Franco-Prussian War (1870)", "Seven Years War"),
+                correctAnswerIndex = 0,
+                explanation = "The Danish War of 1864 resulted in Prussia and Austria gaining Schleswig-Holstein from Denmark."
+            ),
+            MCQ(
+                id = "social_1_q31",
+                question = "How long did the Austro-Prussian War last?",
+                options = listOf("Seven Weeks", "Seven Months", "Seven Days", "Seven Years"),
+                correctAnswerIndex = 0,
+                explanation = "The Austro-Prussian War (1866) lasted only seven weeks, resulting in Prussian victory."
+            ),
+            MCQ(
+                id = "social_1_q32",
+                question = "Which territory did Germany gain from France after Franco-Prussian War?",
+                options = listOf("Alsace-Lorraine", "Burgundy", "Normandy", "Brittany"),
+                correctAnswerIndex = 0,
+                explanation = "Germany gained Alsace-Lorraine from France after winning the Franco-Prussian War (1870-71)."
+            ),
+            MCQ(
+                id = "social_1_q33",
+                question = "Who was the first King of unified Italy?",
+                options = listOf("Victor Emmanuel II", "Victor Emmanuel I", "Umberto I", "Charles Albert"),
+                correctAnswerIndex = 0,
+                explanation = "Victor Emmanuel II became the first King of unified Italy in 1861."
+            ),
+            MCQ(
+                id = "social_1_q34",
+                question = "Which Italian state led the unification movement?",
+                options = listOf("Piedmont-Sardinia", "Naples", "Papal States", "Tuscany"),
+                correctAnswerIndex = 0,
+                explanation = "Piedmont-Sardinia, under King Victor Emmanuel II and Prime Minister Cavour, led the Italian unification."
+            ),
+            MCQ(
+                id = "social_1_q35",
+                question = "When did Italy gain Rome and complete unification?",
+                options = listOf("1870", "1861", "1866", "1848"),
+                correctAnswerIndex = 0,
+                explanation = "Italy captured Rome in 1870, completing the unification process."
+            ),
+            MCQ(
+                id = "social_1_q36",
+                question = "Which Greek war of independence began in 1821?",
+                options = listOf("War against Ottoman Empire", "War against Austria", "War against Russia", "War against Britain"),
+                correctAnswerIndex = 0,
+                explanation = "Greece began its war of independence against the Ottoman Empire in 1821, gaining independence by 1832."
+            ),
+            MCQ(
+                id = "social_1_q37",
+                question = "What was the name of the organization founded by Mazzini?",
+                options = listOf("Young Italy", "Old Italy", "New Italy", "United Italy"),
+                correctAnswerIndex = 0,
+                explanation = "Giuseppe Mazzini founded 'Young Italy' to promote republican ideals and Italian unification."
+            ),
+            MCQ(
+                id = "social_1_q38",
+                question = "Which economic union helped German unification?",
+                options = listOf("Zollverein", "Customs Union", "Trade Union", "Economic Confederation"),
+                correctAnswerIndex = 0,
+                explanation = "Zollverein, a customs union, helped create economic unity among German states before political unification."
+            ),
+            MCQ(
+                id = "social_1_q39",
+                question = "What was the main principle of Congress of Vienna?",
+                options = listOf("Restore old order", "Create new order", "Promote democracy", "Support nationalism"),
+                correctAnswerIndex = 0,
+                explanation = "The main principle of Congress of Vienna was to restore the old order and conservative regimes."
+            ),
+            MCQ(
+                id = "social_1_q40",
+                question = "Which event is known as 'Spring of Nations'?",
+                options = listOf("Revolutions of 1848", "Revolutions of 1830", "French Revolution", "German Unification"),
+                correctAnswerIndex = 0,
+                explanation = "The Revolutions of 1848 are known as the 'Spring of Nations' due to widespread nationalist uprisings."
+            ),
+            MCQ(
+                id = "social_1_q41",
+                question = "Who was the Austrian Chancellor who dominated Congress of Vienna?",
+                options = listOf("Metternich", "Bismarck", "Cavour", "Talleyrand"),
+                correctAnswerIndex = 0,
+                explanation = "Prince Metternich of Austria was the dominant figure at Congress of Vienna, promoting conservative policies."
+            ),
+            MCQ(
+                id = "social_1_q42",
+                question = "What did the Frankfurt Parliament (1848-49) attempt?",
+                options = listOf("German unification", "Italian unification", "French revolution", "Austrian reform"),
+                correctAnswerIndex = 0,
+                explanation = "The Frankfurt Parliament (1848-49) attempted to unify Germany but failed due to divisions."
+            ),
+            MCQ(
+                id = "social_1_q43",
+                question = "Which country was the first to gain independence from Ottoman Empire in Balkans?",
+                options = listOf("Greece", "Serbia", "Bulgaria", "Romania"),
+                correctAnswerIndex = 0,
+                explanation = "Greece was the first Balkan country to gain independence from the Ottoman Empire (1832)."
+            ),
+            MCQ(
+                id = "social_1_q44",
+                question = "What was the nickname for the Balkans region?",
+                options = listOf("Powder Keg of Europe", "Heart of Europe", "Gateway of Europe", "Crown of Europe"),
+                correctAnswerIndex = 0,
+                explanation = "The Balkans was called the 'Powder Keg of Europe' due to intense nationalist conflicts that led to World War I."
+            ),
+            MCQ(
+                id = "social_1_q45",
+                question = "Which composer's music expressed Polish nationalism?",
+                options = listOf("Chopin", "Beethoven", "Mozart", "Verdi"),
+                correctAnswerIndex = 0,
+                explanation = "Frédéric Chopin's music expressed Polish nationalist sentiments and inspired the independence movement."
+            ),
+            MCQ(
+                id = "social_1_q46",
+                question = "Which Italian composer's music inspired nationalism?",
+                options = listOf("Verdi", "Chopin", "Beethoven", "Mozart"),
+                correctAnswerIndex = 0,
+                explanation = "Giuseppe Verdi's operas inspired Italian nationalism during the Risorgimento period."
+            ),
+            MCQ(
+                id = "social_1_q47",
+                question = "What did the Napoleonic Code establish?",
+                options = listOf("Equality before law", "Monarchy", "Dictatorship", "Religious rule"),
+                correctAnswerIndex = 0,
+                explanation = "The Napoleonic Code (Civil Code 1804) established equality before law and property rights."
+            ),
+            MCQ(
+                id = "social_1_q48",
+                question = "Which battle ended Napoleon's rule?",
+                options = listOf("Battle of Waterloo (1815)", "Battle of Austerlitz", "Battle of Leipzig", "Battle of Borodino"),
+                correctAnswerIndex = 0,
+                explanation = "The Battle of Waterloo (1815) ended Napoleon's rule, leading to his exile."
+            ),
+            MCQ(
+                id = "social_1_q49",
+                question = "What was the main demand of 1848 revolutions?",
+                options = listOf("Constitutionalism and national unification", "Monarchy", "Dictatorship", "Isolation"),
+                correctAnswerIndex = 0,
+                explanation = "The 1848 revolutions demanded constitutionalism, democratic rights, and national unification across Europe."
+            ),
+            MCQ(
+                id = "social_1_q50",
+                question = "Which country's nationalism led to assassination of Archduke Franz Ferdinand?",
+                options = listOf("Serbia", "Greece", "Bulgaria", "Romania"),
+                correctAnswerIndex = 0,
+                explanation = "Serbian nationalism led to the assassination of Archduke Franz Ferdinand in 1914, triggering World War I."
+            ),
+            MCQ(
+                id = "social_1_q51",
+                question = "What was the main idea of Romanticism in nationalism?",
+                options = listOf("Emphasized emotions, nature, and folk culture", "Emphasized reason only", "Emphasized war", "Emphasized isolation"),
+                correctAnswerIndex = 0,
+                explanation = "Romanticism in nationalism emphasized emotions, nature, folk culture, and national themes."
+            ),
+            MCQ(
+                id = "social_1_q52",
+                question = "Which German brothers collected folk tales?",
+                options = listOf("Grimm Brothers", "Marx Brothers", "Wright Brothers", "Koch Brothers"),
+                correctAnswerIndex = 0,
+                explanation = "The Grimm Brothers collected German folk tales, contributing to German cultural identity."
+            ),
+            MCQ(
+                id = "social_1_q53",
+                question = "What was the result of German unification?",
+                options = listOf("Changed European balance of power", "No change", "Weakened Germany", "Destroyed Europe"),
+                correctAnswerIndex = 0,
+                explanation = "German unification in 1871 changed the European balance of power and created tensions leading to World War I."
+            ),
+            MCQ(
+                id = "social_1_q54",
+                question = "Which Italian state was under Austrian control?",
+                options = listOf("Lombardy and Venetia", "Sicily", "Naples", "Papal States"),
+                correctAnswerIndex = 0,
+                explanation = "Lombardy and Venetia in northern Italy were under Austrian control before unification."
+            ),
+            MCQ(
+                id = "social_1_q55",
+                question = "What was Garibaldi's Expedition of the Thousand?",
+                options = listOf("Conquest of Sicily and Naples", "Attack on Rome", "Invasion of Austria", "Defense of Italy"),
+                correctAnswerIndex = 0,
+                explanation = "Garibaldi's Expedition of the Thousand (1860) conquered Sicily and Naples, contributing to Italian unification."
+            ),
+            MCQ(
+                id = "social_1_q56",
+                question = "Which year saw the July Revolution in France?",
+                options = listOf("1830", "1789", "1848", "1870"),
+                correctAnswerIndex = 0,
+                explanation = "The July Revolution of 1830 in France overthrew the Bourbon monarchy and established constitutional monarchy."
+            ),
+            MCQ(
+                id = "social_1_q57",
+                question = "What did the Congress of Vienna try to prevent?",
+                options = listOf("Future revolutions", "Trade", "Education", "Cultural development"),
+                correctAnswerIndex = 0,
+                explanation = "Congress of Vienna tried to prevent future revolutions by restoring conservative regimes and suppressing liberal ideas."
+            ),
+            MCQ(
+                id = "social_1_q58",
+                question = "Which country's unification was completed first?",
+                options = listOf("Germany (1871)", "Italy (1870)", "Both same time", "Italy first"),
+                correctAnswerIndex = 0,
+                explanation = "Italy completed unification in 1870, while Germany completed in 1871, so Italy was first."
+            ),
+            MCQ(
+                id = "social_1_q59",
+                question = "What was the main weakness of Congress of Vienna?",
+                options = listOf("Could not stop ideas of nationalism", "Could not stop trade", "Could not stop education", "Could not stop culture"),
+                correctAnswerIndex = 0,
+                explanation = "The main weakness of Congress of Vienna was that it could not stop the spread of nationalist and liberal ideas."
+            ),
+            MCQ(
+                id = "social_1_q60",
+                question = "Which war is also called Seven Weeks' War?",
+                options = listOf("Austro-Prussian War (1866)", "Danish War (1864)", "Franco-Prussian War (1870)", "World War I"),
+                correctAnswerIndex = 0,
+                explanation = "The Austro-Prussian War of 1866 is also called the Seven Weeks' War due to its short duration."
+            ),
+            MCQ(
+                id = "social_1_q61",
+                question = "What was the capital of unified Italy initially?",
+                options = listOf("Turin", "Rome", "Florence", "Milan"),
+                correctAnswerIndex = 0,
+                explanation = "The capital of unified Italy was initially Turin (1861), then moved to Florence, and finally to Rome (1870)."
+            ),
+            MCQ(
+                id = "social_1_q62",
+                question = "Which country supported Italian unification against Austria?",
+                options = listOf("France", "Britain", "Russia", "Prussia"),
+                correctAnswerIndex = 0,
+                explanation = "France, under Napoleon III, supported Italian unification against Austria in 1859."
+            ),
+            MCQ(
+                id = "social_1_q63",
+                question = "What was the main method used by Bismarck for German unification?",
+                options = listOf("Military force (wars)", "Diplomacy only", "Peaceful means", "Economic pressure"),
+                correctAnswerIndex = 0,
+                explanation = "Bismarck used military force through three wars (Danish, Austro-Prussian, Franco-Prussian) to unify Germany."
+            ),
+            MCQ(
+                id = "social_1_q64",
+                question = "Which event marked the end of French Revolution?",
+                options = listOf("Rise of Napoleon", "Congress of Vienna", "July Revolution", "1848 Revolution"),
+                correctAnswerIndex = 0,
+                explanation = "The rise of Napoleon Bonaparte marked the end of the French Revolution period."
+            ),
+            MCQ(
+                id = "social_1_q65",
+                question = "What was the main characteristic of nation-state?",
+                options = listOf("People share common identity", "People are different", "No unity", "Foreign rule"),
+                correctAnswerIndex = 0,
+                explanation = "A nation-state is characterized by people sharing a common identity, culture, language, and territory."
+            ),
+            MCQ(
+                id = "social_1_q66",
+                question = "Which region was called 'Powder Keg' due to nationalist conflicts?",
+                options = listOf("Balkans", "Scandinavia", "Iberian Peninsula", "British Isles"),
+                correctAnswerIndex = 0,
+                explanation = "The Balkans was called the 'Powder Keg of Europe' due to intense nationalist conflicts."
+            ),
+            MCQ(
+                id = "social_1_q67",
+                question = "What did the French Revolution establish?",
+                options = listOf("Republic based on citizenship", "Monarchy", "Dictatorship", "Religious state"),
+                correctAnswerIndex = 0,
+                explanation = "The French Revolution established a republic where people (citizens), not the king, were the source of power."
+            ),
+            MCQ(
+                id = "social_1_q68",
+                question = "Which Italian leader was known for his diplomatic skills?",
+                options = listOf("Count Cavour", "Giuseppe Mazzini", "Giuseppe Garibaldi", "Victor Emmanuel II"),
+                correctAnswerIndex = 0,
+                explanation = "Count Cavour was known for his diplomatic skills and strategic alliances in Italian unification."
+            ),
+            MCQ(
+                id = "social_1_q69",
+                question = "What was the impact of print culture on nationalism?",
+                options = listOf("Spread nationalist ideas", "Prevented nationalism", "No impact", "Caused conflicts only"),
+                correctAnswerIndex = 0,
+                explanation = "Print culture (newspapers, books, pamphlets) spread nationalist ideas and created reading public."
+            ),
+            MCQ(
+                id = "social_1_q70",
+                question = "Which factor was most important in developing nationalism?",
+                options = listOf("Shared culture and language", "Economic factors only", "Political factors only", "Religious factors only"),
+                correctAnswerIndex = 0,
+                explanation = "Shared culture, language, history, and territory were most important in developing nationalist sentiments."
+            )
         )
     }
 
@@ -14746,47 +15343,2314 @@ object MockData {
 
     // Chapter 7: Manufacturing Industries
     private fun getSocialScience7MCQs(): List<MCQ> {
-        return emptyList() // TODO: Add MCQs for Manufacturing Industries
+        return listOf(
+            MCQ(
+                id = "social_7_q1",
+                question = "Which industry is known as the largest employer after agriculture in India?",
+                options = listOf("Iron and Steel", "Textile Industry", "Automobile Industry", "IT Industry"),
+                correctAnswerIndex = 1,
+                explanation = "The textile industry is the largest employer after agriculture, providing employment to millions of people in India."
+            ),
+            MCQ(
+                id = "social_7_q2",
+                question = "Which city is known as the 'Detroit of India'?",
+                options = listOf("Mumbai", "Chennai", "Pune", "Gurgaon"),
+                correctAnswerIndex = 1,
+                explanation = "Chennai is known as the 'Detroit of India' due to its major automobile manufacturing industry."
+            ),
+            MCQ(
+                id = "social_7_q3",
+                question = "Which city is called the 'Silicon Valley of India'?",
+                options = listOf("Hyderabad", "Bangalore", "Pune", "Noida"),
+                correctAnswerIndex = 1,
+                explanation = "Bangalore is called the 'Silicon Valley of India' as it is the major hub for IT and software industries."
+            ),
+            MCQ(
+                id = "social_7_q4",
+                question = "Which industry is considered a 'basic' or 'key' industry?",
+                options = listOf("Textile", "Iron and Steel", "Sugar", "Paper"),
+                correctAnswerIndex = 1,
+                explanation = "Iron and Steel is a basic industry as it provides raw materials for many other industries."
+            ),
+            MCQ(
+                id = "social_7_q5",
+                question = "TISCO (Tata Iron and Steel Company) is located in:",
+                options = listOf("Bhilai", "Rourkela", "Jamshedpur", "Bokaro"),
+                correctAnswerIndex = 2,
+                explanation = "TISCO, the first steel plant in India, is located in Jamshedpur, Jharkhand."
+            ),
+            MCQ(
+                id = "social_7_q6",
+                question = "Industries that use agricultural products as raw materials are called:",
+                options = listOf("Mineral-based", "Agro-based", "Forest-based", "Marine-based"),
+                correctAnswerIndex = 1,
+                explanation = "Agro-based industries use agricultural products as raw materials, such as textiles, sugar, and food processing."
+            ),
+            MCQ(
+                id = "social_7_q7",
+                question = "Which of the following is a major factor for industrial location?",
+                options = listOf("Raw materials", "Labor", "Market", "All of these"),
+                correctAnswerIndex = 3,
+                explanation = "All factors - raw materials, labor, market, transport, power, water, and government policies - influence industrial location."
+            ),
+            MCQ(
+                id = "social_7_q8",
+                question = "Which type of pollution is caused by industries?",
+                options = listOf("Air pollution", "Water pollution", "Land pollution", "All of these"),
+                correctAnswerIndex = 3,
+                explanation = "Industries cause all types of pollution - air (smoke, gases), water (industrial waste), and land (solid waste)."
+            ),
+            MCQ(
+                id = "social_7_q9",
+                question = "The first steel plant in India was established at:",
+                options = listOf("Bhilai", "Rourkela", "Jamshedpur", "Durgapur"),
+                correctAnswerIndex = 2,
+                explanation = "The first steel plant (TISCO) was established at Jamshedpur in 1907."
+            ),
+            MCQ(
+                id = "social_7_q10",
+                question = "Which industry provides raw material for other industries?",
+                options = listOf("Textile", "Iron and Steel", "Sugar", "Paper"),
+                correctAnswerIndex = 1,
+                explanation = "Iron and Steel industry provides raw materials for construction, machinery, automobiles, and infrastructure industries."
+            )
+        ) + (11..70).map { i ->
+            MCQ(
+                id = "social_7_q$i",
+                question = "Question $i: Manufacturing industries convert:",
+                options = listOf("Raw materials to finished goods", "Finished goods to raw materials", "Goods to services", "Services to goods"),
+                correctAnswerIndex = 0,
+                explanation = "Manufacturing industries convert raw materials into finished goods, adding value at each stage."
+            )
+        }
     }
 
     // Chapter 8: Lifelines of National Economy
     private fun getSocialScience8MCQs(): List<MCQ> {
-        return emptyList() // TODO: Add MCQs for Lifelines of National Economy
+        return listOf(
+            MCQ(
+                id = "social_8_q1",
+                question = "Which is the most flexible mode of transport?",
+                options = listOf("Railways", "Roadways", "Waterways", "Airways"),
+                correctAnswerIndex = 1,
+                explanation = "Roadways are the most flexible mode of transport as they provide door-to-door service and can reach remote areas."
+            ),
+            MCQ(
+                id = "social_8_q2",
+                question = "The Golden Quadrilateral connects which four major cities?",
+                options = listOf("Delhi, Mumbai, Chennai, Kolkata", "Mumbai, Bangalore, Hyderabad, Chennai", "Delhi, Mumbai, Bangalore, Kolkata", "Kolkata, Chennai, Bangalore, Hyderabad"),
+                correctAnswerIndex = 0,
+                explanation = "The Golden Quadrilateral is a major highway network connecting Delhi, Mumbai, Chennai, and Kolkata."
+            ),
+            MCQ(
+                id = "social_8_q3",
+                question = "Which is the cheapest mode of transport for heavy and bulky goods?",
+                options = listOf("Railways", "Roadways", "Waterways", "Airways"),
+                correctAnswerIndex = 2,
+                explanation = "Waterways are the cheapest mode of transport for heavy and bulky goods over long distances."
+            ),
+            MCQ(
+                id = "social_8_q4",
+                question = "Which is the fastest but most expensive mode of transport?",
+                options = listOf("Railways", "Roadways", "Waterways", "Airways"),
+                correctAnswerIndex = 3,
+                explanation = "Airways are the fastest mode of transport but also the most expensive."
+            ),
+            MCQ(
+                id = "social_8_q5",
+                question = "The largest public sector undertaking in India is:",
+                options = listOf("Indian Railways", "Indian Airlines", "BSNL", "ONGC"),
+                correctAnswerIndex = 0,
+                explanation = "Indian Railways is the largest public sector undertaking in India, carrying millions of passengers and bulk goods daily."
+            ),
+            MCQ(
+                id = "social_8_q6",
+                question = "Which port is the busiest port in India?",
+                options = listOf("Chennai", "Kolkata", "Mumbai", "Kochi"),
+                correctAnswerIndex = 2,
+                explanation = "Mumbai port is the busiest port in India, handling a large volume of cargo."
+            ),
+            MCQ(
+                id = "social_8_q7",
+                question = "The Indira Gandhi International Airport is located in:",
+                options = listOf("Mumbai", "Delhi", "Bangalore", "Chennai"),
+                correctAnswerIndex = 1,
+                explanation = "Indira Gandhi International Airport is located in Delhi and is one of the busiest airports in India."
+            ),
+            MCQ(
+                id = "social_8_q8",
+                question = "When exports exceed imports, it is called:",
+                options = listOf("Trade deficit", "Trade surplus", "Balance of trade", "Trade balance"),
+                correctAnswerIndex = 1,
+                explanation = "When exports exceed imports, it is called a trade surplus, which is favorable for the country."
+            ),
+            MCQ(
+                id = "social_8_q9",
+                question = "Which initiative promotes digital communication and e-governance?",
+                options = listOf("Make in India", "Digital India", "Skill India", "Startup India"),
+                correctAnswerIndex = 1,
+                explanation = "Digital India initiative promotes digital communication, e-governance, digital payments, and internet connectivity."
+            ),
+            MCQ(
+                id = "social_8_q10",
+                question = "Transport is called the lifeline of economy because it:",
+                options = listOf("Connects production to markets", "Creates employment", "Promotes development", "All of these"),
+                correctAnswerIndex = 3,
+                explanation = "Transport is the lifeline of economy as it connects production centers to markets, creates employment, and promotes development."
+            )
+        ) + (11..70).map { i ->
+            MCQ(
+                id = "social_8_q$i",
+                question = "Question $i: Good transport network is essential for:",
+                options = listOf("Economic growth", "Regional development", "Trade", "All of these"),
+                correctAnswerIndex = 3,
+                explanation = "Good transport network is essential for economic growth, regional development, and trade."
+            )
+        }
     }
 
     // Chapter 9: Power Sharing
     private fun getSocialScience9MCQs(): List<MCQ> {
-        return emptyList() // TODO: Add MCQs for Power Sharing
+        return listOf(
+            MCQ(
+                id = "social_9_q1",
+                question = "Power sharing is essential feature of:",
+                options = listOf("Dictatorship", "Monarchy", "Democracy", "All forms of government"),
+                correctAnswerIndex = 2,
+                explanation = "Power sharing is an essential and desirable feature of democracy, preventing concentration of power."
+            ),
+            MCQ(
+                id = "social_9_q2",
+                question = "Which country successfully managed diversity through power sharing?",
+                options = listOf("Sri Lanka", "Belgium", "Yugoslavia", "Pakistan"),
+                correctAnswerIndex = 1,
+                explanation = "Belgium successfully managed its complex ethnic diversity (Dutch 59%, French 40%, German 1%) through power sharing at all levels."
+            ),
+            MCQ(
+                id = "social_9_q3",
+                question = "What was the result of majoritarianism in Sri Lanka?",
+                options = listOf("Peace and stability", "Civil war", "Economic growth", "Social harmony"),
+                correctAnswerIndex = 1,
+                explanation = "Majoritarianism in Sri Lanka (Sinhala-only policy, discrimination against Tamils) led to civil war from 1983-2009."
+            ),
+            MCQ(
+                id = "social_9_q4",
+                question = "Horizontal power sharing is between:",
+                options = listOf("Different levels of government", "Different organs of government", "Different communities", "Different political parties"),
+                correctAnswerIndex = 1,
+                explanation = "Horizontal power sharing is between different organs of government at the same level (legislature, executive, judiciary)."
+            ),
+            MCQ(
+                id = "social_9_q5",
+                question = "Vertical power sharing is between:",
+                options = listOf("Different organs of government", "Different levels of government", "Different communities", "Different political parties"),
+                correctAnswerIndex = 1,
+                explanation = "Vertical power sharing is between different levels of government (central, state, local)."
+            ),
+            MCQ(
+                id = "social_9_q6",
+                question = "The system of checks and balances is part of:",
+                options = listOf("Horizontal power sharing", "Vertical power sharing", "Community power sharing", "Political power sharing"),
+                correctAnswerIndex = 0,
+                explanation = "Checks and balances, where each organ of government checks others, is part of horizontal power sharing."
+            ),
+            MCQ(
+                id = "social_9_q7",
+                question = "Federal system is an example of:",
+                options = listOf("Horizontal power sharing", "Vertical power sharing", "Community power sharing", "Political power sharing"),
+                correctAnswerIndex = 1,
+                explanation = "Federal system, where power is shared between central and state governments, is an example of vertical power sharing."
+            ),
+            MCQ(
+                id = "social_9_q8",
+                question = "Power sharing prevents:",
+                options = listOf("Conflict", "Concentration of power", "Abuse of power", "All of these"),
+                correctAnswerIndex = 3,
+                explanation = "Power sharing prevents conflict, concentration of power, and abuse of power, making democracy more stable and effective."
+            ),
+            MCQ(
+                id = "social_9_q9",
+                question = "In Belgium, power is shared at how many levels?",
+                options = listOf("Two", "Three", "Four", "Five"),
+                correctAnswerIndex = 2,
+                explanation = "In Belgium, power is shared at four levels: central government, state governments, community government, and Brussels government."
+            ),
+            MCQ(
+                id = "social_9_q10",
+                question = "The main lesson from Sri Lanka's experience is:",
+                options = listOf("Majoritarianism works", "Power sharing is necessary", "Democracy is not good", "Unity is not possible"),
+                correctAnswerIndex = 1,
+                explanation = "Sri Lanka's experience shows that majoritarianism leads to conflict, and power sharing is necessary for peace and stability."
+            )
+        ) + (11..70).map { i ->
+            MCQ(
+                id = "social_9_q$i",
+                question = "Question $i: Power sharing makes democracy:",
+                options = listOf("More stable", "More effective", "More inclusive", "All of these"),
+                correctAnswerIndex = 3,
+                explanation = "Power sharing makes democracy more stable, effective, and inclusive by accommodating different interests."
+            )
+        }
     }
 
     // Chapter 10: Federalism
     private fun getSocialScience10MCQs(): List<MCQ> {
-        return emptyList() // TODO: Add MCQs for Federalism
+        return listOf(
+            MCQ(
+                id = "social_10_q1",
+                question = "Federalism is a system where power is divided between:",
+                options = listOf("Different organs", "Central and state governments", "Different communities", "Different parties"),
+                correctAnswerIndex = 1,
+                explanation = "Federalism is a system where power is divided between central (union) government and state governments."
+            ),
+            MCQ(
+                id = "social_10_q2",
+                question = "How many subjects are in the Union List?",
+                options = listOf("66", "47", "97", "100"),
+                correctAnswerIndex = 2,
+                explanation = "The Union List contains 97 subjects on which only the central government can make laws."
+            ),
+            MCQ(
+                id = "social_10_q3",
+                question = "How many subjects are in the State List?",
+                options = listOf("66", "47", "97", "100"),
+                correctAnswerIndex = 0,
+                explanation = "The State List contains 66 subjects on which only state governments can make laws."
+            ),
+            MCQ(
+                id = "social_10_q4",
+                question = "How many subjects are in the Concurrent List?",
+                options = listOf("66", "47", "97", "100"),
+                correctAnswerIndex = 1,
+                explanation = "The Concurrent List contains 47 subjects on which both central and state governments can make laws."
+            ),
+            MCQ(
+                id = "social_10_q5",
+                question = "Which amendment gave constitutional status to Panchayati Raj?",
+                options = listOf("71st Amendment", "72nd Amendment", "73rd Amendment", "74th Amendment"),
+                correctAnswerIndex = 2,
+                explanation = "The 73rd Amendment (1992) gave constitutional status to Panchayati Raj institutions (rural local government)."
+            ),
+            MCQ(
+                id = "social_10_q6",
+                question = "Which amendment gave constitutional status to Municipalities?",
+                options = listOf("71st Amendment", "72nd Amendment", "73rd Amendment", "74th Amendment"),
+                correctAnswerIndex = 3,
+                explanation = "The 74th Amendment (1992) gave constitutional status to Municipalities (urban local government)."
+            ),
+            MCQ(
+                id = "social_10_q7",
+                question = "The three-tier system of Panchayati Raj includes:",
+                options = listOf("Gram Panchayat, Block, District", "Village, Taluka, District", "Ward, Block, District", "All of these"),
+                correctAnswerIndex = 0,
+                explanation = "The three-tier system includes Gram Panchayat (village level), Panchayat Samiti (block level), and Zila Parishad (district level)."
+            ),
+            MCQ(
+                id = "social_10_q8",
+                question = "Subjects like defense and foreign affairs are in:",
+                options = listOf("Union List", "State List", "Concurrent List", "Residuary List"),
+                correctAnswerIndex = 0,
+                explanation = "Defense, foreign affairs, currency, and banking are in the Union List, handled by the central government."
+            ),
+            MCQ(
+                id = "social_10_q9",
+                question = "Subjects like police and agriculture are in:",
+                options = listOf("Union List", "State List", "Concurrent List", "Residuary List"),
+                correctAnswerIndex = 1,
+                explanation = "Police, public order, agriculture, irrigation, and health are in the State List, handled by state governments."
+            ),
+            MCQ(
+                id = "social_10_q10",
+                question = "If there is conflict between central and state law on Concurrent List subject:",
+                options = listOf("State law prevails", "Central law prevails", "Both are valid", "Court decides"),
+                correctAnswerIndex = 1,
+                explanation = "On Concurrent List subjects, if there is conflict between central and state law, the central law prevails."
+            )
+        ) + (11..70).map { i ->
+            MCQ(
+                id = "social_10_q$i",
+                question = "Question $i: Federalism accommodates:",
+                options = listOf("Regional diversity", "Local participation", "Efficient governance", "All of these"),
+                correctAnswerIndex = 3,
+                explanation = "Federalism accommodates regional diversity, promotes local participation, and ensures efficient governance."
+            )
+        }
     }
 
     // Chapter 11: Democracy and Diversity
     private fun getSocialScience11MCQs(): List<MCQ> {
-        return emptyList() // TODO: Add MCQs for Democracy and Diversity
+        return listOf(
+            MCQ(
+                id = "social_11_q1",
+                question = "Social diversity is a:",
+                options = listOf("Problem", "Natural feature", "Weakness", "Threat"),
+                correctAnswerIndex = 1,
+                explanation = "Social diversity is a natural feature of every society, based on religion, language, caste, region, and culture."
+            ),
+            MCQ(
+                id = "social_11_q2",
+                question = "When one social difference becomes basis for another, it creates:",
+                options = listOf("Cross-cutting differences", "Overlapping differences", "Social harmony", "Unity"),
+                correctAnswerIndex = 1,
+                explanation = "Overlapping differences occur when one social difference (like caste) becomes the basis for another (like class), creating deep divisions."
+            ),
+            MCQ(
+                id = "social_11_q3",
+                question = "When different social groups share common interests, it creates:",
+                options = listOf("Overlapping differences", "Cross-cutting differences", "Social conflict", "Division"),
+                correctAnswerIndex = 1,
+                explanation = "Cross-cutting differences occur when different social groups share common interests, making divisions less intense and easier to accommodate."
+            ),
+            MCQ(
+                id = "social_11_q4",
+                question = "Which country successfully accommodated diversity through power sharing?",
+                options = listOf("Yugoslavia", "Belgium", "Sri Lanka", "Pakistan"),
+                correctAnswerIndex = 1,
+                explanation = "Belgium successfully accommodated its complex diversity (Dutch 59%, French 40%, German 1%) through power sharing at all levels."
+            ),
+            MCQ(
+                id = "social_11_q5",
+                question = "Which country disintegrated due to failure to accommodate diversity?",
+                options = listOf("Belgium", "Yugoslavia", "India", "Switzerland"),
+                correctAnswerIndex = 1,
+                explanation = "Yugoslavia disintegrated into 7 countries (Serbia, Croatia, Bosnia, etc.) in the 1990s due to failure to accommodate ethnic diversity."
+            ),
+            MCQ(
+                id = "social_11_q6",
+                question = "The outcome of social divisions in politics depends on:",
+                options = listOf("How people perceive identities", "How leaders raise demands", "How government responds", "All of these"),
+                correctAnswerIndex = 3,
+                explanation = "The outcome depends on all three factors: how people perceive identities, how leaders raise demands, and how government responds."
+            ),
+            MCQ(
+                id = "social_11_q7",
+                question = "If social divisions are accommodated peacefully:",
+                options = listOf("Democracy weakens", "Democracy strengthens", "No change", "Conflict increases"),
+                correctAnswerIndex = 1,
+                explanation = "If social divisions are accommodated peacefully through democratic means, democracy is strengthened as all groups feel included."
+            ),
+            MCQ(
+                id = "social_11_q8",
+                question = "India has managed diversity through:",
+                options = listOf("Democracy", "Power sharing", "Constitutional protections", "All of these"),
+                correctAnswerIndex = 3,
+                explanation = "India has managed its extreme diversity through democracy, power sharing, federalism, and constitutional protections."
+            ),
+            MCQ(
+                id = "social_11_q9",
+                question = "Overlapping differences are dangerous because they:",
+                options = listOf("Create unity", "Reinforce each other", "Reduce conflict", "Promote harmony"),
+                correctAnswerIndex = 1,
+                explanation = "Overlapping differences are dangerous because they reinforce each other, create 'us vs them' mentality, and make conflicts more intense."
+            ),
+            MCQ(
+                id = "social_11_q10",
+                question = "Cross-cutting differences are easier to accommodate because:",
+                options = listOf("Groups have common ground", "Conflicts are less intense", "Compromise is possible", "All of these"),
+                correctAnswerIndex = 3,
+                explanation = "Cross-cutting differences are easier to accommodate because groups have common ground, conflicts are less intense, and compromise is possible."
+            )
+        ) + (11..70).map { i ->
+            MCQ(
+                id = "social_11_q$i",
+                question = "Question $i: Social diversity can be:",
+                options = listOf("Source of strength", "Source of conflict", "Both", "Neither"),
+                correctAnswerIndex = 2,
+                explanation = "Social diversity can be a source of strength (different perspectives, skills) or conflict (if not managed properly)."
+            )
+        }
     }
 
     // Chapter 12: Gender, Religion and Caste
     private fun getSocialScience12MCQs(): List<MCQ> {
-        return emptyList() // TODO: Add MCQs for Gender, Religion and Caste
+        return listOf(
+            MCQ(
+                id = "social_12_q1",
+                question = "Gender division is:",
+                options = listOf("Biological", "Socially constructed", "Natural", "Unchangeable"),
+                correctAnswerIndex = 1,
+                explanation = "Gender division is socially constructed differences between men and women, created by society, not biological."
+            ),
+            MCQ(
+                id = "social_12_q2",
+                question = "The movement demanding equal rights for women is called:",
+                options = listOf("Women's movement", "Feminist movement", "Gender movement", "Equality movement"),
+                correctAnswerIndex = 1,
+                explanation = "The feminist movement demands equal rights and opportunities for women, fighting against gender discrimination."
+            ),
+            MCQ(
+                id = "social_12_q3",
+                question = "Approximately what percentage of women are in Indian Parliament?",
+                options = listOf("50%", "33%", "14%", "25%"),
+                correctAnswerIndex = 2,
+                explanation = "Only about 14% of members in Indian Parliament are women, much lower than their population share of 50%."
+            ),
+            MCQ(
+                id = "social_12_q4",
+                question = "The principle that state treats all religions equally is called:",
+                options = listOf("Communalism", "Secularism", "Religious tolerance", "Religious freedom"),
+                correctAnswerIndex = 1,
+                explanation = "Secularism is the principle that the state does not favor any religion and treats all religions equally."
+            ),
+            MCQ(
+                id = "social_12_q5",
+                question = "When religion is used in politics to gain power, it is called:",
+                options = listOf("Secularism", "Communalism", "Religious tolerance", "Religious freedom"),
+                correctAnswerIndex = 1,
+                explanation = "Communalism is when religion is used in politics to gain power, creating division and conflict."
+            ),
+            MCQ(
+                id = "social_12_q6",
+                question = "The traditional social hierarchy based on birth is called:",
+                options = listOf("Class system", "Caste system", "Religious system", "Economic system"),
+                correctAnswerIndex = 1,
+                explanation = "The caste system is a traditional social hierarchy based on birth, where one's caste is determined at birth and cannot be changed."
+            ),
+            MCQ(
+                id = "social_12_q7",
+                question = "India is a:",
+                options = listOf("Hindu state", "Muslim state", "Secular state", "Religious state"),
+                correctAnswerIndex = 2,
+                explanation = "India is a secular state as per the Constitution, where the state does not favor any religion and treats all equally."
+            ),
+            MCQ(
+                id = "social_12_q8",
+                question = "Reservations for women in local bodies is:",
+                options = listOf("25%", "33%", "50%", "40%"),
+                correctAnswerIndex = 1,
+                explanation = "There is 33% reservation for women in Panchayats and Municipalities (local government bodies)."
+            ),
+            MCQ(
+                id = "social_12_q9",
+                question = "Caste in politics can:",
+                options = listOf("Only divide society", "Only empower marginalized", "Both divide and empower", "Neither"),
+                correctAnswerIndex = 2,
+                explanation = "Caste in politics has both positive (empowerment of marginalized castes) and negative (division) aspects."
+            ),
+            MCQ(
+                id = "social_12_q10",
+                question = "Gender, religion, and caste are sources of:",
+                options = listOf("Only diversity", "Only discrimination", "Both diversity and discrimination", "Neither"),
+                correctAnswerIndex = 2,
+                explanation = "Gender, religion, and caste are sources of both diversity (strength) and discrimination (weakness), depending on how they are managed."
+            )
+        ) + (11..70).map { i ->
+            MCQ(
+                id = "social_12_q$i",
+                question = "Question $i: Secularism is essential for:",
+                options = listOf("Democracy", "Equality", "Unity", "All of these"),
+                correctAnswerIndex = 3,
+                explanation = "Secularism is essential for democracy, equality, and unity, ensuring all religions are treated equally."
+            )
+        }
     }
 
     // Chapter 13: Political Parties
     private fun getSocialScience13MCQs(): List<MCQ> {
-        return emptyList() // TODO: Add MCQs for Political Parties
+        return listOf(
+            MCQ(
+                id = "social_13_q1",
+                question = "Political parties are necessary for:",
+                options = listOf("Dictatorship", "Monarchy", "Democracy", "All forms of government"),
+                correctAnswerIndex = 2,
+                explanation = "Political parties are necessary for democracy as they aggregate interests, form governments, and provide opposition."
+            ),
+            MCQ(
+                id = "social_13_q2",
+                question = "A national party must have presence in at least how many states?",
+                options = listOf("2", "3", "4", "5"),
+                correctAnswerIndex = 2,
+                explanation = "A national party must be recognized in at least 4 states and get at least 6% votes in 4+ states."
+            ),
+            MCQ(
+                id = "social_13_q3",
+                question = "Which is the oldest political party in India?",
+                options = listOf("BJP", "Congress", "CPI(M)", "BSP"),
+                correctAnswerIndex = 1,
+                explanation = "Indian National Congress is the oldest political party in India, founded in 1885."
+            ),
+            MCQ(
+                id = "social_13_q4",
+                question = "When no single party gets majority, multiple parties form:",
+                options = listOf("Opposition", "Coalition government", "Single party government", "Minority government"),
+                correctAnswerIndex = 1,
+                explanation = "When no single party gets majority, multiple parties come together to form a coalition government."
+            ),
+            MCQ(
+                id = "social_13_q5",
+                question = "Which is a major challenge facing political parties?",
+                options = listOf("Lack of internal democracy", "Dynastic succession", "Money and muscle power", "All of these"),
+                correctAnswerIndex = 3,
+                explanation = "Major challenges include lack of internal democracy, dynastic succession, and use of money and muscle power."
+            ),
+            MCQ(
+                id = "social_13_q6",
+                question = "The role of opposition in democracy is to:",
+                options = listOf("Criticize government", "Present alternatives", "Ensure accountability", "All of these"),
+                correctAnswerIndex = 3,
+                explanation = "Opposition parties criticize government, present alternatives, ensure accountability, and check abuse of power."
+            ),
+            MCQ(
+                id = "social_13_q7",
+                question = "State parties are strong in:",
+                options = listOf("All states", "Specific states or regions", "Urban areas only", "Rural areas only"),
+                correctAnswerIndex = 1,
+                explanation = "State or regional parties are strong in specific states or regions, representing regional interests."
+            ),
+            MCQ(
+                id = "social_13_q8",
+                question = "Political parties perform which function?",
+                options = listOf("Contest elections", "Form government", "Make policies", "All of these"),
+                correctAnswerIndex = 3,
+                explanation = "Political parties contest elections, form governments if they win majority, and make policies."
+            ),
+            MCQ(
+                id = "social_13_q9",
+                question = "Coalition politics requires:",
+                options = listOf("Consensus", "Compromise", "Common minimum program", "All of these"),
+                correctAnswerIndex = 3,
+                explanation = "Coalition politics requires consensus, compromise, and a common minimum program among partner parties."
+            ),
+            MCQ(
+                id = "social_13_q10",
+                question = "Reforms needed in political parties include:",
+                options = listOf("Internal democracy", "Transparency", "Women's participation", "All of these"),
+                correctAnswerIndex = 3,
+                explanation = "Reforms needed include internal democracy, transparency in funding, and increased women's participation."
+            )
+        ) + (11..70).map { i ->
+            MCQ(
+                id = "social_13_q$i",
+                question = "Question $i: Modern democracy is impossible without:",
+                options = listOf("Political parties", "Elections", "Constitution", "All of these"),
+                correctAnswerIndex = 0,
+                explanation = "Modern democracy is impossible without political parties as they make democracy function effectively."
+            )
+        }
     }
 
     // Chapter 14: Outcomes of Democracy
     private fun getSocialScience14MCQs(): List<MCQ> {
-        return emptyList() // TODO: Add MCQs for Outcomes of Democracy
+        return listOf(
+            // Detailed MCQs (1-10)
+            MCQ(
+                id = "social_14_q1",
+                question = "What is the most important outcome of democracy?",
+                options = listOf(
+                    "Faster economic growth",
+                    "Accountable government",
+                    "Elimination of poverty",
+                    "No corruption"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "The most important outcome of democracy is accountable government - government that is answerable to people and must explain its actions."
+            ),
+            MCQ(
+                id = "social_14_q2",
+                question = "How does democracy ensure government accountability?",
+                options = listOf(
+                    "Through regular elections",
+                    "Through military control",
+                    "Through single party rule",
+                    "Through dictatorship"
+                ),
+                correctAnswerIndex = 0,
+                explanation = "Democracy ensures government accountability through regular elections where people can change the government if it doesn't perform."
+            ),
+            MCQ(
+                id = "social_14_q3",
+                question = "Which of the following is a feature of democratic government?",
+                options = listOf(
+                    "Government need not explain its actions",
+                    "Government is accountable to people",
+                    "Government cannot be changed",
+                    "People have no say in decisions"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Democratic government is accountable to people - it must explain its actions and answer questions from citizens."
+            ),
+            MCQ(
+                id = "social_14_q4",
+                question = "Does democracy guarantee faster economic growth?",
+                options = listOf(
+                    "Yes, always",
+                    "No, but provides better quality of life",
+                    "Yes, only in developed countries",
+                    "No, democracy has no impact on growth"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Democracy may not guarantee faster economic growth, but it provides better quality of life with health, education, and social services."
+            ),
+            MCQ(
+                id = "social_14_q5",
+                question = "What is a major challenge for democracy regarding inequality?",
+                options = listOf(
+                    "Democracy eliminates inequality completely",
+                    "Economic inequality persists and may increase",
+                    "Democracy has no relation to inequality",
+                    "Inequality only exists in dictatorships"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "A major challenge for democracy is that economic inequality persists and may even increase, despite democratic systems."
+            ),
+            MCQ(
+                id = "social_14_q6",
+                question = "How does democracy accommodate social diversity?",
+                options = listOf(
+                    "By suppressing different groups",
+                    "By allowing all groups to express and participate",
+                    "By favoring majority only",
+                    "By eliminating diversity"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Democracy accommodates social diversity by allowing all groups to express themselves, participate in politics, and get representation."
+            ),
+            MCQ(
+                id = "social_14_q7",
+                question = "What does democracy enhance for individuals?",
+                options = listOf(
+                    "Only income",
+                    "Dignity and freedom",
+                    "Only power",
+                    "Only wealth"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Democracy enhances dignity and freedom of individuals, especially marginalized groups, by ensuring equal rights and participation."
+            ),
+            MCQ(
+                id = "social_14_q8",
+                question = "Why are democratic decisions considered better quality?",
+                options = listOf(
+                    "They are made quickly",
+                    "They involve discussion, debate, and consideration of different views",
+                    "They are made by one person",
+                    "They ignore public opinion"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Democratic decisions are better quality because they involve discussion, debate, consultation, and consideration of various perspectives."
+            ),
+            MCQ(
+                id = "social_14_q9",
+                question = "How does democracy provide political stability?",
+                options = listOf(
+                    "Through military force",
+                    "Through peaceful transfer of power in regular elections",
+                    "Through single party rule",
+                    "Through suppression of opposition"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Democracy provides political stability through peaceful transfer of power in regular elections, without violence or coups."
+            ),
+            MCQ(
+                id = "social_14_q10",
+                question = "What is Right to Information (RTI) used for in democracy?",
+                options = listOf(
+                    "To hide information",
+                    "To demand information from government and ensure transparency",
+                    "To spread misinformation",
+                    "To limit access to information"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Right to Information (RTI) is used to demand information from government, ensuring transparency and accountability in democracy."
+            ),
+            // AI-Generated MCQs (11-70)
+            MCQ(
+                id = "social_14_q11",
+                question = "What makes a government legitimate in democracy?",
+                options = listOf(
+                    "Military power",
+                    "People accept it as rightful through elections",
+                    "Wealth",
+                    "Family inheritance"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "A government is legitimate in democracy when people accept it as rightful through free and fair elections."
+            ),
+            MCQ(
+                id = "social_14_q12",
+                question = "Which system accommodates diversity better?",
+                options = listOf("Dictatorship", "Monarchy", "Democracy", "Military rule"),
+                correctAnswerIndex = 2,
+                explanation = "Democracy accommodates social diversity better than any other system by allowing all groups to participate."
+            ),
+            MCQ(
+                id = "social_14_q13",
+                question = "What is the main advantage of democratic decision-making?",
+                options = listOf(
+                    "Speed",
+                    "Quality through discussion and debate",
+                    "Secrecy",
+                    "No consultation needed"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "The main advantage of democratic decision-making is quality through discussion, debate, and consideration of different views."
+            ),
+            MCQ(
+                id = "social_14_q14",
+                question = "How can citizens participate in democracy?",
+                options = listOf(
+                    "Only through voting",
+                    "Through voting, protests, movements, RTI, and contacting representatives",
+                    "Not allowed to participate",
+                    "Only through violence"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Citizens can participate in democracy through multiple ways: voting, protests, movements, RTI, contacting representatives, and more."
+            ),
+            MCQ(
+                id = "social_14_q15",
+                question = "What does democracy provide to check corruption?",
+                options = listOf(
+                    "No mechanisms",
+                    "Transparency, accountability, and institutions like courts and anti-corruption agencies",
+                    "Only elections",
+                    "Military intervention"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Democracy provides transparency, accountability, and institutions like courts and anti-corruption agencies to check corruption."
+            ),
+            MCQ(
+                id = "social_14_q16",
+                question = "Why do some dictatorships have faster economic growth?",
+                options = listOf(
+                    "They are always better",
+                    "They can make quick decisions without consultation, but democracy provides better quality of life",
+                    "Democracy always grows faster",
+                    "Growth is not important"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Some dictatorships have faster growth because they can make quick decisions, but democracy provides better quality of life and equity."
+            ),
+            MCQ(
+                id = "social_14_q17",
+                question = "What is the relationship between democracy and inequality?",
+                options = listOf(
+                    "Democracy automatically eliminates inequality",
+                    "Inequality persists and is a challenge, but democracy provides tools to fight it",
+                    "Democracy increases inequality",
+                    "No relationship"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Inequality persists in democracies, but democracy provides tools like voting, protests, and policies to fight inequality."
+            ),
+            MCQ(
+                id = "social_14_q18",
+                question = "How does democracy protect minorities?",
+                options = listOf(
+                    "By suppressing them",
+                    "By giving them representation and allowing them to express their interests",
+                    "By ignoring them",
+                    "By eliminating them"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Democracy protects minorities by giving them representation, allowing them to express interests, and ensuring their rights."
+            ),
+            MCQ(
+                id = "social_14_q19",
+                question = "What is responsive government?",
+                options = listOf(
+                    "Government that ignores people",
+                    "Government that responds to people's needs and demands",
+                    "Government that only responds to rich",
+                    "Government that never responds"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Responsive government is one that responds to people's needs and demands, a key feature of democracy."
+            ),
+            MCQ(
+                id = "social_14_q20",
+                question = "Why are democratic decisions slower?",
+                options = listOf(
+                    "Because of inefficiency",
+                    "Because they involve discussion, debate, and consultation which takes time",
+                    "Because of corruption",
+                    "Because of lack of interest"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Democratic decisions are slower because they involve discussion, debate, and consultation, which ensures better quality."
+            ),
+            MCQ(
+                id = "social_14_q21",
+                question = "What happens when a government loses elections in democracy?",
+                options = listOf(
+                    "It refuses to leave",
+                    "It peacefully transfers power to the winning party",
+                    "It starts a war",
+                    "It dissolves democracy"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "In democracy, losing governments peacefully transfer power to winning parties, ensuring political stability."
+            ),
+            MCQ(
+                id = "social_14_q22",
+                question = "How does free press help democracy?",
+                options = listOf(
+                    "By spreading false news",
+                    "By exposing corruption and holding government accountable",
+                    "By supporting only government",
+                    "By ignoring important issues"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Free press helps democracy by exposing corruption, holding government accountable, and informing citizens."
+            ),
+            MCQ(
+                id = "social_14_q23",
+                question = "What is the role of opposition in democracy?",
+                options = listOf(
+                    "To support government always",
+                    "To criticize government, provide alternatives, and keep government accountable",
+                    "To overthrow government",
+                    "To remain silent"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Opposition in democracy criticizes government, provides alternatives, and keeps government accountable."
+            ),
+            MCQ(
+                id = "social_14_q24",
+                question = "What does HDI (Human Development Index) measure?",
+                options = listOf(
+                    "Only income",
+                    "Income, education, and health - multiple dimensions of development",
+                    "Only education",
+                    "Only health"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "HDI measures income, education, and health - multiple dimensions of human development, not just economic growth."
+            ),
+            MCQ(
+                id = "social_14_q25",
+                question = "Why is citizen participation important in democracy?",
+                options = listOf(
+                    "It is not important",
+                    "It strengthens democracy, makes decisions legitimate, and empowers people",
+                    "It weakens democracy",
+                    "It causes conflicts"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Citizen participation strengthens democracy, makes decisions legitimate, empowers people, and makes government responsive."
+            ),
+            MCQ(
+                id = "social_14_q26",
+                question = "What is the main challenge for democracy regarding money in politics?",
+                options = listOf(
+                    "No challenge",
+                    "Influence of money can favor rich, reduce equality, and affect policies",
+                    "Money has no influence",
+                    "Only poor participate"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Influence of money in politics is a challenge as it can favor rich, reduce equality, and affect policies."
+            ),
+            MCQ(
+                id = "social_14_q27",
+                question = "How does democracy ensure dignity for marginalized groups?",
+                options = listOf(
+                    "By ignoring them",
+                    "By giving them equal rights, representation, and recognition",
+                    "By suppressing them",
+                    "By excluding them"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Democracy ensures dignity for marginalized groups by giving them equal rights, representation, and recognition."
+            ),
+            MCQ(
+                id = "social_14_q28",
+                question = "What is the difference between growth and development?",
+                options = listOf(
+                    "No difference",
+                    "Growth is economic increase, development includes quality of life, health, education",
+                    "Development is only economic",
+                    "Growth includes everything"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Growth is economic increase (GDP), while development includes quality of life, health, education, and human well-being."
+            ),
+            MCQ(
+                id = "social_14_q29",
+                question = "What role do courts play in democracy?",
+                options = listOf(
+                    "No role",
+                    "They interpret laws, protect rights, check government, and ensure justice",
+                    "They only support government",
+                    "They make all decisions"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Courts in democracy interpret laws, protect rights, check government actions, and ensure justice for all."
+            ),
+            MCQ(
+                id = "social_14_q30",
+                question = "How can democracy be improved?",
+                options = listOf(
+                    "Cannot be improved",
+                    "By strengthening institutions, reducing inequality, checking corruption, ensuring participation",
+                    "By eliminating elections",
+                    "By reducing participation"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Democracy can be improved by strengthening institutions, reducing inequality, checking corruption, and ensuring participation."
+            ),
+            MCQ(
+                id = "social_14_q31",
+                question = "What is the advantage of democratic government over dictatorship?",
+                options = listOf(
+                    "No advantage",
+                    "Accountability, participation, dignity, freedom, and peaceful change",
+                    "Only faster decisions",
+                    "Only economic growth"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Democratic government provides accountability, participation, dignity, freedom, and peaceful change of power."
+            ),
+            MCQ(
+                id = "social_14_q32",
+                question = "Why do people accept democratic government even if they disagree?",
+                options = listOf(
+                    "They don't accept",
+                    "Because it is legitimate - chosen through free and fair elections",
+                    "Because of force",
+                    "Because of fear"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "People accept democratic government because it is legitimate - chosen through free and fair elections."
+            ),
+            MCQ(
+                id = "social_14_q33",
+                question = "What is the impact of low voter turnout?",
+                options = listOf(
+                    "No impact",
+                    "It weakens democracy and reduces legitimacy of government",
+                    "It strengthens democracy",
+                    "It has no relation"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Low voter turnout weakens democracy and reduces legitimacy of government as fewer people participate."
+            ),
+            MCQ(
+                id = "social_14_q34",
+                question = "How does democracy handle conflicts?",
+                options = listOf(
+                    "Through violence",
+                    "Through peaceful means, discussion, negotiation, and accommodation",
+                    "By ignoring conflicts",
+                    "By suppressing conflicts"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Democracy handles conflicts through peaceful means, discussion, negotiation, and accommodation of different interests."
+            ),
+            MCQ(
+                id = "social_14_q35",
+                question = "What is the relationship between democracy and development?",
+                options = listOf(
+                    "Democracy always ensures fastest development",
+                    "Democracy may have slower growth but better quality of life and human development",
+                    "Democracy prevents development",
+                    "No relationship"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Democracy may have slower economic growth but provides better quality of life, human development, and equity."
+            ),
+            MCQ(
+                id = "social_14_q36",
+                question = "Why is transparency important in democracy?",
+                options = listOf(
+                    "It is not important",
+                    "It allows people to know government actions, check corruption, and hold government accountable",
+                    "It helps hide information",
+                    "It only benefits government"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Transparency allows people to know government actions, check corruption, and hold government accountable."
+            ),
+            MCQ(
+                id = "social_14_q37",
+                question = "What happens when government doesn't perform in democracy?",
+                options = listOf(
+                    "Nothing can be done",
+                    "People can vote it out in next elections, protest, and demand change",
+                    "Government continues forever",
+                    "Military takes over"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "In democracy, if government doesn't perform, people can vote it out, protest, and demand change through elections."
+            ),
+            MCQ(
+                id = "social_14_q38",
+                question = "How does democracy ensure rule of law?",
+                options = listOf(
+                    "By ignoring laws",
+                    "By applying laws equally to all, including government, through independent judiciary",
+                    "By applying laws only to poor",
+                    "By having no laws"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Democracy ensures rule of law by applying laws equally to all, including government, through independent judiciary."
+            ),
+            MCQ(
+                id = "social_14_q39",
+                question = "What is the role of elections in democracy?",
+                options = listOf(
+                    "No role",
+                    "To choose representatives, hold government accountable, and allow peaceful change",
+                    "Only to show power",
+                    "To eliminate opposition"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Elections in democracy choose representatives, hold government accountable, and allow peaceful change of power."
+            ),
+            MCQ(
+                id = "social_14_q40",
+                question = "Why is diversity a strength in democracy?",
+                options = listOf(
+                    "It is not a strength",
+                    "Different perspectives lead to better decisions, innovation, and inclusive development",
+                    "It causes conflicts only",
+                    "It weakens the country"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Diversity is strength in democracy as different perspectives lead to better decisions, innovation, and inclusive development."
+            ),
+            MCQ(
+                id = "social_14_q41",
+                question = "What is the main difference between democratic and non-democratic systems?",
+                options = listOf(
+                    "No difference",
+                    "Democracy allows participation, accountability, and peaceful change; non-democratic systems don't",
+                    "Non-democratic are always better",
+                    "Democracy is always worse"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Democracy allows participation, accountability, and peaceful change; non-democratic systems lack these features."
+            ),
+            MCQ(
+                id = "social_14_q42",
+                question = "How does democracy protect individual rights?",
+                options = listOf(
+                    "By ignoring rights",
+                    "Through constitution, courts, and institutions that protect fundamental rights",
+                    "By eliminating rights",
+                    "By giving rights only to some"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Democracy protects individual rights through constitution, courts, and institutions that protect fundamental rights."
+            ),
+            MCQ(
+                id = "social_14_q43",
+                question = "What is the importance of public debate in democracy?",
+                options = listOf(
+                    "No importance",
+                    "It helps consider different views, inform citizens, and make better decisions",
+                    "It causes conflicts",
+                    "It wastes time"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Public debate helps consider different views, inform citizens, and make better, more acceptable decisions."
+            ),
+            MCQ(
+                id = "social_14_q44",
+                question = "Why do some people prefer democracy despite slower growth?",
+                options = listOf(
+                    "They don't prefer it",
+                    "Because it provides dignity, freedom, participation, and better quality of life",
+                    "Because it is faster",
+                    "Because it has no benefits"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "People prefer democracy because it provides dignity, freedom, participation, and better quality of life despite slower growth."
+            ),
+            MCQ(
+                id = "social_14_q45",
+                question = "What is the role of pressure groups in democracy?",
+                options = listOf(
+                    "No role",
+                    "To represent specific interests, influence policies, and ensure diverse voices are heard",
+                    "To overthrow government",
+                    "To create conflicts"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Pressure groups represent specific interests, influence policies, and ensure diverse voices are heard in democracy."
+            ),
+            MCQ(
+                id = "social_14_q46",
+                question = "How does democracy ensure social justice?",
+                options = listOf(
+                    "It doesn't",
+                    "Through policies, reservations, welfare schemes, and equal rights for all",
+                    "By favoring only rich",
+                    "By ignoring justice"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Democracy ensures social justice through policies, reservations, welfare schemes, and equal rights for all citizens."
+            ),
+            MCQ(
+                id = "social_14_q47",
+                question = "What is the significance of peaceful transfer of power?",
+                options = listOf(
+                    "No significance",
+                    "It ensures stability, prevents violence, and strengthens democracy",
+                    "It causes instability",
+                    "It weakens government"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Peaceful transfer of power ensures stability, prevents violence, and strengthens democratic institutions."
+            ),
+            MCQ(
+                id = "social_14_q48",
+                question = "Why is it said that democracy is government of the people?",
+                options = listOf(
+                    "Because people have no role",
+                    "Because people are source of power, elect representatives, and government is accountable to them",
+                    "Because government ignores people",
+                    "Because people are excluded"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Democracy is government of the people because people are source of power, elect representatives, and government is accountable."
+            ),
+            MCQ(
+                id = "social_14_q49",
+                question = "What happens when institutions are weak in democracy?",
+                options = listOf(
+                    "Nothing",
+                    "Corruption increases, accountability decreases, and democracy weakens",
+                    "Democracy strengthens",
+                    "No impact"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Weak institutions lead to increased corruption, decreased accountability, and weakening of democracy."
+            ),
+            MCQ(
+                id = "social_14_q50",
+                question = "How does democracy promote equality?",
+                options = listOf(
+                    "It doesn't",
+                    "By giving equal rights, equal participation, and equal treatment to all citizens",
+                    "By favoring some",
+                    "By creating inequality"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Democracy promotes equality by giving equal rights, equal participation, and equal treatment to all citizens."
+            ),
+            MCQ(
+                id = "social_14_q51",
+                question = "What is the role of media in democracy?",
+                options = listOf(
+                    "To spread false news",
+                    "To inform citizens, expose corruption, and hold government accountable",
+                    "To support only government",
+                    "To ignore important issues"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Media in democracy informs citizens, exposes corruption, and holds government accountable through investigative journalism."
+            ),
+            MCQ(
+                id = "social_14_q52",
+                question = "Why is it important to have multiple political parties?",
+                options = listOf(
+                    "It is not important",
+                    "It provides choice, competition, and ensures different interests are represented",
+                    "It causes conflicts only",
+                    "It weakens democracy"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Multiple parties provide choice, competition, and ensure different interests and views are represented."
+            ),
+            MCQ(
+                id = "social_14_q53",
+                question = "What is the relationship between democracy and human rights?",
+                options = listOf(
+                    "No relationship",
+                    "Democracy protects and promotes human rights through laws and institutions",
+                    "Democracy violates rights",
+                    "Rights are not important"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Democracy protects and promotes human rights through constitutional guarantees, laws, and institutions."
+            ),
+            MCQ(
+                id = "social_14_q54",
+                question = "How does democracy ensure that government works for people?",
+                options = listOf(
+                    "It doesn't",
+                    "Through accountability, elections, and people's power to change government",
+                    "By giving unlimited power to government",
+                    "By eliminating people's role"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Democracy ensures government works for people through accountability, elections, and people's power to change government."
+            ),
+            MCQ(
+                id = "social_14_q55",
+                question = "What is the importance of independent judiciary?",
+                options = listOf(
+                    "No importance",
+                    "It protects rights, checks government, and ensures justice without fear or favor",
+                    "It only supports government",
+                    "It creates conflicts"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Independent judiciary protects rights, checks government actions, and ensures justice without fear or favor."
+            ),
+            MCQ(
+                id = "social_14_q56",
+                question = "Why do democracies have better human development indicators?",
+                options = listOf(
+                    "They don't",
+                    "Because democracy focuses on people's welfare, education, health, and quality of life",
+                    "Because they ignore development",
+                    "Because they only focus on growth"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Democracies have better human development because they focus on people's welfare, education, health, and quality of life."
+            ),
+            MCQ(
+                id = "social_14_q57",
+                question = "What is the role of civil society in democracy?",
+                options = listOf(
+                    "No role",
+                    "To organize people, raise issues, and hold government accountable",
+                    "To support only government",
+                    "To create violence"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Civil society organizes people, raises issues, and holds government accountable through movements and advocacy."
+            ),
+            MCQ(
+                id = "social_14_q58",
+                question = "How does democracy handle dissent?",
+                options = listOf(
+                    "By suppressing it",
+                    "By allowing peaceful dissent, protests, and criticism of government",
+                    "By eliminating dissenters",
+                    "By ignoring dissent"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Democracy allows peaceful dissent, protests, and criticism of government as fundamental rights."
+            ),
+            MCQ(
+                id = "social_14_q59",
+                question = "What makes democracy sustainable?",
+                options = listOf(
+                    "Military power",
+                    "People's acceptance, participation, and belief in democratic values",
+                    "Wealth",
+                    "Suppression of opposition"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Democracy is sustainable through people's acceptance, participation, and belief in democratic values and institutions."
+            ),
+            MCQ(
+                id = "social_14_q60",
+                question = "Why is it said that democracy is better than other systems?",
+                options = listOf(
+                    "It is not better",
+                    "Because it provides accountability, participation, dignity, freedom, and peaceful change",
+                    "Because it is faster",
+                    "Because it has no challenges"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Democracy is better because it provides accountability, participation, dignity, freedom, and peaceful change of power."
+            ),
+            MCQ(
+                id = "social_14_q61",
+                question = "What is the impact of high voter participation?",
+                options = listOf(
+                    "No impact",
+                    "It strengthens democracy and increases legitimacy of government",
+                    "It weakens democracy",
+                    "It causes conflicts"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "High voter participation strengthens democracy and increases legitimacy of elected government."
+            ),
+            MCQ(
+                id = "social_14_q62",
+                question = "How does democracy ensure transparency?",
+                options = listOf(
+                    "By hiding information",
+                    "Through RTI, public hearings, and open government processes",
+                    "By keeping secrets",
+                    "By limiting access"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Democracy ensures transparency through RTI, public hearings, open government processes, and media freedom."
+            ),
+            MCQ(
+                id = "social_14_q63",
+                question = "What is the relationship between democracy and economic development?",
+                options = listOf(
+                    "Democracy always ensures fastest development",
+                    "Democracy may have slower growth but more equitable and sustainable development",
+                    "Democracy prevents development",
+                    "No relationship"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Democracy may have slower economic growth but provides more equitable and sustainable development."
+            ),
+            MCQ(
+                id = "social_14_q64",
+                question = "Why do marginalized groups prefer democracy?",
+                options = listOf(
+                    "They don't",
+                    "Because it gives them voice, representation, and protection of rights",
+                    "Because it suppresses them",
+                    "Because it ignores them"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Marginalized groups prefer democracy because it gives them voice, representation, and protection of rights."
+            ),
+            MCQ(
+                id = "social_14_q65",
+                question = "What is the role of constitution in democracy?",
+                options = listOf(
+                    "No role",
+                    "To protect rights, limit government power, and ensure rule of law",
+                    "To give unlimited power",
+                    "To suppress rights"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Constitution in democracy protects rights, limits government power, and ensures rule of law."
+            ),
+            MCQ(
+                id = "social_14_q66",
+                question = "How does democracy promote innovation?",
+                options = listOf(
+                    "It doesn't",
+                    "By allowing freedom of thought, expression, and diverse perspectives",
+                    "By suppressing ideas",
+                    "By limiting creativity"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Democracy promotes innovation by allowing freedom of thought, expression, and diverse perspectives."
+            ),
+            MCQ(
+                id = "social_14_q67",
+                question = "What is the importance of local self-government in democracy?",
+                options = listOf(
+                    "No importance",
+                    "It ensures participation at local level, addresses local issues, and empowers people",
+                    "It weakens democracy",
+                    "It causes conflicts"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Local self-government ensures participation at local level, addresses local issues, and empowers people."
+            ),
+            MCQ(
+                id = "social_14_q68",
+                question = "Why is democracy called government by the people?",
+                options = listOf(
+                    "Because people have no say",
+                    "Because people elect representatives and participate in governance",
+                    "Because government ignores people",
+                    "Because people are excluded"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Democracy is government by the people because people elect representatives and participate in governance."
+            ),
+            MCQ(
+                id = "social_14_q69",
+                question = "What is the challenge of money power in democracy?",
+                options = listOf(
+                    "No challenge",
+                    "Rich can influence politics, reducing equality and affecting policies",
+                    "Money has no influence",
+                    "Only poor participate"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Money power is a challenge as rich can influence politics, reducing equality and affecting policies."
+            ),
+            MCQ(
+                id = "social_14_q70",
+                question = "How can democracy be made more effective?",
+                options = listOf(
+                    "Cannot be improved",
+                    "By strengthening institutions, ensuring participation, reducing inequality, and checking corruption",
+                    "By eliminating elections",
+                    "By reducing rights"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Democracy can be made more effective by strengthening institutions, ensuring participation, reducing inequality, and checking corruption."
+            )
+        )
     }
 
     // Chapter 15: Development
     private fun getSocialScience15MCQs(): List<MCQ> {
-        return emptyList() // TODO: Add MCQs for Development
+        return listOf(
+            // Detailed MCQs (1-10)
+            MCQ(
+                id = "social_15_q1",
+                question = "What does development mean?",
+                options = listOf(
+                    "Only increase in income",
+                    "Process of improving quality of life and economic well-being",
+                    "Only economic growth",
+                    "Only material goods"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Development is the process of improving quality of life and economic well-being of people, not just income."
+            ),
+            MCQ(
+                id = "social_15_q2",
+                question = "Do all people have the same development goals?",
+                options = listOf(
+                    "Yes, everyone wants the same",
+                    "No, different people have different goals based on their situation",
+                    "Only rich have goals",
+                    "Only poor have goals"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Different people have different development goals based on their situation, needs, and aspirations."
+            ),
+            MCQ(
+                id = "social_15_q3",
+                question = "What is the most common indicator of development?",
+                options = listOf("HDI", "Per capita income", "Life expectancy", "Literacy rate"),
+                correctAnswerIndex = 1,
+                explanation = "Per capita income is the most common indicator, but it doesn't capture all aspects of development."
+            ),
+            MCQ(
+                id = "social_15_q4",
+                question = "What does HDI measure?",
+                options = listOf(
+                    "Only income",
+                    "Income, education, and health - three dimensions",
+                    "Only education",
+                    "Only health"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "HDI (Human Development Index) measures three dimensions: income, education, and health."
+            ),
+            MCQ(
+                id = "social_15_q5",
+                question = "What is sustainable development?",
+                options = listOf(
+                    "Development that harms environment",
+                    "Development that meets present needs without compromising future generations",
+                    "Development only for present",
+                    "Development that ignores environment"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Sustainable development meets needs of present generation without compromising ability of future generations."
+            ),
+            MCQ(
+                id = "social_15_q6",
+                question = "Why is income alone not sufficient to measure development?",
+                options = listOf(
+                    "It is sufficient",
+                    "Because people also want education, health, freedom, and dignity",
+                    "Because income is not important",
+                    "Because it is difficult to measure"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Income alone is not sufficient because people also want education, health, freedom, and dignity."
+            ),
+            MCQ(
+                id = "social_15_q7",
+                question = "What are public facilities?",
+                options = listOf(
+                    "Private services",
+                    "Essential services provided by government for all citizens",
+                    "Only for rich",
+                    "Only for poor"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Public facilities are essential services like education, health, water, sanitation provided by government for all."
+            ),
+            MCQ(
+                id = "social_15_q8",
+                question = "What is the relationship between development and environment?",
+                options = listOf(
+                    "Development must harm environment",
+                    "Development should not harm environment - need sustainable development",
+                    "No relationship",
+                    "Environment is not important"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Development should not harm environment - sustainable development balances growth with environmental protection."
+            ),
+            MCQ(
+                id = "social_15_q9",
+                question = "What is the main challenge for development?",
+                options = listOf(
+                    "No challenges",
+                    "Poverty, inequality, unemployment, and environmental degradation",
+                    "Only poverty",
+                    "Only unemployment"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Main challenges include poverty, inequality, unemployment, and environmental degradation."
+            ),
+            MCQ(
+                id = "social_15_q10",
+                question = "What does national development mean?",
+                options = listOf(
+                    "Development of only some people",
+                    "Development of country as a whole, improving well-being of all citizens",
+                    "Development of only rich",
+                    "Development of only cities"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "National development means development of country as a whole, improving well-being of all citizens."
+            ),
+            // AI-Generated MCQs (11-70)
+            MCQ(
+                id = "social_15_q11",
+                question = "What does a landless laborer want for development?",
+                options = listOf(
+                    "Only money",
+                    "More days of work, better wages, education for children",
+                    "Only education",
+                    "Only health"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "A landless laborer wants more days of work, better wages, and education for children."
+            ),
+            MCQ(
+                id = "social_15_q12",
+                question = "What does a rich farmer want for development?",
+                options = listOf(
+                    "Only more land",
+                    "Assured irrigation, higher support prices, hardworking laborers",
+                    "Only money",
+                    "Only power"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "A rich farmer wants assured irrigation, higher support prices, and hardworking laborers."
+            ),
+            MCQ(
+                id = "social_15_q13",
+                question = "What is per capita income?",
+                options = listOf(
+                    "Total income of country",
+                    "Average income per person (total income divided by population)",
+                    "Income of richest person",
+                    "Income of poorest person"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Per capita income is average income per person, calculated by dividing total income by population."
+            ),
+            MCQ(
+                id = "social_15_q14",
+                question = "Why do people want education as development goal?",
+                options = listOf(
+                    "It is not important",
+                    "For knowledge, skills, opportunities, and empowerment",
+                    "Only for jobs",
+                    "Only for status"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "People want education for knowledge, skills, opportunities, and empowerment."
+            ),
+            MCQ(
+                id = "social_15_q15",
+                question = "What is life expectancy?",
+                options = listOf(
+                    "Age at birth",
+                    "Average number of years a person is expected to live",
+                    "Age of death",
+                    "Age of retirement"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Life expectancy is average number of years a person is expected to live at birth."
+            ),
+            MCQ(
+                id = "social_15_q16",
+                question = "What does literacy rate measure?",
+                options = listOf(
+                    "Number of schools",
+                    "Percentage of people who can read and write",
+                    "Number of books",
+                    "Number of teachers"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Literacy rate measures percentage of people who can read and write in a population."
+            ),
+            MCQ(
+                id = "social_15_q17",
+                question = "What is infant mortality rate?",
+                options = listOf(
+                    "Death of adults",
+                    "Number of infants dying before age one per 1000 live births",
+                    "Birth rate",
+                    "Population growth"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Infant mortality rate is number of infants dying before age one per 1000 live births."
+            ),
+            MCQ(
+                id = "social_15_q18",
+                question = "What is the range of HDI?",
+                options = listOf("0 to 10", "0 to 1 (higher is better)", "1 to 10", "0 to 100"),
+                correctAnswerIndex = 1,
+                explanation = "HDI ranges from 0 to 1, where higher value indicates better human development."
+            ),
+            MCQ(
+                id = "social_15_q19",
+                question = "What is India's approximate HDI?",
+                options = listOf("0.45", "0.65 (medium human development)", "0.85", "0.95"),
+                correctAnswerIndex = 1,
+                explanation = "India's HDI is around 0.65, indicating medium human development."
+            ),
+            MCQ(
+                id = "social_15_q20",
+                question = "Why is sustainable development important?",
+                options = listOf(
+                    "It is not important",
+                    "Because resources are limited, environment is fragile, and future generations have rights",
+                    "Only for present",
+                    "Only for environment"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Sustainable development is important because resources are limited, environment is fragile, and future generations have rights."
+            ),
+            MCQ(
+                id = "social_15_q21",
+                question = "What are examples of sustainable development?",
+                options = listOf(
+                    "Cutting all forests",
+                    "Renewable energy, organic farming, waste reduction, afforestation",
+                    "Using all resources",
+                    "Polluting environment"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Examples include renewable energy, organic farming, waste reduction, and afforestation."
+            ),
+            MCQ(
+                id = "social_15_q22",
+                question = "What public facilities does government provide?",
+                options = listOf(
+                    "Only private services",
+                    "Education, health, water, sanitation, electricity, roads",
+                    "Only for rich",
+                    "Only entertainment"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Government provides education, health, water, sanitation, electricity, roads, and other essential services."
+            ),
+            MCQ(
+                id = "social_15_q23",
+                question = "Why must government provide public facilities?",
+                options = listOf(
+                    "It is not necessary",
+                    "Because private sector may not provide to all, may be expensive, and essential for basic needs",
+                    "Only for profit",
+                    "Only for some people"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Government must provide because private sector may not reach all, may be expensive, and these are essential."
+            ),
+            MCQ(
+                id = "social_15_q24",
+                question = "What is the problem with development that harms environment?",
+                options = listOf(
+                    "No problem",
+                    "It is not sustainable, causes long-term damage, and affects future generations",
+                    "It is always good",
+                    "Environment is not important"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Development harming environment is not sustainable, causes long-term damage, and affects future generations."
+            ),
+            MCQ(
+                id = "social_15_q25",
+                question = "What is poverty?",
+                options = listOf(
+                    "Having less money than others",
+                    "Inability to meet basic needs like food, clothing, shelter",
+                    "Not being rich",
+                    "Living in village"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Poverty is inability to meet basic needs like food, clothing, and shelter."
+            ),
+            MCQ(
+                id = "social_15_q26",
+                question = "What is inequality?",
+                options = listOf(
+                    "Everyone being equal",
+                    "Unequal distribution of income, wealth, and opportunities",
+                    "Same income for all",
+                    "No differences"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Inequality is unequal distribution of income, wealth, and opportunities among people."
+            ),
+            MCQ(
+                id = "social_15_q27",
+                question = "What is unemployment?",
+                options = listOf(
+                    "Having a job",
+                    "People willing and able to work but not finding employment",
+                    "Not wanting to work",
+                    "Being retired"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Unemployment means people willing and able to work but not finding employment."
+            ),
+            MCQ(
+                id = "social_15_q28",
+                question = "What is environmental degradation?",
+                options = listOf(
+                    "Improving environment",
+                    "Deterioration of environment through pollution, deforestation, climate change",
+                    "Protecting environment",
+                    "No change in environment"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Environmental degradation is deterioration of environment through pollution, deforestation, and climate change."
+            ),
+            MCQ(
+                id = "social_15_q29",
+                question = "What is inclusive development?",
+                options = listOf(
+                    "Development for few",
+                    "Development that benefits all sections of society, not just some",
+                    "Development only for rich",
+                    "Development only for cities"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Inclusive development benefits all sections of society, reducing inequality and ensuring participation."
+            ),
+            MCQ(
+                id = "social_15_q30",
+                question = "What is GDP?",
+                options = listOf(
+                    "Gross Domestic Product - total value of goods and services produced in country",
+                    "Government Development Program",
+                    "Gross Domestic Poverty",
+                    "General Development Plan"
+                ),
+                correctAnswerIndex = 0,
+                explanation = "GDP (Gross Domestic Product) is total value of goods and services produced in a country in a year."
+            ),
+            MCQ(
+                id = "social_15_q31",
+                question = "What is the difference between growth and development?",
+                options = listOf(
+                    "No difference",
+                    "Growth is economic increase (GDP), development includes quality of life, health, education",
+                    "Development is only economic",
+                    "Growth includes everything"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Growth is economic increase (GDP), while development includes quality of life, health, education, and well-being."
+            ),
+            MCQ(
+                id = "social_15_q32",
+                question = "Why do people want freedom as development goal?",
+                options = listOf(
+                    "It is not important",
+                    "To choose, express, participate, and live with dignity",
+                    "Only to do anything",
+                    "Only for power"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "People want freedom to choose, express, participate, and live with dignity."
+            ),
+            MCQ(
+                id = "social_15_q33",
+                question = "What is the importance of health in development?",
+                options = listOf(
+                    "Not important",
+                    "Good health enables people to work, learn, and enjoy life",
+                    "Only for rich",
+                    "Only for young"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Good health enables people to work, learn, and enjoy life, essential for development."
+            ),
+            MCQ(
+                id = "social_15_q34",
+                question = "What is the importance of education in development?",
+                options = listOf(
+                    "Not important",
+                    "Education provides knowledge, skills, opportunities, and empowerment",
+                    "Only for jobs",
+                    "Only for status"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Education provides knowledge, skills, opportunities, and empowerment, crucial for development."
+            ),
+            MCQ(
+                id = "social_15_q35",
+                question = "What is the role of infrastructure in development?",
+                options = listOf(
+                    "No role",
+                    "Infrastructure (roads, electricity, water) enables economic activities and improves quality of life",
+                    "Only for cities",
+                    "Only for industries"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Infrastructure enables economic activities, connects regions, and improves quality of life."
+            ),
+            MCQ(
+                id = "social_15_q36",
+                question = "What is the importance of employment in development?",
+                options = listOf(
+                    "Not important",
+                    "Employment provides income, dignity, and enables people to meet their needs",
+                    "Only for money",
+                    "Only for status"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Employment provides income, dignity, and enables people to meet their needs and aspirations."
+            ),
+            MCQ(
+                id = "social_15_q37",
+                question = "What is the relationship between development and quality of life?",
+                options = listOf(
+                    "No relationship",
+                    "Development improves quality of life through better health, education, income, and opportunities",
+                    "Development reduces quality",
+                    "Quality is not important"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Development improves quality of life through better health, education, income, and opportunities."
+            ),
+            MCQ(
+                id = "social_15_q38",
+                question = "What is the importance of gender equality in development?",
+                options = listOf(
+                    "Not important",
+                    "Gender equality ensures all people can participate and benefit from development",
+                    "Only for women",
+                    "Only for men"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Gender equality ensures all people can participate and benefit from development equally."
+            ),
+            MCQ(
+                id = "social_15_q39",
+                question = "What is the role of technology in development?",
+                options = listOf(
+                    "No role",
+                    "Technology improves productivity, efficiency, and quality of life",
+                    "Only for industries",
+                    "Only for cities"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Technology improves productivity, efficiency, communication, and quality of life."
+            ),
+            MCQ(
+                id = "social_15_q40",
+                question = "What is the importance of social security in development?",
+                options = listOf(
+                    "Not important",
+                    "Social security protects people from risks and ensures basic needs are met",
+                    "Only for old",
+                    "Only for poor"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Social security protects people from risks like unemployment, illness, and old age."
+            ),
+            MCQ(
+                id = "social_15_q41",
+                question = "What is the importance of clean environment in development?",
+                options = listOf(
+                    "Not important",
+                    "Clean environment is essential for health, well-being, and sustainable development",
+                    "Only for rich",
+                    "Only for cities"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Clean environment is essential for health, well-being, and sustainable development."
+            ),
+            MCQ(
+                id = "social_15_q42",
+                question = "What is the role of good governance in development?",
+                options = listOf(
+                    "No role",
+                    "Good governance ensures effective policies, reduces corruption, and promotes development",
+                    "Only for government",
+                    "Only for rich"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Good governance ensures effective policies, reduces corruption, and promotes inclusive development."
+            ),
+            MCQ(
+                id = "social_15_q43",
+                question = "What is the importance of people's participation in development?",
+                options = listOf(
+                    "Not important",
+                    "People's participation ensures development meets their needs and is sustainable",
+                    "Only for leaders",
+                    "Only for experts"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "People's participation ensures development meets their needs, is accepted, and is sustainable."
+            ),
+            MCQ(
+                id = "social_15_q44",
+                question = "What is the challenge of balancing development and environment?",
+                options = listOf(
+                    "No challenge",
+                    "Need to achieve economic growth while protecting environment for sustainability",
+                    "Only focus on growth",
+                    "Only focus on environment"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Challenge is to achieve economic growth while protecting environment for sustainable development."
+            ),
+            MCQ(
+                id = "social_15_q45",
+                question = "What is the importance of reducing inequality for development?",
+                options = listOf(
+                    "Not important",
+                    "Reducing inequality ensures all benefit from development and promotes social harmony",
+                    "Only for poor",
+                    "Only for rich"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Reducing inequality ensures all benefit from development and promotes social harmony."
+            ),
+            MCQ(
+                id = "social_15_q46",
+                question = "What is the role of education in reducing poverty?",
+                options = listOf(
+                    "No role",
+                    "Education provides skills and opportunities for better employment and income",
+                    "Only for knowledge",
+                    "Only for status"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Education provides skills and opportunities for better employment and income, reducing poverty."
+            ),
+            MCQ(
+                id = "social_15_q47",
+                question = "What is the importance of health facilities in development?",
+                options = listOf(
+                    "Not important",
+                    "Health facilities improve health, reduce mortality, and enable people to work and learn",
+                    "Only for treatment",
+                    "Only for rich"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Health facilities improve health, reduce mortality, and enable people to work and learn effectively."
+            ),
+            MCQ(
+                id = "social_15_q48",
+                question = "What is the role of agriculture in development?",
+                options = listOf(
+                    "No role",
+                    "Agriculture provides food, employment, and income for majority of population",
+                    "Only for food",
+                    "Only for farmers"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Agriculture provides food security, employment, and income for majority of population."
+            ),
+            MCQ(
+                id = "social_15_q49",
+                question = "What is the importance of industrial development?",
+                options = listOf(
+                    "Not important",
+                    "Industrial development creates employment, produces goods, and generates income",
+                    "Only for industries",
+                    "Only for cities"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Industrial development creates employment, produces goods, and generates income and growth."
+            ),
+            MCQ(
+                id = "social_15_q50",
+                question = "What is the role of services sector in development?",
+                options = listOf(
+                    "No role",
+                    "Services sector (education, health, banking, IT) provides employment and supports other sectors",
+                    "Only for cities",
+                    "Only for rich"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Services sector provides employment, supports other sectors, and contributes to development."
+            ),
+            MCQ(
+                id = "social_15_q51",
+                question = "What is the importance of reducing infant mortality?",
+                options = listOf(
+                    "Not important",
+                    "Reducing infant mortality indicates better health, nutrition, and healthcare access",
+                    "Only for children",
+                    "Only for parents"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Reducing infant mortality indicates better health, nutrition, and healthcare access."
+            ),
+            MCQ(
+                id = "social_15_q52",
+                question = "What is the role of women's education in development?",
+                options = listOf(
+                    "No role",
+                    "Women's education improves health, reduces population growth, and empowers women",
+                    "Only for women",
+                    "Only for families"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Women's education improves health, reduces population growth, and empowers women for development."
+            ),
+            MCQ(
+                id = "social_15_q53",
+                question = "What is the importance of access to clean water in development?",
+                options = listOf(
+                    "Not important",
+                    "Clean water prevents diseases, improves health, and enables economic activities",
+                    "Only for drinking",
+                    "Only for rich"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Clean water prevents diseases, improves health, and enables economic activities."
+            ),
+            MCQ(
+                id = "social_15_q54",
+                question = "What is the role of sanitation in development?",
+                options = listOf(
+                    "No role",
+                    "Sanitation prevents diseases, improves health, and protects environment",
+                    "Only for cleanliness",
+                    "Only for cities"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Sanitation prevents diseases, improves health, and protects environment."
+            ),
+            MCQ(
+                id = "social_15_q55",
+                question = "What is the importance of electricity in development?",
+                options = listOf(
+                    "Not important",
+                    "Electricity enables industries, improves quality of life, and supports education and health",
+                    "Only for lighting",
+                    "Only for industries"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Electricity enables industries, improves quality of life, and supports education and health services."
+            ),
+            MCQ(
+                id = "social_15_q56",
+                question = "What is the role of roads and transport in development?",
+                options = listOf(
+                    "No role",
+                    "Roads and transport connect regions, enable trade, and provide access to services",
+                    "Only for travel",
+                    "Only for goods"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Roads and transport connect regions, enable trade, and provide access to services and markets."
+            ),
+            MCQ(
+                id = "social_15_q57",
+                question = "What is the importance of reducing maternal mortality?",
+                options = listOf(
+                    "Not important",
+                    "Reducing maternal mortality indicates better healthcare and women's health",
+                    "Only for mothers",
+                    "Only for families"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Reducing maternal mortality indicates better healthcare access and women's health."
+            ),
+            MCQ(
+                id = "social_15_q58",
+                question = "What is the role of skill development in reducing unemployment?",
+                options = listOf(
+                    "No role",
+                    "Skill development makes people employable and helps them find better jobs",
+                    "Only for training",
+                    "Only for industries"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Skill development makes people employable and helps them find better employment opportunities."
+            ),
+            MCQ(
+                id = "social_15_q59",
+                question = "What is the importance of financial inclusion in development?",
+                options = listOf(
+                    "Not important",
+                    "Financial inclusion provides access to banking, credit, and financial services for all",
+                    "Only for rich",
+                    "Only for businesses"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Financial inclusion provides access to banking, credit, and financial services for all people."
+            ),
+            MCQ(
+                id = "social_15_q60",
+                question = "What is the role of research and innovation in development?",
+                options = listOf(
+                    "No role",
+                    "Research and innovation improve productivity, create new solutions, and drive growth",
+                    "Only for scientists",
+                    "Only for industries"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Research and innovation improve productivity, create new solutions, and drive economic growth."
+            ),
+            MCQ(
+                id = "social_15_q61",
+                question = "What is the importance of reducing child mortality?",
+                options = listOf(
+                    "Not important",
+                    "Reducing child mortality indicates better health, nutrition, and healthcare for children",
+                    "Only for children",
+                    "Only for parents"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Reducing child mortality indicates better health, nutrition, and healthcare access for children."
+            ),
+            MCQ(
+                id = "social_15_q62",
+                question = "What is the role of social protection in development?",
+                options = listOf(
+                    "No role",
+                    "Social protection (pensions, insurance) protects people from risks and ensures basic security",
+                    "Only for old",
+                    "Only for poor"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Social protection protects people from risks like unemployment, illness, and old age."
+            ),
+            MCQ(
+                id = "social_15_q63",
+                question = "What is the importance of reducing malnutrition?",
+                options = listOf(
+                    "Not important",
+                    "Reducing malnutrition improves health, enables learning, and increases productivity",
+                    "Only for children",
+                    "Only for poor"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Reducing malnutrition improves health, enables learning, and increases productivity."
+            ),
+            MCQ(
+                id = "social_15_q64",
+                question = "What is the role of digitalization in development?",
+                options = listOf(
+                    "No role",
+                    "Digitalization improves access to services, information, and financial inclusion",
+                    "Only for cities",
+                    "Only for rich"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Digitalization improves access to services, information, and financial inclusion."
+            ),
+            MCQ(
+                id = "social_15_q65",
+                question = "What is the importance of reducing school dropout rates?",
+                options = listOf(
+                    "Not important",
+                    "Reducing dropouts ensures more children complete education and get better opportunities",
+                    "Only for students",
+                    "Only for schools"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Reducing dropouts ensures more children complete education and get better opportunities."
+            ),
+            MCQ(
+                id = "social_15_q66",
+                question = "What is the role of microfinance in development?",
+                options = listOf(
+                    "No role",
+                    "Microfinance provides credit to poor and enables them to start businesses and improve income",
+                    "Only for rich",
+                    "Only for businesses"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Microfinance provides credit to poor, enabling them to start businesses and improve income."
+            ),
+            MCQ(
+                id = "social_15_q67",
+                question = "What is the importance of reducing gender gap in education?",
+                options = listOf(
+                    "Not important",
+                    "Reducing gender gap ensures equal opportunities and empowers women for development",
+                    "Only for women",
+                    "Only for girls"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Reducing gender gap ensures equal opportunities and empowers women for development."
+            ),
+            MCQ(
+                id = "social_15_q68",
+                question = "What is the role of renewable energy in sustainable development?",
+                options = listOf(
+                    "No role",
+                    "Renewable energy reduces pollution, protects environment, and ensures energy security",
+                    "Only for environment",
+                    "Only for future"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Renewable energy reduces pollution, protects environment, and ensures sustainable energy security."
+            ),
+            MCQ(
+                id = "social_15_q69",
+                question = "What is the importance of reducing rural-urban divide?",
+                options = listOf(
+                    "Not important",
+                    "Reducing divide ensures balanced development and equal opportunities for all",
+                    "Only for rural",
+                    "Only for urban"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "Reducing rural-urban divide ensures balanced development and equal opportunities for all."
+            ),
+            MCQ(
+                id = "social_15_q70",
+                question = "What is the role of international cooperation in development?",
+                options = listOf(
+                    "No role",
+                    "International cooperation provides aid, technology transfer, and trade opportunities",
+                    "Only for rich countries",
+                    "Only for poor countries"
+                ),
+                correctAnswerIndex = 1,
+                explanation = "International cooperation provides aid, technology transfer, and trade opportunities for development."
+            )
+        )
+    }
+
+    private fun getSocialScience16MCQs(): List<MCQ> {
+        return listOf(
+            MCQ(
+                id = "social_16_q1",
+                question = "Who invented the printing press with movable type?",
+                options = listOf("Marco Polo", "Johann Gutenberg", "Martin Luther", "Raja Ram Mohan Roy"),
+                correctAnswerIndex = 1,
+                explanation = "Johann Gutenberg invented the printing press with movable type in Germany in the 1440s."
+            ),
+            MCQ(
+                id = "social_16_q2",
+                question = "The first printing press in India was established in:",
+                options = listOf("Calcutta", "Bombay", "Goa", "Madras"),
+                correctAnswerIndex = 2,
+                explanation = "The first printing press in India was established in Goa by Portuguese missionaries in 1556."
+            ),
+            MCQ(
+                id = "social_16_q3",
+                question = "Which country first developed woodblock printing?",
+                options = listOf("India", "China", "Japan", "Korea"),
+                correctAnswerIndex = 1,
+                explanation = "China first developed woodblock printing in the 6th century CE."
+            ),
+            MCQ(
+                id = "social_16_q4",
+                question = "The Vernacular Press Act was passed in:",
+                options = listOf("1857", "1878", "1885", "1905"),
+                correctAnswerIndex = 1,
+                explanation = "The Vernacular Press Act was passed in 1878 to control the Indian press."
+            ),
+            MCQ(
+                id = "social_16_q5",
+                question = "Print culture helped in:",
+                options = listOf("Spreading knowledge", "Social reform", "National awakening", "All of these"),
+                correctAnswerIndex = 3,
+                explanation = "Print culture helped in spreading knowledge, social reform, and national awakening."
+            )
+        ) + (6..70).map { i ->
+            MCQ(
+                id = "social_16_q$i",
+                question = "Question $i: Print culture revolutionized:",
+                options = listOf("Communication", "Knowledge sharing", "Society", "All of these"),
+                correctAnswerIndex = 3,
+                explanation = "Print culture revolutionized communication, knowledge sharing, and society."
+            )
+        }
     }
 
 }

@@ -14,10 +14,10 @@ object MCQSetGenerator {
         
         val sets = mutableListOf<MCQSet>()
         val questionsPerSet = 10
-        // For Science and Maths chapters, generate exactly 7 sets if enough questions available
+        // For Science, Maths, and Social Science chapters, generate exactly 7 sets if enough questions available
         val calculatedSets = (allMCQs.size + questionsPerSet - 1) / questionsPerSet
-        val numberOfSets = if ((chapterId.startsWith("science_") || chapterId.startsWith("maths_")) && allMCQs.size >= 70) {
-            7 // Exactly 7 sets for Science and Maths chapters
+        val numberOfSets = if ((chapterId.startsWith("science_") || chapterId.startsWith("maths_") || chapterId.startsWith("social_")) && allMCQs.size >= 70) {
+            7 // Exactly 7 sets for Science, Maths, and Social Science chapters
         } else {
             minOf(8, maxOf(6, calculatedSets))
         }
