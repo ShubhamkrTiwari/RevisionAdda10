@@ -49,18 +49,19 @@ fun QuizScreen(
     subjectId: String,
     chapterId: String
 ) {
+    val context = LocalContext.current
+    val applicationContext = context.applicationContext
     val viewModel: QuizViewModel = viewModel(
         factory = object : ViewModelProvider.Factory {
             @Suppress("UNCHECKED_CAST")
             override fun <T : androidx.lifecycle.ViewModel> create(modelClass: Class<T>): T {
-                return QuizViewModel(subjectId, chapterId) as T
+                return QuizViewModel(subjectId, chapterId, applicationContext) as T
             }
         }
     )
     
     val uiState by viewModel.uiState.collectAsState()
     val adManager = rememberAdManager()
-    val context = LocalContext.current
     
     // Load interstitial ad when screen opens
     LaunchedEffect(Unit) {

@@ -1,17 +1,27 @@
 package com.example.revisionadda10.ui.screens.quiz
 
+import android.content.Context
+import android.media.AudioAttributes
+import android.media.AudioFocusRequest
+import android.media.AudioManager
+import android.media.MediaPlayer
+import android.media.ToneGenerator
+import android.os.Build
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.revisionadda10.R
 import com.example.revisionadda10.data.model.MCQ
 import com.example.revisionadda10.data.model.MCQSet
 import com.example.revisionadda10.data.repository.MCQSetGenerator
 import com.example.revisionadda10.data.repository.MockData
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 data class QuizState(
     val mcqSets: List<MCQSet> = emptyList(),
@@ -30,7 +40,8 @@ data class QuizState(
 
 class QuizViewModel(
     subjectId: String,
-    chapterId: String
+    chapterId: String,
+    private val context: Context? = null
 ) : ViewModel() {
     
     private val _uiState = MutableStateFlow(QuizState())
@@ -38,14 +49,169 @@ class QuizViewModel(
     
     private var timerJob: Job? = null
     private val timePerQuestion = 90L // 90 seconds (1:30 minutes) per question
+    private var mediaPlayer: MediaPlayer? = null
+    private var toneGenerator: ToneGenerator? = null
+    private var hasPlayedWarningSound = false
+    private var hasPlayedMidWarning = false // For 30 seconds warning
+    private var audioManager: AudioManager? = null
+    private var audioFocusRequest: AudioFocusRequest? = null
     
     init {
         loadQuestions(subjectId, chapterId)
+        context?.let {
+            audioManager = it.getSystemService(Context.AUDIO_SERVICE) as? AudioManager
+            // Initialize ToneGenerator for beep sounds
+            try {
+                toneGenerator = ToneGenerator(AudioManager.STREAM_MUSIC, 100)
+            } catch (e: Exception) {
+                android.util.Log.e("QuizViewModel", "Error initializing ToneGenerator", e)
+            }
+        }
     }
     
     override fun onCleared() {
         super.onCleared()
         timerJob?.cancel()
+        releaseMediaPlayer()
+        releaseToneGenerator()
+        releaseAudioFocus()
+    }
+    
+    private fun requestAudioFocus(): Boolean {
+        return try {
+            if (audioManager == null) {
+                android.util.Log.w("QuizViewModel", "AudioManager is null")
+                return true // Continue anyway
+            }
+            
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                val audioAttributes = AudioAttributes.Builder()
+                    .setUsage(AudioAttributes.USAGE_MEDIA)
+                    .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                    .build()
+                
+                audioFocusRequest = AudioFocusRequest.Builder(AudioManager.AUDIOFOCUS_GAIN_TRANSIENT)
+                    .setAudioAttributes(audioAttributes)
+                    .setAcceptsDelayedFocusGain(true)
+                    .build()
+                
+                val result = audioManager?.requestAudioFocus(audioFocusRequest!!)
+                android.util.Log.d("QuizViewModel", "Audio focus requested: $result")
+                result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED
+            } else {
+                @Suppress("DEPRECATION")
+                val result = audioManager?.requestAudioFocus(
+                    null,
+                    AudioManager.STREAM_MUSIC,
+                    AudioManager.AUDIOFOCUS_GAIN_TRANSIENT
+                )
+                android.util.Log.d("QuizViewModel", "Audio focus requested (legacy): $result")
+                result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED
+            }
+        } catch (e: Exception) {
+            android.util.Log.e("QuizViewModel", "Error requesting audio focus", e)
+            true // Continue anyway
+        }
+    }
+    
+    private fun releaseAudioFocus() {
+        try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                audioFocusRequest?.let {
+                    audioManager?.abandonAudioFocusRequest(it)
+                }
+            } else {
+                @Suppress("DEPRECATION")
+                audioManager?.abandonAudioFocus(null)
+            }
+            audioFocusRequest = null
+        } catch (e: Exception) {
+            android.util.Log.e("QuizViewModel", "Error releasing audio focus", e)
+        }
+    }
+    
+    private fun playTimerAudio() {
+        android.util.Log.d("QuizViewModel", "=== playTimerAudio() called ===")
+        
+        // Use ToneGenerator for AI-generated beep sound
+        playBeepSound()
+        
+        // Also try MediaPlayer as fallback if file exists
+        if (context != null) {
+            try {
+                val resId = context!!.resources.getIdentifier("timeraudio", "raw", context!!.packageName)
+                if (resId != 0) {
+                    playMediaPlayerAudio()
+                }
+            } catch (e: Exception) {
+                android.util.Log.d("QuizViewModel", "Audio file not found, using beep only")
+            }
+        }
+    }
+    
+    private fun playBeepSound() {
+        try {
+            if (toneGenerator == null) {
+                try {
+                    toneGenerator = ToneGenerator(AudioManager.STREAM_MUSIC, 100)
+                } catch (e: Exception) {
+                    android.util.Log.e("QuizViewModel", "Error creating ToneGenerator", e)
+                    return
+                }
+            }
+            
+            android.util.Log.d("QuizViewModel", "Playing beep sound...")
+            
+            // Play a beep tone (TONE_CDMA_ALERT_CALL_GUARD = 97)
+            // This creates a pleasant beep sound
+            toneGenerator?.startTone(ToneGenerator.TONE_CDMA_ALERT_CALL_GUARD, 500)
+            
+            android.util.Log.d("QuizViewModel", "✓ Beep sound played")
+        } catch (e: Exception) {
+            android.util.Log.e("QuizViewModel", "Error playing beep sound", e)
+        }
+    }
+    
+    private fun playMediaPlayerAudio() {
+        if (context == null) return
+        
+        viewModelScope.launch(Dispatchers.Main) {
+            try {
+                releaseMediaPlayer()
+                
+                val player = MediaPlayer.create(context, R.raw.timeraudio)
+                if (player != null) {
+                    mediaPlayer = player
+                    mediaPlayer?.setOnCompletionListener {
+                        releaseMediaPlayer()
+                    }
+                    mediaPlayer?.start()
+                }
+            } catch (e: Exception) {
+                android.util.Log.e("QuizViewModel", "Error in playMediaPlayerAudio", e)
+                releaseMediaPlayer()
+            }
+        }
+    }
+    
+    private fun releaseToneGenerator() {
+        try {
+            toneGenerator?.release()
+            toneGenerator = null
+        } catch (e: Exception) {
+            android.util.Log.e("QuizViewModel", "Error releasing ToneGenerator", e)
+        }
+    }
+    
+    private fun releaseMediaPlayer() {
+        try {
+            mediaPlayer?.stop()
+            mediaPlayer?.release()
+            mediaPlayer = null
+        } catch (e: Exception) {
+            android.util.Log.e("QuizViewModel", "Error releasing MediaPlayer", e)
+            e.printStackTrace()
+        }
     }
     
     private fun loadQuestions(subjectId: String, chapterId: String) {
@@ -78,6 +244,8 @@ class QuizViewModel(
     
     fun selectSet(set: MCQSet) {
         timerJob?.cancel()
+        hasPlayedWarningSound = false
+        hasPlayedMidWarning = false
         _uiState.value = _uiState.value.copy(
             selectedSet = set,
             questions = set.questions,
@@ -96,6 +264,9 @@ class QuizViewModel(
     
     fun goBackToSetSelection() {
         timerJob?.cancel()
+        releaseMediaPlayer()
+        releaseToneGenerator()
+        hasPlayedWarningSound = false
         _uiState.value = _uiState.value.copy(
             showSetSelection = true,
             showResult = false,
@@ -138,6 +309,10 @@ class QuizViewModel(
     
     fun nextQuestion() {
         timerJob?.cancel()
+        releaseMediaPlayer()
+        releaseToneGenerator()
+        hasPlayedWarningSound = false
+        hasPlayedMidWarning = false
         val currentState = _uiState.value
         if (currentState.currentQuestionIndex < currentState.questions.size - 1) {
             _uiState.value = currentState.copy(
@@ -158,6 +333,10 @@ class QuizViewModel(
     
     fun previousQuestion() {
         timerJob?.cancel()
+        releaseMediaPlayer()
+        releaseToneGenerator()
+        hasPlayedWarningSound = false
+        hasPlayedMidWarning = false
         val currentState = _uiState.value
         if (currentState.currentQuestionIndex > 0) {
             val previousIndex = currentState.currentQuestionIndex - 1
@@ -186,6 +365,10 @@ class QuizViewModel(
     
     fun resetQuiz() {
         timerJob?.cancel()
+        releaseMediaPlayer()
+        releaseToneGenerator()
+        hasPlayedWarningSound = false
+        hasPlayedMidWarning = false
         _uiState.value = QuizState(
             questions = _uiState.value.questions,
             currentQuestionIndex = 0,
@@ -204,17 +387,42 @@ class QuizViewModel(
         timerJob?.cancel()
         timerJob = viewModelScope.launch {
             var remaining = _uiState.value.timeRemaining
+            android.util.Log.d("QuizViewModel", "Timer started with remaining: $remaining seconds (1:30 minutes)")
+            
             while (remaining > 0 && _uiState.value.isTimerRunning && !_uiState.value.showResult) {
                 delay(1000)
                 remaining--
+                
+                // Log every 10 seconds for debugging
+                if (remaining % 10 == 0L) {
+                    android.util.Log.d("QuizViewModel", "Timer: $remaining seconds remaining")
+                }
+                
+                // For 1:30 minute (90 seconds) timer:
+                // Play warning at 30 seconds (1 minute left)
+                if (remaining == 30L && !hasPlayedMidWarning) {
+                    android.util.Log.d("QuizViewModel", "⏰ 30 seconds remaining (1 minute left) - Playing mid warning...")
+                    playTimerAudio()
+                    hasPlayedMidWarning = true
+                }
+                
+                // Play warning sound at 10 seconds remaining (only once per question)
+                if (remaining == 10L && !hasPlayedWarningSound) {
+                    android.util.Log.d("QuizViewModel", "⏰ 10 seconds remaining - Playing final warning audio...")
+                    playTimerAudio()
+                    hasPlayedWarningSound = true
+                }
+                
                 _uiState.value = _uiState.value.copy(
                     timeRemaining = remaining,
                     isTimerRunning = remaining > 0
                 )
             }
             
-            // Timer expired
+            // Timer expired - play audio
             if (remaining == 0L && !_uiState.value.showResult) {
+                android.util.Log.d("QuizViewModel", "⏰ Timer EXPIRED (0 seconds) - Playing final audio...")
+                playTimerAudio()
                 val currentState = _uiState.value
                 val currentQuestion = currentState.questions.getOrNull(currentState.currentQuestionIndex)
                 
@@ -236,6 +444,8 @@ class QuizViewModel(
                     } else {
                         // Auto-move to next question if no answer selected
                         if (currentState.currentQuestionIndex < currentState.questions.size - 1) {
+                            hasPlayedWarningSound = false
+                            hasPlayedMidWarning = false
                             _uiState.value = currentState.copy(
                                 currentQuestionIndex = currentState.currentQuestionIndex + 1,
                                 selectedAnswerIndex = null,
