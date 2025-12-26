@@ -12,12 +12,13 @@ import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 class AdManager(private val context: Context) {
     private var interstitialAd: InterstitialAd? = null
     
-    // Use test ad unit ID until account is approved, then switch to production ID
-    private val interstitialAdUnitId = "ca-app-pub-3940256099942544/1033173712" // Test Interstitial Ad Unit ID
-    // Production: "ca-app-pub-7382226404157727/1773053499"
+    // Production Interstitial Ad Unit ID
+    private val interstitialAdUnitId = "ca-app-pub-7382226404157727/1773053499"
     
     fun loadInterstitialAd() {
         val adRequest = AdRequest.Builder().build()
+        
+        android.util.Log.d("AdManager", "Loading interstitial ad with unit ID: $interstitialAdUnitId")
         
         InterstitialAd.load(
             context,
@@ -25,10 +26,18 @@ class AdManager(private val context: Context) {
             adRequest,
             object : InterstitialAdLoadCallback() {
                 override fun onAdLoaded(ad: InterstitialAd) {
+                    android.util.Log.d("AdManager", "✅ Interstitial ad loaded successfully")
                     interstitialAd = ad
                 }
                 
                 override fun onAdFailedToLoad(loadAdError: LoadAdError) {
+                    android.util.Log.e("AdManager", "❌ Interstitial ad failed to load")
+                    android.util.Log.e("AdManager", "Error: ${loadAdError.message}")
+                    android.util.Log.e("AdManager", "Error code: ${loadAdError.code}")
+                    android.util.Log.e("AdManager", "Error domain: ${loadAdError.domain}")
+                    loadAdError.responseInfo?.let {
+                        android.util.Log.e("AdManager", "Response info: ${it.responseId}")
+                    }
                     interstitialAd = null
                 }
             }

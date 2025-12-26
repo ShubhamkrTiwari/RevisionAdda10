@@ -16,6 +16,7 @@ object PYQQuestions {
     
     private fun getMathsPYQs(year: String): List<ExamQuestion> {
         return when (year) {
+            "2026" -> CBSE2026PredictedQuestions.getPredictedQuestionsForSubject("maths")
             "2025" -> getMaths2025Questions()
             "2024" -> getMaths2024Questions()
             "2023" -> getMaths2023Questions()
@@ -29,6 +30,7 @@ object PYQQuestions {
     
     private fun getSciencePYQs(year: String): List<ExamQuestion> {
         return when (year) {
+            "2026" -> CBSE2026PredictedQuestions.getPredictedQuestionsForSubject("science")
             "2025" -> getScience2025Questions()
             "2024" -> getScience2024Questions()
             "2023" -> getScience2023Questions()
@@ -42,6 +44,7 @@ object PYQQuestions {
     
     private fun getSocialSciencePYQs(year: String): List<ExamQuestion> {
         return when (year) {
+            "2026" -> CBSE2026PredictedQuestions.getPredictedQuestionsForSubject("social_science")
             "2025" -> getSocialScience2025Questions()
             "2024" -> getSocialScience2024Questions()
             "2023" -> getSocialScience2023Questions()

@@ -8,17 +8,22 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.compose.rememberNavController
 import com.example.revisionadda10.ui.navigation.NavGraph
 import com.example.revisionadda10.ui.theme.RevisionAdda10Theme
+import com.example.revisionadda10.utils.VideoPreFetchHelper
 import com.google.android.gms.ads.MobileAds
+import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         
         // Initialize AdMob
+        android.util.Log.d("AdMob", "Initializing AdMob SDK...")
         MobileAds.initialize(this) { initializationStatus ->
+            android.util.Log.d("AdMob", "AdMob initialization completed")
             val statusMap = initializationStatus.adapterStatusMap
             for (adapterClass in statusMap.keys) {
                 val status = statusMap[adapterClass]
@@ -27,6 +32,13 @@ class MainActivity : ComponentActivity() {
         }
         
         enableEdgeToEdge()
+        
+        // Pre-fetch YouTube videos for all chapters in background
+        lifecycleScope.launch {
+            android.util.Log.d("MainActivity", "Starting video pre-fetch in background...")
+            VideoPreFetchHelper.preFetchAllVideos(lifecycleScope)
+        }
+        
         setContent {
             RevisionAdda10Theme {
                 Surface(

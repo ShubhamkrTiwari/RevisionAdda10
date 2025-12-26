@@ -4,12 +4,15 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.example.revisionadda10.ui.screens.MainScreen
 import com.example.revisionadda10.ui.screens.chapter.ChapterDetailScreen
-import com.example.revisionadda10.ui.screens.dashboard.DashboardScreen
+import com.example.revisionadda10.ui.screens.formulasheet.FormulaSheetScreen
 import com.example.revisionadda10.ui.screens.matchpaper.MatchPaperScreen
+import com.example.revisionadda10.ui.screens.progress.SubjectProgressDetailScreen
 import com.example.revisionadda10.ui.screens.pdf.PDFViewerScreen
 import com.example.revisionadda10.ui.screens.pyqs.PYQsScreen
 import com.example.revisionadda10.ui.screens.quiz.QuizScreen
+import com.example.revisionadda10.ui.screens.splash.SplashScreen
 import com.example.revisionadda10.ui.screens.subject.SubjectDetailScreen
 import com.example.revisionadda10.ui.screens.video.VideoPlayerScreen
 
@@ -17,10 +20,14 @@ import com.example.revisionadda10.ui.screens.video.VideoPlayerScreen
 fun NavGraph(navController: NavHostController) {
     NavHost(
         navController = navController,
-        startDestination = Screen.Dashboard.route
+        startDestination = Screen.Splash.route
     ) {
+        composable(Screen.Splash.route) {
+            SplashScreen(navController = navController)
+        }
+        
         composable(Screen.Dashboard.route) {
-            DashboardScreen(navController = navController)
+            MainScreen(navController = navController)
         }
         
         composable(Screen.SubjectDetail.route) { backStackEntry ->
@@ -82,6 +89,28 @@ fun NavGraph(navController: NavHostController) {
             PDFViewerScreen(
                 navController = navController,
                 pdfUrl = pdfUrl
+            )
+        }
+        
+        composable(Screen.FormulaSheet.route) { backStackEntry ->
+            val subjectId = backStackEntry.arguments?.getString("subjectId") ?: ""
+            val chapterId = backStackEntry.arguments?.getString("chapterId") ?: ""
+            FormulaSheetScreen(
+                navController = navController,
+                subjectId = subjectId,
+                chapterId = chapterId
+            )
+        }
+        
+        composable(Screen.Progress.route) {
+            MainScreen(navController = navController)
+        }
+        
+        composable(Screen.SubjectProgress.route) { backStackEntry ->
+            val subjectId = backStackEntry.arguments?.getString("subjectId") ?: ""
+            SubjectProgressDetailScreen(
+                navController = navController,
+                subjectId = subjectId
             )
         }
     }

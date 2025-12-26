@@ -29,6 +29,7 @@ import androidx.navigation.NavController
 import com.example.revisionadda10.data.model.ExamQuestion
 import com.example.revisionadda10.data.model.QuestionType
 import com.example.revisionadda10.data.repository.AIGeneratedQuestions
+import com.example.revisionadda10.data.repository.CBSE2026PredictedQuestions
 import com.example.revisionadda10.data.repository.MockData
 import com.example.revisionadda10.data.repository.PYQQuestions
 
@@ -127,46 +128,34 @@ fun MatchPaperScreen(
     var showAnswers by remember { mutableStateOf(false) }
     val context = LocalContext.current
     
-    // Get exactly 30 unique questions for full subject (CBSE 2026 pattern)
-    // Priority: Use PYQ 2025 questions (30 questions), then supplement with AI-generated if needed
+    // Get exactly 50 unique questions for full subject (CBSE 2026 pattern)
+    // Priority: Use CBSE 2026 Predicted Questions (50 questions) - exact board pattern
     val aiQuestions = remember(subjectId) {
-        // First, get PYQ questions for 2025 (exactly 30 questions)
-        val pyqQuestions = PYQQuestions.getPYQQuestionsForYear(subjectId, "2025")
+        // Get CBSE 2026 Predicted Questions (50 questions total, distributed by subject)
+        val predicted2026Questions = CBSE2026PredictedQuestions.getPredictedQuestionsForSubject(subjectId)
         
-        // If we have 30 questions from PYQ, use them
-        if (pyqQuestions.size >= 30) {
-            pyqQuestions.take(30).distinctBy { it.question }
+        // If we have 50 questions from 2026 predictions, use them
+        if (predicted2026Questions.size >= 50) {
+            predicted2026Questions.take(50).distinctBy { it.question }
         } else {
-            // If PYQ has less than 30, supplement with AI-generated questions
-            val allChapters = subject.chapters
-            val aiGeneratedQuestions = allChapters.flatMapIndexed { index, chapter ->
-                val chapterQuestions = AIGeneratedQuestions.getQuestionsForChapter(subjectId, chapter.id)
-                chapterQuestions.mapIndexed { qIndex, question ->
-                    ExamQuestion(
-                        id = "${question.id}_ch${index + 1}",
-                        question = question.question,
-                        marks = question.marks,
-                        type = question.type,
-                        answer = question.answer,
-                        hints = question.hints
-                    )
-                }
-            }
+            // If less than 50, supplement with PYQ 2025 and other years
+            val pyq2025Questions = PYQQuestions.getPYQQuestionsForYear(subjectId, "2025")
+            val pyq2024Questions = PYQQuestions.getPYQQuestionsForYear(subjectId, "2024")
             
-            // Combine PYQ and AI questions, remove duplicates by question text
-            val combinedQuestions = (pyqQuestions + aiGeneratedQuestions)
+            // Combine predicted 2026 + PYQ 2025 + PYQ 2024, remove duplicates
+            val combinedQuestions = (predicted2026Questions + pyq2025Questions + pyq2024Questions)
                 .distinctBy { it.question.trim().lowercase() }
-                .take(30)
+                .take(50)
             
-            // If still less than 30, pad with unique questions from other years
-            if (combinedQuestions.size < 30) {
-                val additionalQuestions = (2024 downTo 2019).flatMap { year ->
+            // If still less than 50, add questions from other years
+            if (combinedQuestions.size < 50) {
+                val additionalQuestions = (2023 downTo 2019).flatMap { year ->
                     PYQQuestions.getPYQQuestionsForYear(subjectId, year.toString())
                 }.distinctBy { it.question.trim().lowercase() }
                 
                 (combinedQuestions + additionalQuestions)
                     .distinctBy { it.question.trim().lowercase() }
-                    .take(30)
+                    .take(50)
             } else {
                 combinedQuestions
             }
@@ -223,120 +212,158 @@ fun MatchPaperScreen(
                     )
                 )
         ) {
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(paddingValues)
-            ) {
-                // Info Card
-                Card(
+            // AI-Generated Questions Section - Full Screen Scroll
+            if (aiQuestions.isNotEmpty()) {
+                LazyColumn(
                     modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(16.dp),
-                    shape = RoundedCornerShape(12.dp),
-                    colors = CardDefaults.cardColors(
-                        containerColor = primaryColor.copy(alpha = 0.15f)
-                    )
+                        .fillMaxSize()
+                        .padding(paddingValues),
+                    contentPadding = PaddingValues(horizontal = 16.dp, vertical = 16.dp),
+                    verticalArrangement = Arrangement.spacedBy(16.dp)
                 ) {
-                    Column(
-                        modifier = Modifier.padding(16.dp),
-                        verticalArrangement = Arrangement.spacedBy(8.dp)
-                    ) {
-                        Row(
-                            verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.spacedBy(8.dp)
+                    // Info Card - Enhanced Design
+                    item {
+                        Card(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .shadow(
+                                    elevation = 8.dp,
+                                    shape = RoundedCornerShape(20.dp),
+                                    spotColor = primaryColor.copy(alpha = 0.4f)
+                                ),
+                            shape = RoundedCornerShape(20.dp),
+                            colors = CardDefaults.cardColors(
+                                containerColor = MaterialTheme.colorScheme.surface
+                            )
                         ) {
-                            Text(
-                                text = "📚",
-                                style = MaterialTheme.typography.headlineSmall
-                            )
-                            Text(
-                                text = "CBSE Board Exam Papers",
-                                style = MaterialTheme.typography.titleMedium,
-                                fontWeight = FontWeight.Bold,
-                                color = primaryColor
-                            )
-                        }
-                        Text(
-                            text = "Access CBSE Class 10 previous year question papers and sample papers that match 90% with actual board exam pattern.",
-                            style = MaterialTheme.typography.bodyMedium,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
-                        )
-                        Text(
-                            text = "🤖 AI-Generated: Possible questions for CBSE Board Exam 2026 based on latest pattern and trends.",
-                            style = MaterialTheme.typography.bodySmall,
-                            color = primaryColor,
-                            fontWeight = FontWeight.Medium
-                        )
-                    }
-                }
-                
-                // AI-Generated Questions Section
-                if (aiQuestions.isNotEmpty()) {
-                    LazyColumn(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .weight(1f),
-                        contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
-                        verticalArrangement = Arrangement.spacedBy(16.dp)
-                    ) {
-                        item {
-                            Card(
-                                modifier = Modifier.fillMaxWidth(),
-                                shape = RoundedCornerShape(16.dp),
-                                colors = CardDefaults.cardColors(
-                                    containerColor = primaryColor.copy(alpha = 0.2f)
-                                )
+                            Box(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .background(
+                                        brush = Brush.linearGradient(
+                                            colors = listOf(
+                                                primaryColor.copy(alpha = 0.2f),
+                                                primaryColor.copy(alpha = 0.08f)
+                                            )
+                                        )
+                                    )
                             ) {
                                 Column(
-                                    modifier = Modifier.padding(16.dp),
-                                    horizontalAlignment = Alignment.CenterHorizontally
+                                    modifier = Modifier.padding(20.dp),
+                                    verticalArrangement = Arrangement.spacedBy(12.dp)
                                 ) {
-                                    Text(
-                                        text = "🤖 AI-PREDICTED QUESTIONS",
-                                        style = MaterialTheme.typography.titleLarge,
-                                        fontWeight = FontWeight.Bold,
-                                        color = primaryColor
-                                    )
-                                    Text(
-                                        text = "CBSE Board Exam 2026 - ${subject.name}",
-                                        style = MaterialTheme.typography.bodyMedium,
-                                        color = MaterialTheme.colorScheme.onSurfaceVariant
-                                    )
-                                    Text(
-                                        text = "Full Subject Paper (All Chapters)",
-                                        style = MaterialTheme.typography.bodySmall,
-                                        color = primaryColor,
-                                        fontWeight = FontWeight.Medium,
+                                    Row(
+                                        verticalAlignment = Alignment.CenterVertically,
+                                        horizontalArrangement = Arrangement.spacedBy(12.dp)
+                                    ) {
+                                        Surface(
+                                            shape = RoundedCornerShape(12.dp),
+                                            color = primaryColor.copy(alpha = 0.2f),
+                                            modifier = Modifier.size(56.dp),
+                                            shadowElevation = 4.dp
+                                        ) {
+                                            Box(
+                                                contentAlignment = Alignment.Center,
+                                                modifier = Modifier.fillMaxSize()
+                                            ) {
+                                                Text(
+                                                    text = "🎯",
+                                                    style = MaterialTheme.typography.headlineMedium
+                                                )
+                                            }
+                                        }
+                                        Column(
+                                            verticalArrangement = Arrangement.spacedBy(4.dp)
+                                        ) {
+                                            Text(
+                                                text = "90% Match Paper",
+                                                style = MaterialTheme.typography.headlineSmall,
+                                                fontWeight = FontWeight.Bold,
+                                                color = primaryColor
+                                            )
+                                            Text(
+                                                text = "CBSE Board Exam 2026",
+                                                style = MaterialTheme.typography.bodyMedium,
+                                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                                fontWeight = FontWeight.Medium
+                                            )
+                                        }
+                                    }
+                                    Surface(
+                                        shape = RoundedCornerShape(12.dp),
+                                        color = primaryColor.copy(alpha = 0.1f),
                                         modifier = Modifier.padding(top = 4.dp)
-                                    )
-                                    Text(
-                                        text = "Total Questions: ${aiQuestions.size} | Total Marks: ${aiQuestions.sumOf { it.marks }}",
-                                        style = MaterialTheme.typography.bodySmall,
-                                        color = primaryColor,
-                                        fontWeight = FontWeight.Medium,
+                                    ) {
+                                        Text(
+                                            text = "50 AI-Generated questions that could appear in CBSE Board 2026. Based on 90% weightage topics, latest syllabus, and previous year patterns. These questions match the exact board exam format.",
+                                            style = MaterialTheme.typography.bodyMedium,
+                                            color = MaterialTheme.colorScheme.onSurface,
+                                            lineHeight = TextUnit(22f, TextUnitType.Sp),
+                                            modifier = Modifier.padding(16.dp)
+                                        )
+                                    }
+                                    Row(
+                                        horizontalArrangement = Arrangement.spacedBy(8.dp),
                                         modifier = Modifier.padding(top = 4.dp)
-                                    )
+                                    ) {
+                                        Surface(
+                                            shape = RoundedCornerShape(10.dp),
+                                            color = primaryColor.copy(alpha = 0.15f)
+                                        ) {
+                                            Text(
+                                                text = "✅ 50 Questions",
+                                                style = MaterialTheme.typography.labelMedium,
+                                                fontWeight = FontWeight.Medium,
+                                                color = primaryColor,
+                                                modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp)
+                                            )
+                                        }
+                                        Surface(
+                                            shape = RoundedCornerShape(10.dp),
+                                            color = primaryColor.copy(alpha = 0.15f)
+                                        ) {
+                                            Text(
+                                                text = "📊 80 Marks",
+                                                style = MaterialTheme.typography.labelMedium,
+                                                fontWeight = FontWeight.Medium,
+                                                color = primaryColor,
+                                                modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp)
+                                            )
+                                        }
+                                        Surface(
+                                            shape = RoundedCornerShape(10.dp),
+                                            color = primaryColor.copy(alpha = 0.15f)
+                                        ) {
+                                            Text(
+                                                text = "⏱️ 3 Hours",
+                                                style = MaterialTheme.typography.labelMedium,
+                                                fontWeight = FontWeight.Medium,
+                                                color = primaryColor,
+                                                modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp)
+                                            )
+                                        }
+                                    }
                                 }
                             }
                         }
-                        
-                        itemsIndexed(aiQuestions) { index, question ->
-                            QuestionCard(
-                                question = question,
-                                index = index + 1,
-                                showAnswer = showAnswers,
-                                primaryColor = primaryColor
-                            )
-                        }
                     }
-                } else {
-                    // Fallback to WebView if no questions available
-                    Box(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .weight(1f)
-                    ) {
+                    
+                    items(aiQuestions.size) { index ->
+                        QuestionCard(
+                            question = aiQuestions[index],
+                            index = index + 1,
+                            showAnswer = showAnswers,
+                            primaryColor = primaryColor
+                        )
+                    }
+                }
+            } else {
+                // Fallback to WebView if no questions available
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(paddingValues)
+                ) {
                     AndroidView(
                         factory = { context ->
                             WebView(context).apply {
@@ -504,7 +531,7 @@ fun MatchPaperScreen(
             }
         }
     }
-}
+
 
 @Composable
 fun QuestionCard(
@@ -517,159 +544,238 @@ fun QuestionCard(
         modifier = Modifier
             .fillMaxWidth()
             .shadow(
-                elevation = 4.dp,
-                shape = RoundedCornerShape(16.dp),
-                spotColor = primaryColor.copy(alpha = 0.2f)
+                elevation = 6.dp,
+                shape = RoundedCornerShape(20.dp),
+                spotColor = primaryColor.copy(alpha = 0.3f)
             ),
-        shape = RoundedCornerShape(16.dp),
+        shape = RoundedCornerShape(20.dp),
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.surface
         )
     ) {
         Column(
             modifier = Modifier.padding(20.dp),
-            verticalArrangement = Arrangement.spacedBy(12.dp)
+            verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            // Question Header
+            // Enhanced Question Header
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Row(
-                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    horizontalArrangement = Arrangement.spacedBy(12.dp),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Surface(
-                        shape = RoundedCornerShape(8.dp),
-                        color = primaryColor.copy(alpha = 0.2f),
-                        modifier = Modifier.size(32.dp)
+                        shape = RoundedCornerShape(12.dp),
+                        color = primaryColor,
+                        modifier = Modifier.size(40.dp),
+                        shadowElevation = 4.dp
                     ) {
                         Box(
                             contentAlignment = Alignment.Center,
                             modifier = Modifier.fillMaxSize()
                         ) {
                             Text(
-                                text = "Q$index",
-                                style = MaterialTheme.typography.labelMedium,
+                                text = "$index",
+                                style = MaterialTheme.typography.titleMedium,
                                 fontWeight = FontWeight.Bold,
-                                color = primaryColor
+                                color = Color.White
                             )
                         }
                     }
-                    Text(
-                        text = getQuestionTypeLabel(question.type),
-                        style = MaterialTheme.typography.labelSmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        modifier = Modifier.padding(start = 4.dp)
-                    )
+                    Column(
+                        verticalArrangement = Arrangement.spacedBy(2.dp)
+                    ) {
+                        Text(
+                            text = "Q$index",
+                            style = MaterialTheme.typography.labelLarge,
+                            fontWeight = FontWeight.Bold,
+                            color = MaterialTheme.colorScheme.onSurface
+                        )
+                        Text(
+                            text = getQuestionTypeLabel(question.type),
+                            style = MaterialTheme.typography.labelSmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    }
                 }
                 Surface(
-                    shape = RoundedCornerShape(8.dp),
+                    shape = RoundedCornerShape(12.dp),
                     color = primaryColor,
-                    modifier = Modifier.padding(start = 8.dp)
+                    shadowElevation = 4.dp
                 ) {
                     Text(
                         text = "${question.marks}M",
-                        style = MaterialTheme.typography.labelMedium,
+                        style = MaterialTheme.typography.titleSmall,
                         fontWeight = FontWeight.Bold,
                         color = Color.White,
-                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                        modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp)
                     )
                 }
             }
             
-            // Question Text
+            Divider(
+                color = primaryColor.copy(alpha = 0.2f),
+                thickness = 1.dp,
+                modifier = Modifier.padding(vertical = 4.dp)
+            )
+            
+            // Enhanced Question Text
             Text(
                 text = question.question,
                 style = MaterialTheme.typography.bodyLarge,
                 fontWeight = FontWeight.Medium,
                 color = MaterialTheme.colorScheme.onSurface,
-                modifier = Modifier.padding(top = 4.dp)
+                lineHeight = TextUnit(24f, TextUnitType.Sp)
             )
             
-            // Hints
+            // Enhanced Hints
             if (question.hints.isNotEmpty()) {
-                Card(
+                Surface(
                     modifier = Modifier.fillMaxWidth(),
-                    shape = RoundedCornerShape(8.dp),
-                    colors = CardDefaults.cardColors(
-                        containerColor = primaryColor.copy(alpha = 0.05f)
-                    )
+                    shape = RoundedCornerShape(14.dp),
+                    color = primaryColor.copy(alpha = 0.1f),
+                    shadowElevation = 3.dp
                 ) {
                     Column(
-                        modifier = Modifier.padding(12.dp),
-                        verticalArrangement = Arrangement.spacedBy(4.dp)
+                        modifier = Modifier.padding(16.dp),
+                        verticalArrangement = Arrangement.spacedBy(10.dp)
                     ) {
-                        Text(
-                            text = "💡 Hints:",
-                            style = MaterialTheme.typography.labelMedium,
-                            fontWeight = FontWeight.Bold,
-                            color = primaryColor
-                        )
-                        question.hints.forEach { hint ->
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.spacedBy(10.dp)
+                        ) {
+                            Surface(
+                                shape = RoundedCornerShape(10.dp),
+                                color = primaryColor.copy(alpha = 0.2f),
+                                modifier = Modifier.size(32.dp)
+                            ) {
+                                Box(
+                                    contentAlignment = Alignment.Center,
+                                    modifier = Modifier.fillMaxSize()
+                                ) {
+                                    Text(
+                                        text = "💡",
+                                        style = MaterialTheme.typography.bodyLarge
+                                    )
+                                }
+                            }
                             Text(
-                                text = "• $hint",
-                                style = MaterialTheme.typography.bodySmall,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                                text = "Hints:",
+                                style = MaterialTheme.typography.titleSmall,
+                                fontWeight = FontWeight.Bold,
+                                color = primaryColor
                             )
+                        }
+                        Column(
+                            verticalArrangement = Arrangement.spacedBy(8.dp)
+                        ) {
+                            question.hints.forEach { hint ->
+                                Row(
+                                    horizontalArrangement = Arrangement.spacedBy(10.dp)
+                                ) {
+                                    Surface(
+                                        shape = RoundedCornerShape(4.dp),
+                                        color = primaryColor,
+                                        modifier = Modifier.size(6.dp)
+                                    ) {}
+                                    Text(
+                                        text = hint,
+                                        style = MaterialTheme.typography.bodyMedium,
+                                        color = MaterialTheme.colorScheme.onSurface,
+                                        modifier = Modifier.weight(1f),
+                                        lineHeight = TextUnit(22f, TextUnitType.Sp)
+                                    )
+                                }
+                            }
                         }
                     }
                 }
             }
             
-            // Answer (Show/Hide)
+            // Enhanced Answer (Show/Hide)
             if (showAnswer && question.answer != null) {
                 AnimatedVisibility(visible = showAnswer) {
-                    Card(
+                    Surface(
                         modifier = Modifier.fillMaxWidth(),
-                        shape = RoundedCornerShape(12.dp),
-                        colors = CardDefaults.cardColors(
-                            containerColor = primaryColor.copy(alpha = 0.1f)
-                        )
+                        shape = RoundedCornerShape(16.dp),
+                        color = primaryColor.copy(alpha = 0.12f),
+                        shadowElevation = 4.dp
                     ) {
                         Column(
-                            modifier = Modifier.padding(16.dp),
-                            verticalArrangement = Arrangement.spacedBy(8.dp)
+                            modifier = Modifier.padding(18.dp),
+                            verticalArrangement = Arrangement.spacedBy(12.dp)
                         ) {
                             Row(
                                 verticalAlignment = Alignment.CenterVertically,
-                                horizontalArrangement = Arrangement.spacedBy(8.dp)
+                                horizontalArrangement = Arrangement.spacedBy(12.dp)
                             ) {
-                                Text(
-                                    text = "✓",
-                                    style = MaterialTheme.typography.titleMedium,
-                                    color = primaryColor
-                                )
+                                Surface(
+                                    shape = RoundedCornerShape(12.dp),
+                                    color = primaryColor,
+                                    modifier = Modifier.size(36.dp),
+                                    shadowElevation = 4.dp
+                                ) {
+                                    Box(
+                                        contentAlignment = Alignment.Center,
+                                        modifier = Modifier.fillMaxSize()
+                                    ) {
+                                        Text(
+                                            text = "✓",
+                                            style = MaterialTheme.typography.titleLarge,
+                                            color = Color.White,
+                                            fontWeight = FontWeight.Bold
+                                        )
+                                    }
+                                }
                                 Text(
                                     text = "Answer:",
-                                    style = MaterialTheme.typography.titleSmall,
+                                    style = MaterialTheme.typography.titleMedium,
                                     fontWeight = FontWeight.Bold,
                                     color = primaryColor
                                 )
                             }
+                            Divider(
+                                color = primaryColor.copy(alpha = 0.3f),
+                                thickness = 1.5.dp
+                            )
                             Text(
                                 text = question.answer,
-                                style = MaterialTheme.typography.bodyMedium,
+                                style = MaterialTheme.typography.bodyLarge,
                                 color = MaterialTheme.colorScheme.onSurface,
-                                lineHeight = TextUnit(20f, TextUnitType.Sp)
+                                lineHeight = TextUnit(24f, TextUnitType.Sp),
+                                fontWeight = FontWeight.Medium
                             )
                         }
                     }
                 }
             } else if (!showAnswer && question.answer != null) {
                 Surface(
-                    shape = RoundedCornerShape(8.dp),
-                    color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f),
-                    modifier = Modifier.fillMaxWidth()
+                    shape = RoundedCornerShape(14.dp),
+                    color = primaryColor.copy(alpha = 0.08f),
+                    modifier = Modifier.fillMaxWidth(),
+                    shadowElevation = 2.dp
                 ) {
-                    Text(
-                        text = "Tap 'Show Answers' in top bar to view solution",
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        textAlign = TextAlign.Center,
-                        modifier = Modifier.padding(12.dp)
-                    )
+                    Row(
+                        modifier = Modifier.padding(16.dp),
+                        horizontalArrangement = Arrangement.Center,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Text(
+                            text = "👁️",
+                            style = MaterialTheme.typography.bodyLarge,
+                            modifier = Modifier.padding(end = 10.dp)
+                        )
+                        Text(
+                            text = "Tap 'Show Answers' in top bar to view solution",
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = primaryColor,
+                            fontWeight = FontWeight.Medium,
+                            textAlign = TextAlign.Center
+                        )
+                    }
                 }
             }
         }
@@ -685,4 +791,3 @@ fun getQuestionTypeLabel(type: QuestionType): String {
         QuestionType.ASSERTION_REASON -> "Assertion-Reason (1 mark)"
     }
 }
-

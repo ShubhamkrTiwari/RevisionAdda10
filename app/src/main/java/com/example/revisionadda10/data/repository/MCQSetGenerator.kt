@@ -35,7 +35,8 @@ object MCQSetGenerator {
                     MCQSet(
                         id = "${chapterId}_set_${setIndex + 1}",
                         title = "Set ${setIndex + 1}",
-                        questions = setQuestions
+                        questions = setQuestions,
+                        setNumber = setIndex + 1
                     )
                 )
             }

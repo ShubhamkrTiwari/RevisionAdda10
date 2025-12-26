@@ -12,8 +12,10 @@ import androidx.lifecycle.viewModelScope
 import com.example.revisionadda10.R
 import com.example.revisionadda10.data.model.MCQ
 import com.example.revisionadda10.data.model.MCQSet
+import com.example.revisionadda10.data.model.MCQProgress
 import com.example.revisionadda10.data.repository.MCQSetGenerator
 import com.example.revisionadda10.data.repository.MockData
+import com.example.revisionadda10.data.repository.ProgressRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
@@ -56,8 +58,15 @@ class QuizViewModel(
     private var audioManager: AudioManager? = null
     private var audioFocusRequest: AudioFocusRequest? = null
     
+    private val progressRepository: ProgressRepository? = context?.let { ProgressRepository(it) }
+    private val currentSubjectId = subjectId
+    private val currentChapterId = chapterId
+    private var quizStartTime: Long = 0L
+    private var currentSetNumber: Int = 1
+    
     init {
         loadQuestions(subjectId, chapterId)
+        quizStartTime = System.currentTimeMillis()
         context?.let {
             audioManager = it.getSystemService(Context.AUDIO_SERVICE) as? AudioManager
             // Initialize ToneGenerator for beep sounds
@@ -246,6 +255,8 @@ class QuizViewModel(
         timerJob?.cancel()
         hasPlayedWarningSound = false
         hasPlayedMidWarning = false
+        currentSetNumber = set.setNumber
+        quizStartTime = System.currentTimeMillis()
         _uiState.value = _uiState.value.copy(
             selectedSet = set,
             questions = set.questions,
@@ -324,11 +335,53 @@ class QuizViewModel(
             )
             startTimer()
         } else {
+            // Quiz completed - save progress
+            saveProgress(currentState)
             _uiState.value = currentState.copy(
                 showResult = true,
                 isTimerRunning = false
             )
         }
+    }
+    
+    /**
+     * Save progress after quiz completion
+     */
+    private fun saveProgress(state: QuizState) {
+        if (progressRepository == null || state.selectedSet == null) return
+        
+        val timeTaken = (System.currentTimeMillis() - quizStartTime) / 1000 // in seconds
+        val totalQuestions = state.questions.size
+        val correctAnswers = state.score
+        val wrongAnswers = totalQuestions - correctAnswers
+        val percentage = if (totalQuestions > 0) {
+            (correctAnswers.toFloat() / totalQuestions) * 100f
+        } else 0f
+        
+        val subject = when (currentSubjectId) {
+            "maths" -> MockData.getMathsSubject()
+            "science" -> MockData.getScienceSubject()
+            "social_science" -> MockData.getSocialScienceSubject()
+            else -> MockData.getMathsSubject()
+        }
+        val chapter = subject.chapters.find { it.id == currentChapterId }
+        val chapterTitle = chapter?.title ?: "Unknown Chapter"
+        
+        val progress = MCQProgress(
+            subjectId = currentSubjectId,
+            chapterId = currentChapterId,
+            chapterTitle = chapterTitle,
+            totalQuestions = totalQuestions,
+            correctAnswers = correctAnswers,
+            wrongAnswers = wrongAnswers,
+            score = correctAnswers,
+            percentage = percentage,
+            dateCompleted = System.currentTimeMillis(),
+            timeTaken = timeTaken,
+            setNumber = currentSetNumber
+        )
+        
+        progressRepository.saveProgress(progress)
     }
     
     fun previousQuestion() {

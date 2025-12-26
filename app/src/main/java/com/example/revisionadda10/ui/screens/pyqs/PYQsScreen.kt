@@ -53,8 +53,8 @@ fun PYQsScreen(
         else -> Color(0xFF2196F3)
     }
     
-    // All years from 2019 to 2025
-    val pyqYears = listOf("2025", "2024", "2023", "2022", "2021", "2020", "2019")
+    // All years from 2019 to 2026 (2026 is AI-predicted questions)
+    val pyqYears = listOf("2026", "2025", "2024", "2023", "2022", "2021", "2020", "2019")
     
     Scaffold(
         topBar = {
@@ -109,70 +109,120 @@ fun PYQsScreen(
                         modifier = Modifier
                             .fillMaxWidth()
                             .shadow(
-                                elevation = 4.dp,
-                                shape = RoundedCornerShape(12.dp),
-                                spotColor = primaryColor.copy(alpha = 0.3f)
+                                elevation = 8.dp,
+                                shape = RoundedCornerShape(20.dp),
+                                spotColor = primaryColor.copy(alpha = 0.4f)
                             ),
-                        shape = RoundedCornerShape(12.dp),
+                        shape = RoundedCornerShape(20.dp),
                         colors = CardDefaults.cardColors(
-                            containerColor = primaryColor.copy(alpha = 0.2f)
+                            containerColor = MaterialTheme.colorScheme.surface
                         )
                     ) {
-                        Column(
-                            modifier = Modifier.padding(16.dp),
-                            horizontalAlignment = Alignment.CenterHorizontally,
-                            verticalArrangement = Arrangement.spacedBy(8.dp)
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .background(
+                                    brush = Brush.linearGradient(
+                                        colors = listOf(
+                                            primaryColor.copy(alpha = 0.15f),
+                                            primaryColor.copy(alpha = 0.05f)
+                                        )
+                                    )
+                                )
                         ) {
-                            Text(
-                                text = "📚",
-                                style = MaterialTheme.typography.displaySmall
-                            )
-                            Text(
-                                text = "CBSE Board Exam Papers",
-                                style = MaterialTheme.typography.headlineSmall,
-                                fontWeight = FontWeight.Bold,
-                                color = primaryColor,
-                                textAlign = TextAlign.Center
-                            )
-                            Text(
-                                text = "Previous Year Question Papers",
-                                style = MaterialTheme.typography.titleMedium,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                                textAlign = TextAlign.Center
-                            )
-                            Surface(
-                                shape = RoundedCornerShape(12.dp),
-                                color = primaryColor.copy(alpha = 0.15f),
-                                modifier = Modifier.padding(top = 4.dp)
+                            Column(
+                                modifier = Modifier.padding(24.dp),
+                                horizontalAlignment = Alignment.CenterHorizontally,
+                                verticalArrangement = Arrangement.spacedBy(12.dp)
                             ) {
+                                Surface(
+                                    shape = RoundedCornerShape(16.dp),
+                                    color = primaryColor.copy(alpha = 0.2f),
+                                    modifier = Modifier.size(80.dp),
+                                    shadowElevation = 4.dp
+                                ) {
+                                    Box(
+                                        contentAlignment = Alignment.Center,
+                                        modifier = Modifier.fillMaxSize()
+                                    ) {
+                                        Text(
+                                            text = "📚",
+                                            style = MaterialTheme.typography.displayMedium
+                                        )
+                                    }
+                                }
                                 Text(
-                                    text = "2019 - 2025",
-                                    style = MaterialTheme.typography.bodyLarge,
+                                    text = "CBSE Board Exam Papers",
+                                    style = MaterialTheme.typography.headlineMedium,
                                     fontWeight = FontWeight.Bold,
                                     color = primaryColor,
-                                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
+                                    textAlign = TextAlign.Center
                                 )
-                            }
-                            Text(
-                                text = "Tap on any year card to expand and view questions",
-                                style = MaterialTheme.typography.bodySmall,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                                textAlign = TextAlign.Center,
-                                modifier = Modifier.padding(top = 4.dp)
-                            )
-                            Surface(
-                                shape = RoundedCornerShape(8.dp),
-                                color = primaryColor.copy(alpha = 0.1f),
-                                modifier = Modifier.padding(top = 8.dp)
-                            ) {
                                 Text(
-                                    text = "💡 All questions are available in the expanded view below. PDFs are not available online.",
-                                    style = MaterialTheme.typography.bodySmall,
-                                    color = primaryColor,
-                                    fontWeight = FontWeight.Medium,
+                                    text = "Previous Year Question Papers",
+                                    style = MaterialTheme.typography.titleLarge,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                                     textAlign = TextAlign.Center,
-                                    modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp)
+                                    fontWeight = FontWeight.Medium
                                 )
+                                Surface(
+                                    shape = RoundedCornerShape(16.dp),
+                                    color = primaryColor,
+                                    modifier = Modifier.padding(top = 4.dp),
+                                    shadowElevation = 4.dp
+                                ) {
+                                    Text(
+                                        text = "2019 - 2026",
+                                        style = MaterialTheme.typography.titleMedium,
+                                        fontWeight = FontWeight.Bold,
+                                        color = Color.White,
+                                        modifier = Modifier.padding(horizontal = 24.dp, vertical = 12.dp)
+                                    )
+                                }
+                                Row(
+                                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                                    modifier = Modifier.padding(top = 8.dp)
+                                ) {
+                                    Surface(
+                                        shape = RoundedCornerShape(10.dp),
+                                        color = primaryColor.copy(alpha = 0.1f)
+                                    ) {
+                                        Text(
+                                            text = "✅ Complete Solutions",
+                                            style = MaterialTheme.typography.labelMedium,
+                                            fontWeight = FontWeight.Medium,
+                                            color = primaryColor,
+                                            modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp)
+                                        )
+                                    }
+                                    Surface(
+                                        shape = RoundedCornerShape(10.dp),
+                                        color = primaryColor.copy(alpha = 0.1f)
+                                    ) {
+                                        Text(
+                                            text = "📝 All Sections",
+                                            style = MaterialTheme.typography.labelMedium,
+                                            fontWeight = FontWeight.Medium,
+                                            color = primaryColor,
+                                            modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp)
+                                        )
+                                    }
+                                }
+                                Surface(
+                                    shape = RoundedCornerShape(12.dp),
+                                    color = primaryColor.copy(alpha = 0.08f),
+                                    modifier = Modifier.padding(top = 8.dp)
+                                ) {
+                                    Text(
+                                        text = "💡 Tap on any year card below to expand and view all questions with detailed solutions",
+                                        style = MaterialTheme.typography.bodyMedium,
+                                        color = primaryColor,
+                                        fontWeight = FontWeight.Medium,
+                                        textAlign = TextAlign.Center,
+                                        modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp),
+                                        lineHeight = TextUnit(20f, TextUnitType.Sp)
+                                    )
+                                }
                             }
                         }
                     }
@@ -218,29 +268,30 @@ fun PYQYearCard(
         modifier = Modifier
             .fillMaxWidth()
             .shadow(
-                elevation = 4.dp,
-                shape = RoundedCornerShape(12.dp),
-                spotColor = primaryColor.copy(alpha = 0.3f)
-            ),
-        shape = RoundedCornerShape(12.dp),
+                elevation = 6.dp,
+                shape = RoundedCornerShape(16.dp),
+                spotColor = primaryColor.copy(alpha = 0.4f)
+            )
+            .clickable { expanded = !expanded },
+        shape = RoundedCornerShape(16.dp),
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.surface
         )
     ) {
         Column {
-            // Header - Compact Layout
+            // Header - Enhanced Layout
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
                     .background(
                         brush = Brush.horizontalGradient(
                             colors = listOf(
-                                primaryColor.copy(alpha = 0.2f),
-                                primaryColor.copy(alpha = 0.1f)
+                                primaryColor.copy(alpha = 0.25f),
+                                primaryColor.copy(alpha = 0.12f)
                             )
                         )
                     )
-                    .padding(12.dp)
+                    .padding(16.dp)
             ) {
                 // Top Row: Year Badge and Title - Compact
                 Row(
@@ -253,12 +304,12 @@ fun PYQYearCard(
                         horizontalArrangement = Arrangement.spacedBy(12.dp),
                         modifier = Modifier.weight(1f)
                     ) {
-                        // Compact Year Badge
+                        // Enhanced Year Badge
                         Surface(
-                            shape = RoundedCornerShape(10.dp),
-                            color = primaryColor.copy(alpha = 0.25f),
-                            modifier = Modifier.size(48.dp),
-                            shadowElevation = 2.dp
+                            shape = RoundedCornerShape(14.dp),
+                            color = primaryColor,
+                            modifier = Modifier.size(56.dp),
+                            shadowElevation = 4.dp
                         ) {
                             Box(
                                 contentAlignment = Alignment.Center,
@@ -266,9 +317,9 @@ fun PYQYearCard(
                             ) {
                                 Text(
                                     text = year,
-                                    style = MaterialTheme.typography.titleMedium,
+                                    style = MaterialTheme.typography.titleLarge,
                                     fontWeight = FontWeight.Bold,
-                                    color = primaryColor
+                                    color = Color.White
                                 )
                             }
                         }
@@ -277,25 +328,25 @@ fun PYQYearCard(
                             verticalArrangement = Arrangement.spacedBy(2.dp)
                         ) {
                             Text(
-                                text = "CBSE Class 10 - $year",
+                                text = if (year == "2026") "CBSE Class 10 - $year (AI Predicted)" else "CBSE Class 10 - $year",
                                 style = MaterialTheme.typography.titleSmall,
                                 fontWeight = FontWeight.Bold,
                                 color = MaterialTheme.colorScheme.onSurface
                             )
                             Text(
-                                text = "$subjectName Question Paper",
+                                text = if (year == "2026") "AI-Generated Predicted Questions (90% Weightage Topics)" else "$subjectName Question Paper",
                                 style = MaterialTheme.typography.bodySmall,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                                color = if (year == "2026") primaryColor else MaterialTheme.colorScheme.onSurfaceVariant
                             )
                         }
                     }
-                    // Compact Expand/Collapse Button
+                    // Enhanced Expand/Collapse Button
                     Surface(
-                        shape = RoundedCornerShape(8.dp),
-                        color = primaryColor.copy(alpha = 0.15f),
+                        shape = RoundedCornerShape(12.dp),
+                        color = if (expanded) primaryColor else primaryColor.copy(alpha = 0.2f),
                         modifier = Modifier
-                            .size(36.dp)
-                            .clickable { expanded = !expanded }
+                            .size(44.dp),
+                        shadowElevation = if (expanded) 4.dp else 2.dp
                     ) {
                         Box(
                             contentAlignment = Alignment.Center,
@@ -303,9 +354,9 @@ fun PYQYearCard(
                         ) {
                             Text(
                                 text = if (expanded) "▲" else "▼",
-                                style = MaterialTheme.typography.bodyLarge,
+                                style = MaterialTheme.typography.titleMedium,
                                 fontWeight = FontWeight.Bold,
-                                color = primaryColor
+                                color = if (expanded) Color.White else primaryColor
                             )
                         }
                     }
@@ -372,24 +423,25 @@ fun PYQYearCard(
                         Row(
                             horizontalArrangement = Arrangement.spacedBy(6.dp)
                         ) {
-                            // Show/Hide Answers Button - Compact
+                            // Enhanced Show/Hide Answers Button
                             Surface(
-                                shape = RoundedCornerShape(8.dp),
-                                color = if (showAnswers) primaryColor else primaryColor.copy(alpha = 0.1f),
-                                modifier = Modifier.clickable { showAnswers = !showAnswers }
+                                shape = RoundedCornerShape(12.dp),
+                                color = if (showAnswers) primaryColor else primaryColor.copy(alpha = 0.15f),
+                                modifier = Modifier.clickable { showAnswers = !showAnswers },
+                                shadowElevation = if (showAnswers) 4.dp else 2.dp
                             ) {
                                 Row(
                                     verticalAlignment = Alignment.CenterVertically,
-                                    horizontalArrangement = Arrangement.spacedBy(4.dp),
-                                    modifier = Modifier.padding(horizontal = 8.dp, vertical = 5.dp)
+                                    horizontalArrangement = Arrangement.spacedBy(6.dp),
+                                    modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp)
                                 ) {
                                     Text(
                                         text = if (showAnswers) "✓" else "👁️",
-                                        style = MaterialTheme.typography.bodySmall
+                                        style = MaterialTheme.typography.bodyMedium
                                     )
                                     Text(
-                                        text = if (showAnswers) "Hide" else "Show",
-                                        style = MaterialTheme.typography.labelSmall,
+                                        text = if (showAnswers) "Hide Answers" else "Show Answers",
+                                        style = MaterialTheme.typography.labelMedium,
                                         fontWeight = FontWeight.Bold,
                                         color = if (showAnswers) Color.White else primaryColor
                                     )
@@ -544,18 +596,18 @@ fun PYQQuestionCard(
         modifier = Modifier
             .fillMaxWidth()
             .shadow(
-                elevation = 2.dp,
-                shape = RoundedCornerShape(10.dp),
-                spotColor = primaryColor.copy(alpha = 0.2f)
+                elevation = 4.dp,
+                shape = RoundedCornerShape(16.dp),
+                spotColor = primaryColor.copy(alpha = 0.3f)
             ),
-        shape = RoundedCornerShape(10.dp),
+        shape = RoundedCornerShape(16.dp),
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.surface
         )
     ) {
         Column(
-            modifier = Modifier.padding(12.dp),
-            verticalArrangement = Arrangement.spacedBy(10.dp)
+            modifier = Modifier.padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
             Row(
                 modifier = Modifier.fillMaxWidth(),
@@ -563,15 +615,15 @@ fun PYQQuestionCard(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Row(
-                    horizontalArrangement = Arrangement.spacedBy(10.dp),
+                    horizontalArrangement = Arrangement.spacedBy(12.dp),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    // Compact Question Number Badge
+                    // Enhanced Question Number Badge
                     Surface(
-                        shape = RoundedCornerShape(8.dp),
-                        color = primaryColor.copy(alpha = 0.2f),
-                        modifier = Modifier.size(36.dp),
-                        shadowElevation = 2.dp
+                        shape = RoundedCornerShape(12.dp),
+                        color = primaryColor,
+                        modifier = Modifier.size(44.dp),
+                        shadowElevation = 4.dp
                     ) {
                         Box(
                             contentAlignment = Alignment.Center,
@@ -579,95 +631,113 @@ fun PYQQuestionCard(
                         ) {
                             Text(
                                 text = "$index",
-                                style = MaterialTheme.typography.titleSmall,
+                                style = MaterialTheme.typography.titleMedium,
                                 fontWeight = FontWeight.Bold,
-                                color = primaryColor
+                                color = Color.White
                             )
                         }
                     }
                     Column(
-                        verticalArrangement = Arrangement.spacedBy(2.dp)
+                        verticalArrangement = Arrangement.spacedBy(4.dp)
                     ) {
                         Text(
                             text = "Q$index",
-                            style = MaterialTheme.typography.labelMedium,
+                            style = MaterialTheme.typography.labelLarge,
                             fontWeight = FontWeight.Bold,
                             color = MaterialTheme.colorScheme.onSurface
                         )
                         Text(
                             text = getQuestionTypeLabel(question.type),
                             style = MaterialTheme.typography.labelSmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            fontWeight = FontWeight.Medium
                         )
                     }
                 }
                 Surface(
-                    shape = RoundedCornerShape(6.dp),
-                    color = primaryColor
+                    shape = RoundedCornerShape(12.dp),
+                    color = primaryColor,
+                    shadowElevation = 4.dp
                 ) {
                     Text(
                         text = "${question.marks}M",
-                        style = MaterialTheme.typography.labelSmall,
+                        style = MaterialTheme.typography.titleSmall,
                         fontWeight = FontWeight.Bold,
                         color = Color.White,
-                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                        modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp)
                     )
                 }
             }
             
-            Divider(color = primaryColor.copy(alpha = 0.15f), thickness = 1.dp)
+            Divider(
+                color = primaryColor.copy(alpha = 0.2f),
+                thickness = 1.5.dp,
+                modifier = Modifier.padding(vertical = 4.dp)
+            )
             
             Text(
                 text = question.question,
-                style = MaterialTheme.typography.bodyMedium,
+                style = MaterialTheme.typography.bodyLarge,
                 fontWeight = FontWeight.Medium,
                 color = MaterialTheme.colorScheme.onSurface,
-                lineHeight = TextUnit(20f, TextUnitType.Sp)
+                lineHeight = TextUnit(24f, TextUnitType.Sp)
             )
             
             if (question.hints.isNotEmpty()) {
                 Surface(
                     modifier = Modifier.fillMaxWidth(),
-                    shape = RoundedCornerShape(8.dp),
-                    color = primaryColor.copy(alpha = 0.08f)
+                    shape = RoundedCornerShape(12.dp),
+                    color = primaryColor.copy(alpha = 0.1f),
+                    shadowElevation = 2.dp
                 ) {
                     Column(
-                        modifier = Modifier.padding(10.dp),
-                        verticalArrangement = Arrangement.spacedBy(6.dp)
+                        modifier = Modifier.padding(14.dp),
+                        verticalArrangement = Arrangement.spacedBy(8.dp)
                     ) {
                         Row(
                             verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.spacedBy(6.dp)
+                            horizontalArrangement = Arrangement.spacedBy(8.dp)
                         ) {
-                            Text(
-                                text = "💡",
-                                style = MaterialTheme.typography.bodyMedium
-                            )
+                            Surface(
+                                shape = RoundedCornerShape(8.dp),
+                                color = primaryColor.copy(alpha = 0.2f),
+                                modifier = Modifier.size(28.dp)
+                            ) {
+                                Box(
+                                    contentAlignment = Alignment.Center,
+                                    modifier = Modifier.fillMaxSize()
+                                ) {
+                                    Text(
+                                        text = "💡",
+                                        style = MaterialTheme.typography.bodyMedium
+                                    )
+                                }
+                            }
                             Text(
                                 text = "Hints:",
-                                style = MaterialTheme.typography.labelMedium,
+                                style = MaterialTheme.typography.titleSmall,
                                 fontWeight = FontWeight.Bold,
                                 color = primaryColor
                             )
                         }
                         Column(
-                            verticalArrangement = Arrangement.spacedBy(4.dp)
+                            verticalArrangement = Arrangement.spacedBy(6.dp)
                         ) {
                             question.hints.forEach { hint ->
                                 Row(
-                                    horizontalArrangement = Arrangement.spacedBy(6.dp)
+                                    horizontalArrangement = Arrangement.spacedBy(8.dp)
                                 ) {
-                                    Text(
-                                        text = "•",
-                                        style = MaterialTheme.typography.bodySmall,
+                                    Surface(
+                                        shape = RoundedCornerShape(4.dp),
                                         color = primaryColor,
-                                        fontWeight = FontWeight.Bold
-                                    )
+                                        modifier = Modifier.size(6.dp)
+                                    ) {}
                                     Text(
                                         text = hint,
-                                        style = MaterialTheme.typography.bodySmall,
-                                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                                        modifier = Modifier.weight(1f)
+                                        style = MaterialTheme.typography.bodyMedium,
+                                        color = MaterialTheme.colorScheme.onSurface,
+                                        modifier = Modifier.weight(1f),
+                                        lineHeight = TextUnit(20f, TextUnitType.Sp)
                                     )
                                 }
                             }
@@ -679,21 +749,23 @@ fun PYQQuestionCard(
             if (showAnswer && question.answer != null) {
                 Surface(
                     modifier = Modifier.fillMaxWidth(),
-                    shape = RoundedCornerShape(8.dp),
-                    color = primaryColor.copy(alpha = 0.1f)
+                    shape = RoundedCornerShape(14.dp),
+                    color = primaryColor.copy(alpha = 0.12f),
+                    shadowElevation = 3.dp
                 ) {
                     Column(
-                        modifier = Modifier.padding(12.dp),
-                        verticalArrangement = Arrangement.spacedBy(8.dp)
+                        modifier = Modifier.padding(16.dp),
+                        verticalArrangement = Arrangement.spacedBy(12.dp)
                     ) {
                         Row(
                             verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.spacedBy(8.dp)
+                            horizontalArrangement = Arrangement.spacedBy(10.dp)
                         ) {
                             Surface(
-                                shape = RoundedCornerShape(6.dp),
+                                shape = RoundedCornerShape(10.dp),
                                 color = primaryColor,
-                                modifier = Modifier.size(24.dp)
+                                modifier = Modifier.size(32.dp),
+                                shadowElevation = 4.dp
                             ) {
                                 Box(
                                     contentAlignment = Alignment.Center,
@@ -701,7 +773,7 @@ fun PYQQuestionCard(
                                 ) {
                                     Text(
                                         text = "✓",
-                                        style = MaterialTheme.typography.bodySmall,
+                                        style = MaterialTheme.typography.bodyLarge,
                                         color = Color.White,
                                         fontWeight = FontWeight.Bold
                                     )
@@ -709,33 +781,49 @@ fun PYQQuestionCard(
                             }
                             Text(
                                 text = "Answer:",
-                                style = MaterialTheme.typography.titleSmall,
+                                style = MaterialTheme.typography.titleMedium,
                                 fontWeight = FontWeight.Bold,
                                 color = primaryColor
                             )
                         }
-                        Divider(color = primaryColor.copy(alpha = 0.2f), thickness = 1.dp)
+                        Divider(
+                            color = primaryColor.copy(alpha = 0.3f),
+                            thickness = 1.5.dp
+                        )
                         Text(
                             text = question.answer,
-                            style = MaterialTheme.typography.bodySmall,
+                            style = MaterialTheme.typography.bodyMedium,
                             color = MaterialTheme.colorScheme.onSurface,
-                            lineHeight = TextUnit(18f, TextUnitType.Sp)
+                            lineHeight = TextUnit(22f, TextUnitType.Sp),
+                            fontWeight = FontWeight.Medium
                         )
                     }
                 }
             } else if (!showAnswer && question.answer != null) {
                 Surface(
-                    shape = RoundedCornerShape(6.dp),
-                    color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.4f),
-                    modifier = Modifier.fillMaxWidth()
+                    shape = RoundedCornerShape(12.dp),
+                    color = primaryColor.copy(alpha = 0.08f),
+                    modifier = Modifier.fillMaxWidth(),
+                    shadowElevation = 2.dp
                 ) {
-                    Text(
-                        text = "💡 Tap 'Show' to view answer",
-                        style = MaterialTheme.typography.labelSmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        textAlign = TextAlign.Center,
-                        modifier = Modifier.padding(10.dp)
-                    )
+                    Row(
+                        modifier = Modifier.padding(14.dp),
+                        horizontalArrangement = Arrangement.Center,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Text(
+                            text = "👁️",
+                            style = MaterialTheme.typography.bodyLarge,
+                            modifier = Modifier.padding(end = 8.dp)
+                        )
+                        Text(
+                            text = "Tap 'Show Answers' button above to view solution",
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = primaryColor,
+                            fontWeight = FontWeight.Medium,
+                            textAlign = TextAlign.Center
+                        )
+                    }
                 }
             }
         }
@@ -755,39 +843,45 @@ fun ExamSectionCard(
         modifier = Modifier
             .fillMaxWidth()
             .shadow(
-                elevation = 3.dp,
-                shape = RoundedCornerShape(12.dp),
-                spotColor = primaryColor.copy(alpha = 0.25f)
+                elevation = 6.dp,
+                shape = RoundedCornerShape(18.dp),
+                spotColor = primaryColor.copy(alpha = 0.35f)
             ),
-        shape = RoundedCornerShape(12.dp),
+        shape = RoundedCornerShape(18.dp),
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.surface
         )
     ) {
         Column(
-            modifier = Modifier.padding(12.dp),
-            verticalArrangement = Arrangement.spacedBy(12.dp)
+            modifier = Modifier.padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            // Compact Section Header
+            // Enhanced Section Header
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
                     .background(
-                        primaryColor.copy(alpha = 0.15f),
-                        shape = RoundedCornerShape(8.dp)
+                        brush = Brush.horizontalGradient(
+                            colors = listOf(
+                                primaryColor.copy(alpha = 0.2f),
+                                primaryColor.copy(alpha = 0.1f)
+                            )
+                        ),
+                        shape = RoundedCornerShape(14.dp)
                     )
-                    .padding(10.dp),
+                    .padding(14.dp),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                    horizontalArrangement = Arrangement.spacedBy(12.dp)
                 ) {
                     Surface(
-                        shape = RoundedCornerShape(6.dp),
+                        shape = RoundedCornerShape(12.dp),
                         color = primaryColor,
-                        modifier = Modifier.size(28.dp)
+                        modifier = Modifier.size(40.dp),
+                        shadowElevation = 4.dp
                     ) {
                         Box(
                             contentAlignment = Alignment.Center,
@@ -795,46 +889,48 @@ fun ExamSectionCard(
                         ) {
                             Text(
                                 text = sectionTitle.takeLast(1),
-                                style = MaterialTheme.typography.labelLarge,
+                                style = MaterialTheme.typography.titleMedium,
                                 fontWeight = FontWeight.Bold,
                                 color = Color.White
                             )
                         }
                     }
                     Column(
-                        verticalArrangement = Arrangement.spacedBy(2.dp)
+                        verticalArrangement = Arrangement.spacedBy(4.dp)
                     ) {
                         Text(
                             text = sectionTitle,
-                            style = MaterialTheme.typography.titleSmall,
+                            style = MaterialTheme.typography.titleMedium,
                             fontWeight = FontWeight.Bold,
                             color = primaryColor
                         )
                         Text(
                             text = sectionDescription,
                             style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            fontWeight = FontWeight.Medium
                         )
                     }
                 }
                 Surface(
-                    shape = RoundedCornerShape(6.dp),
-                    color = primaryColor.copy(alpha = 0.2f)
+                    shape = RoundedCornerShape(12.dp),
+                    color = primaryColor,
+                    shadowElevation = 4.dp
                 ) {
                     Text(
                         text = "${questions.size} Q",
-                        style = MaterialTheme.typography.labelMedium,
+                        style = MaterialTheme.typography.titleSmall,
                         fontWeight = FontWeight.Bold,
-                        color = primaryColor,
-                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                        color = Color.White,
+                        modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp)
                     )
                 }
             }
             
             Divider(
                 color = primaryColor.copy(alpha = 0.3f),
-                thickness = 1.dp,
-                modifier = Modifier.padding(vertical = 2.dp)
+                thickness = 2.dp,
+                modifier = Modifier.padding(vertical = 4.dp)
             )
             
             // Questions in this section with compact spacing

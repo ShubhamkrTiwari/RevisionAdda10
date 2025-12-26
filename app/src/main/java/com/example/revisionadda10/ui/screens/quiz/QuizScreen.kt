@@ -3,6 +3,8 @@ package com.example.revisionadda10.ui.screens.quiz
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
@@ -141,7 +143,10 @@ fun QuizScreen(
                 score = uiState.score,
                 totalQuestions = uiState.questions.size,
                 onRetry = { viewModel.resetQuiz() },
-                onBack = { viewModel.goBackToSetSelection() }
+                onBack = { viewModel.goBackToSetSelection() },
+                onViewProgress = {
+                    navController.navigate(Screen.Progress.route)
+                }
             )
         } else {
             QuizQuestionScreen(
@@ -150,6 +155,7 @@ fun QuizScreen(
                 onSubmit = { viewModel.submitAnswer() },
                 onNext = { viewModel.nextQuestion() },
                 onPrevious = { viewModel.previousQuestion() },
+                primaryColor = primaryColor,
                 modifier = Modifier.padding(paddingValues)
             )
         }
@@ -163,18 +169,32 @@ fun QuizQuestionScreen(
     onSubmit: () -> Unit,
     onNext: () -> Unit,
     onPrevious: () -> Unit,
+    primaryColor: Color,
     modifier: Modifier = Modifier
 ) {
     val currentQuestion = uiState.questions[uiState.currentQuestionIndex]
     val isAnswered = uiState.currentQuestionIndex in uiState.answeredQuestions
     var showExplanation by remember { mutableStateOf(false) }
     
-    Column(
-        modifier = modifier
-            .fillMaxSize()
-            .padding(16.dp),
-        verticalArrangement = Arrangement.spacedBy(16.dp)
+    // Update showExplanation when answer is submitted
+    LaunchedEffect(isAnswered) {
+        if (isAnswered) {
+            showExplanation = true
+        }
+    }
+    
+    Box(
+        modifier = modifier.fillMaxSize()
     ) {
+        val scrollState = rememberScrollState()
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .verticalScroll(scrollState)
+                .padding(horizontal = 16.dp, vertical = 16.dp)
+                .padding(bottom = 80.dp), // Space for sticky buttons
+            verticalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
         // Progress Bar
         LinearProgressIndicator(
             progress = { (uiState.currentQuestionIndex + 1).toFloat() / uiState.questions.size },
@@ -351,11 +371,24 @@ fun QuizQuestionScreen(
             }
         }
         
-        Spacer(modifier = Modifier.weight(1f))
-        
-        // Navigation Buttons
+        // Add bottom padding for sticky buttons
+        Spacer(modifier = Modifier.height(80.dp))
+    }
+    
+    // Sticky Navigation Buttons at Bottom
+    Surface(
+        modifier = Modifier
+            .align(Alignment.BottomCenter)
+            .fillMaxWidth()
+            .shadow(8.dp, RoundedCornerShape(topStart = 20.dp, topEnd = 20.dp)),
+        shape = RoundedCornerShape(topStart = 20.dp, topEnd = 20.dp),
+        color = MaterialTheme.colorScheme.surface,
+        tonalElevation = 4.dp
+    ) {
         Row(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp, vertical = 12.dp),
             horizontalArrangement = Arrangement.spacedBy(12.dp)
         ) {
             if (uiState.currentQuestionIndex > 0) {
@@ -367,27 +400,37 @@ fun QuizQuestionScreen(
                 }
             }
             
+            // Show Submit button only if not answered and answer is selected
             if (!isAnswered && uiState.selectedAnswerIndex != null) {
                 Button(
                     onClick = {
                         onSubmit()
-                        showExplanation = true
                     },
-                    modifier = Modifier.weight(1f)
+                    modifier = Modifier.weight(1f),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = primaryColor
+                    )
                 ) {
                     Text("Submit Answer")
                 }
             }
             
+            // Show Next button if question is answered (always show after submit)
             if (isAnswered) {
                 Button(
                     onClick = onNext,
-                    modifier = Modifier.weight(1f)
+                    modifier = Modifier.weight(1f),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = Color(0xFF4CAF50)
+                    )
                 ) {
-                    Text(if (uiState.currentQuestionIndex < uiState.questions.size - 1) "Next" else "Finish")
+                    Text(
+                        if (uiState.currentQuestionIndex < uiState.questions.size - 1) "Next Question →" else "Finish Quiz ✓"
+                    )
                 }
             }
         }
+    }
     }
 }
 
@@ -396,7 +439,8 @@ fun QuizResultScreen(
     score: Int,
     totalQuestions: Int,
     onRetry: () -> Unit,
-    onBack: () -> Unit
+    onBack: () -> Unit,
+    onViewProgress: () -> Unit = {}
 ) {
     val percentage = (score * 100) / totalQuestions
     val performance = when {
@@ -458,22 +502,34 @@ fun QuizResultScreen(
         
         Spacer(modifier = Modifier.height(32.dp))
         
-        Row(
+        Column(
             modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(12.dp)
+            verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
-            OutlinedButton(
-                onClick = onBack,
-                modifier = Modifier.weight(1f)
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(12.dp)
             ) {
-                Text("Back")
+                OutlinedButton(
+                    onClick = onBack,
+                    modifier = Modifier.weight(1f)
+                ) {
+                    Text("Back")
+                }
+                
+                Button(
+                    onClick = onRetry,
+                    modifier = Modifier.weight(1f)
+                ) {
+                    Text("Retry Quiz")
+                }
             }
             
-            Button(
-                onClick = onRetry,
-                modifier = Modifier.weight(1f)
+            TextButton(
+                onClick = onViewProgress,
+                modifier = Modifier.fillMaxWidth()
             ) {
-                Text("Retry Quiz")
+                Text("📊 View Progress")
             }
         }
     }

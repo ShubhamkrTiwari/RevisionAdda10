@@ -1,6 +1,7 @@
 package com.example.revisionadda10.ui.navigation
 
 sealed class Screen(val route: String) {
+    object Splash : Screen("splash")
     object Dashboard : Screen("dashboard")
     object SubjectDetail : Screen("subject_detail/{subjectId}") {
         fun createRoute(subjectId: String) = "subject_detail/$subjectId"
@@ -22,6 +23,13 @@ sealed class Screen(val route: String) {
     }
     object PDFViewer : Screen("pdf_viewer/{pdfUrl}") {
         fun createRoute(pdfUrl: String) = "pdf_viewer/${pdfUrl.replace("/", "_SLASH_").replace(":", "_COLON_")}"
+    }
+    object FormulaSheet : Screen("formula_sheet/{subjectId}/{chapterId}") {
+        fun createRoute(subjectId: String, chapterId: String) = "formula_sheet/$subjectId/$chapterId"
+    }
+    object Progress : Screen("progress")
+    object SubjectProgress : Screen("subject_progress/{subjectId}") {
+        fun createRoute(subjectId: String) = "subject_progress/$subjectId"
     }
 }
 

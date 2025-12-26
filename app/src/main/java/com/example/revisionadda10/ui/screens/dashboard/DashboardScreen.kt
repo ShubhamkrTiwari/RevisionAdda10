@@ -1,6 +1,7 @@
 package com.example.revisionadda10.ui.screens.dashboard
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -90,6 +91,57 @@ fun DashboardScreen(navController: NavController) {
                 }
             }
             
+            // Progress Card
+            Card(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 20.dp)
+                    .clickable {
+                        navController.navigate(Screen.Progress.route)
+                    },
+                shape = RoundedCornerShape(20.dp),
+                colors = CardDefaults.cardColors(
+                    containerColor = Color(0xFF9C27B0).copy(alpha = 0.1f)
+                ),
+                elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+            ) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(20.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Row(
+                        horizontalArrangement = Arrangement.spacedBy(16.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Text(
+                            text = "📊",
+                            style = MaterialTheme.typography.displaySmall
+                        )
+                        Column {
+                            Text(
+                                text = "MCQ Progress",
+                                style = MaterialTheme.typography.titleLarge,
+                                fontWeight = FontWeight.Bold,
+                                color = MaterialTheme.colorScheme.onSurface
+                            )
+                            Text(
+                                text = "Track your quiz performance",
+                                style = MaterialTheme.typography.bodyMedium,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        }
+                    }
+                    Icon(
+                        imageVector = Icons.Default.ArrowForward,
+                        contentDescription = "View Progress",
+                        tint = MaterialTheme.colorScheme.primary
+                    )
+                }
+            }
+            
             // Subject Cards
             Column(
                 modifier = Modifier.fillMaxWidth(),
@@ -132,7 +184,7 @@ fun DashboardScreen(navController: NavController) {
             
             // Footer
             Text(
-                text = "📚 Your Complete Learning Companion",
+                text = "📚 Your Complete Learning with RevisionAdda",
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier.padding(bottom = 16.dp, top = 8.dp)
