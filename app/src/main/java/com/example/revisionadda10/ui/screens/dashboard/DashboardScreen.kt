@@ -76,7 +76,7 @@ fun DashboardScreen(navController: NavController) {
                     Spacer(modifier = Modifier.height(12.dp))
                     Text(
                         text = "CBSE Class 10",
-                        style = MaterialTheme.typography.headlineMedium,
+                        style = MaterialTheme.typography.titleMedium,
                         fontWeight = FontWeight.Bold,
                         color = MaterialTheme.colorScheme.onPrimaryContainer,
                         textAlign = TextAlign.Center
@@ -84,7 +84,7 @@ fun DashboardScreen(navController: NavController) {
                     Spacer(modifier = Modifier.height(4.dp))
                     Text(
                         text = "Complete Study Material",
-                        style = MaterialTheme.typography.bodyLarge,
+                        style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.8f),
                         textAlign = TextAlign.Center
                     )
