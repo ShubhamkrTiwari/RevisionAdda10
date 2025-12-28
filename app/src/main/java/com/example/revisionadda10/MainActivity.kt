@@ -18,10 +18,14 @@ import com.example.revisionadda10.ui.navigation.NavGraph
 import com.example.revisionadda10.ui.theme.RevisionAdda10Theme
 import com.example.revisionadda10.utils.ThemeManager
 import com.example.revisionadda10.utils.VideoPreFetchHelper
+import com.example.revisionadda10.ui.ads.AppOpenAdManager
 import com.google.android.gms.ads.MobileAds
 import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
+    companion object {
+        var appOpenAdManager: AppOpenAdManager? = null
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         
@@ -34,6 +38,14 @@ class MainActivity : ComponentActivity() {
                 val status = statusMap[adapterClass]
                 android.util.Log.d("AdMob", "Adapter: $adapterClass, Status: ${status?.initializationState}, Description: ${status?.description}")
             }
+        }
+        
+        // Initialize App Open Ad Manager immediately (will load ad after AdMob initializes)
+        if (appOpenAdManager == null) {
+            android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
+                appOpenAdManager = AppOpenAdManager(application)
+                android.util.Log.d("AdMob", "App Open Ad Manager initialized")
+            }, 1000) // Wait 1 second for AdMob to start initializing
         }
         
         enableEdgeToEdge()

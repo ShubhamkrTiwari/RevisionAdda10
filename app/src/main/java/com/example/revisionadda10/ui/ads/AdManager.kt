@@ -27,6 +27,12 @@ class AdManager(private val context: Context) {
     }
     
     fun loadInterstitialAd() {
+        // Don't load if already loading or loaded
+        if (interstitialAd != null) {
+            android.util.Log.d("AdManager", "Ad already loaded, skipping")
+            return
+        }
+        
         android.util.Log.d("AdManager", "Loading interstitial ad with unit ID: $interstitialAdUnitId")
         
         // Wait a bit before loading to ensure AdMob is initialized
@@ -64,27 +70,48 @@ class AdManager(private val context: Context) {
             } catch (e: Exception) {
                 android.util.Log.e("AdManager", "Exception loading ad: ${e.message}", e)
             }
-        }, 2000) // Wait 2 seconds for AdMob initialization
+        }, 1000) // Reduced to 1 second for faster loading
     }
     
     fun showInterstitialAd(activity: Activity, onAdDismissed: () -> Unit = {}) {
         interstitialAd?.let { ad ->
+            android.util.Log.d("AdManager", "Showing interstitial ad")
             ad.fullScreenContentCallback = object : FullScreenContentCallback() {
                 override fun onAdDismissedFullScreenContent() {
+                    android.util.Log.d("AdManager", "Interstitial ad dismissed")
                     interstitialAd = null
                     onAdDismissed()
-                    // Load next ad
-                    loadInterstitialAd()
+                    // Load next ad immediately
+                    android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
+                        loadInterstitialAd()
+                    }, 1000)
                 }
                 
                 override fun onAdFailedToShowFullScreenContent(p0: com.google.android.gms.ads.AdError) {
+                    android.util.Log.e("AdManager", "Interstitial ad failed to show: ${p0.message}")
                     interstitialAd = null
                     onAdDismissed()
-                    loadInterstitialAd()
+                    // Load next ad immediately
+                    android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
+                        loadInterstitialAd()
+                    }, 1000)
+                }
+                
+                override fun onAdShowedFullScreenContent() {
+                    android.util.Log.d("AdManager", "Interstitial ad showed successfully")
                 }
             }
-            ad.show(activity)
+            try {
+                ad.show(activity)
+                android.util.Log.d("AdManager", "Interstitial ad show() called")
+            } catch (e: Exception) {
+                android.util.Log.e("AdManager", "Error showing ad: ${e.message}", e)
+                interstitialAd = null
+                onAdDismissed()
+                loadInterstitialAd()
+            }
         } ?: run {
+            android.util.Log.d("AdManager", "No ad available, loading new ad")
             onAdDismissed()
             loadInterstitialAd()
         }
@@ -99,5 +126,11 @@ class AdManager(private val context: Context) {
 fun rememberAdManager(): AdManager {
     val context = androidx.compose.ui.platform.LocalContext.current
     return remember { AdManager(context) }
+}
+
+@Composable
+fun rememberRewardedAdManager(): RewardedAdManager {
+    val context = androidx.compose.ui.platform.LocalContext.current
+    return remember { RewardedAdManager(context) }
 }
 

@@ -19,6 +19,7 @@ import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.LoadAdError
+import kotlinx.coroutines.delay
 
 @Composable
 fun AdBanner(
@@ -29,9 +30,26 @@ fun AdBanner(
     modifier: Modifier = Modifier
 ) {
     val context = LocalContext.current
+    var adViewRef by remember { mutableStateOf<AdView?>(null) }
     
     LaunchedEffect(adUnitId) {
         Log.d("AdBanner", "Initializing ad with unit ID: $adUnitId")
+    }
+    
+    // Auto-refresh banner ad every 30 seconds
+    LaunchedEffect(adUnitId) {
+        while (true) {
+            delay(30000) // 30 seconds
+            adViewRef?.let { view ->
+                try {
+                    Log.d("AdBanner", "Refreshing banner ad after 30 seconds")
+                    val adRequest = AdRequest.Builder().build()
+                    view.loadAd(adRequest)
+                } catch (e: Exception) {
+                    Log.e("AdBanner", "Error refreshing ad: ${e.message}", e)
+                }
+            }
+        }
     }
     
     AndroidView(
@@ -40,6 +58,7 @@ fun AdBanner(
             AdView(ctx).apply {
                 setAdSize(AdSize.BANNER)
                 this.adUnitId = adUnitId
+                adViewRef = this
                 
                 adListener = object : AdListener() {
                     override fun onAdLoaded() {
@@ -86,6 +105,7 @@ fun AdBanner(
             if (view.adUnitId != adUnitId) {
                 Log.d("AdBanner", "Updating ad unit ID from ${view.adUnitId} to $adUnitId")
                 view.adUnitId = adUnitId
+                adViewRef = view
                 try {
                     val adRequest = AdRequest.Builder().build()
                     view.loadAd(adRequest)
@@ -102,7 +122,8 @@ fun AdBanner(
     // Cleanup on dispose
     DisposableEffect(adUnitId) {
         onDispose {
-            // Cleanup handled by AndroidView lifecycle
+            adViewRef?.destroy()
+            adViewRef = null
             Log.d("AdBanner", "AdBanner disposed for unit: $adUnitId")
         }
     }

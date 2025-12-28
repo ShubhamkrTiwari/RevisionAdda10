@@ -40,10 +40,12 @@ fun DashboardScreen(navController: NavController) {
         adManager.loadInterstitialAd()
     }
     
-    // Show interstitial ad 2 seconds after app opens
+    // Show interstitial ad 3 seconds after app opens
     LaunchedEffect(Unit) {
         if (context is Activity && !hasShownInitialAd) {
-            delay(2000) // Wait 2 seconds
+            delay(3000) // Wait 3 seconds
+            
+            // Try to show ad (will load if not available)
             adManager.showInterstitialAd(context as Activity) {
                 hasShownInitialAd = true
             }

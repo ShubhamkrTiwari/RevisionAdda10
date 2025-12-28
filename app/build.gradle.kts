@@ -61,6 +61,9 @@ dependencies {
     // ViewModel
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     
+    // Lifecycle Process (for ProcessLifecycleOwner)
+    implementation("androidx.lifecycle:lifecycle-process:2.10.0")
+    
     // AdMob
     implementation(libs.play.services.ads)
     

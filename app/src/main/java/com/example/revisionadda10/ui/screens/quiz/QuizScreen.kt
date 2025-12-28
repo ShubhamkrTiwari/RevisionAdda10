@@ -31,6 +31,7 @@ import androidx.navigation.NavController
 import com.example.revisionadda10.data.repository.MockData
 import com.example.revisionadda10.ui.navigation.Screen
 import com.example.revisionadda10.ui.ads.rememberAdManager
+import com.example.revisionadda10.ui.ads.rememberRewardedAdManager
 import com.example.revisionadda10.ui.ads.AdBannerCard
 import androidx.compose.ui.platform.LocalContext
 import android.app.Activity
@@ -72,19 +73,19 @@ fun QuizScreen(
         adManager.loadInterstitialAd()
     }
     
-    // Continuously show ads at regular intervals (non-stop)
+    // Continuously show ads at regular intervals (30 seconds)
     LaunchedEffect(Unit) {
         if (context is Activity) {
             // Initial delay before first ad
-            delay(3000)
+            delay(5000) // Wait 5 seconds for ad to load
             
-            // Continuous loop to show ads
+            // Continuous loop to show ads every 30 seconds
             while (true) {
-                // Show the ad
+                // Show the ad (will load if not available)
                 adManager.showInterstitialAd(context as Activity)
                 
-                // Wait 45 seconds before showing next ad
-                delay(45000)
+                // Wait 30 seconds before showing next ad
+                delay(30000)
             }
         }
     }
@@ -165,7 +166,8 @@ fun QuizScreen(
                 onBack = { viewModel.goBackToSetSelection() },
                 onViewProgress = {
                     navController.navigate(Screen.Progress.route)
-                }
+                },
+                context = context
             )
         } else {
             QuizQuestionScreen(
@@ -464,8 +466,36 @@ fun QuizResultScreen(
     totalQuestions: Int,
     onRetry: () -> Unit,
     onBack: () -> Unit,
-    onViewProgress: () -> Unit = {}
+    onViewProgress: () -> Unit = {},
+    context: android.content.Context
 ) {
+    val rewardedAdManager = rememberRewardedAdManager()
+    var hasShownRewardedAd by remember { mutableStateOf(false) }
+    
+    // Load rewarded ad when result screen opens
+    LaunchedEffect(Unit) {
+        rewardedAdManager.loadRewardedAd()
+    }
+    
+    // Show rewarded ad automatically when quiz result shows
+    LaunchedEffect(Unit) {
+        if (context is Activity && !hasShownRewardedAd) {
+            delay(2000) // Wait 2 seconds
+            rewardedAdManager.showRewardedAd(
+                activity = context as Activity,
+                onRewardEarned = { reward ->
+                    android.util.Log.d("QuizResult", "User earned reward: ${reward.amount} ${reward.type}")
+                    hasShownRewardedAd = true
+                },
+                onAdDismissed = {
+                    hasShownRewardedAd = true
+                },
+                onAdFailed = {
+                    hasShownRewardedAd = true
+                }
+            )
+        }
+    }
     val percentage = (score * 100) / totalQuestions
     val performance = when {
         percentage >= 80 -> "Excellent! 🎉"
