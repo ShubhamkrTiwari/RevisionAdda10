@@ -28,8 +28,8 @@ sealed class Screen(val route: String) {
         fun createRoute(subjectId: String, chapterId: String) = "formula_sheet/$subjectId/$chapterId"
     }
     object Progress : Screen("progress")
-    object Settings : Screen("settings")
     object Game : Screen("game")
+    object Settings : Screen("settings")
     object SubjectProgress : Screen("subject_progress/{subjectId}") {
         fun createRoute(subjectId: String) = "subject_progress/$subjectId"
     }

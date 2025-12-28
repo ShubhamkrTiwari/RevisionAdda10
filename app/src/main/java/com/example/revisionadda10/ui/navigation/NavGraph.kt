@@ -12,9 +12,9 @@ import com.example.revisionadda10.ui.screens.progress.SubjectProgressDetailScree
 import com.example.revisionadda10.ui.screens.pdf.PDFViewerScreen
 import com.example.revisionadda10.ui.screens.pyqs.PYQsScreen
 import com.example.revisionadda10.ui.screens.quiz.QuizScreen
-import com.example.revisionadda10.ui.screens.game.GameScreen
 import com.example.revisionadda10.ui.screens.settings.SettingsScreen
 import com.example.revisionadda10.ui.screens.splash.SplashScreen
+import com.example.revisionadda10.ui.screens.game.GameScreen
 import com.example.revisionadda10.ui.screens.subject.SubjectDetailScreen
 import com.example.revisionadda10.ui.screens.video.VideoPlayerScreen
 
@@ -125,10 +125,7 @@ fun NavGraph(
         }
         
         composable(Screen.Game.route) {
-            MainScreen(
-                navController = navController,
-                onThemeChange = onThemeChange
-            )
+            GameScreen(navController = navController)
         }
         
         composable(Screen.SubjectProgress.route) { backStackEntry ->

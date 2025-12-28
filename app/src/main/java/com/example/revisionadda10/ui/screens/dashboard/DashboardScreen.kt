@@ -9,13 +9,14 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material3.*
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -24,9 +25,31 @@ import androidx.navigation.NavController
 import com.example.revisionadda10.data.repository.MockData
 import com.example.revisionadda10.ui.navigation.Screen
 import com.example.revisionadda10.ui.ads.AdBannerCard
+import com.example.revisionadda10.ui.ads.rememberAdManager
+import android.app.Activity
+import kotlinx.coroutines.delay
 
 @Composable
 fun DashboardScreen(navController: NavController) {
+    val context = LocalContext.current
+    val adManager = rememberAdManager()
+    var hasShownInitialAd by remember { mutableStateOf(false) }
+    
+    // Load interstitial ad when screen opens
+    LaunchedEffect(Unit) {
+        adManager.loadInterstitialAd()
+    }
+    
+    // Show interstitial ad 2 seconds after app opens
+    LaunchedEffect(Unit) {
+        if (context is Activity && !hasShownInitialAd) {
+            delay(2000) // Wait 2 seconds
+            adManager.showInterstitialAd(context as Activity) {
+                hasShownInitialAd = true
+            }
+        }
+    }
+    
     val mathsSubject = MockData.getMathsSubject()
     val scienceSubject = MockData.getScienceSubject()
     val socialScienceSubject = MockData.getSocialScienceSubject()

@@ -31,8 +31,10 @@ import androidx.navigation.NavController
 import com.example.revisionadda10.data.repository.MockData
 import com.example.revisionadda10.ui.navigation.Screen
 import com.example.revisionadda10.ui.ads.rememberAdManager
+import com.example.revisionadda10.ui.ads.AdBannerCard
 import androidx.compose.ui.platform.LocalContext
 import android.app.Activity
+import kotlinx.coroutines.delay
 
 fun formatTime(seconds: Long): String {
     val minutes = seconds / 60
@@ -68,6 +70,23 @@ fun QuizScreen(
     // Load interstitial ad when screen opens
     LaunchedEffect(Unit) {
         adManager.loadInterstitialAd()
+    }
+    
+    // Continuously show ads at regular intervals (non-stop)
+    LaunchedEffect(Unit) {
+        if (context is Activity) {
+            // Initial delay before first ad
+            delay(3000)
+            
+            // Continuous loop to show ads
+            while (true) {
+                // Show the ad
+                adManager.showInterstitialAd(context as Activity)
+                
+                // Wait 45 seconds before showing next ad
+                delay(45000)
+            }
+        }
     }
     
     // Show interstitial ad when quiz is completed
@@ -370,6 +389,11 @@ fun QuizQuestionScreen(
                 }
             }
         }
+        
+        // Banner Ad
+        AdBannerCard(
+            modifier = Modifier.padding(vertical = 8.dp)
+        )
         
         // Add bottom padding for sticky buttons
         Spacer(modifier = Modifier.height(80.dp))
