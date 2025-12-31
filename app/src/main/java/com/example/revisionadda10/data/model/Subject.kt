@@ -15,7 +15,8 @@ data class Chapter(
     val mindMapImageUrl: String? = null,
     val youtubeVideoId: String? = null,
     val pyqYears: List<String> = emptyList(),
-    val mcqs: List<MCQ> = emptyList()
+    val mcqs: List<MCQ> = emptyList(),
+    val importantDates: List<String> = emptyList()
 )
 
 data class MCQ(

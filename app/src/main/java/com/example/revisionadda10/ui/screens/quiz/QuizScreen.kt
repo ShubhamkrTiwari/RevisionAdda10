@@ -70,6 +70,7 @@ fun QuizScreen(
     
     // Load interstitial ad when screen opens
     LaunchedEffect(Unit) {
+        android.util.Log.d("QuizScreen", "Loading interstitial ad...")
         adManager.loadInterstitialAd()
     }
     
@@ -77,12 +78,26 @@ fun QuizScreen(
     LaunchedEffect(Unit) {
         if (context is Activity) {
             // Initial delay before first ad
-            delay(5000) // Wait 5 seconds for ad to load
+            delay(8000) // Wait 8 seconds for ad to load
             
             // Continuous loop to show ads every 30 seconds
             while (true) {
-                // Show the ad (will load if not available)
-                adManager.showInterstitialAd(context as Activity)
+                // Wait for ad to be loaded before showing
+                var attempts = 0
+                while (attempts < 15 && !adManager.isInterstitialAdLoaded()) {
+                    delay(1000)
+                    attempts++
+                    android.util.Log.d("QuizScreen", "Waiting for ad to load... attempt $attempts")
+                }
+                
+                // Show the ad if loaded, otherwise load it
+                if (adManager.isInterstitialAdLoaded()) {
+                    android.util.Log.d("QuizScreen", "Showing interstitial ad")
+                    adManager.showInterstitialAd(context as Activity)
+                } else {
+                    android.util.Log.d("QuizScreen", "Ad not loaded, loading new ad")
+                    adManager.loadInterstitialAd()
+                }
                 
                 // Wait 30 seconds before showing next ad
                 delay(30000)
@@ -474,26 +489,42 @@ fun QuizResultScreen(
     
     // Load rewarded ad when result screen opens
     LaunchedEffect(Unit) {
+        android.util.Log.d("QuizResult", "Loading rewarded ad...")
         rewardedAdManager.loadRewardedAd()
     }
     
     // Show rewarded ad automatically when quiz result shows
     LaunchedEffect(Unit) {
         if (context is Activity && !hasShownRewardedAd) {
-            delay(2000) // Wait 2 seconds
-            rewardedAdManager.showRewardedAd(
-                activity = context as Activity,
-                onRewardEarned = { reward ->
-                    android.util.Log.d("QuizResult", "User earned reward: ${reward.amount} ${reward.type}")
-                    hasShownRewardedAd = true
-                },
-                onAdDismissed = {
-                    hasShownRewardedAd = true
-                },
-                onAdFailed = {
-                    hasShownRewardedAd = true
-                }
-            )
+            delay(3000) // Wait 3 seconds for ad to load
+            
+            // Wait for ad to be loaded
+            var attempts = 0
+            while (attempts < 10 && !rewardedAdManager.isRewardedAdLoaded()) {
+                delay(500)
+                attempts++
+                android.util.Log.d("QuizResult", "Waiting for rewarded ad to load... attempt $attempts")
+            }
+            
+            if (rewardedAdManager.isRewardedAdLoaded()) {
+                android.util.Log.d("QuizResult", "Showing rewarded ad")
+                rewardedAdManager.showRewardedAd(
+                    activity = context as Activity,
+                    onRewardEarned = { reward ->
+                        android.util.Log.d("QuizResult", "User earned reward: ${reward.amount} ${reward.type}")
+                        hasShownRewardedAd = true
+                    },
+                    onAdDismissed = {
+                        hasShownRewardedAd = true
+                    },
+                    onAdFailed = {
+                        hasShownRewardedAd = true
+                    }
+                )
+            } else {
+                android.util.Log.d("QuizResult", "Rewarded ad not loaded, will retry")
+                hasShownRewardedAd = true
+            }
         }
     }
     val percentage = (score * 100) / totalQuestions

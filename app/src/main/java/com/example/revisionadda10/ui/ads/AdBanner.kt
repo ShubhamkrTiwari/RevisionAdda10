@@ -91,13 +91,27 @@ fun AdBanner(
                 // Load ad after ensuring AdMob is initialized
                 android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
                     try {
-                        val adRequest = AdRequest.Builder().build()
+                        // Check if AdMob is initialized
+                        val requestConfiguration = com.google.android.gms.ads.MobileAds.getRequestConfiguration()
+                        Log.d("AdBanner", "Request configuration: $requestConfiguration")
+                        
+                        val adRequest = AdRequest.Builder()
+                            .build()
                         Log.d("AdBanner", "Loading ad request for unit: $adUnitId")
                         loadAd(adRequest)
                     } catch (e: Exception) {
                         Log.e("AdBanner", "Error loading ad: ${e.message}", e)
+                        // Retry after delay
+                        android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
+                            try {
+                                val adRequest = AdRequest.Builder().build()
+                                loadAd(adRequest)
+                            } catch (retryException: Exception) {
+                                Log.e("AdBanner", "Retry failed: ${retryException.message}", retryException)
+                            }
+                        }, 3000)
                     }
-                }, 2000) // Increased delay to ensure AdMob is initialized
+                }, 3000) // Increased delay to ensure AdMob is fully initialized
             }
         },
         update = { view ->

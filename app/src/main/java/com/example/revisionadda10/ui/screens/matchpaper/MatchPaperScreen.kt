@@ -32,6 +32,7 @@ import com.example.revisionadda10.data.repository.AIGeneratedQuestions
 import com.example.revisionadda10.data.repository.CBSE2026PredictedQuestions
 import com.example.revisionadda10.data.repository.MockData
 import com.example.revisionadda10.data.repository.PYQQuestions
+import com.example.revisionadda10.ui.ads.AdBannerCard
 
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("SetJavaScriptEnabled")
@@ -354,6 +355,13 @@ fun MatchPaperScreen(
                             index = index + 1,
                             showAnswer = showAnswers,
                             primaryColor = primaryColor
+                        )
+                    }
+                    
+                    // Banner Ad
+                    item {
+                        AdBannerCard(
+                            modifier = Modifier.padding(vertical = 8.dp)
                         )
                     }
                 }

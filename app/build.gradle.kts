@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("kotlin-kapt")
 }
 
 android {
@@ -63,6 +64,13 @@ dependencies {
     
     // Lifecycle Process (for ProcessLifecycleOwner)
     implementation("androidx.lifecycle:lifecycle-process:2.10.0")
+    
+    // Room Database
+    val roomVersion = "2.6.1"
+    implementation("androidx.room:room-runtime:$roomVersion")
+    implementation("androidx.room:room-ktx:$roomVersion")
+    annotationProcessor("androidx.room:room-compiler:$roomVersion")
+    kapt("androidx.room:room-compiler:$roomVersion")
     
     // AdMob
     implementation(libs.play.services.ads)

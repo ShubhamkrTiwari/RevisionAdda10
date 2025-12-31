@@ -32,6 +32,7 @@ import com.example.revisionadda10.data.model.QuestionType
 import com.example.revisionadda10.data.repository.MockData
 import com.example.revisionadda10.data.repository.PYQQuestions
 import com.example.revisionadda10.ui.navigation.Screen
+import com.example.revisionadda10.ui.ads.AdBannerCard
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -235,6 +236,13 @@ fun PYQsScreen(
                         subjectName = subject.name,
                         navController = navController,
                         primaryColor = primaryColor
+                    )
+                }
+                
+                // Banner Ad
+                item {
+                    AdBannerCard(
+                        modifier = Modifier.padding(vertical = 8.dp)
                     )
                 }
             }

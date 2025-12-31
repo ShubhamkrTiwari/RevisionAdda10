@@ -37,16 +37,30 @@ fun DashboardScreen(navController: NavController) {
     
     // Load interstitial ad when screen opens
     LaunchedEffect(Unit) {
+        android.util.Log.d("DashboardScreen", "Loading interstitial ad...")
         adManager.loadInterstitialAd()
     }
     
-    // Show interstitial ad 3 seconds after app opens
+    // Show interstitial ad 5 seconds after app opens
     LaunchedEffect(Unit) {
         if (context is Activity && !hasShownInitialAd) {
-            delay(3000) // Wait 3 seconds
+            delay(5000) // Wait 5 seconds for ad to load
             
-            // Try to show ad (will load if not available)
-            adManager.showInterstitialAd(context as Activity) {
+            // Wait for ad to be loaded
+            var attempts = 0
+            while (attempts < 10 && !adManager.isInterstitialAdLoaded()) {
+                delay(500)
+                attempts++
+                android.util.Log.d("DashboardScreen", "Waiting for ad to load... attempt $attempts")
+            }
+            
+            if (adManager.isInterstitialAdLoaded()) {
+                android.util.Log.d("DashboardScreen", "Showing interstitial ad")
+                adManager.showInterstitialAd(context as Activity) {
+                    hasShownInitialAd = true
+                }
+            } else {
+                android.util.Log.d("DashboardScreen", "Ad not loaded, will retry")
                 hasShownInitialAd = true
             }
         }

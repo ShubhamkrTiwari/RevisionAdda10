@@ -85,6 +85,7 @@ import android.app.Activity
 import com.example.revisionadda10.data.model.Chapter
 import com.example.revisionadda10.data.repository.MCQSetGenerator
 import com.example.revisionadda10.data.repository.MockData
+import com.example.revisionadda10.data.repository.ProgressRepository
 import com.example.revisionadda10.ui.navigation.Screen
 import com.example.revisionadda10.ui.ads.AdBannerCard
 import com.example.revisionadda10.ui.ads.rememberAdManager
@@ -365,7 +366,8 @@ fun SubjectDetailScreen(
                         navController = navController,
                         index = index + 1,
                         primaryColor = primaryColor,
-                        navigateWithAd = navigateWithAd
+                        navigateWithAd = navigateWithAd,
+                        context = context
                     )
                 }
                 
@@ -387,9 +389,23 @@ fun ChapterItem(
     navController: NavController,
     index: Int,
     primaryColor: Color,
-    navigateWithAd: (String) -> Unit
+    navigateWithAd: (String) -> Unit,
+    context: android.content.Context
 ) {
     var expanded by remember { mutableStateOf(false) }
+    var isCompleted by remember { mutableStateOf(false) }
+    var bestPercentage by remember { mutableStateOf(0f) }
+    val progressRepository = remember { ProgressRepository(context) }
+    val coroutineScope = rememberCoroutineScope()
+    
+    // Check completion status
+    LaunchedEffect(subjectId, chapter.id) {
+        coroutineScope.launch {
+            isCompleted = progressRepository.isChapterCompleted(subjectId, chapter.id)
+            val bestScore = progressRepository.getBestScore(subjectId, chapter.id)
+            bestPercentage = bestScore?.percentage ?: 0f
+        }
+    }
     
     Card(
         modifier = Modifier
@@ -444,12 +460,43 @@ fun ChapterItem(
                         }
                     }
                     Column(modifier = Modifier.weight(1f)) {
-                        Text(
-                            text = chapter.title,
-                            style = MaterialTheme.typography.titleLarge,
-                            fontWeight = FontWeight.Bold,
-                            color = MaterialTheme.colorScheme.onSurface
-                        )
+                        Row(
+                            horizontalArrangement = Arrangement.spacedBy(8.dp),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Text(
+                                text = chapter.title,
+                                style = MaterialTheme.typography.titleLarge,
+                                fontWeight = FontWeight.Bold,
+                                color = MaterialTheme.colorScheme.onSurface
+                            )
+                            // Completion Badge
+                            if (isCompleted) {
+                                Surface(
+                                    shape = RoundedCornerShape(8.dp),
+                                    color = Color(0xFF4CAF50).copy(alpha = 0.2f)
+                                ) {
+                                    Row(
+                                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
+                                        horizontalArrangement = Arrangement.spacedBy(4.dp),
+                                        verticalAlignment = Alignment.CenterVertically
+                                    ) {
+                                        Text(
+                                            text = "✓",
+                                            style = MaterialTheme.typography.labelSmall,
+                                            color = Color(0xFF4CAF50),
+                                            fontWeight = FontWeight.Bold
+                                        )
+                                        Text(
+                                            text = if (bestPercentage > 0) "${bestPercentage.toInt()}%" else "Done",
+                                            style = MaterialTheme.typography.labelSmall,
+                                            color = Color(0xFF4CAF50),
+                                            fontWeight = FontWeight.Bold
+                                        )
+                                    }
+                                }
+                            }
+                        }
                         Spacer(modifier = Modifier.height(4.dp))
                         Row(
                             horizontalArrangement = Arrangement.spacedBy(12.dp)
@@ -522,6 +569,20 @@ fun ChapterItem(
                         color = primaryColor
                     )
                     
+                    // Important Dates & Years (Only for Social Science)
+                    if (subjectId == "social_science" && chapter.importantDates.isNotEmpty()) {
+                        FeatureButton(
+                            text = "Important Dates & Years • ${chapter.importantDates.size} Dates",
+                            icon = "📅",
+                            onClick = {
+                                navigateWithAd(
+                                    Screen.ImportantDates.createRoute(subjectId, chapter.id)
+                                )
+                            },
+                            color = Color(0xFFFF6B35) // Orange-red color for dates
+                        )
+                    }
+                    
                     // Formula Sheet - AI Generated (Only for Maths and Science)
                     if (subjectId != "social_science") {
                         FeatureButton(
@@ -539,15 +600,20 @@ fun ChapterItem(
                     // MCQ Practice
                     if (chapter.mcqs.isNotEmpty()) {
                         val mcqSets = MCQSetGenerator.generateMCQSets(chapter.id, chapter.mcqs)
+                        val completionText = if (isCompleted && bestPercentage > 0) {
+                            " • Best: ${bestPercentage.toInt()}%"
+                        } else {
+                            ""
+                        }
                         FeatureButton(
-                            text = "MCQ Practice • ${mcqSets.size} Sets • ${chapter.mcqs.size} Questions",
-                            icon = "📝",
+                            text = "MCQ Practice • ${mcqSets.size} Sets • ${chapter.mcqs.size} Questions$completionText",
+                            icon = if (isCompleted) "✅" else "📝",
                             onClick = {
                                 navigateWithAd(
                                     Screen.Quiz.createRoute(subjectId, chapter.id)
                                 )
                             },
-                            color = Color(0xFF34C759) // Green color for MCQs
+                            color = if (isCompleted) Color(0xFF4CAF50) else Color(0xFF34C759) // Green color for MCQs
                         )
                     }
                 }

@@ -12351,6 +12351,24 @@ object MockData {
                 mindMapImageUrl = "https://via.placeholder.com/800x600/FF9800/FFFFFF?text=Nationalism+in+Europe+Mind+Map",
                 youtubeVideoId = "dQw4w9WgXcQ",
                 pyqYears = listOf("2023", "2022", "2021", "2020", "2019"),
+                importantDates = listOf(
+                    "1789 - French Revolution begins (Storming of Bastille - July 14)",
+                    "1799 - Napoleon becomes First Consul",
+                    "1804 - Napoleon crowned Emperor, Civil Code (Napoleonic Code) introduced",
+                    "1815 - Battle of Waterloo, Napoleon defeated; Congress of Vienna",
+                    "1830 - July Revolution in France, Belgium gains independence",
+                    "1848 - 'Spring of Nations' - Revolutions across Europe",
+                    "1864 - Danish War (Prussia vs Denmark)",
+                    "1866 - Austro-Prussian War (Seven Weeks' War)",
+                    "1870-71 - Franco-Prussian War",
+                    "1871 - German Unification (January 18, Hall of Mirrors, Versailles)",
+                    "1861 - Kingdom of Italy proclaimed",
+                    "1870 - Italian Unification completed (Rome captured)",
+                    "1821-1832 - Greek War of Independence",
+                    "1908 - Austria annexes Bosnia",
+                    "1912-13 - Balkan Wars",
+                    "1914 - World War I begins (triggered by assassination of Archduke Franz Ferdinand)"
+                ),
                 mcqs = getSocialScience1MCQs()
             ),
             Chapter(
@@ -12392,6 +12410,20 @@ object MockData {
                 mindMapImageUrl = "https://via.placeholder.com/800x600/FF9800/FFFFFF?text=Nationalism+in+India+Mind+Map",
                 youtubeVideoId = "dQw4w9WgXcQ",
                 pyqYears = listOf("2023", "2022", "2021", "2020", "2019"),
+                importantDates = listOf(
+                    "1885 - Indian National Congress founded",
+                    "1914-1918 - First World War",
+                    "1919 - Rowlatt Act passed; Jallianwala Bagh Massacre (April 13)",
+                    "1919-1924 - Khilafat Movement",
+                    "1920-1922 - Non-Cooperation Movement",
+                    "1922 - Chauri Chaura incident, movement withdrawn",
+                    "1929 - Bhagat Singh and Batukeshwar Dutt throw bomb in Assembly",
+                    "1930 - Civil Disobedience Movement begins; Salt March (March 12 - April 6)",
+                    "1931 - Bhagat Singh, Sukhdev, Rajguru executed (March 23)",
+                    "1931 - Chandrashekhar Azad martyred",
+                    "1942 - Quit India Movement ('Do or Die' - August 8)",
+                    "1947 - India gains Independence (August 15); Partition of India"
+                ),
                 mcqs = getSocialScience2MCQs()
             ),
             Chapter(
@@ -12433,6 +12465,18 @@ object MockData {
                 mindMapImageUrl = "https://via.placeholder.com/800x600/FF9800/FFFFFF?text=Resources+Development+Mind+Map",
                 youtubeVideoId = "dQw4w9WgXcQ",
                 pyqYears = listOf("2023", "2022", "2021", "2020", "2019"),
+                importantDates = listOf(
+                    "1952 - First Five Year Plan launched (focus on agriculture)",
+                    "1972 - Wildlife Protection Act",
+                    "1980 - Forest Conservation Act",
+                    "1986 - Environment Protection Act",
+                    "1992 - Earth Summit (Rio de Janeiro) - Agenda 21",
+                    "2002 - National Water Policy revised",
+                    "2012 - National Water Policy updated",
+                    "2015 - Paris Agreement on Climate Change",
+                    "2019 - Jal Shakti Abhiyan launched",
+                    "2020 - National Education Policy emphasizes environmental education"
+                ),
                 mcqs = getSocialScience3MCQs()
             ),
             Chapter(
@@ -12474,6 +12518,18 @@ object MockData {
                 mindMapImageUrl = "https://via.placeholder.com/800x600/FF9800/FFFFFF?text=Water+Resources+Mind+Map",
                 youtubeVideoId = "dQw4w9WgXcQ",
                 pyqYears = listOf("2023", "2022", "2021", "2020", "2019"),
+                importantDates = listOf(
+                    "1963 - Bhakra Nangal Dam completed",
+                    "1957 - Hirakud Dam completed (longest dam in India)",
+                    "2006 - Tehri Dam completed (highest dam in India)",
+                    "1987 - National Water Policy first formulated",
+                    "2002 - National Water Policy revised",
+                    "2012 - National Water Policy updated",
+                    "2019 - Jal Shakti Abhiyan launched (water conservation campaign)",
+                    "2020 - Jal Jeevan Mission launched (tap water to all households)",
+                    "1974 - Water (Prevention and Control of Pollution) Act",
+                    "2016 - National Water Framework Bill"
+                ),
                 mcqs = getSocialScience4MCQs()
             ),
             Chapter(
@@ -12515,6 +12571,18 @@ object MockData {
                 mindMapImageUrl = "https://via.placeholder.com/800x600/FF9800/FFFFFF?text=Agriculture+Mind+Map",
                 youtubeVideoId = "dQw4w9WgXcQ",
                 pyqYears = listOf("2023", "2022", "2021", "2020", "2019"),
+                importantDates = listOf(
+                    "1966-1967 - Green Revolution begins in India",
+                    "1968 - High Yielding Variety (HYV) seeds introduced",
+                    "1973 - Operation Flood launched (White Revolution)",
+                    "1980 - National Bank for Agriculture and Rural Development (NABARD) established",
+                    "1998 - Kisan Credit Card scheme launched",
+                    "2000 - National Agricultural Policy formulated",
+                    "2004 - National Food Security Mission launched",
+                    "2013 - National Food Security Act passed",
+                    "2015 - Pradhan Mantri Fasal Bima Yojana (crop insurance) launched",
+                    "2020 - Farm Acts passed (later repealed in 2021)"
+                ),
                 mcqs = getSocialScience5MCQs()
             ),
             Chapter(
@@ -12556,6 +12624,18 @@ object MockData {
                 mindMapImageUrl = "https://via.placeholder.com/800x600/FF9800/FFFFFF?text=Minerals+Energy+Mind+Map",
                 youtubeVideoId = "dQw4w9WgXcQ",
                 pyqYears = listOf("2023", "2022", "2021", "2020", "2019"),
+                importantDates = listOf(
+                    "1856 - First oil well drilled in India (Digboi, Assam)",
+                    "1956 - Oil and Natural Gas Corporation (ONGC) established",
+                    "1974 - Mumbai High oil field discovered",
+                    "2003 - National Electricity Policy formulated",
+                    "2010 - Jawaharlal Nehru National Solar Mission launched",
+                    "2015 - Paris Agreement on Climate Change",
+                    "2016 - Ujjwal DISCOM Assurance Yojana (UDAY) launched",
+                    "2017 - National Wind-Solar Hybrid Policy",
+                    "2020 - India's renewable energy capacity crosses 100 GW",
+                    "2022 - India targets 500 GW renewable energy by 2030"
+                ),
                 mcqs = getSocialScience6MCQs()
             ),
             Chapter(
@@ -12588,6 +12668,18 @@ object MockData {
                 mindMapImageUrl = "https://via.placeholder.com/800x600/FF9800/FFFFFF?text=Manufacturing+Industries+Mind+Map",
                 youtubeVideoId = "dQw4w9WgXcQ",
                 pyqYears = listOf("2023", "2022", "2021", "2020", "2019"),
+                importantDates = listOf(
+                    "1854 - First cotton mill established in Mumbai",
+                    "1907 - Tata Iron and Steel Company (TISCO) established in Jamshedpur",
+                    "1951 - First Five Year Plan (industrial development focus)",
+                    "1956 - Industrial Policy Resolution (public sector emphasis)",
+                    "1991 - New Industrial Policy (liberalization, privatization, globalization)",
+                    "2000 - Information Technology Act passed",
+                    "2014 - Make in India initiative launched",
+                    "2015 - Digital India program launched",
+                    "2020 - Production Linked Incentive (PLI) scheme for manufacturing",
+                    "2021 - National Single Window System for industrial clearances"
+                ),
                 mcqs = getSocialScience7MCQs()
             ),
             Chapter(
@@ -12620,6 +12712,18 @@ object MockData {
                 mindMapImageUrl = "https://via.placeholder.com/800x600/FF9800/FFFFFF?text=Lifelines+Economy+Mind+Map",
                 youtubeVideoId = "dQw4w9WgXcQ",
                 pyqYears = listOf("2023", "2022", "2021", "2020", "2019"),
+                importantDates = listOf(
+                    "1853 - First railway line in India (Mumbai to Thane)",
+                    "1911 - First airmail service in India",
+                    "1950 - Indian Airlines established",
+                    "1995 - Golden Quadrilateral highway project launched",
+                    "2000 - National Highway Development Project (NHDP) Phase I",
+                    "2002 - Pradhan Mantri Gram Sadak Yojana (PMGSY) launched",
+                    "2014 - Digital India initiative (improving digital connectivity)",
+                    "2015 - Sagarmala project launched (port development)",
+                    "2016 - UDAN (Ude Desh ka Aam Naagrik) regional connectivity scheme",
+                    "2020 - National Infrastructure Pipeline (NIP) announced"
+                ),
                 mcqs = getSocialScience8MCQs()
             ),
             Chapter(
@@ -12652,6 +12756,18 @@ object MockData {
                 mindMapImageUrl = "https://via.placeholder.com/800x600/FF9800/FFFFFF?text=Power+Sharing+Mind+Map",
                 youtubeVideoId = "dQw4w9WgXcQ",
                 pyqYears = listOf("2023", "2022", "2021", "2020", "2019"),
+                importantDates = listOf(
+                    "1950 - Constitution of India adopted (establishes power sharing)",
+                    "1956 - States Reorganization Act (linguistic states)",
+                    "1992 - 73rd and 74th Constitutional Amendments (Panchayati Raj and Municipalities)",
+                    "1993 - Panchayati Raj institutions given constitutional status",
+                    "2005 - Right to Information Act (transparency in governance)",
+                    "2011 - Lokpal and Lokayuktas Act passed",
+                    "2013 - Right to Public Services Act in various states",
+                    "2015 - 14th Finance Commission increases state share",
+                    "2019 - Jammu and Kashmir Reorganization Act (special status removed)",
+                    "2020 - 15th Finance Commission recommendations"
+                ),
                 mcqs = getSocialScience9MCQs()
             ),
             Chapter(
@@ -12684,6 +12800,18 @@ object MockData {
                 mindMapImageUrl = "https://via.placeholder.com/800x600/FF9800/FFFFFF?text=Federalism+Mind+Map",
                 youtubeVideoId = "dQw4w9WgXcQ",
                 pyqYears = listOf("2023", "2022", "2021", "2020", "2019"),
+                importantDates = listOf(
+                    "1950 - Constitution establishes federal structure",
+                    "1956 - States Reorganization Act (linguistic reorganization)",
+                    "1966 - Punjab and Haryana created",
+                    "1971 - Himachal Pradesh becomes state",
+                    "1987 - Mizoram, Arunachal Pradesh become states",
+                    "2000 - Chhattisgarh, Uttarakhand, Jharkhand created",
+                    "2014 - Telangana becomes 29th state",
+                    "2019 - Jammu and Kashmir Reorganization Act",
+                    "2020 - 15th Finance Commission (fiscal federalism)",
+                    "2021 - Goods and Services Tax (GST) - cooperative federalism"
+                ),
                 mcqs = getSocialScience10MCQs()
             ),
             Chapter(
@@ -12716,6 +12844,18 @@ object MockData {
                 mindMapImageUrl = "https://via.placeholder.com/800x600/FF9800/FFFFFF?text=Democracy+Diversity+Mind+Map",
                 youtubeVideoId = "dQw4w9WgXcQ",
                 pyqYears = listOf("2023", "2022", "2021", "2020", "2019"),
+                importantDates = listOf(
+                    "1968 - Civil Rights Movement in USA (Martin Luther King Jr. assassinated)",
+                    "1991 - Yugoslavia begins disintegration",
+                    "1993 - Belgium adopts federal system (accommodating diversity)",
+                    "2004 - Reservation for OBCs in educational institutions",
+                    "2005 - Right to Information Act (promotes transparency)",
+                    "2010 - 73rd and 74th Amendments fully implemented",
+                    "2019 - Citizenship Amendment Act (CAA) passed",
+                    "2020 - National Education Policy emphasizes diversity",
+                    "2021 - Various states implement reservation policies",
+                    "2022 - Supreme Court judgments on diversity and equality"
+                ),
                 mcqs = getSocialScience11MCQs()
             ),
             Chapter(
@@ -12748,6 +12888,18 @@ object MockData {
                 mindMapImageUrl = "https://via.placeholder.com/800x600/FF9800/FFFFFF?text=Gender+Religion+Caste+Mind+Map",
                 youtubeVideoId = "dQw4w9WgXcQ",
                 pyqYears = listOf("2023", "2022", "2021", "2020", "2019"),
+                importantDates = listOf(
+                    "1950 - Constitution abolishes untouchability",
+                    "1955 - Untouchability (Offences) Act",
+                    "1989 - Scheduled Castes and Scheduled Tribes (Prevention of Atrocities) Act",
+                    "1992 - 73rd Amendment (33% reservation for women in Panchayats)",
+                    "1993 - 74th Amendment (reservation for women in Municipalities)",
+                    "2005 - Protection of Women from Domestic Violence Act",
+                    "2013 - Criminal Law Amendment Act (strengthened laws against sexual violence)",
+                    "2014 - Beti Bachao Beti Padhao campaign launched",
+                    "2017 - Triple Talaq declared unconstitutional",
+                    "2021 - Various states increase reservation for women in local bodies"
+                ),
                 mcqs = getSocialScience12MCQs()
             ),
             Chapter(
@@ -12780,6 +12932,18 @@ object MockData {
                 mindMapImageUrl = "https://via.placeholder.com/800x600/FF9800/FFFFFF?text=Political+Parties+Mind+Map",
                 youtubeVideoId = "dQw4w9WgXcQ",
                 pyqYears = listOf("2023", "2022", "2021", "2020", "2019"),
+                importantDates = listOf(
+                    "1885 - Indian National Congress founded",
+                    "1906 - All India Muslim League formed",
+                    "1925 - Communist Party of India formed",
+                    "1951 - Bharatiya Jana Sangh (precursor to BJP) formed",
+                    "1980 - Bharatiya Janata Party (BJP) formed",
+                    "1984 - Congress wins largest majority in Lok Sabha",
+                    "1996 - First coalition government at center",
+                    "2003 - Election Commission introduces Electronic Voting Machines (EVMs)",
+                    "2013 - Aam Aadmi Party (AAP) formed",
+                    "2018 - Electoral bonds introduced for political funding"
+                ),
                 mcqs = getSocialScience13MCQs()
             ),
             Chapter(
@@ -12812,6 +12976,18 @@ object MockData {
                 mindMapImageUrl = "https://via.placeholder.com/800x600/FF9800/FFFFFF?text=Outcomes+Democracy+Mind+Map",
                 youtubeVideoId = "dQw4w9WgXcQ",
                 pyqYears = listOf("2023", "2022", "2021", "2020", "2019"),
+                importantDates = listOf(
+                    "1950 - India becomes democratic republic",
+                    "1952 - First general elections in India",
+                    "1975-1977 - Emergency period (democratic rights suspended)",
+                    "1977 - First non-Congress government at center",
+                    "1991 - Economic liberalization (democratic decision)",
+                    "2005 - Right to Information Act (accountability)",
+                    "2011 - Lokpal Act passed (anti-corruption)",
+                    "2013 - Right to Food Act (welfare outcome)",
+                    "2019 - Abrogation of Article 370 (democratic process)",
+                    "2020 - Farm Acts passed (later repealed - democratic responsiveness)"
+                ),
                 mcqs = getSocialScience14MCQs()
             ),
             Chapter(
@@ -12844,6 +13020,18 @@ object MockData {
                 mindMapImageUrl = "https://via.placeholder.com/800x600/FF9800/FFFFFF?text=Development+Mind+Map",
                 youtubeVideoId = "dQw4w9WgXcQ",
                 pyqYears = listOf("2023", "2022", "2021", "2020", "2019"),
+                importantDates = listOf(
+                    "1951 - First Five Year Plan launched",
+                    "1990 - Human Development Report first published by UNDP",
+                    "2000 - Millennium Development Goals (MDGs) adopted",
+                    "2005 - Mahatma Gandhi National Rural Employment Guarantee Act (MGNREGA)",
+                    "2015 - Sustainable Development Goals (SDGs) adopted",
+                    "2016 - Pradhan Mantri Jan Dhan Yojana (financial inclusion)",
+                    "2019 - India's HDI value: 0.647 (Medium Human Development)",
+                    "2020 - Atmanirbhar Bharat Abhiyan (self-reliance)",
+                    "2021 - National Education Policy implementation",
+                    "2022 - India becomes 5th largest economy"
+                ),
                 mcqs = getSocialScience15MCQs()
             ),
             Chapter(
@@ -12885,6 +13073,20 @@ object MockData {
                 mindMapImageUrl = "https://via.placeholder.com/800x600/FF9800/FFFFFF?text=Print+Culture+Mind+Map",
                 youtubeVideoId = "dQw4w9WgXcQ",
                 pyqYears = listOf("2023", "2022", "2021", "2020", "2019"),
+                importantDates = listOf(
+                    "6th century CE - Woodblock printing developed in China",
+                    "868 CE - Diamond Sutra - oldest printed book",
+                    "1295 - Marco Polo brings printing knowledge to Europe",
+                    "1440s - Johannes Gutenberg invents printing press",
+                    "1455 - Gutenberg Bible printed",
+                    "1556 - First printing press in India (Goa - Portuguese missionaries)",
+                    "1780 - First newspaper in India (Bengal Gazette by James Augustus Hicky)",
+                    "1818 - First Indian newspaper (Samachar Darpan in Bengali)",
+                    "1857 - Press played role in 1857 Revolt",
+                    "1881 - Kesari newspaper started by Bal Gangadhar Tilak",
+                    "1921 - Young India newspaper by Mahatma Gandhi",
+                    "1950 - Constitution guarantees freedom of press"
+                ),
                 mcqs = getSocialScience16MCQs()
             )
         )

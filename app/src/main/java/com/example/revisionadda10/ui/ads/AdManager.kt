@@ -38,8 +38,13 @@ class AdManager(private val context: Context) {
         // Wait a bit before loading to ensure AdMob is initialized
         android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
             try {
+                // Check AdMob initialization status
+                val requestConfiguration = MobileAds.getRequestConfiguration()
+                android.util.Log.d("AdManager", "Request configuration: $requestConfiguration")
+                
                 val adRequest = AdRequest.Builder().build()
                 
+                android.util.Log.d("AdManager", "Requesting interstitial ad...")
                 InterstitialAd.load(
                     context,
                     interstitialAdUnitId,
@@ -57,20 +62,27 @@ class AdManager(private val context: Context) {
                             android.util.Log.e("AdManager", "Error domain: ${loadAdError.domain}")
                             loadAdError.responseInfo?.let {
                                 android.util.Log.e("AdManager", "Response info: ${it.responseId}")
+                                android.util.Log.e("AdManager", "Response ID: ${it.responseId}")
                             }
                             interstitialAd = null
                             
-                            // Retry after delay
+                            // Retry after delay with exponential backoff
                             android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
+                                android.util.Log.d("AdManager", "Retrying to load interstitial ad...")
                                 loadInterstitialAd()
-                            }, 5000)
+                            }, 10000) // Increased to 10 seconds
                         }
                     }
                 )
             } catch (e: Exception) {
                 android.util.Log.e("AdManager", "Exception loading ad: ${e.message}", e)
+                e.printStackTrace()
+                // Retry after delay
+                android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
+                    loadInterstitialAd()
+                }, 5000)
             }
-        }, 1000) // Reduced to 1 second for faster loading
+        }, 3000) // Increased to 3 seconds to ensure AdMob is fully initialized
     }
     
     fun showInterstitialAd(activity: Activity, onAdDismissed: () -> Unit = {}) {

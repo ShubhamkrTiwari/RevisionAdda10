@@ -336,7 +336,9 @@ class QuizViewModel(
             startTimer()
         } else {
             // Quiz completed - save progress
-            saveProgress(currentState)
+            viewModelScope.launch {
+                saveProgress(currentState)
+            }
             _uiState.value = currentState.copy(
                 showResult = true,
                 isTimerRunning = false
@@ -347,7 +349,7 @@ class QuizViewModel(
     /**
      * Save progress after quiz completion
      */
-    private fun saveProgress(state: QuizState) {
+    private suspend fun saveProgress(state: QuizState) {
         if (progressRepository == null || state.selectedSet == null) return
         
         val timeTaken = (System.currentTimeMillis() - quizStartTime) / 1000 // in seconds
@@ -382,6 +384,7 @@ class QuizViewModel(
         )
         
         progressRepository.saveProgress(progress)
+        android.util.Log.d("QuizViewModel", "Progress saved: ${progress.chapterTitle} - ${progress.percentage}%")
     }
     
     fun previousQuestion() {

@@ -17,6 +17,8 @@ import com.example.revisionadda10.ui.screens.splash.SplashScreen
 import com.example.revisionadda10.ui.screens.game.GameScreen
 import com.example.revisionadda10.ui.screens.subject.SubjectDetailScreen
 import com.example.revisionadda10.ui.screens.video.VideoPlayerScreen
+import com.example.revisionadda10.ui.screens.importantdates.ImportantDatesScreen
+import com.example.revisionadda10.ui.screens.ncertquestions.NCERTQuestionsScreen
 
 @Composable
 fun NavGraph(
@@ -104,6 +106,26 @@ fun NavGraph(
             val subjectId = backStackEntry.arguments?.getString("subjectId") ?: ""
             val chapterId = backStackEntry.arguments?.getString("chapterId") ?: ""
             FormulaSheetScreen(
+                navController = navController,
+                subjectId = subjectId,
+                chapterId = chapterId
+            )
+        }
+        
+        composable(Screen.ImportantDates.route) { backStackEntry ->
+            val subjectId = backStackEntry.arguments?.getString("subjectId") ?: ""
+            val chapterId = backStackEntry.arguments?.getString("chapterId") ?: ""
+            ImportantDatesScreen(
+                navController = navController,
+                subjectId = subjectId,
+                chapterId = chapterId
+            )
+        }
+        
+        composable(Screen.NCERTQuestions.route) { backStackEntry ->
+            val subjectId = backStackEntry.arguments?.getString("subjectId") ?: ""
+            val chapterId = backStackEntry.arguments?.getString("chapterId") ?: ""
+            NCERTQuestionsScreen(
                 navController = navController,
                 subjectId = subjectId,
                 chapterId = chapterId
